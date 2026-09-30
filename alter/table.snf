@@ -15,8 +15,87 @@ ALTER TABLE name DROP CONSTRAINT [ IF EXISTS ] constraint [, ...]
 # CASE CHECK_CONSTRAINT
 ALTER TABLE name [ WITH { CHECK | NOCHECK } ] { CHECK | NOCHECK } CONSTRAINT { ALL | constraint [, ...] }
 
+# CASE ADD_CONSTRAINT
+ALTER TABLE name [ WITH { CHECK | NOCHECK } ] ADD table_constraint_definition [, ...]
+
+# CASE ADD_COMPUTED_COLUMN
+ALTER TABLE name ADD colname AS computed_expression [ PERSISTED [ NOT NULL ] ]
+
+# CASE ALTER_COLUMN_ATTRIBUTE
+ALTER TABLE name ALTER COLUMN colname
+    { ADD | DROP } { ROWGUIDCOL | PERSISTED | NOT FOR REPLICATION | SPARSE | HIDDEN }
+
+# CASE ADD_MASK
+ALTER TABLE name ALTER COLUMN colname ADD MASKED WITH ( FUNCTION = 'mask_function' )
+
+# CASE DROP_MASK
+ALTER TABLE name ALTER COLUMN colname DROP MASKED
+
+# CASE SWITCH
+ALTER TABLE name SWITCH [ PARTITION source_partition_number ]
+    TO target_table [ PARTITION target_partition_number ]
+    [ WITH ( low_priority_wait_clause ) ]
+
+# CASE CHANGE_TRACKING_ON
+ALTER TABLE name ENABLE CHANGE_TRACKING [ WITH ( TRACK_COLUMNS_UPDATED = { ON | OFF } ) ]
+
+# CASE CHANGE_TRACKING_OFF
+ALTER TABLE name DISABLE CHANGE_TRACKING
+
+# CASE TRIGGER
+ALTER TABLE name { ENABLE | DISABLE } TRIGGER { ALL | trigger [, ...] }
+
+# CASE LOCK_ESCALATION
+ALTER TABLE name SET ( LOCK_ESCALATION = { AUTO | TABLE | DISABLE } )
+
+# CASE SYSTEM_VERSIONING_OFF
+ALTER TABLE name SET ( SYSTEM_VERSIONING = OFF )
+
+# CASE SYSTEM_VERSIONING_ON
+ALTER TABLE name SET ( SYSTEM_VERSIONING = ON
+    [ ( HISTORY_TABLE = history_table [ , DATA_CONSISTENCY_CHECK = { ON | OFF } ]
+        [ , HISTORY_RETENTION_PERIOD = retention_period ] ) ] )
+
+# CASE ADD_PERIOD
+ALTER TABLE name ADD PERIOD FOR SYSTEM_TIME ( row_start_column, row_end_column )
+
+# CASE DROP_PERIOD
+ALTER TABLE name DROP PERIOD FOR SYSTEM_TIME
+
+# CASE REBUILD
+ALTER TABLE name REBUILD [ PARTITION = { ALL | partition_number } ]
+    [ WITH ( table_rebuild_option [, ...] ) ]
+
 # WHERE column_definition
 colname data_type
     [ COLLATE collation ]
     [ NULL | NOT NULL ]
     [ [ CONSTRAINT default_constraint ] DEFAULT default_expression [ WITH VALUES ] ]
+
+# PARTOFIS table_constraint_definition
+[ CONSTRAINT constraint ] { PRIMARY KEY | UNIQUE } [ CLUSTERED | NONCLUSTERED ] ( index_column_definition [, ...] )
+
+[ CONSTRAINT constraint ] FOREIGN KEY ( colname [, ...] ) REFERENCES referenced_table [ ( referenced_colname [, ...] ) ]
+    [ ON DELETE referential_action ] [ ON UPDATE referential_action ] [ NOT FOR REPLICATION ]
+
+[ CONSTRAINT constraint ] CHECK [ NOT FOR REPLICATION ] ( boolean_expression )
+
+[ CONSTRAINT default_constraint ] DEFAULT default_expression FOR colname [ WITH VALUES ]
+
+# WHERE index_column_definition
+colname [ ASC | DESC ]
+
+# WHERE referential_action
+{ NO ACTION | CASCADE | SET NULL | SET DEFAULT }
+
+# WHERE low_priority_wait_clause
+WAIT_AT_LOW_PRIORITY ( MAX_DURATION = duration_value [ MINUTES ], ABORT_AFTER_WAIT = { NONE | SELF | BLOCKERS } )
+
+# WHERE retention_period
+{ INFINITE | retention_value { DAY | DAYS | WEEK | WEEKS | MONTH | MONTHS | YEAR | YEARS } }
+
+# ONEOFIS table_rebuild_option
+SORT_IN_TEMPDB = { ON | OFF }
+MAXDOP = maxdop_value
+DATA_COMPRESSION = { NONE | ROW | PAGE | COLUMNSTORE | COLUMNSTORE_ARCHIVE }
+ONLINE = { ON [ ( low_priority_wait_clause ) ] | OFF }

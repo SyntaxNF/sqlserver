@@ -1,0 +1,4 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql?view=sql-server-ver17
+
+# CASE DISTRIBUTED
+BEGIN DISTRIBUTED { TRAN | TRANSACTION } [ transaction ]

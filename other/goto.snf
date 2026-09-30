@@ -1,0 +1,7 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/language-elements/goto-transact-sql?view=sql-server-ver17
+
+# CASE STATEMENT
+GOTO label
+
+# CASE LABEL
+label :

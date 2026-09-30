@@ -1,0 +1,8 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/execute-as-transact-sql?view=sql-server-ver17
+
+# CASE PRINCIPAL
+{ EXEC | EXECUTE } AS { LOGIN | USER } = 'principal_name'
+    [ WITH { NO REVERT | COOKIE INTO cookie_variable } ]
+
+# CASE CALLER
+{ EXEC | EXECUTE } AS CALLER

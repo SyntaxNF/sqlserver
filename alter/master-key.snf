@@ -1,0 +1,10 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-master-key-transact-sql?view=sql-server-ver17
+
+# CASE REGENERATE
+ALTER MASTER KEY [ FORCE ] REGENERATE WITH ENCRYPTION BY PASSWORD = 'password'
+
+# CASE ADD_ENCRYPTION
+ALTER MASTER KEY ADD ENCRYPTION BY { SERVICE MASTER KEY | PASSWORD = 'password' }
+
+# CASE DROP_ENCRYPTION
+ALTER MASTER KEY DROP ENCRYPTION BY { SERVICE MASTER KEY | PASSWORD = 'password' }

@@ -1,0 +1,9 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/language-elements/try-catch-transact-sql?view=sql-server-ver17
+
+# CASE STATEMENT
+BEGIN TRY
+    sql_statement_list
+END TRY
+BEGIN CATCH
+    [ sql_statement_list ]
+END CATCH

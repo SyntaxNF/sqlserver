@@ -1,0 +1,3018 @@
+[
+  {
+    "statement": "ALTER SEQUENCE",
+    "file": "alter/sequence.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-sequence-transact-sql?view=sql-server-ver17",
+    "notes": "重启、步长、上下界、循环、缓存; 多选项约束与数值合法性由语义层检查",
+    "category": "core"
+  },
+  {
+    "statement": "ALTER TABLE",
+    "file": "alter/table.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-table-transact-sql?view=sql-server-ver17",
+    "notes": "Column/constraint/computed additions, attributes/masks, SWITCH, tracking/triggers, periods/system-versioning, basic rebuild. Partial: memory/FileTable, simultaneous temporal columns and full rebuild/storage/constraint combinations.",
+    "category": "core"
+  },
+  {
+    "statement": "BEGIN TRANSACTION",
+    "file": "transaction/begin.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/begin-transaction-transact-sql?view=sql-server-ver17",
+    "notes": "TRAN/TRANSACTION、名称、WITH MARK; 分布式事务未收录；WITH MARK 需要事务名，描述输入必须转义",
+    "category": "core"
+  },
+  {
+    "statement": "COMMIT TRANSACTION / WORK",
+    "file": "transaction/commit.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/commit-transaction-transact-sql?view=sql-server-ver17",
+    "notes": "TRAN/TRANSACTION、WORK、DELAYED_DURABILITY; 事务嵌套、durability 配置效果由数据库决定",
+    "category": "core"
+  },
+  {
+    "statement": "CREATE INDEX",
+    "file": "create/index.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-index-transact-sql?view=sql-server-ver17",
+    "notes": "Rowstore keys/includes/filters/storage and ONLINE/RESUMABLE/compression options structured; filtered predicate and detailed type/option conflicts need semantic validation. Deprecated alternate forms not exhaustive.",
+    "category": "core"
+  },
+  {
+    "statement": "CREATE SCHEMA",
+    "file": "create/schema.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-schema-transact-sql?view=sql-server-ver17",
+    "notes": "命名/仅 AUTHORIZATION 两种入口; 内嵌 CREATE TABLE/VIEW、GRANT/REVOKE/DENY 未展开",
+    "category": "core"
+  },
+  {
+    "statement": "CREATE SEQUENCE",
+    "file": "create/sequence.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-sequence-transact-sql?view=sql-server-ver17",
+    "notes": "类型、起点、步长、上下界、循环、缓存; 仅允许符合官方规则的整数类型/值，不允许任意 data_type",
+    "category": "core"
+  },
+  {
+    "statement": "CREATE SYNONYM",
+    "file": "create/synonym.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-synonym-transact-sql?view=sql-server-ver17",
+    "notes": "CREATE SYNONYM FOR 基对象; 基对象名称允许部件数取决于对象类别",
+    "category": "core"
+  },
+  {
+    "statement": "CREATE TABLE",
+    "file": "create/table.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql?view=sql-server-ver17",
+    "notes": "Disk-table common columns, constraints, partition/FILESTREAM, sparse/masks/encryption, temporal/ledger and basic inline row indexes. Partial: memory/FileTable, full index/constraint options, type grammar and some computed-column variants remain unexpanded.",
+    "category": "core"
+  },
+  {
+    "statement": "CREATE VIEW",
+    "file": "create/view.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-view-transact-sql?view=sql-server-ver17",
+    "notes": "CREATE OR ALTER、列名、三个属性、查询、CHECK OPTION; 查询合法性及 batch-first 由消费方检查；INTO/OPTION/临时对象不能用于视图定义",
+    "category": "core"
+  },
+  {
+    "statement": "DELETE",
+    "file": "query/delete.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver17",
+    "notes": "TOP；目标/第二个 FROM；OUTPUT；WHERE; from_expression 为上下文自由输入；CURRENT OF、表提示、OPTION 未展开",
+    "category": "core"
+  },
+  {
+    "statement": "DROP INDEX",
+    "file": "drop/index.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-index-transact-sql?view=sql-server-ver17",
+    "notes": "IF EXISTS、多个 name ON table; 旧式 table.index 以及 clustered DROP 的移动/在线选项未展开",
+    "category": "core"
+  },
+  {
+    "statement": "DROP SCHEMA",
+    "file": "drop/schema.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-schema-transact-sql?view=sql-server-ver17",
+    "notes": "IF EXISTS、单对象; schema 为空等数据库状态检查",
+    "category": "core"
+  },
+  {
+    "statement": "DROP SEQUENCE",
+    "file": "drop/sequence.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-sequence-transact-sql?view=sql-server-ver17",
+    "notes": "IF EXISTS、列表; 依赖和权限检查",
+    "category": "core"
+  },
+  {
+    "statement": "DROP SYNONYM",
+    "file": "drop/synonym.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-synonym-transact-sql?view=sql-server-ver17",
+    "notes": "IF EXISTS、单对象; SQL Server 的 DROP SYNONYM 不是列表",
+    "category": "core"
+  },
+  {
+    "statement": "DROP TABLE",
+    "file": "drop/table.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-table-transact-sql?view=sql-server-ver17",
+    "notes": "IF EXISTS、列表; 依赖/外键/ledger 行为不由语法保证",
+    "category": "core"
+  },
+  {
+    "statement": "DROP VIEW",
+    "file": "drop/view.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-view-transact-sql?view=sql-server-ver17",
+    "notes": "IF EXISTS、列表; 依赖和权限检查",
+    "category": "core"
+  },
+  {
+    "statement": "INSERT",
+    "file": "query/insert.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/insert-transact-sql?view=sql-server-ver17",
+    "notes": "VALUES/SELECT/DEFAULT VALUES/INSERT EXEC and OUTPUT; partial hints/remote targets/nested DML/graph pseudo-columns.",
+    "category": "core"
+  },
+  {
+    "statement": "ROLLBACK TRANSACTION / WORK",
+    "file": "transaction/rollback.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/rollback-transaction-transact-sql?view=sql-server-ver17",
+    "notes": "整体回滚、事务/保存点目标、WORK; 没有 PostgreSQL ROLLBACK TO；分布式事务不支持保存点",
+    "category": "core"
+  },
+  {
+    "statement": "SAVE TRANSACTION",
+    "file": "transaction/save.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/save-transaction-transact-sql?view=sql-server-ver17",
+    "notes": "SAVE TRAN/TRANSACTION; 名称、变量以及事务状态由消费方校验",
+    "category": "core"
+  },
+  {
+    "statement": "SELECT",
+    "file": "query/select.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/queries/select-transact-sql?view=sql-server-ver17",
+    "notes": "CTE/TOP/OFFSET plus set-operation shell, WINDOW, grouping sets, temporal/table samples, FOR XML/JSON and hints. Partial: expressions, query operands/window frame opaque; FROM functions/PIVOT, full grouping variants and set-operation OFFSET remain unexpanded.",
+    "category": "core"
+  },
+  {
+    "statement": "SET TRANSACTION ISOLATION LEVEL",
+    "file": "transaction/set-isolation-level.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-transaction-isolation-level-transact-sql?view=sql-server-ver17",
+    "notes": "五种隔离级别; SNAPSHOT 需要数据库配置；不因此自动更改数据库设置",
+    "category": "core"
+  },
+  {
+    "statement": "TRUNCATE TABLE",
+    "file": "other/truncate-table.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/truncate-table-transact-sql?view=sql-server-ver17",
+    "notes": "整表/分区范围; 对齐索引、FK、复制等限制不由 SNF 校验",
+    "category": "core"
+  },
+  {
+    "statement": "UPDATE",
+    "file": "query/update.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/queries/update-transact-sql?view=sql-server-ver17",
+    "notes": "普通/复合列赋值；TOP；OUTPUT；FROM；WHERE; from_expression 目前为上下文自由输入；变量/链式赋值、UDT、.WRITE、CURRENT OF、提示和 OPTION 未展开",
+    "category": "core"
+  },
+  {
+    "statement": "USE",
+    "file": "other/use.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/use-transact-sql?view=sql-server-ver17",
+    "notes": "USE database; 不作为 Azure SQL 跨库切换语法",
+    "category": "core"
+  },
+  {
+    "statement": "ALTER MATERIALIZED VIEW",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-materialized-view-transact-sql?view=sql-server-ver17",
+    "notes": "Synapse materialized-view command, not standalone SQL Server.",
+    "category": "exclusions"
+  },
+  {
+    "statement": "COPY INTO",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/copy-into-transact-sql?view=sql-server-ver17",
+    "notes": "Synapse/Fabric COPY INTO; standalone SQL Server BULK INSERT represented.",
+    "category": "exclusions"
+  },
+  {
+    "statement": "CREATE FUNCTION SQL DATA WAREHOUSE",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-function-sql-data-warehouse?view=sql-server-ver17",
+    "notes": "Synapse product-specific CREATE FUNCTION reference.",
+    "category": "exclusions"
+  },
+  {
+    "statement": "CREATE MATERIALIZED VIEW AS SELECT",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=sql-server-ver17",
+    "notes": "Synapse materialized-view command; SQL Server indexed views use CREATE VIEW plus CREATE INDEX.",
+    "category": "exclusions"
+  },
+  {
+    "statement": "CREATE TABLE AS CLONE OF",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-table-as-clone-of-transact-sql?view=sql-server-ver17",
+    "notes": "Fabric Warehouse clone statement.",
+    "category": "exclusions"
+  },
+  {
+    "statement": "CREATE TABLE AS SELECT AZURE SQL DATA WAREHOUSE",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=sql-server-ver17",
+    "notes": "Synapse/Fabric CTAS; SQL Server SELECT INTO/CETAS are separately represented.",
+    "category": "exclusions"
+  },
+  {
+    "statement": "CREATE TABLE AZURE SQL DATA WAREHOUSE",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=sql-server-ver17",
+    "notes": "Synapse/Fabric product-specific CREATE TABLE reference.",
+    "category": "exclusions"
+  },
+  {
+    "statement": "CREATE VECTOR INDEX",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-vector-index-transact-sql?view=sql-server-ver17",
+    "notes": "SQL Server17 vector indexes remain preview; GA cloud variants do not change standalone status.",
+    "category": "exclusions"
+  },
+  {
+    "statement": "CREATE WORKLOAD CLASSIFIER",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-workload-classifier-transact-sql?view=sql-server-ver17",
+    "notes": "Azure Synapse dedicated SQL pool classifier, not SQL Server Resource Governor.",
+    "category": "exclusions"
+  },
+  {
+    "statement": "DROP WORKLOAD CLASSIFIER",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-workload-classifier-transact-sql?view=sql-server-ver17",
+    "notes": "Azure Synapse dedicated SQL pool only.",
+    "category": "exclusions"
+  },
+  {
+    "statement": "EXPLAIN",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/queries/explain-transact-sql?view=sql-server-ver17",
+    "notes": "Synapse EXPLAIN; SQL Server uses SET SHOWPLAN options.",
+    "category": "exclusions"
+  },
+  {
+    "statement": "PERMISSIONS GRANT DENY REVOKE AZURE SQL DATA WAREHOUSE PARALLEL DATA WAREHOUSE",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/permissions-grant-deny-revoke-azure-sql-data-warehouse-parallel-data-warehouse?view=sql-server-ver17",
+    "notes": "Synapse/PDW permission reference, not standalone SQL Server syntax.",
+    "category": "exclusions"
+  },
+  {
+    "statement": "RENAME",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/rename-transact-sql?view=sql-server-ver17",
+    "notes": "Synapse RENAME OBJECT statement; standalone rename uses applicable ALTER or system procedures via EXECUTE.",
+    "category": "exclusions"
+  },
+  {
+    "statement": "ALTER AVAILABILITY GROUP",
+    "file": "alter/availability-group.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-availability-group-transact-sql?view=sql-server-ver17",
+    "notes": "Covers documented action families; connection string opaque, distributed cardinality/edition/platform/cross-option restrictions not fully encoded; at most two distributed groups. Failover may lose data. CONFIGURATION_ONLY replica ADD uses its own no-FAILOVER_MODE branch.",
+    "category": "operations"
+  },
+  {
+    "statement": "ALTER BROKER PRIORITY",
+    "file": "alter/broker-priority.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-broker-priority-transact-sql?view=sql-server-ver17",
+    "notes": "Each priority setting occurs once; priority value range and matching semantics are engine checked.",
+    "category": "operations"
+  },
+  {
+    "statement": "ALTER CONTRACT",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-contract-transact-sql?view=sql-server-ver17",
+    "notes": "No ALTER CONTRACT statement; contracts are created/dropped; ownership uses ALTER AUTHORIZATION.",
+    "category": "operations"
+  },
+  {
+    "statement": "ALTER DATABASE",
+    "file": "alter/database.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver17",
+    "notes": "Broad SQL Server file/filegroup/SET/HADR/mirroring coverage. No Stretch (removed), Azure editions/geo-replication or Edge DATA_RETENTION. Unique options, mutually exclusive state/recovery settings and termination eligibility are semantic constraints; newer option combinations not fully verified.",
+    "category": "operations"
+  },
+  {
+    "statement": "ALTER DATABASE SCOPED CONFIGURATION",
+    "file": "alter/database-scoped-configuration.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?view=sql-server-ver17",
+    "notes": "SQL Server options only; FOR SECONDARY limited to explicit PRIMARY-capable settings. PREVIEW_FEATURES excluded by GA-only policy; ALLOW_STALE_VECTOR_INDEX/ALLOW_BUILTIN_TVF and XTP cloud-only options excluded; other future/deprecated settings not inferred.",
+    "category": "operations"
+  },
+  {
+    "statement": "ALTER ENDPOINT",
+    "file": "alter/endpoint.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-endpoint-transact-sql?view=sql-server-ver17",
+    "notes": "AUTHORIZATION deliberately absent: official arguments say ownership cannot change via ALTER despite shared syntax header. ALTER partial TCP/payload option combinations may differ; shared create-style LISTENER_PORT/ROLE required here. No HTTP/SOAP.",
+    "category": "operations"
+  },
+  {
+    "statement": "ALTER EVENT NOTIFICATION",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-event-notification-transact-sql?view=sql-server-ver17",
+    "notes": "No ALTER EVENT NOTIFICATION statement; recreate the notification.",
+    "category": "operations"
+  },
+  {
+    "statement": "ALTER EVENT SESSION",
+    "file": "alter/event-session.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-event-session-transact-sql?view=sql-server-ver17",
+    "notes": "Server scope only. Predicate expression/catalogue opaque; add/drop list restrictions and unique options engine-checked.",
+    "category": "operations"
+  },
+  {
+    "statement": "ALTER EXTERNAL RESOURCE POOL",
+    "file": "alter/external-resource-pool.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-external-resource-pool-transact-sql?view=sql-server-ver17",
+    "notes": "SQL Server external resource pools; CPU affinity platform support and numeric limits checked by engine; each setting once.",
+    "category": "operations"
+  },
+  {
+    "statement": "ALTER MESSAGE TYPE",
+    "file": "alter/message-type.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-message-type-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "ALTER QUEUE",
+    "file": "alter/queue.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-queue-transact-sql?view=sql-server-ver17",
+    "notes": "Settings occur at most once; activation settings and qualification validated by consumer.",
+    "category": "operations"
+  },
+  {
+    "statement": "ALTER REMOTE SERVICE BINDING",
+    "file": "alter/remote-service-binding.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-remote-service-binding-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "ALTER RESOURCE GOVERNOR",
+    "file": "alter/resource-governor.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-resource-governor-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "ALTER RESOURCE POOL",
+    "file": "alter/resource-pool.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-resource-pool-transact-sql?view=sql-server-ver17",
+    "notes": "SQL Server Resource Governor options only; each option once; AFFINITY choices mutually exclusive; edition/platform/range validation required.",
+    "category": "operations"
+  },
+  {
+    "statement": "ALTER ROUTE",
+    "file": "alter/route.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-route-transact-sql?view=sql-server-ver17",
+    "notes": "Each route option may occur at most once; no arbitrary option names.",
+    "category": "operations"
+  },
+  {
+    "statement": "ALTER SERVER CONFIGURATION",
+    "file": "alter/server-configuration.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-server-configuration-transact-sql?view=sql-server-ver17",
+    "notes": "Server option families structured; cluster connection string opaque; Windows/FCI/hardware-dependent options require deployment validation. Snapshot syntax source has duplicated SET; modeled single SET and equals per current option definition.",
+    "category": "operations"
+  },
+  {
+    "statement": "ALTER SERVICE",
+    "file": "alter/service.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-service-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "ALTER WORKLOAD GROUP",
+    "file": "alter/workload-group.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-workload-group-transact-sql?view=sql-server-ver17",
+    "notes": "SQL Server/Managed Instance include used, not Synapse percentage syntax; tempdb limits are SQL Server 2025; options unique; pool/default names are identifiers.",
+    "category": "operations"
+  },
+  {
+    "statement": "BACKUP",
+    "file": "other/backup.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/backup-transact-sql?view=sql-server-ver17",
+    "notes": "Database/file/filegroup/partial/log/server/group-snapshot branches. ZSTD 2025 included; hardware QAT requires installation. Unique mutually compatible options, max mirror count and mandatory snapshot freeze workflow are semantic; VDI/S3/device-specific options not exhaustive. Security key backup statements separate.",
+    "category": "operations"
+  },
+  {
+    "statement": "BEGIN CONVERSATION TIMER",
+    "file": "other/begin-conversation-timer.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/begin-conversation-timer-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "BEGIN DIALOG CONVERSATION",
+    "file": "other/begin-dialog-conversation.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql?view=sql-server-ver17",
+    "notes": "dialog_variable includes @; related conversation and related group mutually exclusive; each option once.",
+    "category": "operations"
+  },
+  {
+    "statement": "CHECKPOINT",
+    "file": "other/checkpoint.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/checkpoint-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "CREATE AVAILABILITY GROUP",
+    "file": "create/availability-group.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-availability-group-transact-sql?view=sql-server-ver17",
+    "notes": "Normal/basic/contained and distributed entry branches; option/replica compatibility, cardinality, platform/edition and distributed WITH combinations require further validation; connection-options string opaque. SQL Server 2025 TLS/contained auto-seeding retained. REQUIRED_SYNCHRONIZED_SECONDARIES_TO_COMMIT omitted from CREATE due contradictory official syntax/argument text; retained in ALTER. Distributed CREATE restricted to DISTRIBUTED plus exactly two group definitions. CONFIGURATION_ONLY has no FAILOVER_MODE.",
+    "category": "operations"
+  },
+  {
+    "statement": "CREATE BROKER PRIORITY",
+    "file": "create/broker-priority.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-broker-priority-transact-sql?view=sql-server-ver17",
+    "notes": "Each priority setting occurs once; priority value range and matching semantics are engine checked.",
+    "category": "operations"
+  },
+  {
+    "statement": "CREATE CONTRACT",
+    "file": "create/contract.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-contract-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "CREATE DATABASE",
+    "file": "create/database.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-database-transact-sql?view=sql-server-ver17",
+    "notes": "Create/snapshot/attach branches; detailed attach file size/growth variants and cross-option/filegroup restrictions not exhaustive. Options unique; containment and storage platform checks required.",
+    "category": "operations"
+  },
+  {
+    "statement": "CREATE ENDPOINT",
+    "file": "create/endpoint.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-endpoint-transact-sql?view=sql-server-ver17",
+    "notes": "TCP TSQL/Broker/mirroring payloads; one each option, mirroring ROLE required; RC4 deprecated with compatibility restrictions. No HTTP/SOAP.",
+    "category": "operations"
+  },
+  {
+    "statement": "CREATE EVENT NOTIFICATION",
+    "file": "create/event-notification.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-event-notification-transact-sql?view=sql-server-ver17",
+    "notes": "Event type/group catalogue and existing broker target validated by engine.",
+    "category": "operations"
+  },
+  {
+    "statement": "CREATE EVENT SESSION",
+    "file": "create/event-session.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-event-session-transact-sql?view=sql-server-ver17",
+    "notes": "Event/target attributes and actions structured; XE predicate expression/catalogue opaque; at least one setting inside event parentheses; MAX_DURATION is 2025 GA; unique options.",
+    "category": "operations"
+  },
+  {
+    "statement": "CREATE EXTERNAL RESOURCE POOL",
+    "file": "create/external-resource-pool.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-resource-pool-transact-sql?view=sql-server-ver17",
+    "notes": "SQL Server external resource pools; CPU affinity platform support and numeric limits checked by engine; each setting once.",
+    "category": "operations"
+  },
+  {
+    "statement": "CREATE MESSAGE TYPE",
+    "file": "create/message-type.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-message-type-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "CREATE QUEUE",
+    "file": "create/queue.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-queue-transact-sql?view=sql-server-ver17",
+    "notes": "Queue name may have database/schema qualification; options unique; activation requires procedure/readers/execution context.",
+    "category": "operations"
+  },
+  {
+    "statement": "CREATE REMOTE SERVICE BINDING",
+    "file": "create/remote-service-binding.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-remote-service-binding-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "CREATE RESOURCE POOL",
+    "file": "create/resource-pool.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-resource-pool-transact-sql?view=sql-server-ver17",
+    "notes": "SQL Server Resource Governor options only; each option once; AFFINITY choices mutually exclusive; edition/platform/range validation required.",
+    "category": "operations"
+  },
+  {
+    "statement": "CREATE ROUTE",
+    "file": "create/route.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-route-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "CREATE SERVICE",
+    "file": "create/service.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-service-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "CREATE WORKLOAD GROUP",
+    "file": "create/workload-group.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-workload-group-transact-sql?view=sql-server-ver17",
+    "notes": "SQL Server/Managed Instance include used, not Synapse percentage syntax; tempdb limits are SQL Server 2025; options unique; pool/default names are identifiers.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC CHECKALLOC",
+    "file": "other/dbcc-checkalloc.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-checkalloc-transact-sql?view=sql-server-ver17",
+    "notes": "Each option once; PHYSICAL_ONLY and DATA_PURITY mutually exclusive; repairs, locking and compatibility constraints engine-checked. Repair may cause data loss.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC CHECKCATALOG",
+    "file": "other/dbcc-checkcatalog.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-checkcatalog-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC CHECKCONSTRAINTS",
+    "file": "other/dbcc-checkconstraints.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-checkconstraints-transact-sql?view=sql-server-ver17",
+    "notes": "Options unique; ALL_CONSTRAINTS/ALL_ERRORMSGS subject to documented combinations.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC CHECKDB",
+    "file": "other/dbcc-checkdb.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql?view=sql-server-ver17",
+    "notes": "Each option once; PHYSICAL_ONLY and DATA_PURITY mutually exclusive; repairs, locking and compatibility constraints engine-checked. Repair may cause data loss.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC CHECKFILEGROUP",
+    "file": "other/dbcc-checkfilegroup.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-checkfilegroup-transact-sql?view=sql-server-ver17",
+    "notes": "Options unique; group availability and option compatibility require runtime validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC CHECKIDENT",
+    "file": "other/dbcc-checkident.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC CHECKTABLE",
+    "file": "other/dbcc-checktable.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-checktable-transact-sql?view=sql-server-ver17",
+    "notes": "Each option once; PHYSICAL_ONLY and DATA_PURITY mutually exclusive; repair and option interactions checked by engine.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC CLEANTABLE",
+    "file": "other/dbcc-cleantable.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-cleantable-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC CLONEDATABASE",
+    "file": "other/dbcc-clonedatabase.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-clonedatabase-transact-sql?view=sql-server-ver17",
+    "notes": "Options unique; VERIFY_CLONEDB and SERVICEBROKER mutually exclusive; clone restrictions and supported use require engine checks.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC DBREINDEX",
+    "file": "other/dbcc-dbreindex.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-dbreindex-transact-sql?view=sql-server-ver17",
+    "notes": "Documented deprecated command retained; prefer ALTER INDEX for new applications.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC DROPCLEANBUFFERS",
+    "file": "other/dbcc-dropcleanbuffers.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-dropcleanbuffers-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC DROPRESULTSETCACHE",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=sql-server-ver17",
+    "notes": "Azure SQL/Fabric/Synapse/PDW-specific documented command, outside standalone SQL Server 2025 engine.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC FLUSHAUTHCACHE",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-flushauthcache-transact-sql?view=sql-server-ver17",
+    "notes": "Azure SQL/Fabric/Synapse/PDW-specific documented command, outside standalone SQL Server 2025 engine.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC FREEPROCCACHE",
+    "file": "other/dbcc-freeproccache.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-freeproccache-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC FREESESSIONCACHE",
+    "file": "other/dbcc-freesessioncache.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-freesessioncache-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC FREESYSTEMCACHE",
+    "file": "other/dbcc-freesystemcache.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-freesystemcache-transact-sql?view=sql-server-ver17",
+    "notes": "Each cache option once; cache-store internals not expanded.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC HELP",
+    "file": "other/dbcc-help.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-help-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC INDEXDEFRAG",
+    "file": "other/dbcc-indexdefrag.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-indexdefrag-transact-sql?view=sql-server-ver17",
+    "notes": "Documented deprecated command retained; prefer ALTER INDEX.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC INPUTBUFFER",
+    "file": "other/dbcc-inputbuffer.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-inputbuffer-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC OPENTRAN",
+    "file": "other/dbcc-opentran.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-opentran-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC OUTPUTBUFFER",
+    "file": "other/dbcc-outputbuffer.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-outputbuffer-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC PDW_SHOWEXECUTIONPLAN",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?view=sql-server-ver17",
+    "notes": "Azure SQL/Fabric/Synapse/PDW-specific documented command, outside standalone SQL Server 2025 engine.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=sql-server-ver17",
+    "notes": "Azure SQL/Fabric/Synapse/PDW-specific documented command, outside standalone SQL Server 2025 engine.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC PDW_SHOWPARTITIONSTATS",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-pdw-showpartitionstats-transact-sql?view=sql-server-ver17",
+    "notes": "Azure SQL/Fabric/Synapse/PDW-specific documented command, outside standalone SQL Server 2025 engine.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC PDW_SHOWSPACEUSED",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?view=sql-server-ver17",
+    "notes": "Azure SQL/Fabric/Synapse/PDW-specific documented command, outside standalone SQL Server 2025 engine.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC PROCCACHE",
+    "file": "other/dbcc-proccache.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-proccache-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC SHOWCONTIG",
+    "file": "other/dbcc-showcontig.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-showcontig-transact-sql?view=sql-server-ver17",
+    "notes": "Documented deprecated command; unique options and informational semantics not validated.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC SHOWRESULTCACHESPACEUSED",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?view=sql-server-ver17",
+    "notes": "Azure SQL/Fabric/Synapse/PDW-specific documented command, outside standalone SQL Server 2025 engine.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC SHOW_STATISTICS",
+    "file": "other/dbcc-show-statistics.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-ver17",
+    "notes": "Each option once; STATS_STREAM is documented informational-only/unsupported and intentionally excluded from GA syntax.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC SHRINKDATABASE",
+    "file": "other/dbcc-shrinkdatabase.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=sql-server-ver17",
+    "notes": "Each option once; low-priority support and blocking behavior engine checked.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC SHRINKFILE",
+    "file": "other/dbcc-shrinkfile.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC SHRINKLOG",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-shrinklog-azure-sql-data-warehouse?view=sql-server-ver17",
+    "notes": "Azure SQL/Fabric/Synapse/PDW-specific documented command, outside standalone SQL Server 2025 engine.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC SQLPERF",
+    "file": "other/dbcc-sqlperf.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-sqlperf-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC TRACEOFF",
+    "file": "other/dbcc-traceoff.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql?view=sql-server-ver17",
+    "notes": "Trace flags are integer values; semantics/supported flag catalogue and global-vs-session effects are outside grammar.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC TRACEON",
+    "file": "other/dbcc-traceon.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql?view=sql-server-ver17",
+    "notes": "Trace flags are integer values; semantics/supported flag catalogue and global-vs-session effects are outside grammar.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC TRACESTATUS",
+    "file": "other/dbcc-tracestatus.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-tracestatus-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC UPDATEUSAGE",
+    "file": "other/dbcc-updateusage.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-updateusage-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC USEROPTIONS",
+    "file": "other/dbcc-useroptions.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-useroptions-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DBCC dllname FREE",
+    "file": "other/dbcc-dllname-free.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-dllname-free-transact-sql?view=sql-server-ver17",
+    "notes": "dllname is an installed extended-procedure DLL identifier; legacy command.",
+    "category": "operations"
+  },
+  {
+    "statement": "DROP AVAILABILITY GROUP",
+    "file": "drop/availability-group.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-availability-group-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DROP BROKER PRIORITY",
+    "file": "drop/broker-priority.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-broker-priority-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DROP CONTRACT",
+    "file": "drop/contract.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-contract-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DROP DATABASE",
+    "file": "drop/database.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-database-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DROP ENDPOINT",
+    "file": "drop/endpoint.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-endpoint-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DROP EVENT NOTIFICATION",
+    "file": "drop/event-notification.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-event-notification-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DROP EVENT SESSION",
+    "file": "drop/event-session.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-event-session-transact-sql?view=sql-server-ver17",
+    "notes": "SQL Server server-scoped event sessions; ON DATABASE is Azure SQL/Fabric scope, not this standalone baseline.",
+    "category": "operations"
+  },
+  {
+    "statement": "DROP EXTERNAL RESOURCE POOL",
+    "file": "drop/external-resource-pool.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-external-resource-pool-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DROP MESSAGE TYPE",
+    "file": "drop/message-type.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-message-type-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DROP QUEUE",
+    "file": "drop/queue.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-queue-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DROP REMOTE SERVICE BINDING",
+    "file": "drop/remote-service-binding.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-remote-service-binding-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DROP RESOURCE POOL",
+    "file": "drop/resource-pool.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-resource-pool-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DROP ROUTE",
+    "file": "drop/route.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-route-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DROP SERVICE",
+    "file": "drop/service.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-service-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "DROP WORKLOAD GROUP",
+    "file": "drop/workload-group.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-workload-group-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "END CONVERSATION",
+    "file": "other/end-conversation.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/end-conversation-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "GET CONVERSATION GROUP",
+    "file": "other/get-conversation-group.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/get-conversation-group-transact-sql?view=sql-server-ver17",
+    "notes": "group_variable is @variable uniqueidentifier; queue can have database/schema qualification.",
+    "category": "operations"
+  },
+  {
+    "statement": "KILL",
+    "file": "other/kill.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/kill-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "KILL QUERY NOTIFICATION SUBSCRIPTION",
+    "file": "other/kill-query-notification-subscription.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/kill-query-notification-subscription-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "KILL STATS JOB",
+    "file": "other/kill-stats-job.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/kill-stats-job-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "MOVE CONVERSATION",
+    "file": "other/move-conversation.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/move-conversation-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "RECEIVE",
+    "file": "query/receive.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/receive-transact-sql?view=sql-server-ver17",
+    "notes": "Projection expressions/variable assignments restricted to RECEIVE context; @table variable and conversation filters follow broker semantics.",
+    "category": "operations"
+  },
+  {
+    "statement": "RECONFIGURE",
+    "file": "other/reconfigure.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/reconfigure-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "RESTORE",
+    "file": "other/restore.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql?view=sql-server-ver17",
+    "notes": "Database/log/file/page/partial/snapshot branches; partial restore point-in-time variants not fully expanded; FILES branch requires explicit recovery choice though engine permits default; restore-sequence validity, option incompatibilities and media constraints require validation. Deprecated passwords retained for old media.",
+    "category": "operations"
+  },
+  {
+    "statement": "RESTORE FILELISTONLY",
+    "file": "other/restore-filelistonly.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/restore-statements-filelistonly-transact-sql?view=sql-server-ver17",
+    "notes": "Metadata/verify/tape statement. Unique options and media credential/permission rules apply; VERIFYONLY does not execute a restore or establish logical data consistency.",
+    "category": "operations"
+  },
+  {
+    "statement": "RESTORE HEADERONLY",
+    "file": "other/restore-headeronly.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/restore-statements-headeronly-transact-sql?view=sql-server-ver17",
+    "notes": "Metadata/verify/tape statement. Unique options and media credential/permission rules apply; VERIFYONLY does not execute a restore or establish logical data consistency.",
+    "category": "operations"
+  },
+  {
+    "statement": "RESTORE LABELONLY",
+    "file": "other/restore-labelonly.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/restore-statements-labelonly-transact-sql?view=sql-server-ver17",
+    "notes": "Metadata/verify/tape statement. Unique options and media credential/permission rules apply; VERIFYONLY does not execute a restore or establish logical data consistency.",
+    "category": "operations"
+  },
+  {
+    "statement": "RESTORE REWINDONLY",
+    "file": "other/restore-rewindonly.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/restore-statements-rewindonly-transact-sql?view=sql-server-ver17",
+    "notes": "Metadata/verify/tape statement. Unique options and media credential/permission rules apply; VERIFYONLY does not execute a restore or establish logical data consistency.",
+    "category": "operations"
+  },
+  {
+    "statement": "RESTORE VERIFYONLY",
+    "file": "other/restore-verifyonly.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/restore-statements-verifyonly-transact-sql?view=sql-server-ver17",
+    "notes": "Metadata/verify/tape statement. Unique options and media credential/permission rules apply; VERIFYONLY does not execute a restore or establish logical data consistency.",
+    "category": "operations"
+  },
+  {
+    "statement": "SEND",
+    "file": "other/send.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/send-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "SHUTDOWN",
+    "file": "other/shutdown.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/shutdown-transact-sql?view=sql-server-ver17",
+    "notes": "Structural statement grammar; identifiers, values, permissions and runtime semantic constraints require consumer/engine validation.",
+    "category": "operations"
+  },
+  {
+    "statement": "ALTER AGGREGATE",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-aggregate-transact-sql?view=sql-server-ver17",
+    "notes": "No ALTER AGGREGATE statement; drop and recreate (dependency/binding restrictions apply).",
+    "category": "programming"
+  },
+  {
+    "statement": "ALTER ASSEMBLY",
+    "file": "alter/assembly.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-assembly-transact-sql?view=sql-server-ver17",
+    "notes": "Expressions, identifiers, body and type semantics require consumer binding; not executed.",
+    "category": "programming"
+  },
+  {
+    "statement": "ALTER DEFAULT",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-default-transact-sql?view=sql-server-ver17",
+    "notes": "No ALTER DEFAULT statement; drop and recreate (dependency/binding restrictions apply).",
+    "category": "programming"
+  },
+  {
+    "statement": "ALTER FUNCTION",
+    "file": "alter/function.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-function-transact-sql?view=sql-server-ver17",
+    "notes": "All six implementation/return-shape branches and basic return-table columns/constraints/index options represented. Body opaque; full legacy index options/storage variations not exhaustive. Function option/type/body legality and ALTER category/platform restrictions require validation. ATOMIC requires LANGUAGE and TRANSACTION ISOLATION LEVEL exactly once each, enforced by consumer because list preserves permutations.",
+    "category": "programming"
+  },
+  {
+    "statement": "ALTER PROCEDURE",
+    "file": "alter/procedure.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-procedure-transact-sql?view=sql-server-ver17",
+    "notes": "T-SQL, CLR and native branches. Body statement_block/sql_statement_list opaque. Parameters/replication, native options, context, batch restrictions and CLR platform support require semantic validation. Native ALTER support: https://learn.microsoft.com/en-us/sql/relational-databases/in-memory-oltp/altering-natively-compiled-t-sql-modules?view=sql-server-ver17 ATOMIC requires LANGUAGE and TRANSACTION ISOLATION LEVEL exactly once each, enforced by consumer because list preserves permutations.",
+    "category": "programming"
+  },
+  {
+    "statement": "ALTER RULE",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-rule-transact-sql?view=sql-server-ver17",
+    "notes": "No ALTER RULE statement; drop and recreate (dependency/binding restrictions apply).",
+    "category": "programming"
+  },
+  {
+    "statement": "ALTER SCHEMA",
+    "file": "alter/schema.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-schema-transact-sql?view=sql-server-ver17",
+    "notes": "Transfers schema-scoped securable. ALTER SCHEMA does not rename a schema or change its owner.",
+    "category": "programming"
+  },
+  {
+    "statement": "ALTER TRIGGER",
+    "file": "alter/trigger.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-trigger-transact-sql?view=sql-server-ver17",
+    "notes": "Separate T-SQL/CLR cases for DML, database DDL, server DDL and logon; native DML case. CLR excludes ENCRYPTION. OWNER allowed only DML; database DDL uses user, server DDL/logon login. Body/event inputs opaque. Views require INSTEAD OF. WITH APPEND omitted: official applicability says SQL Server 2008/2008 R2 only. ATOMIC requires LANGUAGE and TRANSACTION ISOLATION LEVEL exactly once each; option list preserves ordering but consumer must enforce cardinality.",
+    "category": "programming"
+  },
+  {
+    "statement": "ALTER TYPE",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-type-transact-sql?view=sql-server-ver17",
+    "notes": "No ALTER TYPE statement; drop and recreate (dependency/binding restrictions apply).",
+    "category": "programming"
+  },
+  {
+    "statement": "ALTER VIEW",
+    "file": "alter/view.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-view-transact-sql?view=sql-server-ver17",
+    "notes": "Body query context restrictions, batch-first and indexed-view effects require validation; CHECK OPTION disallows OFFSET/FETCH.",
+    "category": "programming"
+  },
+  {
+    "statement": "ALTER XML SCHEMA COLLECTION",
+    "file": "alter/xml-schema-collection.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-xml-schema-collection-transact-sql?view=sql-server-ver17",
+    "notes": "XML schema input literal/variable/expression must satisfy documented XSD restrictions; schema-qualified name. No IF EXISTS form.",
+    "category": "programming"
+  },
+  {
+    "statement": "BEGIN DISTRIBUTED TRANSACTION",
+    "file": "transaction/begin-distributed.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql?view=sql-server-ver17",
+    "notes": "Transaction identifier or local char variable, max 32 significant chars; MSDTC/platform/configuration limits. Does not enable services automatically.",
+    "category": "programming"
+  },
+  {
+    "statement": "BEGIN END",
+    "file": "other/begin-end.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/begin-end-transact-sql?view=sql-server-ver17",
+    "notes": "Body and nested statement context, semicolons, and allowed expressions require binding.",
+    "category": "programming"
+  },
+  {
+    "statement": "BREAK",
+    "file": "other/break.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/break-transact-sql?view=sql-server-ver17",
+    "notes": "Body and nested statement context, semicolons, and allowed expressions require binding.",
+    "category": "programming"
+  },
+  {
+    "statement": "CLOSE",
+    "file": "other/close.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/close-transact-sql?view=sql-server-ver17",
+    "notes": "Cursor state and declared scope required.",
+    "category": "programming"
+  },
+  {
+    "statement": "CONTINUE",
+    "file": "other/continue.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/while-transact-sql?view=sql-server-ver17",
+    "notes": "Body and nested statement context, semicolons, and allowed expressions require binding.",
+    "category": "programming"
+  },
+  {
+    "statement": "CREATE AGGREGATE",
+    "file": "create/aggregate.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-aggregate-transact-sql?view=sql-server-ver17",
+    "notes": "Expressions, identifiers, body and type semantics require consumer binding; not executed.",
+    "category": "programming"
+  },
+  {
+    "statement": "CREATE ASSEMBLY",
+    "file": "create/assembly.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-assembly-transact-sql?view=sql-server-ver17",
+    "notes": "Expressions, identifiers, body and type semantics require consumer binding; not executed.",
+    "category": "programming"
+  },
+  {
+    "statement": "CREATE DEFAULT",
+    "file": "create/default.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-default-transact-sql?view=sql-server-ver17",
+    "notes": "Deprecated but supported standalone bound object; not a table DEFAULT/CHECK constraint. Binding/unbinding uses system procedures via EXECUTE.",
+    "category": "programming"
+  },
+  {
+    "statement": "CREATE FUNCTION",
+    "file": "create/function.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-function-transact-sql?view=sql-server-ver17",
+    "notes": "All six implementation/return-shape branches and basic return-table columns/constraints/index options represented. Body opaque; full legacy index options/storage variations not exhaustive. Function option/type/body legality and ALTER category/platform restrictions require validation. ATOMIC requires LANGUAGE and TRANSACTION ISOLATION LEVEL exactly once each, enforced by consumer because list preserves permutations.",
+    "category": "programming"
+  },
+  {
+    "statement": "CREATE PROCEDURE",
+    "file": "create/procedure.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-procedure-transact-sql?view=sql-server-ver17",
+    "notes": "T-SQL, CLR and native branches. Body statement_block/sql_statement_list opaque. Parameters/replication, native options, context, batch restrictions and CLR platform support require semantic validation. ATOMIC requires LANGUAGE and TRANSACTION ISOLATION LEVEL exactly once each, enforced by consumer because list preserves permutations.",
+    "category": "programming"
+  },
+  {
+    "statement": "CREATE RULE",
+    "file": "create/rule.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-rule-transact-sql?view=sql-server-ver17",
+    "notes": "Deprecated but supported standalone bound object; not a table DEFAULT/CHECK constraint. Binding/unbinding uses system procedures via EXECUTE.",
+    "category": "programming"
+  },
+  {
+    "statement": "CREATE TRIGGER",
+    "file": "create/trigger.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-trigger-transact-sql?view=sql-server-ver17",
+    "notes": "Separate T-SQL/CLR cases for DML, database DDL, server DDL and logon; native DML case. CLR excludes ENCRYPTION. OWNER allowed only DML; database DDL uses user, server DDL/logon login. Body/event inputs opaque. Views require INSTEAD OF. WITH APPEND omitted: official applicability says SQL Server 2008/2008 R2 only. ATOMIC requires LANGUAGE and TRANSACTION ISOLATION LEVEL exactly once each; option list preserves ordering but consumer must enforce cardinality.",
+    "category": "programming"
+  },
+  {
+    "statement": "CREATE TYPE",
+    "file": "create/type.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-type-transact-sql?view=sql-server-ver17",
+    "notes": "Alias/CLR/disk-table/memory-table shapes and column/key/check/index elements structured. Memory/CLR deployment restrictions and type/key/index combinations require validation; legacy type-length syntax variations remain partial.",
+    "category": "programming"
+  },
+  {
+    "statement": "CREATE XML SCHEMA COLLECTION",
+    "file": "create/xml-schema-collection.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-xml-schema-collection-transact-sql?view=sql-server-ver17",
+    "notes": "XML schema input literal/variable/expression must satisfy documented XSD restrictions; schema-qualified name. No IF EXISTS form.",
+    "category": "programming"
+  },
+  {
+    "statement": "DEALLOCATE",
+    "file": "other/deallocate.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/deallocate-transact-sql?view=sql-server-ver17",
+    "notes": "Cursor state and declared scope required.",
+    "category": "programming"
+  },
+  {
+    "statement": "DECLARE",
+    "file": "other/declare.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/declare-local-variable-transact-sql?view=sql-server-ver17",
+    "notes": "Scalar/cursor declarations and table variable columns/constraints/basic index options structured. Table variable must be alone. Inline/table indexes and full storage/index options not expanded.",
+    "category": "programming"
+  },
+  {
+    "statement": "DECLARE CURSOR",
+    "file": "other/declare-cursor.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/declare-cursor-transact-sql?view=sql-server-ver17",
+    "notes": "FAST_FORWARD/SCROLL/concurrency exclusions and cursor query limitations require validation. Query hints after FOR UPDATE remain opaque/unexpanded.",
+    "category": "programming"
+  },
+  {
+    "statement": "DISABLE TRIGGER",
+    "file": "other/disable-trigger.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-ver17",
+    "notes": "Trigger and scope compatibility, replication and permissions require validation.",
+    "category": "programming"
+  },
+  {
+    "statement": "DROP AGGREGATE",
+    "file": "drop/aggregate.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-aggregate-transact-sql?view=sql-server-ver17",
+    "notes": "Official IF EXISTS form; binding/dependency and permission restrictions apply.",
+    "category": "programming"
+  },
+  {
+    "statement": "DROP ASSEMBLY",
+    "file": "drop/assembly.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-assembly-transact-sql?view=sql-server-ver17",
+    "notes": "Official IF EXISTS form; binding/dependency and permission restrictions apply.",
+    "category": "programming"
+  },
+  {
+    "statement": "DROP DEFAULT",
+    "file": "drop/default.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-default-transact-sql?view=sql-server-ver17",
+    "notes": "Dependency/binding restrictions apply; DEFAULT/RULE deprecated.",
+    "category": "programming"
+  },
+  {
+    "statement": "DROP FUNCTION",
+    "file": "drop/function.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-function-transact-sql?view=sql-server-ver17",
+    "notes": "IF EXISTS and list shape; dependency and permission checks external.",
+    "category": "programming"
+  },
+  {
+    "statement": "DROP PROCEDURE",
+    "file": "drop/procedure.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-procedure-transact-sql?view=sql-server-ver17",
+    "notes": "IF EXISTS and list shape; dependency and permission checks external.",
+    "category": "programming"
+  },
+  {
+    "statement": "DROP RULE",
+    "file": "drop/rule.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-rule-transact-sql?view=sql-server-ver17",
+    "notes": "Dependency/binding restrictions apply; DEFAULT/RULE deprecated.",
+    "category": "programming"
+  },
+  {
+    "statement": "DROP TRIGGER",
+    "file": "drop/trigger.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-trigger-transact-sql?view=sql-server-ver17",
+    "notes": "Schema-qualified DML names; unqualified DDL/logon names and matching scope required.",
+    "category": "programming"
+  },
+  {
+    "statement": "DROP TYPE",
+    "file": "drop/type.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-type-transact-sql?view=sql-server-ver17",
+    "notes": "Official IF EXISTS form; binding/dependency and permission restrictions apply.",
+    "category": "programming"
+  },
+  {
+    "statement": "DROP XML SCHEMA COLLECTION",
+    "file": "drop/xml-schema-collection.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-xml-schema-collection-transact-sql?view=sql-server-ver17",
+    "notes": "XML schema input literal/variable/expression must satisfy documented XSD restrictions; schema-qualified name. No IF EXISTS form.",
+    "category": "programming"
+  },
+  {
+    "statement": "ENABLE TRIGGER",
+    "file": "other/enable-trigger.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/enable-trigger-transact-sql?view=sql-server-ver17",
+    "notes": "Trigger and scope compatibility, replication and permissions require validation.",
+    "category": "programming"
+  },
+  {
+    "statement": "EXECUTE",
+    "file": "other/execute.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/execute-transact-sql?view=sql-server-ver17",
+    "notes": "Module, string and linked/data-source command forms; explicit EXEC required in this template (omission only legal first statement). Dynamic strings/arguments are typed opaque; data-source applicability/security and RESULT SETS conflicts require validation. EXECUTE AS standalone is separate.",
+    "category": "programming"
+  },
+  {
+    "statement": "FETCH",
+    "file": "other/fetch.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/fetch-transact-sql?view=sql-server-ver17",
+    "notes": "All direction and optional-FROM forms modeled; cursor direction constraints and INTO variable count/types require validation.",
+    "category": "programming"
+  },
+  {
+    "statement": "GOTO",
+    "file": "other/goto.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/goto-transact-sql?view=sql-server-ver17",
+    "notes": "Statement/body scope and expression constraints apply; GOTO label definition represented separately in same file.",
+    "category": "programming"
+  },
+  {
+    "statement": "IF ELSE",
+    "file": "other/if-else.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/if-else-transact-sql?view=sql-server-ver17",
+    "notes": "Body and nested statement context, semicolons, and allowed expressions require binding.",
+    "category": "programming"
+  },
+  {
+    "statement": "OPEN",
+    "file": "other/open.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/open-transact-sql?view=sql-server-ver17",
+    "notes": "Cursor state and declared scope required.",
+    "category": "programming"
+  },
+  {
+    "statement": "PRINT",
+    "file": "other/print.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/print-transact-sql?view=sql-server-ver17",
+    "notes": "Body and nested statement context, semicolons, and allowed expressions require binding.",
+    "category": "programming"
+  },
+  {
+    "statement": "RAISERROR",
+    "file": "other/raiserror.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/raiserror-transact-sql?view=sql-server-ver17",
+    "notes": "Formatting arguments, message catalog, severity/state/permission restrictions; legacy statement retained.",
+    "category": "programming"
+  },
+  {
+    "statement": "RETURN",
+    "file": "other/return.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/return-transact-sql?view=sql-server-ver17",
+    "notes": "Body and nested statement context, semicolons, and allowed expressions require binding.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET",
+    "file": "other/set.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-statements-transact-sql?view=sql-server-ver17",
+    "notes": "SQL Server session SET family; grouped boolean options, diagnostics and scalar settings. Transaction isolation is separate. Detailed value domains, parse-time behavior, SHOWPLAN batch isolation and deprecated options require validation.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET ANSI_DEFAULTS",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-ansi-defaults-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET ANSI_NULLS",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-ansi-nulls-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET ANSI_NULL_DFLT_OFF",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-ansi-null-dflt-off-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET ANSI_NULL_DFLT_ON",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-ansi-null-dflt-on-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET ANSI_PADDING",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-ansi-padding-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET ANSI_WARNINGS",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-ansi-warnings-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET ARITHABORT",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-arithabort-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET ARITHIGNORE",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-arithignore-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET CONCAT_NULL_YIELDS_NULL",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-concat-null-yields-null-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET CONTEXT_INFO",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-context-info-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET CURSOR_CLOSE_ON_COMMIT",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-cursor-close-on-commit-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET DATEFIRST",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-datefirst-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET DATEFORMAT",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-dateformat-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET DEADLOCK_PRIORITY",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-deadlock-priority-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET FIPS_FLAGGER",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-fips-flagger-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET FMTONLY",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-fmtonly-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET FORCEPLAN",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-forceplan-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET IDENTITY_INSERT",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-identity-insert-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET IMPLICIT_TRANSACTIONS",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-implicit-transactions-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET LANGUAGE",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-language-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET LOCK_TIMEOUT",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-lock-timeout-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET NOCOUNT",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-nocount-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET NOEXEC",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-noexec-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET NUMERIC_ROUNDABORT",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-numeric-roundabort-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET OFFSETS",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-offsets-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET PARSEONLY",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-parseonly-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET QUERY_GOVERNOR_COST_LIMIT",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-query-governor-cost-limit-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET QUOTED_IDENTIFIER",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-quoted-identifier-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET RECOMMENDATIONS",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-recommendations-sql?view=sql-server-ver17",
+    "notes": "Azure Synapse dedicated SQL pool preview, not SQL Server.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET REMOTE_PROC_TRANSACTIONS",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-remote-proc-transactions-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET RESULT_SET_CACHING",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-result-set-caching-transact-sql?view=sql-server-ver17",
+    "notes": "Azure Synapse Analytics only, not SQL Server.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET ROWCOUNT",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-rowcount-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET SHOWPLAN_ALL",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-showplan-all-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET SHOWPLAN_TEXT",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-showplan-text-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET SHOWPLAN_XML",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-showplan-xml-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET STATISTICS IO",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-statistics-io-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET STATISTICS PROFILE",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-statistics-profile-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET STATISTICS TIME",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-statistics-time-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET STATISTICS XML",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-statistics-xml-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET TEXTSIZE",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-textsize-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET TIME ZONE",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-time-zone-transact-sql?view=sql-server-ver17",
+    "notes": "Azure SQL Database/Fabric SQL database only; explicitly unsupported by SQL Server.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET VARIABLE",
+    "file": "other/set-variable.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/set-local-variable-transact-sql?view=sql-server-ver17",
+    "notes": "Scalar/CLR/cursor branches; method/value expression typing and cursor option incompatibilities require validation.",
+    "category": "programming"
+  },
+  {
+    "statement": "SET XACT_ABORT",
+    "file": "other/set.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-xact-abort-transact-sql?view=sql-server-ver17",
+    "notes": "Structural branch present; documented literal/variable value domain and setting/batch/compatibility semantics apply. No execution test.",
+    "category": "programming"
+  },
+  {
+    "statement": "SETUSER",
+    "file": "other/setuser.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/setuser-transact-sql?view=sql-server-ver17",
+    "notes": "Deprecated backwards-compatible impersonation; NORESET has persistent session consequences. Separate from EXECUTE AS.",
+    "category": "programming"
+  },
+  {
+    "statement": "THROW",
+    "file": "other/throw.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/throw-transact-sql?view=sql-server-ver17",
+    "notes": "RETHROW only in CATCH. Previous statement must end with semicolon; error >=50000, message nvarchar(2048), state 0..255; format percent correctly.",
+    "category": "programming"
+  },
+  {
+    "statement": "TRY CATCH",
+    "file": "other/try-catch.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/try-catch-transact-sql?view=sql-server-ver17",
+    "notes": "Body and nested statement context, semicolons, and allowed expressions require binding.",
+    "category": "programming"
+  },
+  {
+    "statement": "WAITFOR",
+    "file": "other/waitfor.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/waitfor-transact-sql?view=sql-server-ver17",
+    "notes": "Time literal/variable; RECEIVE and GET CONVERSATION GROUP bind to Service Broker statement definitions. No arbitrary statement in WAITFOR parentheses.",
+    "category": "programming"
+  },
+  {
+    "statement": "WHILE",
+    "file": "other/while.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/language-elements/while-transact-sql?view=sql-server-ver17",
+    "notes": "Body and nested statement context, semicolons, and allowed expressions require binding.",
+    "category": "programming"
+  },
+  {
+    "statement": "ALTER EXTERNAL DATA SOURCE",
+    "file": "alter/external-data-source.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-external-data-source-transact-sql?view=sql-server-ver17",
+    "notes": "SQL2022+ documented LOCATION/CREDENTIAL branch; other connector-specific changes not inferred from old Hadoop syntax.",
+    "category": "relational"
+  },
+  {
+    "statement": "ALTER EXTERNAL LANGUAGE",
+    "file": "alter/external-language.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-external-language-transact-sql?view=sql-server-ver17",
+    "notes": "PARAMETERS/ENVIRONMENT_VARIABLES omitted because official ALTER remarks explicitly call them currently unsupported; CREATE retains its separately documented options.",
+    "category": "relational"
+  },
+  {
+    "statement": "ALTER EXTERNAL LIBRARY",
+    "file": "alter/external-library.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-external-library-transact-sql?view=sql-server-ver17",
+    "notes": "NONE and package upgrades require runtime-specific state validation.",
+    "category": "relational"
+  },
+  {
+    "statement": "ALTER EXTERNAL MODEL",
+    "file": "alter/external-model.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-external-model-transact-sql?view=sql-server-ver17",
+    "notes": "Partial: remote HTTPS embedding endpoints included; local ONNX/LOCAL_RUNTIME_PATH preview excluded, parameter JSON schema/endpoint compatibility opaque.",
+    "category": "relational"
+  },
+  {
+    "statement": "ALTER FULLTEXT CATALOG",
+    "file": "alter/fulltext-catalog.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-fulltext-catalog-transact-sql?view=sql-server-ver17",
+    "notes": "Syntax structured; identifier, value and engine-state constraints remain consumer responsibilities.",
+    "category": "relational"
+  },
+  {
+    "statement": "ALTER FULLTEXT INDEX",
+    "file": "alter/fulltext-index.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-fulltext-index-transact-sql?view=sql-server-ver17",
+    "notes": "Syntax structured; identifier, value and engine-state constraints remain consumer responsibilities.",
+    "category": "relational"
+  },
+  {
+    "statement": "ALTER FULLTEXT STOPLIST",
+    "file": "alter/fulltext-stoplist.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-fulltext-stoplist-transact-sql?view=sql-server-ver17",
+    "notes": "Syntax structured; identifier, value and engine-state constraints remain consumer responsibilities.",
+    "category": "relational"
+  },
+  {
+    "statement": "ALTER INDEX",
+    "file": "alter/index.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-index-transact-sql?view=sql-server-ver17",
+    "notes": "Main documented branches structured; index type, edition/platform and ONLINE/RESUMABLE/SORT_IN_TEMPDB restrictions are semantic. Selective XML paths use separate file.",
+    "category": "relational"
+  },
+  {
+    "statement": "ALTER INDEX (selective XML)",
+    "file": "alter/selective-xml-index.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-index-selective-xml-indexes?view=sql-server-ver17",
+    "notes": "General rebuild/drop uses ALTER/DROP INDEX; here selective path updates. FOR path changes cannot combine WITH options despite the source syntax summary; follows argument restriction.",
+    "category": "relational"
+  },
+  {
+    "statement": "ALTER PARTITION FUNCTION",
+    "file": "alter/partition-function.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-partition-function-transact-sql?view=sql-server-ver17",
+    "notes": "Syntax structured; identifier, value and engine-state constraints remain consumer responsibilities.",
+    "category": "relational"
+  },
+  {
+    "statement": "ALTER PARTITION SCHEME",
+    "file": "alter/partition-scheme.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-partition-scheme-transact-sql?view=sql-server-ver17",
+    "notes": "Syntax structured; identifier, value and engine-state constraints remain consumer responsibilities.",
+    "category": "relational"
+  },
+  {
+    "statement": "ALTER SEARCH PROPERTY LIST",
+    "file": "alter/search-property-list.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-search-property-list-transact-sql?view=sql-server-ver17",
+    "notes": "Syntax structured; identifier, value and engine-state constraints remain consumer responsibilities.",
+    "category": "relational"
+  },
+  {
+    "statement": "BULK INSERT",
+    "file": "query/bulk-insert.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver17",
+    "notes": "SQLServer branch including local/remote data-source forms; platform/codepage/source-access constraints remain semantic. Fabric PARQUET option excluded.",
+    "category": "relational"
+  },
+  {
+    "statement": "CREATE COLUMNSTORE INDEX",
+    "file": "create/columnstore-index.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-columnstore-index-transact-sql?view=sql-server-ver17",
+    "notes": "17.x ordered columnstore included; ONLINE/ordered/platform/edition support and filtered-index constraints require engine validation. Official SQLServer syntax summary and examples disagree on ORDER/WITH ordering; follows examples G/H (ORDER before WITH), needs opt-in engine verification.",
+    "category": "relational"
+  },
+  {
+    "statement": "CREATE EXTERNAL DATA SOURCE",
+    "file": "create/external-data-source.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver17",
+    "notes": "SQL17 connector syntax only; Hadoop/RESOURCE_MANAGER_LOCATION and old TYPE excluded. Endpoint protocol, driver installation, platform and credential prerequisites remain contextual.",
+    "category": "relational"
+  },
+  {
+    "statement": "CREATE EXTERNAL FILE FORMAT",
+    "file": "create/external-file-format.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-file-format-transact-sql?view=sql-server-ver17",
+    "notes": "SQL17 supported formats; RCFILE/ORC removed Hadoop formats, JSON Edge-only and Synapse PARSER_VERSION excluded. Delta engine supports version1.0 limitations.",
+    "category": "relational"
+  },
+  {
+    "statement": "CREATE EXTERNAL LANGUAGE",
+    "file": "create/external-language.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-language-transact-sql?view=sql-server-ver17",
+    "notes": "One file specification per platform, at most two; requires Language Extensions installed/configured. No extension installed by this repository.",
+    "category": "relational"
+  },
+  {
+    "statement": "CREATE EXTERNAL LIBRARY",
+    "file": "create/external-library.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-library-transact-sql?view=sql-server-ver17",
+    "notes": "Runtime and platform installation support required; one platform per file spec; language may be installed external language.",
+    "category": "relational"
+  },
+  {
+    "statement": "CREATE EXTERNAL MODEL",
+    "file": "create/external-model.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-model-transact-sql?view=sql-server-ver17",
+    "notes": "Partial: remote HTTPS embedding endpoints included; local ONNX/LOCAL_RUNTIME_PATH preview excluded, parameter JSON schema/endpoint compatibility opaque.",
+    "category": "relational"
+  },
+  {
+    "statement": "CREATE EXTERNAL TABLE",
+    "file": "create/external-table.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver17",
+    "notes": "Partial: file-backed and relational connector column skeleton; Hadoop-only reject options excluded, connector type mapping and remote schema constraints unexpanded.",
+    "category": "relational"
+  },
+  {
+    "statement": "CREATE EXTERNAL TABLE AS SELECT",
+    "file": "create/external-table-as-select.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=sql-server-ver17",
+    "notes": "SQLServer2022+ CETAS to ADLSGen2/AzureStorageV2/S3; Hadoop reject options excluded; external write and component prerequisites. Query node opaque.",
+    "category": "relational"
+  },
+  {
+    "statement": "CREATE FULLTEXT CATALOG",
+    "file": "create/fulltext-catalog.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-fulltext-catalog-transact-sql?view=sql-server-ver17",
+    "notes": "Full-text component required; ON FILEGROUP and IN PATH are retained compatibility syntax without effect.",
+    "category": "relational"
+  },
+  {
+    "statement": "CREATE FULLTEXT INDEX",
+    "file": "create/fulltext-index.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-fulltext-index-transact-sql?view=sql-server-ver17",
+    "notes": "Full-text and semantic-search components/platform capabilities required; options must not conflict or repeat.",
+    "category": "relational"
+  },
+  {
+    "statement": "CREATE FULLTEXT STOPLIST",
+    "file": "create/fulltext-stoplist.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-fulltext-stoplist-transact-sql?view=sql-server-ver17",
+    "notes": "source_stoplist permits optional database qualification.",
+    "category": "relational"
+  },
+  {
+    "statement": "CREATE JSON INDEX",
+    "file": "create/json-index.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-json-index-transact-sql?view=sql-server-ver17",
+    "notes": "GA confirmed by current JSON overview on2026-09-30, not stale search snippets. DATA_COMPRESSION omitted because Limitations explicitly says unsupported despite syntax summary listing it. JSON path nonoverlap, column type, clustered-key/size and offline-only limits require engine validation.",
+    "category": "relational"
+  },
+  {
+    "statement": "CREATE PARTITION FUNCTION",
+    "file": "create/partition-function.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-ver17",
+    "notes": "Partition data type excludes max, XML, CLR/alias and other documented types; at most 14999 distinct boundary values.",
+    "category": "relational"
+  },
+  {
+    "statement": "CREATE PARTITION SCHEME",
+    "file": "create/partition-scheme.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-ver17",
+    "notes": "filegroup may be quoted PRIMARY; ALL and destination cardinality require semantic validation.",
+    "category": "relational"
+  },
+  {
+    "statement": "CREATE SEARCH PROPERTY LIST",
+    "file": "create/search-property-list.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-search-property-list-transact-sql?view=sql-server-ver17",
+    "notes": "Source list permits optional database qualification.",
+    "category": "relational"
+  },
+  {
+    "statement": "CREATE SELECTIVE XML INDEX",
+    "file": "create/selective-xml-index.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-selective-xml-index-transact-sql?view=sql-server-ver17",
+    "notes": "Promoted XPath/XQuery type validity and singleton restrictions require semantic validation.",
+    "category": "relational"
+  },
+  {
+    "statement": "CREATE SPATIAL INDEX",
+    "file": "create/spatial-index.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-spatial-index-transact-sql?view=sql-server-ver17",
+    "notes": "Partial: unnamed grid levels/named bounding-box coordinate permutations and omitted USING shorthand not expanded. Geometry/geography column types and grid constraints are semantic.",
+    "category": "relational"
+  },
+  {
+    "statement": "CREATE STATISTICS",
+    "file": "create/statistics.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-statistics-transact-sql?view=sql-server-ver17",
+    "notes": "Partial: STATS_STREAM omitted; mutually exclusive FULLSCAN/SAMPLE, incremental/filtered restrictions and external-table subset require semantic checks.",
+    "category": "relational"
+  },
+  {
+    "statement": "CREATE TABLE (graph)",
+    "file": "create/graph-table.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-table-sql-graph?view=sql-server-ver17",
+    "notes": "Partial: basic graph columns and edge CONNECTION constraint; richer column/constraint/index definitions from CREATE TABLE remain unexpanded. Graph pseudo-columns, MATCH and edge INSERT expressions remain contextual.",
+    "category": "relational"
+  },
+  {
+    "statement": "CREATE XML INDEX",
+    "file": "create/xml-index.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-xml-index-transact-sql?view=sql-server-ver17",
+    "notes": "XML index structural variants; clustered primary-key prerequisite and schema restrictions remain semantic.",
+    "category": "relational"
+  },
+  {
+    "statement": "CREATE XML INDEX (secondary selective)",
+    "file": "create/secondary-selective-xml-index.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-xml-index-selective-xml-indexes?view=sql-server-ver17",
+    "notes": "promoted_path_name references a promoted path of the selective index, not an arbitrary XPath.",
+    "category": "relational"
+  },
+  {
+    "statement": "DROP EXTERNAL DATA SOURCE",
+    "file": "drop/external-data-source.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-external-data-source-transact-sql?view=sql-server-ver17",
+    "notes": "Object dependency, component and ownership restrictions apply.",
+    "category": "relational"
+  },
+  {
+    "statement": "DROP EXTERNAL FILE FORMAT",
+    "file": "drop/external-file-format.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-external-file-format-transact-sql?view=sql-server-ver17",
+    "notes": "Object dependency, component and ownership restrictions apply.",
+    "category": "relational"
+  },
+  {
+    "statement": "DROP EXTERNAL LANGUAGE",
+    "file": "drop/external-language.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-external-language-transact-sql?view=sql-server-ver17",
+    "notes": "Object dependency, component and ownership restrictions apply.",
+    "category": "relational"
+  },
+  {
+    "statement": "DROP EXTERNAL LIBRARY",
+    "file": "drop/external-library.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-external-library-transact-sql?view=sql-server-ver17",
+    "notes": "Object dependency, component and ownership restrictions apply.",
+    "category": "relational"
+  },
+  {
+    "statement": "DROP EXTERNAL MODEL",
+    "file": "drop/external-model.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-external-model-transact-sql?view=sql-server-ver17",
+    "notes": "Object dependency, component and ownership restrictions apply.",
+    "category": "relational"
+  },
+  {
+    "statement": "DROP EXTERNAL TABLE",
+    "file": "drop/external-table.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-external-table-transact-sql?view=sql-server-ver17",
+    "notes": "Object dependency, component and ownership restrictions apply.",
+    "category": "relational"
+  },
+  {
+    "statement": "DROP FULLTEXT CATALOG",
+    "file": "drop/fulltext-catalog.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-fulltext-catalog-transact-sql?view=sql-server-ver17",
+    "notes": "Syntax structured; identifier, value and engine-state constraints remain consumer responsibilities.",
+    "category": "relational"
+  },
+  {
+    "statement": "DROP FULLTEXT INDEX",
+    "file": "drop/fulltext-index.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-fulltext-index-transact-sql?view=sql-server-ver17",
+    "notes": "Syntax structured; identifier, value and engine-state constraints remain consumer responsibilities.",
+    "category": "relational"
+  },
+  {
+    "statement": "DROP FULLTEXT STOPLIST",
+    "file": "drop/fulltext-stoplist.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-fulltext-stoplist-transact-sql?view=sql-server-ver17",
+    "notes": "Syntax structured; identifier, value and engine-state constraints remain consumer responsibilities.",
+    "category": "relational"
+  },
+  {
+    "statement": "DROP PARTITION FUNCTION",
+    "file": "drop/partition-function.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-partition-function-transact-sql?view=sql-server-ver17",
+    "notes": "Syntax structured; identifier, value and engine-state constraints remain consumer responsibilities.",
+    "category": "relational"
+  },
+  {
+    "statement": "DROP PARTITION SCHEME",
+    "file": "drop/partition-scheme.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-partition-scheme-transact-sql?view=sql-server-ver17",
+    "notes": "Syntax structured; identifier, value and engine-state constraints remain consumer responsibilities.",
+    "category": "relational"
+  },
+  {
+    "statement": "DROP SEARCH PROPERTY LIST",
+    "file": "drop/search-property-list.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-search-property-list-transact-sql?view=sql-server-ver17",
+    "notes": "Syntax structured; identifier, value and engine-state constraints remain consumer responsibilities.",
+    "category": "relational"
+  },
+  {
+    "statement": "DROP STATISTICS",
+    "file": "drop/statistics.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-statistics-transact-sql?view=sql-server-ver17",
+    "notes": "Each target must be table.statistics or view.statistics; no IF EXISTS.",
+    "category": "relational"
+  },
+  {
+    "statement": "MERGE",
+    "file": "query/merge.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver17",
+    "notes": "Partial: merge_source/merge_hint/set_clause/query_hint expressions opaque. At most two MATCHED and two BY SOURCE branches; a pair must UPDATE/DELETE with first AND, one BY TARGET maximum, correct order and at least one WHEN required. Semicolon mandatory.",
+    "category": "relational"
+  },
+  {
+    "statement": "READTEXT",
+    "file": "query/readtext.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/queries/readtext-transact-sql?view=sql-server-ver17",
+    "notes": "Deprecated text/ntext/image pointer statement retained; typed binary pointer, nonnegative offset/size and data access semantics remain engine constraints.",
+    "category": "relational"
+  },
+  {
+    "statement": "UPDATE STATISTICS",
+    "file": "other/update-statistics.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/update-statistics-transact-sql?view=sql-server-ver17",
+    "notes": "Partial: STATS_STREAM/ROWCOUNT/PAGECOUNT unsupported internal-use options omitted; option conflicts need semantic validation.",
+    "category": "relational"
+  },
+  {
+    "statement": "UPDATETEXT",
+    "file": "query/updatetext.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/queries/updatetext-transact-sql?view=sql-server-ver17",
+    "notes": "Deprecated text/ntext/image pointer statement retained for engine inventory; pointer/data type, offsets, size and locking/logging semantics require validation. BULK is tool-oriented, not a permission recommendation.",
+    "category": "relational"
+  },
+  {
+    "statement": "WRITETEXT",
+    "file": "query/writetext.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/queries/writetext-transact-sql?view=sql-server-ver17",
+    "notes": "Deprecated text/ntext/image pointer statement retained for engine inventory; pointer/data type, offsets, size and locking/logging semantics require validation. BULK is tool-oriented, not a permission recommendation.",
+    "category": "relational"
+  },
+  {
+    "statement": "ADD SENSITIVITY CLASSIFICATION",
+    "file": "other/add-sensitivity-classification.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/add-sensitivity-classification-transact-sql?view=sql-server-ver17",
+    "notes": "Column names are table.column or schema.table.column; label/type identifiers are strings, not forced GUID types. Each option occurs at most once. Statement stores classification metadata, not data encryption.",
+    "category": "security"
+  },
+  {
+    "statement": "ADD SIGNATURE",
+    "file": "other/add-signature.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/add-signature-transact-sql?view=sql-server-ver17",
+    "notes": "Module/default OBJECT and ASSEMBLY class, signature/countersignature and externally computed signature blob. Module kinds/signing eligibility require validation; EKM asymmetric keys cannot sign modules.",
+    "category": "security"
+  },
+  {
+    "statement": "ALTER APPLICATION ROLE",
+    "file": "alter/application-role.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-application-role-transact-sql?view=sql-server-ver17",
+    "notes": "SQL Server 17.x syntax structured; name resolution, permissions, dependencies and engine state remain consumer checks.",
+    "category": "security"
+  },
+  {
+    "statement": "ALTER ASYMMETRIC KEY",
+    "file": "alter/asymmetric-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-asymmetric-key-transact-sql?view=sql-server-ver17",
+    "notes": "Each password option at most once; existing encryption/open-key requirements apply.",
+    "category": "security"
+  },
+  {
+    "statement": "ALTER AUTHORIZATION",
+    "file": "alter/authorization.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-authorization-transact-sql?view=sql-server-ver17",
+    "notes": "All class keywords in the SQL Server reference diagram. SCHEMA OWNER only applies to schema-contained entities; new-owner type, ownership-transfer effects and platform-specific classes remain semantic checks.",
+    "category": "security"
+  },
+  {
+    "statement": "ALTER CERTIFICATE",
+    "file": "alter/certificate.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-certificate-transact-sql?view=sql-server-ver17",
+    "notes": "Import/remove/re-encrypt private key and dialog activity. Each password option at most once; master-key/password protection requirements depend on current key state.",
+    "category": "security"
+  },
+  {
+    "statement": "ALTER COLUMN ENCRYPTION KEY",
+    "file": "alter/column-encryption-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-column-encryption-key-transact-sql?view=sql-server-ver17",
+    "notes": "ADD requires algorithm and encrypted blob; DROP permits neither. At most two encrypted values per key. Altering column-master-key metadata is not a separate T-SQL statement.",
+    "category": "security"
+  },
+  {
+    "statement": "ALTER COLUMN MASTER KEY",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-column-master-key-transact-sql?view=sql-server-ver17",
+    "notes": "No standalone ALTER COLUMN MASTER KEY statement; replace metadata using CREATE/DROP and rotate column encryption key values with ALTER COLUMN ENCRYPTION KEY.",
+    "category": "security"
+  },
+  {
+    "statement": "ALTER CREDENTIAL",
+    "file": "alter/credential.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-credential-transact-sql?view=sql-server-ver17",
+    "notes": "Identity/secret values are provider-specific literals; Azure-hosted credential identity modes must not be assumed applicable to standalone SQL Server. Omitting SECRET resets the stored secret to NULL.",
+    "category": "security"
+  },
+  {
+    "statement": "ALTER CRYPTOGRAPHIC PROVIDER",
+    "file": "alter/cryptographic-provider.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-cryptographic-provider-transact-sql?view=sql-server-ver17",
+    "notes": "Library replacement follows documented standalone FROM FILE example despite the abbreviated syntax diagram. DLL GUID/signature/provider API and active-session restrictions apply. Generic third-party EKM is not supported on Linux; Azure Key Vault EKM is the documented Linux exception.",
+    "category": "security"
+  },
+  {
+    "statement": "ALTER DATABASE AUDIT SPECIFICATION",
+    "file": "alter/database-audit-specification.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-database-audit-specification-transact-sql?view=sql-server-ver17",
+    "notes": "Audit binding/action list/state changes. Action-group catalog remains opaque; disable specification for non-state changes. Database action/class/principal compatibility checked externally.",
+    "category": "security"
+  },
+  {
+    "statement": "ALTER DATABASE ENCRYPTION KEY",
+    "file": "alter/database-encryption-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-database-encryption-key-transact-sql?view=sql-server-ver17",
+    "notes": "TDE rekey and encryptor changes; existing encryption state and required log backups are engine checks. Legacy TRIPLE_DES_3KEY excluded at compatibility 170.",
+    "category": "security"
+  },
+  {
+    "statement": "ALTER DATABASE SCOPED CREDENTIAL",
+    "file": "alter/database-scoped-credential.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-database-scoped-credential-transact-sql?view=sql-server-ver17",
+    "notes": "Identity/secret values are provider-specific literals; Azure-hosted credential identity modes must not be assumed applicable to standalone SQL Server. Omitting SECRET resets the stored secret to NULL. MicrosoftDocs live source applies-to includes SQL Server but its monikerRange currently omits SQL Server; syntax corroborated by SQL Server credential documentation. Source: https://github.com/MicrosoftDocs/sql-docs/blob/live/docs/t-sql/statements/alter-database-scoped-credential-transact-sql.md",
+    "category": "security"
+  },
+  {
+    "statement": "ALTER LOGIN",
+    "file": "alter/login.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-login-transact-sql?view=sql-server-ver17",
+    "notes": "Status, SQL/password/default/rename options and EKM credential mappings. Password option repetition permits the distinct MUST_CHANGE and UNLOCK flags only. Reject incompatible HASHED, OLD_PASSWORD and password-policy combinations; Windows groups cannot be disabled through this statement.",
+    "category": "security"
+  },
+  {
+    "statement": "ALTER MASTER KEY",
+    "file": "alter/master-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-master-key-transact-sql?view=sql-server-ver17",
+    "notes": "FORCE can make dependent data inaccessible; service-master-key protection is supported by standalone SQL Server.",
+    "category": "security"
+  },
+  {
+    "statement": "ALTER ROLE",
+    "file": "alter/role.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-role-transact-sql?view=sql-server-ver17",
+    "notes": "Membership and rename variants; principal scope and fixed-role restrictions must be checked. Renaming is for user-defined roles.",
+    "category": "security"
+  },
+  {
+    "statement": "ALTER SECURITY POLICY",
+    "file": "alter/security-policy.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-security-policy-transact-sql?view=sql-server-ver17",
+    "notes": "ADD/ALTER/DROP predicate lists, state and replication clauses. Predicate arguments are opaque constrained expressions; operation-specific DROP BLOCK variants not documented by the reference diagram are not claimed. SCHEMABINDING cannot be changed through ALTER.",
+    "category": "security"
+  },
+  {
+    "statement": "ALTER SERVER AUDIT",
+    "file": "alter/server-audit.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-server-audit-transact-sql?view=sql-server-ver17",
+    "notes": "Structured target/options/state/filter removal/rename; predicate expression is opaque restricted audit grammar. Reject conflicting MAX_FILES/MAX_ROLLOVER_FILES. Disable audit before most changes. Windows event log targets unavailable on Linux; Azure URL target excluded.",
+    "category": "security"
+  },
+  {
+    "statement": "ALTER SERVER AUDIT SPECIFICATION",
+    "file": "alter/server-audit-specification.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-server-audit-specification-transact-sql?view=sql-server-ver17",
+    "notes": "Audit binding/action list/state changes. Action-group catalog remains opaque; disable specification for non-state changes. Database action/class/principal compatibility checked externally.",
+    "category": "security"
+  },
+  {
+    "statement": "ALTER SERVER ROLE",
+    "file": "alter/server-role.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-server-role-transact-sql?view=sql-server-ver17",
+    "notes": "Membership and rename variants; principal scope and fixed-role restrictions must be checked. Renaming is for user-defined roles.",
+    "category": "security"
+  },
+  {
+    "statement": "ALTER SERVICE MASTER KEY",
+    "file": "alter/service-master-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-service-master-key-transact-sql?view=sql-server-ver17",
+    "notes": "Regenerate plus legacy account-recovery forms. Account credentials/recovery are platform-specific; FORCE may irreversibly lose access to dependent secrets. No invented CREATE/DROP SERVICE MASTER KEY statement.",
+    "category": "security"
+  },
+  {
+    "statement": "ALTER SYMMETRIC KEY",
+    "file": "alter/symmetric-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-symmetric-key-transact-sql?view=sql-server-ver17",
+    "notes": "Key must be open; do not remove the last encryption protection. OAEP-256 padding at compatibility 170 is engine behavior, not a new syntax branch.",
+    "category": "security"
+  },
+  {
+    "statement": "ALTER USER",
+    "file": "alter/user.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-user-transact-sql?view=sql-server-ver17",
+    "notes": "Password/default-language changes require contained users. DEFAULT_SCHEMA=NULL has Windows-group restrictions. Login remapping cannot change principal type or remap users without login/certificate/key mappings.",
+    "category": "security"
+  },
+  {
+    "statement": "BACKUP CERTIFICATE",
+    "file": "other/backup-certificate.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/backup-certificate-transact-sql?view=sql-server-ver17",
+    "notes": "Public certificate / separate private-key file plus PFX export example. General PFX algorithm/password variations beyond official example not modeled. A certificate is restored with CREATE CERTIFICATE, not RESTORE CERTIFICATE.",
+    "category": "security"
+  },
+  {
+    "statement": "BACKUP MASTER KEY",
+    "file": "other/backup-master-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/backup-master-key-transact-sql?view=sql-server-ver17",
+    "notes": "FILE paths resolved by SQL Server service; backup key must be decryptable. Azure Blob URL is a GA SQL Server 2022+ feature, not Azure SQL-only syntax; requires matching credential/storage access.",
+    "category": "security"
+  },
+  {
+    "statement": "BACKUP SERVICE MASTER KEY",
+    "file": "other/backup-service-master-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/backup-service-master-key-transact-sql?view=sql-server-ver17",
+    "notes": "FILE paths resolved by SQL Server service; backup key must be decryptable. Service master key export has FILE destination only.",
+    "category": "security"
+  },
+  {
+    "statement": "BACKUP SYMMETRIC KEY",
+    "file": "other/backup-symmetric-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/backup-symmetric-key-transact-sql?view=sql-server-ver17",
+    "notes": "FILE paths resolved by SQL Server service; backup key must be decryptable. Azure Blob URL is a GA SQL Server 2022+ feature, not Azure SQL-only syntax; requires matching credential/storage access.",
+    "category": "security"
+  },
+  {
+    "statement": "CLOSE MASTER KEY",
+    "file": "other/close-master-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/close-master-key-transact-sql?view=sql-server-ver17",
+    "notes": "SQL Server 17.x syntax structured; name resolution, permissions, dependencies and engine state remain consumer checks.",
+    "category": "security"
+  },
+  {
+    "statement": "CLOSE SYMMETRIC KEY",
+    "file": "other/close-symmetric-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/close-symmetric-key-transact-sql?view=sql-server-ver17",
+    "notes": "Closing ALL also closes any database master key opened in the session.",
+    "category": "security"
+  },
+  {
+    "statement": "CREATE APPLICATION ROLE",
+    "file": "create/application-role.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-application-role-transact-sql?view=sql-server-ver17",
+    "notes": "SQL Server 17.x syntax structured; name resolution, permissions, dependencies and engine state remain consumer checks.",
+    "category": "security"
+  },
+  {
+    "statement": "CREATE ASYMMETRIC KEY",
+    "file": "create/asymmetric-key.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-asymmetric-key-transact-sql?view=sql-server-ver17",
+    "notes": "Generated/imported/EKM branches; provider must be registered and supported on platform/edition. RSA_512/RSA_1024 excluded at compatibility 170. RSA-HSM_2048/RSA-HSM_3072 provider-specific algorithms mentioned in prose are not yet modeled. FILE/EXECUTABLE imports not allowed in contained databases. Provider-key options follow official example list.",
+    "category": "security"
+  },
+  {
+    "statement": "CREATE CERTIFICATE",
+    "file": "create/certificate.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-certificate-transact-sql?view=sql-server-ver17",
+    "notes": "Generated, assembly, DER/executable file, binary and documented PFX-file import example. Arbitrary PFX variants beyond the documented example are not claimed. Subject length differs: Linux 64, Windows 128 characters. Files are read by SQL Server service account. PFX has a distinct same-file private-key form.",
+    "category": "security"
+  },
+  {
+    "statement": "CREATE COLUMN ENCRYPTION KEY",
+    "file": "create/column-encryption-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-column-encryption-key-transact-sql?view=sql-server-ver17",
+    "notes": "Exactly one or two encrypted values; distinct associated master keys and encrypted values validated by client/engine. System key-store providers require RSA_OAEP; custom providers own their algorithm identifiers.",
+    "category": "security"
+  },
+  {
+    "statement": "CREATE COLUMN MASTER KEY",
+    "file": "create/column-master-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-column-master-key-transact-sql?view=sql-server-ver17",
+    "notes": "Always Encrypted metadata only; key material is external. Enclave signature generated by trusted client tooling. Secure enclaves are unsupported on SQL Server 2025 Linux, while ordinary Always Encrypted is supported.",
+    "category": "security"
+  },
+  {
+    "statement": "CREATE CREDENTIAL",
+    "file": "create/credential.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-ver17",
+    "notes": "Identity/secret values are provider-specific literals; Azure-hosted credential identity modes must not be assumed applicable to standalone SQL Server.",
+    "category": "security"
+  },
+  {
+    "statement": "CREATE CRYPTOGRAPHIC PROVIDER",
+    "file": "create/cryptographic-provider.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-cryptographic-provider-transact-sql?view=sql-server-ver17",
+    "notes": "Registered EKM library requires supported edition/platform and EKM provider enabled. Generic third-party EKM is not supported on Linux; Azure Key Vault EKM is the documented Linux exception.",
+    "category": "security"
+  },
+  {
+    "statement": "CREATE DATABASE AUDIT SPECIFICATION",
+    "file": "create/database-audit-specification.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-database-audit-specification-transact-sql?view=sql-server-ver17",
+    "notes": "Action groups are opaque version/platform-scoped catalog keywords, not arbitrary clauses. Database action-to-class and principal legality checked externally; audit state/configuration prerequisites apply.",
+    "category": "security"
+  },
+  {
+    "statement": "CREATE DATABASE ENCRYPTION KEY",
+    "file": "create/database-encryption-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-database-encryption-key-transact-sql?view=sql-server-ver17",
+    "notes": "TDE key; enabling database encryption is ALTER DATABASE, not this statement. Encryptor must be in master; asymmetric encryptor must be EKM-backed. TRIPLE_DES_3KEY excluded at compatibility 170. TDE edition/platform support applies.",
+    "category": "security"
+  },
+  {
+    "statement": "CREATE DATABASE SCOPED CREDENTIAL",
+    "file": "create/database-scoped-credential.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=sql-server-ver17",
+    "notes": "Identity/secret values are provider-specific literals; Azure-hosted credential identity modes must not be assumed applicable to standalone SQL Server.",
+    "category": "security"
+  },
+  {
+    "statement": "CREATE LOGIN",
+    "file": "create/login.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-login-transact-sql?view=sql-server-ver17",
+    "notes": "All SQL Server login kinds; EXTERNAL PROVIDER requires Arc-enabled Entra authentication, not Azure SQL-only syntax. OBJECT_ID is documented for SQL Server 17.x. Windows authentication and password-policy behavior are platform/configuration dependent. MUST_CHANGE requires CHECK_POLICY and CHECK_EXPIRATION ON; sid_value is the SQL Server 16-byte SID.",
+    "category": "security"
+  },
+  {
+    "statement": "CREATE MASTER KEY",
+    "file": "create/master-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-master-key-transact-sql?view=sql-server-ver17",
+    "notes": "Standalone SQL Server requires password protection; shared-page Azure optional-password form is excluded.",
+    "category": "security"
+  },
+  {
+    "statement": "CREATE ROLE",
+    "file": "create/role.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-role-transact-sql?view=sql-server-ver17",
+    "notes": "SQL Server 17.x syntax structured; name resolution, permissions, dependencies and engine state remain consumer checks.",
+    "category": "security"
+  },
+  {
+    "statement": "CREATE SECURITY POLICY",
+    "file": "create/security-policy.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-security-policy-transact-sql?view=sql-server-ver17",
+    "notes": "FILTER/BLOCK and operation distinctions structured. Predicate arguments remain context-restricted expressions; functions must be eligible inline TVFs. Names normally schema-qualified; overlapping predicate operations and memory-optimized/native compilation restrictions require semantic checks.",
+    "category": "security"
+  },
+  {
+    "statement": "CREATE SERVER AUDIT",
+    "file": "create/server-audit.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-server-audit-transact-sql?view=sql-server-ver17",
+    "notes": "File and Windows log targets with options; audit predicates remain restricted opaque expressions. URL/EXTERNAL_MONITOR, OPERATOR_AUDIT and RETENTION_DAYS are Azure-specific, excluded. Windows log targets require Windows and SECURITY_LOG OS setup; Linux uses file target.",
+    "category": "security"
+  },
+  {
+    "statement": "CREATE SERVER AUDIT SPECIFICATION",
+    "file": "create/server-audit-specification.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-server-audit-specification-transact-sql?view=sql-server-ver17",
+    "notes": "Action groups are opaque version/platform-scoped catalog keywords, not arbitrary clauses. Database action-to-class and principal legality checked externally; audit state/configuration prerequisites apply.",
+    "category": "security"
+  },
+  {
+    "statement": "CREATE SERVER ROLE",
+    "file": "create/server-role.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-server-role-transact-sql?view=sql-server-ver17",
+    "notes": "SQL Server 17.x syntax structured; name resolution, permissions, dependencies and engine state remain consumer checks.",
+    "category": "security"
+  },
+  {
+    "statement": "CREATE SYMMETRIC KEY",
+    "file": "create/symmetric-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-symmetric-key-transact-sql?view=sql-server-ver17",
+    "notes": "Database key requires one ALGORITHM and at least one encryptor. Temporary #name keys are permitted only without provider. Non-AES algorithms excluded at compatibility 170. Provider-key name/disposition and supported algorithms are provider dependent; EKM not in contained databases. KEY_SOURCE and IDENTITY_VALUE are sensitive key-derivation inputs.",
+    "category": "security"
+  },
+  {
+    "statement": "CREATE USER",
+    "file": "create/user.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-user-transact-sql?view=sql-server-ver17",
+    "notes": "Contained SQL/Windows, login-mapped, nonauthenticating and Arc-enabled Entra users. Containment/authentication/type constraints remain semantic. SID applies to SQL-authenticated contained users, not arbitrary Windows principals. Fabric TYPE = X/E and federation-only syntax excluded. ALLOW_ENCRYPTED_VALUE_MODIFICATIONS bypasses cryptographic metadata checks and can corrupt data.",
+    "category": "security"
+  },
+  {
+    "statement": "CREATE/DROP SERVICE MASTER KEY",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-service-master-key-transact-sql?view=sql-server-ver17",
+    "notes": "Service master key is instance-managed; SQL statements are ALTER/BACKUP/RESTORE, not CREATE/DROP.",
+    "category": "security"
+  },
+  {
+    "statement": "DENY",
+    "file": "other/deny.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/deny-transact-sql?view=sql-server-ver17",
+    "notes": "Server/database, object/column, named securable and system-object scopes structured, including EXTERNAL LANGUAGE and SQL Server 17.x EXTERNAL MODEL. permission_name is a bounded SQL Server 17.x permission keyword phrase; full per-class permission catalogs are not enumerated. Scope/principal/grantor compatibility remains semantic. ALL is a deprecated fixed subset, not every permission. EXTERNAL LANGUAGE example uses EXECUTE EXTERNAL SCRIPT; EXTERNAL MODEL uses EXECUTE. Additional official sources: https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-language-transact-sql?view=sql-server-ver17 ; https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-model-transact-sql?view=sql-server-ver17",
+    "category": "security"
+  },
+  {
+    "statement": "DROP APPLICATION ROLE",
+    "file": "drop/application-role.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-application-role-transact-sql?view=sql-server-ver17",
+    "notes": "Single-object DROP; no unsupported IF EXISTS or object-list extension. Dependencies and ownership checked by engine.",
+    "category": "security"
+  },
+  {
+    "statement": "DROP ASYMMETRIC KEY",
+    "file": "drop/asymmetric-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-asymmetric-key-transact-sql?view=sql-server-ver17",
+    "notes": "Single-object DROP; no unsupported IF EXISTS or object-list extension. Dependencies and ownership checked by engine. REMOVE PROVIDER KEY also deletes the external provider key; EKM platform restrictions apply.",
+    "category": "security"
+  },
+  {
+    "statement": "DROP CERTIFICATE",
+    "file": "drop/certificate.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-certificate-transact-sql?view=sql-server-ver17",
+    "notes": "Single-object DROP; no unsupported IF EXISTS or object-list extension. Dependencies and ownership checked by engine.",
+    "category": "security"
+  },
+  {
+    "statement": "DROP COLUMN ENCRYPTION KEY",
+    "file": "drop/column-encryption-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-column-encryption-key-transact-sql?view=sql-server-ver17",
+    "notes": "Single-object DROP; no unsupported IF EXISTS or object-list extension. Dependencies and ownership checked by engine.",
+    "category": "security"
+  },
+  {
+    "statement": "DROP COLUMN MASTER KEY",
+    "file": "drop/column-master-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-column-master-key-transact-sql?view=sql-server-ver17",
+    "notes": "Single-object DROP; no unsupported IF EXISTS or object-list extension. Dependencies and ownership checked by engine.",
+    "category": "security"
+  },
+  {
+    "statement": "DROP CREDENTIAL",
+    "file": "drop/credential.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-credential-transact-sql?view=sql-server-ver17",
+    "notes": "Single-object DROP; no unsupported IF EXISTS or object-list extension. Dependencies and ownership checked by engine.",
+    "category": "security"
+  },
+  {
+    "statement": "DROP CRYPTOGRAPHIC PROVIDER",
+    "file": "drop/cryptographic-provider.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-cryptographic-provider-transact-sql?view=sql-server-ver17",
+    "notes": "Single-object DROP; no unsupported IF EXISTS or object-list extension. Dependencies and ownership checked by engine.",
+    "category": "security"
+  },
+  {
+    "statement": "DROP DATABASE AUDIT SPECIFICATION",
+    "file": "drop/database-audit-specification.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-database-audit-specification-transact-sql?view=sql-server-ver17",
+    "notes": "Single-object DROP; no unsupported IF EXISTS or object-list extension. Dependencies and ownership checked by engine. Audit/specification must be disabled first; dropping audit metadata does not delete audit files.",
+    "category": "security"
+  },
+  {
+    "statement": "DROP DATABASE ENCRYPTION KEY",
+    "file": "drop/database-encryption-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-database-encryption-key-transact-sql?view=sql-server-ver17",
+    "notes": "Single-object DROP; no unsupported IF EXISTS or object-list extension. Dependencies and ownership checked by engine. Wait for ALTER DATABASE decryption to finish first.",
+    "category": "security"
+  },
+  {
+    "statement": "DROP DATABASE SCOPED CREDENTIAL",
+    "file": "drop/database-scoped-credential.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-database-scoped-credential-transact-sql?view=sql-server-ver17",
+    "notes": "Single-object DROP; no unsupported IF EXISTS or object-list extension. Dependencies and ownership checked by engine.",
+    "category": "security"
+  },
+  {
+    "statement": "DROP LOGIN",
+    "file": "drop/login.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-login-transact-sql?view=sql-server-ver17",
+    "notes": "Single-object DROP; no unsupported IF EXISTS or object-list extension. Dependencies and ownership checked by engine.",
+    "category": "security"
+  },
+  {
+    "statement": "DROP MASTER KEY",
+    "file": "drop/master-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-master-key-transact-sql?view=sql-server-ver17",
+    "notes": "Single-object DROP; no unsupported IF EXISTS or object-list extension. Dependencies and ownership checked by engine.",
+    "category": "security"
+  },
+  {
+    "statement": "DROP ROLE",
+    "file": "drop/role.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-role-transact-sql?view=sql-server-ver17",
+    "notes": "Single-object DROP; no unsupported IF EXISTS or object-list extension. Dependencies and ownership checked by engine.",
+    "category": "security"
+  },
+  {
+    "statement": "DROP SECURITY POLICY",
+    "file": "drop/security-policy.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-security-policy-transact-sql?view=sql-server-ver17",
+    "notes": "Single-object DROP; no unsupported IF EXISTS or object-list extension. Dependencies and ownership checked by engine.",
+    "category": "security"
+  },
+  {
+    "statement": "DROP SENSITIVITY CLASSIFICATION",
+    "file": "other/drop-sensitivity-classification.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-sensitivity-classification-transact-sql?view=sql-server-ver17",
+    "notes": "Column names are table.column or schema.table.column; removes classification metadata only.",
+    "category": "security"
+  },
+  {
+    "statement": "DROP SERVER AUDIT",
+    "file": "drop/server-audit.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-server-audit-transact-sql?view=sql-server-ver17",
+    "notes": "Single-object DROP; no unsupported IF EXISTS or object-list extension. Dependencies and ownership checked by engine. Audit/specification must be disabled first; dropping audit metadata does not delete audit files.",
+    "category": "security"
+  },
+  {
+    "statement": "DROP SERVER AUDIT SPECIFICATION",
+    "file": "drop/server-audit-specification.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-server-audit-specification-transact-sql?view=sql-server-ver17",
+    "notes": "Single-object DROP; no unsupported IF EXISTS or object-list extension. Dependencies and ownership checked by engine. Audit/specification must be disabled first; dropping audit metadata does not delete audit files.",
+    "category": "security"
+  },
+  {
+    "statement": "DROP SERVER ROLE",
+    "file": "drop/server-role.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-server-role-transact-sql?view=sql-server-ver17",
+    "notes": "Single-object DROP; no unsupported IF EXISTS or object-list extension. Dependencies and ownership checked by engine.",
+    "category": "security"
+  },
+  {
+    "statement": "DROP SIGNATURE",
+    "file": "other/drop-signature.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-signature-transact-sql?view=sql-server-ver17",
+    "notes": "Drops module signature/countersignature by certificate or asymmetric key; does not drop the key or certificate.",
+    "category": "security"
+  },
+  {
+    "statement": "DROP SYMMETRIC KEY",
+    "file": "drop/symmetric-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-symmetric-key-transact-sql?view=sql-server-ver17",
+    "notes": "Single-object DROP; no unsupported IF EXISTS or object-list extension. Dependencies and ownership checked by engine. REMOVE PROVIDER KEY also deletes the external provider key; EKM platform restrictions apply.",
+    "category": "security"
+  },
+  {
+    "statement": "DROP USER",
+    "file": "drop/user.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-user-transact-sql?view=sql-server-ver17",
+    "notes": "Single-object DROP; no unsupported IF EXISTS or object-list extension. Dependencies and ownership checked by engine.",
+    "category": "security"
+  },
+  {
+    "statement": "EXECUTE AS",
+    "file": "other/execute-as.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/execute-as-transact-sql?view=sql-server-ver17",
+    "notes": "Standalone context switch; module EXECUTE AS clauses are separate. LOGIN/USER scope and CALLER legality depend on execution context; cookie_variable is an @-prefixed varbinary variable. NO REVERT persists until session termination.",
+    "category": "security"
+  },
+  {
+    "statement": "GRANT",
+    "file": "other/grant.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/grant-transact-sql?view=sql-server-ver17",
+    "notes": "Server/database, object/column, named securable and system-object scopes structured, including EXTERNAL LANGUAGE and SQL Server 17.x EXTERNAL MODEL. permission_name is a bounded SQL Server 17.x permission keyword phrase; full per-class permission catalogs are not enumerated. Scope/principal/grantor compatibility remains semantic. ALL is a deprecated fixed subset, not every permission. EXTERNAL LANGUAGE example uses EXECUTE EXTERNAL SCRIPT; EXTERNAL MODEL uses EXECUTE. Additional official sources: https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-language-transact-sql?view=sql-server-ver17 ; https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-model-transact-sql?view=sql-server-ver17",
+    "category": "security"
+  },
+  {
+    "statement": "Legacy key-creation algorithms at compatibility 170",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-symmetric-key-transact-sql?view=sql-server-ver17",
+    "notes": "DES/TRIPLE_DES/TRIPLE_DES_3KEY/RC2/RC4/RC4_128/DESX and RSA_512/RSA_1024 creation requires older compatibility levels; excluded from 170 generation, not described as removed from the engine.",
+    "category": "security"
+  },
+  {
+    "statement": "OPEN MASTER KEY",
+    "file": "other/open-master-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/open-master-key-transact-sql?view=sql-server-ver17",
+    "notes": "SQL Server 17.x syntax structured; name resolution, permissions, dependencies and engine state remain consumer checks.",
+    "category": "security"
+  },
+  {
+    "statement": "OPEN SYMMETRIC KEY",
+    "file": "other/open-symmetric-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/open-symmetric-key-transact-sql?view=sql-server-ver17",
+    "notes": "Decryptor must be available and authorized; open keys are session-bound, not execution-context-bound. EKM keys cannot be explicitly opened this way.",
+    "category": "security"
+  },
+  {
+    "statement": "OPEN/CLOSE CERTIFICATE or ASYMMETRIC KEY",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/open-symmetric-key-transact-sql?view=sql-server-ver17",
+    "notes": "OPEN/CLOSE key statements cover symmetric and database master keys, not a standalone asymmetric-key or certificate form.",
+    "category": "security"
+  },
+  {
+    "statement": "RESTORE CERTIFICATE / BACKUP ASYMMETRIC KEY / RESTORE ASYMMETRIC KEY",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-certificate-transact-sql?view=sql-server-ver17",
+    "notes": "No standalone statements with these spellings; certificate import uses CREATE CERTIFICATE. Asymmetric key import uses CREATE ASYMMETRIC KEY.",
+    "category": "security"
+  },
+  {
+    "statement": "RESTORE MASTER KEY",
+    "file": "other/restore-master-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/restore-master-key-transact-sql?view=sql-server-ver17",
+    "notes": "Key import requires matching password and dependent-key validation. FORCE can lose dependent encrypted data. Azure Blob URL supported by standalone SQL Server 2022+ with credential/storage prerequisites.",
+    "category": "security"
+  },
+  {
+    "statement": "RESTORE SERVICE MASTER KEY",
+    "file": "other/restore-service-master-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/restore-service-master-key-transact-sql?view=sql-server-ver17",
+    "notes": "Key import requires matching password and dependent-key validation. FORCE can lose dependent encrypted data. Service master key restore supports FILE only.",
+    "category": "security"
+  },
+  {
+    "statement": "RESTORE SYMMETRIC KEY",
+    "file": "other/restore-symmetric-key.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/restore-symmetric-key-transact-sql?view=sql-server-ver17",
+    "notes": "Key import requires matching password and dependent-key validation. Azure Blob URL supported by standalone SQL Server 2022+ with credential/storage prerequisites.",
+    "category": "security"
+  },
+  {
+    "statement": "REVERT",
+    "file": "other/revert.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/revert-transact-sql?view=sql-server-ver17",
+    "notes": "cookie_variable is an @-prefixed varbinary variable holding the EXECUTE AS cookie; cannot revert a NO REVERT context.",
+    "category": "security"
+  },
+  {
+    "statement": "REVOKE",
+    "file": "other/revoke.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/revoke-transact-sql?view=sql-server-ver17",
+    "notes": "Server/database, object/column, named securable and system-object scopes structured, including EXTERNAL LANGUAGE and SQL Server 17.x EXTERNAL MODEL. permission_name is a bounded SQL Server 17.x permission keyword phrase; full per-class permission catalogs are not enumerated. Scope/principal/grantor compatibility remains semantic. ALL is a deprecated fixed subset, not every permission. EXTERNAL LANGUAGE example uses EXECUTE EXTERNAL SCRIPT; EXTERNAL MODEL uses EXECUTE. Additional official sources: https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-language-transact-sql?view=sql-server-ver17 ; https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-model-transact-sql?view=sql-server-ver17",
+    "category": "security"
+  },
+  {
+    "statement": "SERVER AUDIT Azure-only targets/options",
+    "file": null,
+    "status": "not-applicable",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-server-audit-transact-sql?view=sql-server-ver17",
+    "notes": "URL and EXTERNAL_MONITOR audit targets, OPERATOR_AUDIT and RETENTION_DAYS are not standalone SQL Server syntax in this scope; do not confuse with supported BACKUP MASTER/SYMMETRIC KEY URL.",
+    "category": "security"
+  }
+]

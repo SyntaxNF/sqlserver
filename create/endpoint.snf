@@ -1,0 +1,35 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-endpoint-transact-sql?view=sql-server-ver17
+
+CREATE ENDPOINT name [ AUTHORIZATION login ]
+    [ STATE = { STARTED | STOPPED | DISABLED } ]
+    tcp_definition
+    payload_definition
+
+# WHERE tcp_definition
+AS TCP ( LISTENER_PORT = port [ , LISTENER_IP = { ALL | ( ipv4_address ) | ( 'ipv6_address' ) } ] )
+
+# PARTOFIS payload_definition
+FOR TSQL ( [ ENCRYPTION = { NEGOTIATED | STRICT } ] )
+
+FOR SERVICE_BROKER ( [ broker_endpoint_option [, ...] ] )
+
+FOR DATABASE_MIRRORING ( [ mirroring_endpoint_option [, ...] , ] ROLE = { WITNESS | PARTNER | ALL } )
+
+# ONEOFIS broker_endpoint_option
+AUTHENTICATION = authentication_definition
+ENCRYPTION = encryption_definition
+MESSAGE_FORWARDING = { ENABLED | DISABLED }
+MESSAGE_FORWARD_SIZE = megabytes
+
+# ONEOFIS mirroring_endpoint_option
+AUTHENTICATION = authentication_definition
+ENCRYPTION = encryption_definition
+
+# ONEOFIS authentication_definition
+WINDOWS [ NTLM | KERBEROS | NEGOTIATE ]
+CERTIFICATE certificate
+WINDOWS [ NTLM | KERBEROS | NEGOTIATE ] CERTIFICATE certificate
+CERTIFICATE certificate WINDOWS [ NTLM | KERBEROS | NEGOTIATE ]
+
+# WHERE encryption_definition
+{ DISABLED | { SUPPORTED | REQUIRED } [ ALGORITHM { AES | RC4 | AES RC4 | RC4 AES } ] }

@@ -1,0 +1,4 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-column-master-key-transact-sql?view=sql-server-ver17
+
+# CASE COLUMN_MASTER_KEY
+DROP COLUMN MASTER KEY name

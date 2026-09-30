@@ -1,0 +1,26 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-security-policy-transact-sql?view=sql-server-ver17
+
+# CASE PREDICATES
+ALTER SECURITY POLICY name
+    security_predicate_action [, ...]
+    [ WITH ( STATE = { ON | OFF } ) ]
+    [ NOT FOR REPLICATION ]
+
+# CASE STATE
+ALTER SECURITY POLICY name WITH ( STATE = { ON | OFF } ) [ NOT FOR REPLICATION ]
+
+# CASE REPLICATION
+ALTER SECURITY POLICY name NOT FOR REPLICATION
+
+# PARTOFIS security_predicate_action
+{ ADD | ALTER } FILTER PREDICATE predicate_function_name ( predicate_argument_expression [, ...] ) ON table_name
+
+{ ADD | ALTER } BLOCK PREDICATE predicate_function_name ( predicate_argument_expression [, ...] ) ON table_name
+    [ block_operation ]
+
+DROP { FILTER | BLOCK } PREDICATE ON table_name
+
+
+# ONEOFIS block_operation
+AFTER { INSERT | UPDATE }
+BEFORE { UPDATE | DELETE }

@@ -1,0 +1,13 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql?view=sql-server-ver17
+
+BEGIN DIALOG [ CONVERSATION ] dialog_variable
+    FROM SERVICE initiator_service
+    TO SERVICE 'target_service' [ , { 'broker_instance' | 'CURRENT DATABASE' } ]
+    [ ON CONTRACT contract ]
+    [ WITH dialog_option [, ...] ]
+
+# ONEOFIS dialog_option
+RELATED_CONVERSATION = conversation_handle
+RELATED_CONVERSATION_GROUP = conversation_group_id
+LIFETIME = lifetime
+ENCRYPTION = { ON | OFF }

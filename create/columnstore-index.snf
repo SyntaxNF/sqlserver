@@ -1,0 +1,27 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-columnstore-index-transact-sql?view=sql-server-ver17
+
+# CASE CLUSTERED
+CREATE CLUSTERED COLUMNSTORE INDEX name ON table
+    [ ORDER ( colname [, ...] ) ]
+    [ WITH ( columnstore_option [, ...] ) ]
+    [ ON storage_clause ]
+
+# CASE NONCLUSTERED
+CREATE [ NONCLUSTERED ] COLUMNSTORE INDEX name ON table ( colname [, ...] )
+    [ ORDER ( colname [, ...] ) ]
+    [ WHERE filter_expression ]
+    [ WITH ( columnstore_option [, ...] ) ]
+    [ ON storage_clause ]
+
+# ONEOFIS columnstore_option
+DROP_EXISTING = { ON | OFF }
+MAXDOP = maxdop_value
+ONLINE = { ON | OFF }
+COMPRESSION_DELAY = delay_value [ MINUTES ]
+DATA_COMPRESSION = { COLUMNSTORE | COLUMNSTORE_ARCHIVE } [ ON PARTITIONS ( partition_range [, ...] ) ]
+
+# WHERE partition_range
+partition_number [ TO partition_number ]
+
+# WHERE storage_clause
+{ partition_scheme ( colname ) | filegroup | "default" }

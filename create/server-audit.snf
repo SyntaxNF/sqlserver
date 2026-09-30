@@ -1,0 +1,22 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-server-audit-transact-sql?view=sql-server-ver17
+
+# CASE FILE_TARGET
+CREATE SERVER AUDIT name TO FILE (
+    FILEPATH = 'file_path'
+    [ , MAXSIZE = { size_value { MB | GB | TB } | UNLIMITED } ]
+    [ , { MAX_ROLLOVER_FILES = { file_count | UNLIMITED } | MAX_FILES = file_count } ]
+    [ , RESERVE_DISK_SPACE = { ON | OFF } ]
+)
+    [ WITH ( server_audit_option [, ...] ) ]
+    [ WHERE audit_predicate_expression ]
+
+# CASE WINDOWS_LOG_TARGET
+CREATE SERVER AUDIT name TO { APPLICATION_LOG | SECURITY_LOG }
+    [ WITH ( server_audit_option [, ...] ) ]
+    [ WHERE audit_predicate_expression ]
+
+
+# ONEOFIS server_audit_option
+QUEUE_DELAY = queue_delay_value
+ON_FAILURE = { CONTINUE | SHUTDOWN | FAIL_OPERATION }
+AUDIT_GUID = 'audit_guid'

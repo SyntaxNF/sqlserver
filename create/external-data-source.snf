@@ -1,0 +1,10 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver17
+
+# CASE EXTERNAL_DATA_SOURCE
+CREATE EXTERNAL DATA SOURCE name WITH ( external_source_option [, ...] )
+
+# ONEOFIS external_source_option
+LOCATION = 'location'
+CONNECTION_OPTIONS = 'connection_options'
+CREDENTIAL = credential
+PUSHDOWN = { ON | OFF }

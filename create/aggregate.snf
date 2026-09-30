@@ -1,0 +1,9 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-aggregate-transact-sql?view=sql-server-ver17
+
+# CASE AGGREGATE
+CREATE AGGREGATE name ( parameter_definition [, ...] )
+    RETURNS data_type
+    EXTERNAL NAME assembly [ . class_name ]
+
+# WHERE parameter_definition
+parameter data_type

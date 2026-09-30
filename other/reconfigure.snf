@@ -1,0 +1,3 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/language-elements/reconfigure-transact-sql?view=sql-server-ver17
+
+RECONFIGURE [ WITH OVERRIDE ]
