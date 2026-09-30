@@ -1,0 +1,4 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-server-role-transact-sql?view=sql-server-ver17
+
+# CASE SERVER_ROLE
+DROP SERVER ROLE name

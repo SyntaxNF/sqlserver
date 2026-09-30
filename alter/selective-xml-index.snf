@@ -1,0 +1,29 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-index-selective-xml-indexes?view=sql-server-ver17
+
+# CASE SELECTIVE_XML_INDEX
+ALTER INDEX name ON table
+    [ WITH XMLNAMESPACES ( namespace_definition [, ...] ) ]
+    FOR ( promoted_path_action [, ...] )
+
+# PARTOFIS promoted_path_action
+ADD promoted_path_definition
+
+REMOVE path_name
+
+# WHERE promoted_path_definition
+path_name = promoted_path
+
+# PARTOFIS promoted_path
+'node_path' [ AS XQUERY xquery_type_hint ] [ SINGLETON ]
+
+'node_path' AS SQL data_type [ SINGLETON ]
+
+# PARTOFIS xquery_type_hint
+'xsd_type' [ MAXLENGTH ( maxlength_value ) ]
+
+MAXLENGTH ( maxlength_value )
+
+'node()'
+
+# WHERE namespace_definition
+'namespace_uri' AS namespace_prefix

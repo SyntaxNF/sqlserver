@@ -1,0 +1,3 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-tracestatus-transact-sql?view=sql-server-ver17
+
+DBCC TRACESTATUS ( [ { trace_flag [, ...] [ , -1 ] | -1 } ] ) [ WITH NO_INFOMSGS ]

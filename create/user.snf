@@ -1,0 +1,39 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-user-transact-sql?view=sql-server-ver17
+
+# CASE LOGIN_USER
+CREATE USER name [ { FOR | FROM } LOGIN login_name ]
+    [ WITH limited_user_option [, ...] ]
+
+# CASE CONTAINED_PASSWORD_USER
+CREATE USER name WITH PASSWORD = 'password' [ , contained_user_option [, ...] ]
+
+# CASE CONTAINED_WINDOWS_USER
+CREATE USER name [ WITH contained_windows_user_option [, ...] ]
+
+# CASE EXTERNAL_USER
+CREATE USER name FROM EXTERNAL PROVIDER [ WITH OBJECT_ID = 'object_id' ]
+
+# CASE WITHOUT_LOGIN
+CREATE USER name WITHOUT LOGIN [ WITH limited_user_option [, ...] ]
+
+# CASE CERTIFICATE_USER
+CREATE USER name { FOR | FROM } CERTIFICATE certificate_name
+
+# CASE ASYMMETRIC_KEY_USER
+CREATE USER name { FOR | FROM } ASYMMETRIC KEY asymmetric_key_name
+
+
+# ONEOFIS limited_user_option
+DEFAULT_SCHEMA = schema_name
+ALLOW_ENCRYPTED_VALUE_MODIFICATIONS = { ON | OFF }
+
+# ONEOFIS contained_user_option
+DEFAULT_SCHEMA = schema_name
+ALLOW_ENCRYPTED_VALUE_MODIFICATIONS = { ON | OFF }
+DEFAULT_LANGUAGE = { NONE | language_value }
+SID = sid_value
+
+# ONEOFIS contained_windows_user_option
+DEFAULT_SCHEMA = schema_name
+ALLOW_ENCRYPTED_VALUE_MODIFICATIONS = { ON | OFF }
+DEFAULT_LANGUAGE = { NONE | language_value }

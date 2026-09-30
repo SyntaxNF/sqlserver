@@ -18,7 +18,7 @@
 - [ORDER BY / OFFSET FETCH](https://learn.microsoft.com/en-us/sql/t-sql/queries/select-order-by-clause-transact-sql?view=sql-server-ver17)
 - [OUTPUT](https://learn.microsoft.com/en-us/sql/t-sql/queries/output-clause-transact-sql?view=sql-server-ver17)
 - [CTE](https://learn.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql?view=sql-server-ver17)
-- [WINDOW（待展开，不代表不受支持）](https://learn.microsoft.com/en-us/sql/t-sql/queries/select-window-transact-sql?view=sql-server-ver17)
+- [WINDOW（外层已结构化，frame 仍 partial）](https://learn.microsoft.com/en-us/sql/t-sql/queries/select-window-transact-sql?view=sql-server-ver17)
 - [值构造器](https://learn.microsoft.com/en-us/sql/t-sql/queries/table-value-constructor-transact-sql?view=sql-server-ver17)
 
 ## SNF 参照
@@ -29,3 +29,13 @@
 - [Oracle README](https://github.com/SyntaxNF/oracle/blob/main/README.md)：定义和消费方职责边界
 
 升级时逐项记录官方变更、GA/preview 状态、edition/platform/compatibility 约束，更新 coverage 与受影响定义；不要仅替换页面版本参数就宣布支持下一版本。
+
+## 官方命令目录整合
+
+- [Statements official source directory](https://github.com/MicrosoftDocs/sql-docs/tree/live/docs/t-sql/statements)
+- [DBCC official source directory](https://github.com/MicrosoftDocs/sql-docs/tree/live/docs/t-sql/database-console-commands)
+- [Language elements](https://github.com/MicrosoftDocs/sql-docs/tree/live/docs/t-sql/language-elements)
+- [Queries](https://github.com/MicrosoftDocs/sql-docs/tree/live/docs/t-sql/queries)
+- [JSON enhancements currently GA](https://learn.microsoft.com/en-us/sql/relational-databases/json/json-data-sql-server?view=sql-server-ver17#sql-server-2025-changes)
+
+逐页版本摘要、映射和排除理由在 source-catalog.json；逐语句状态在 inventory.json。目录中有辅助条款、函数页和其他产品页，不把每个文件当作独立 SQL Server 命令。语法、Arguments、Remarks、Limitations 互有差异时，优先遵循明确限制并在 coverage.md 记录未决处。不得用旧搜索摘要覆盖当前直接读取的官方页面。

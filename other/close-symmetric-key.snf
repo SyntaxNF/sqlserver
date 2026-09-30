@@ -1,0 +1,7 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/close-symmetric-key-transact-sql?view=sql-server-ver17
+
+# CASE NAMED_KEY
+CLOSE SYMMETRIC KEY name
+
+# CASE ALL_KEYS
+CLOSE ALL SYMMETRIC KEYS

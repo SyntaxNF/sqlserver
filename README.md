@@ -1,54 +1,42 @@
 # SQL Server SNF
 
-整理 SQL Server 2025（17.x）Transact-SQL 的 SNF（Syntax Normal Form）定义，供阅读与 SQL 生成使用。当前是第一批可扩展定义，**不是完整 T-SQL 语法或 SQL 校验器，也尚未接入 Studio**。
+整理 SQL Server 2025（17.x）Transact-SQL 的 SNF（Syntax Normal Form）定义，供阅读与 SQL 生成使用。已从首批 29 个文件扩展到 **302 个定义文件**，按官方命令目录建立了可审计清单。**这仍不是完整 T-SQL 语法、SQL 校验器或已接入 Studio 的实现。**
 
 ## 版本与范围
 
-- 核对日期：2026-09-30
-- 最新 GA 主版本基线：[SQL Server 2025，17.x](https://techcommunity.microsoft.com/blog/SQLServer/sql-server-2025-is-now-generally-available/4470570)，2025-11-18 发布
-- 面向独立 SQL Server Database Engine 的普通磁盘表与关系查询；Windows / Linux，Standard / Enterprise 及对应 Developer 版的公共语法子集，不声称所有版本/平台功能完全一致
-- 目标数据库兼容级别 170；引擎版本和数据库兼容级别不同，升级不会保证现有数据库自动采用新级别
-- 不收录 Azure SQL、Azure Synapse、Fabric 专属语法，不收录预览特性；同一 Microsoft Learn 页中的多产品段落必须分辨
-- 这是主版本语法基线，不是“全部 CU 功能已验证”的承诺。版本更新记录见 [官方 build 列表](https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2025/build-versions)
+- 核对日期：2026-09-30；SQL Server 2025（17.x）GA Database Engine，目标兼容级别170
+- 面向独立 SQL Server，收录关系查询、对象 DDL、编程、权限安全、管理维护及 Service Broker；不同 edition、Windows/Linux、组件和 CU 的条件在覆盖表/输入契约中记录，不承诺跨平台功能完全一致
+- 不把 Azure SQL、Synapse、Fabric 专属分支混入引擎语法；Azure Arc-enabled SQL Server、Azure/S3 备份和外部数据源则按实际引擎支持分别处理
+- 当前官方说明确认 JSON/JSON INDEX 已 GA；CREATE VECTOR INDEX 等仍为 preview。本仓库不因主版本 GA 就自动纳入所有预览功能
+- 主版本基线并非“全部 CU 和所有语义组合已验证”。具体版本、edition、compatibility 和组件条件仍由消费方核对
 
-[发布说明](https://learn.microsoft.com/en-us/sql/sql-server/sql-server-2025-release-notes?view=sql-server-ver17)仍将部分向量检索/索引、半精度向量、模糊匹配和 change event streaming 标为预览，暂不纳入。原生 JSON 在当前文档中已 GA，但本轮尚未把类型和函数展开成独立语法；这属于覆盖缺口，不等于不支持该 SQL Server 特性。
+官方依据：[发布说明](https://learn.microsoft.com/en-us/sql/sql-server/sql-server-2025-release-notes?view=sql-server-ver17)、[新功能](https://learn.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-2025?view=sql-server-ver17)、[当前 JSON GA 状态](https://learn.microsoft.com/en-us/sql/relational-databases/json/json-data-sql-server?view=sql-server-ver17#sql-server-2025-changes)、[Build/CU](https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2025/build-versions)。
 
-## 目录
+## 覆盖与目录
 
-- query/：SELECT、INSERT、UPDATE、DELETE
-- create/：表、行存索引、视图、schema、sequence、synonym
-- alter/：表、索引、sequence
-- drop/：上述常见对象及 procedure/function 删除
-- transaction/：开始、提交、回滚、保存点、隔离级别
-- other/：TRUNCATE、USE、常用 SET
-- docs/：覆盖清单、自由输入契约、来源、验证与后续路线
-- scripts/：用户主动运行的 SNF 结构检查
+- query/：SELECT、DML、MERGE、BULK INSERT、RECEIVE、旧式 text 操作
+- create/、alter/、drop/：关系/图/外部对象、模块、类型、权限主体、加密、审计、数据库、HA、Broker、资源治理等
+- transaction/：本地/分布式事务、提交、回滚、保存点、隔离级别
+- other/：控制流、游标、执行、SET、权限、备份恢复、31个适用的独立 DBCC 命令及管理语句
+- docs/：完整清单、来源页面映射、结构缺口、输入契约和验证说明
+- scripts/：用户主动执行的 SNF parser 结构检查；不自动运行
 
-共 29 个 .snf 文件。每个文件首行是官方来源，完整清单及缺口见 [coverage](docs/coverage.md)。
+[覆盖表](docs/coverage.md)列出 **377 个清单条目**：265 个已结构化语句形态、76 个部分定义、36 个不适用/排除条目。条目数不等于独立命令数，多个 SET 或变体可以共用文件。官方源页面逐项对应见 [source-catalog.json](docs/source-catalog.json)，机器可读定义清单见 [inventory.json](docs/inventory.json)。
+
+仍有实际语法工作未完成：复杂查询/表达式、内存优化表/FileTable、完整选项与权限/事件目录、模块体、跨语句绑定和语义验证。文件存在不代表该命令所有合法写法已经覆盖；请看每行 partial 和输入契约。
 
 ## SNF 约定
 
-沿用 [SyntaxNF/parser](https://github.com/SyntaxNF/parser)、[PostgreSQL](https://github.com/SyntaxNF/postgresql)、[MySQL](https://github.com/SyntaxNF/mysql)、[Oracle](https://github.com/SyntaxNF/oracle) 的组织方式：
+沿用 [SyntaxNF/parser](https://github.com/SyntaxNF/parser)、[PostgreSQL](https://github.com/SyntaxNF/postgresql)、[MySQL](https://github.com/SyntaxNF/mysql)、[Oracle](https://github.com/SyntaxNF/oracle) 的目录、命名和定义方式：
 
-- KEYWORD：SQL 关键字；placeholder：输入或需展开的节点
-- [ syntax ]：可选；{ a | b }：必选分支；[ a | b ]：可选分支
-- item [, ...]：逗号分隔列表；item [...]：重复前一项
-- 圆括号为 SQL 字面符号；需输出 SNF 保留符号时使用反斜杠转义
-- CASE 是语句变体；WHERE 定义节点；PARTOFIS 以空行分块列出候选；ONEOFIS 每物理行一个候选；STATEMENT 声明嵌套语句类别
+- KEYWORD 是关键字；placeholder 是上下文受限输入或待展开节点
+- `[ syntax ]` 可选；`{ a | b }` 必选分支；`[ a | b ]` 可选分支
+- `item [, ...]` 逗号列表；`item [...]` 重复；圆括号是 SQL 字面符号；保留符号用反斜杠转义
+- CASE 区分变体，WHERE/PARTOFIS/ONEOFIS 定义节点，STATEMENT 声明嵌套语句类别
+- 指令是消费方约定，不是 parser 内建语义。消费方必须实现引用绑定、递归、作用域和 [自由输入契约](docs/placeholders.md)，不能直接输出未展开节点
+- TOP 与 OFFSET/FETCH、DML OUTPUT 上下文等仍有约束；MERGE 必需分号已写入定义，普通语句由 runner 终止；GO 是客户端批次分隔符
+- 权限、状态、输入转义、参数化、执行许可与产品安全策略由消费方负责，不通过删掉危险语法来伪装完整性
 
-这些注释指令是消费方约定。SNFDocumentParser 只解析块和 AST，不解析跨块引用，不会自动将 STATEMENT 下的 SELECT 展开成完整查询。集成方必须实现名称绑定、递归与作用域，并区分 [自由输入节点](docs/placeholders.md)。不能把未展开节点直接输出为 SQL。
+## 验证状态
 
-## 重要边界
-
-- SELECT 分开普通、TOP、TOP WITH TIES、OFFSET/FETCH，避免同一查询层混合 TOP 与 OFFSET
-- WITH TIES 强制 ORDER BY；FETCH 只能跟在 OFFSET 后
-- DML TOP 带圆括号，不提供 DML WITH TIES 或直接 ORDER BY
-- OUTPUT 保留 INSERTED / DELETED 的上下文差异，支持 OUTPUT INTO 后再 OUTPUT
-- 定义通常省略末尾分号，由生成器添加；WITH CTE 前的上一语句必须终止。GO 是客户端批处理分隔符，不是 T-SQL 语句，不写入定义
-- 标识符引用、表达式合法性、权限、对象状态、参数绑定和批次限制由消费方/数据库校验
-
-## 维护与验证
-
-本仓库为定义集合，没有运行时数据库依赖或自动 CI。遵循同级仓库约定，不自动跑测试/类型检查。用户可按照 [validation](docs/validation.md) 使用指定 parser 构建产物做结构检查，再按需在隔离数据库验证示例。
-
-当前已做官方语法对照和人工审阅；**未运行 parser、SQL Server 或 Studio 测试**。后续贡献必须明确报告实际验证层次。不要把 parser 通过等同于 T-SQL 正确。
+2026-09-30 用户主动触发验证：固定版本官方 parser **302/302 通过**，仓库约定检查 **1004 内容块、0 错误**，校验器回归测试 **22/22 通过**。修补固定 literal 与输入变量的消费契约歧义。详见 [验证报告](docs/validation-report.md) 和 [复现命令](docs/validation.md)。**未执行 SQL Server/Studio，未验证完整消费方绑定或全部 SQL 语义；76 个 partial 条目保持不变。** 没有自动 CI。

@@ -1,0 +1,3 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql?view=sql-server-ver17
+
+DBCC TRACEOFF ( trace_flag [, ...] [ , -1 ] ) [ WITH NO_INFOMSGS ]

@@ -1,0 +1,20 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/receive-transact-sql?view=sql-server-ver17
+
+# CASE IMMEDIATE
+RECEIVE [ TOP ( row_count ) ] receive_projection [, ...]
+    FROM queue [ INTO table_variable ] [ WHERE conversation_filter ]
+
+# CASE WAIT
+WAITFOR (
+    RECEIVE [ TOP ( row_count ) ] receive_projection [, ...]
+        FROM queue [ INTO table_variable ] [ WHERE conversation_filter ]
+) [ , TIMEOUT timeout ]
+
+# ONEOFIS receive_projection
+*
+value_expression [ [ AS ] col_alias ]
+variable = value_expression
+
+# ONEOFIS conversation_filter
+CONVERSATION_HANDLE = conversation_handle
+CONVERSATION_GROUP_ID = conversation_group_id

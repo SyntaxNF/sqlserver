@@ -1,0 +1,3 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/language-elements/checkpoint-transact-sql?view=sql-server-ver17
+
+CHECKPOINT [ checkpoint_duration ]

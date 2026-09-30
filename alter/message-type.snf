@@ -1,0 +1,3 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-message-type-transact-sql?view=sql-server-ver17
+
+ALTER MESSAGE TYPE name VALIDATION = { NONE | EMPTY | WELL_FORMED_XML | VALID_XML WITH SCHEMA COLLECTION xml_schema_collection }
