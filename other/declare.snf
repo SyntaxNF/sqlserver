@@ -22,7 +22,10 @@ colname AS computed_expression [ column_constraint_definition [...] ]
 CHECK ( boolean_expression )
 
 # WHERE column_constraint_definition
-{ { PRIMARY KEY | UNIQUE } [ CLUSTERED | NONCLUSTERED ] [ WITH ( table_index_option [, ...] ) ] | CHECK ( boolean_expression ) }
+{
+    { PRIMARY KEY | UNIQUE } [ CLUSTERED | NONCLUSTERED ] [ WITH ( table_index_option [, ...] ) ] |
+    CHECK ( boolean_expression )
+}
 
 # WHERE index_column_definition
 colname [ ASC | DESC ]

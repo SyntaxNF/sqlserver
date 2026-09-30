@@ -3,7 +3,8 @@
 # CASE SCALAR
 ALTER FUNCTION name ( [ parameter_definition [, ...] ] )
     RETURNS data_type
-    [ WITH scalar_option [, ...] ] [ AS ]
+    [ WITH scalar_option [, ...] ]
+    [ AS ]
     BEGIN
         [ sql_statement_list ]
         RETURN value_expression
@@ -12,13 +13,15 @@ ALTER FUNCTION name ( [ parameter_definition [, ...] ] )
 # CASE INLINE_TABLE
 ALTER FUNCTION name ( [ parameter_definition [, ...] ] )
     RETURNS TABLE
-    [ WITH inline_option [, ...] ] [ AS ]
+    [ WITH inline_option [, ...] ]
+    [ AS ]
     RETURN { query_statement | ( query_statement ) }
 
 # CASE MULTISTATEMENT_TABLE
 ALTER FUNCTION name ( [ parameter_definition [, ...] ] )
     RETURNS return_variable TABLE ( table_element_definition [, ...] )
-    [ WITH table_function_option [, ...] ] [ AS ]
+    [ WITH table_function_option [, ...] ]
+    [ AS ]
     BEGIN
         [ sql_statement_list ]
         RETURN
@@ -27,14 +30,16 @@ ALTER FUNCTION name ( [ parameter_definition [, ...] ] )
 # CASE CLR_SCALAR
 ALTER FUNCTION name ( [ clr_parameter_definition [, ...] ] )
     RETURNS data_type
-    [ WITH clr_scalar_option [, ...] ] [ AS ]
+    [ WITH clr_scalar_option [, ...] ]
+    [ AS ]
     EXTERNAL NAME assembly . class_name . method_name
 
 # CASE CLR_TABLE
 ALTER FUNCTION name ( [ clr_parameter_definition [, ...] ] )
     RETURNS TABLE ( clr_column_definition [, ...] )
     [ WITH execute_as_clause ]
-    [ ORDER ( order_column_definition [, ...] ) ] [ AS ]
+    [ ORDER ( order_column_definition [, ...] ) ]
+    [ AS ]
     EXTERNAL NAME assembly . class_name . method_name
 
 # CASE NATIVE_SCALAR
@@ -48,16 +53,28 @@ ALTER FUNCTION name ( [ native_parameter_definition [, ...] ] )
     END
 
 # WHERE parameter_definition
-parameter [ AS ] data_type [ = default_value ] [ READONLY ]
+parameter [ AS ] data_type
+    [ = default_value ]
+    [ READONLY ]
 
 # WHERE native_parameter_definition
-parameter [ AS ] data_type [ NULL | NOT NULL ] [ = default_value ] [ READONLY ]
+parameter [ AS ] data_type
+    [ NULL | NOT NULL ]
+    [ = default_value ]
+    [ READONLY ]
 
 # WHERE clr_parameter_definition
 parameter [ AS ] data_type [ = default_value ]
 
 # WHERE scalar_option
-{ ENCRYPTION | SCHEMABINDING | RETURNS NULL ON NULL INPUT | CALLED ON NULL INPUT | execute_as_clause | INLINE = { ON | OFF } }
+{
+    ENCRYPTION |
+    SCHEMABINDING |
+    RETURNS NULL ON NULL INPUT |
+    CALLED ON NULL INPUT |
+    execute_as_clause |
+    INLINE = { ON | OFF }
+}
 
 # WHERE inline_option
 { ENCRYPTION | SCHEMABINDING }
@@ -100,7 +117,10 @@ colname AS computed_expression
 CHECK ( boolean_expression )
 
 # WHERE column_constraint_definition
-{ { PRIMARY KEY | UNIQUE } [ CLUSTERED | NONCLUSTERED ] [ WITH ( table_index_option [, ...] ) ] | CHECK ( boolean_expression ) }
+{
+    { PRIMARY KEY | UNIQUE } [ CLUSTERED | NONCLUSTERED ] [ WITH ( table_index_option [, ...] ) ] |
+    CHECK ( boolean_expression )
+}
 
 # WHERE index_column_definition
 colname [ ASC | DESC ]

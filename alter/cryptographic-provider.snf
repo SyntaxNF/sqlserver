@@ -1,7 +1,8 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-cryptographic-provider-transact-sql?view=sql-server-ver17
 
 # CASE LIBRARY
-ALTER CRYPTOGRAPHIC PROVIDER name FROM FILE = 'provider_library_path' [ ENABLE | DISABLE ]
+ALTER CRYPTOGRAPHIC PROVIDER name
+    FROM FILE = 'provider_library_path' [ ENABLE | DISABLE ]
 
 # CASE STATUS
 ALTER CRYPTOGRAPHIC PROVIDER name { ENABLE | DISABLE }

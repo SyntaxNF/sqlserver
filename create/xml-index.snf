@@ -1,11 +1,13 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/create-xml-index-transact-sql?view=sql-server-ver17
 
 # CASE PRIMARY
-CREATE PRIMARY XML INDEX name ON table ( colname )
+CREATE PRIMARY XML INDEX name
+    ON table ( colname )
     [ WITH ( xml_index_option [, ...] ) ]
 
 # CASE SECONDARY
-CREATE XML INDEX name ON table ( colname )
+CREATE XML INDEX name
+    ON table ( colname )
     USING XML INDEX primary_xml_index [ FOR { VALUE | PATH | PROPERTY } ]
     [ WITH ( xml_index_option [, ...] ) ]
 

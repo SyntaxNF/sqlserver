@@ -4,15 +4,18 @@
 ALTER CERTIFICATE name REMOVE PRIVATE KEY
 
 # CASE PRIVATE_KEY_IMPORT
-ALTER CERTIFICATE name WITH PRIVATE KEY ( private_key_source
-    [ , DECRYPTION BY PASSWORD = 'decryption_password' ]
-    [ , ENCRYPTION BY PASSWORD = 'encryption_password' ] )
+ALTER CERTIFICATE name
+    WITH PRIVATE KEY ( private_key_source
+        [ , DECRYPTION BY PASSWORD = 'decryption_password' ]
+        [ , ENCRYPTION BY PASSWORD = 'encryption_password' ] )
 
 # CASE REENCRYPT_PRIVATE_KEY
-ALTER CERTIFICATE name WITH PRIVATE KEY ( private_key_password_option [, ...] )
+ALTER CERTIFICATE name
+    WITH PRIVATE KEY ( private_key_password_option [, ...] )
 
 # CASE DIALOG_ACTIVITY
-ALTER CERTIFICATE name WITH ACTIVE FOR BEGIN_DIALOG = { ON | OFF }
+ALTER CERTIFICATE name
+    WITH ACTIVE FOR BEGIN_DIALOG = { ON | OFF }
 
 
 # ONEOFIS private_key_source

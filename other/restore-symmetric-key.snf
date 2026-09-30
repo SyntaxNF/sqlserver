@@ -1,6 +1,7 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/restore-symmetric-key-transact-sql?view=sql-server-ver17
 
 # CASE SYMMETRIC_KEY
-RESTORE SYMMETRIC KEY name FROM { FILE = 'file_path' | URL = 'blob_url' }
+RESTORE SYMMETRIC KEY name
+    FROM { FILE = 'file_path' | URL = 'blob_url' }
     DECRYPTION BY PASSWORD = 'decryption_password'
     ENCRYPTION BY PASSWORD = 'encryption_password'

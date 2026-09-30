@@ -1,4 +1,5 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/create-cryptographic-provider-transact-sql?view=sql-server-ver17
 
 # CASE CRYPTOGRAPHIC_PROVIDER
-CREATE CRYPTOGRAPHIC PROVIDER name FROM FILE = 'provider_library_path'
+CREATE CRYPTOGRAPHIC PROVIDER name
+    FROM FILE = 'provider_library_path'

@@ -8,7 +8,8 @@ CREATE AVAILABILITY GROUP name
     [ LISTENER 'dns_name' ( listener_definition ) ]
 
 # CASE DISTRIBUTED
-CREATE AVAILABILITY GROUP name WITH ( DISTRIBUTED )
+CREATE AVAILABILITY GROUP name
+    WITH ( DISTRIBUTED )
     AVAILABILITY GROUP ON distributed_group_definition , distributed_group_definition
 
 

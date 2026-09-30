@@ -1,13 +1,15 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/backup-certificate-transact-sql?view=sql-server-ver17
 
 # CASE CERTIFICATE
-BACKUP CERTIFICATE name TO FILE = 'file_path'
+BACKUP CERTIFICATE name
+    TO FILE = 'file_path'
     [ WITH PRIVATE KEY ( FILE = 'private_key_path',
         ENCRYPTION BY PASSWORD = 'encryption_password'
         [ , DECRYPTION BY PASSWORD = 'decryption_password' ] ) ]
 
 # CASE PFX
-BACKUP CERTIFICATE name TO FILE = 'file_path'
+BACKUP CERTIFICATE name
+    TO FILE = 'file_path'
     WITH FORMAT = 'PFX', PRIVATE KEY (
         ENCRYPTION BY PASSWORD = 'encryption_password', ALGORITHM = 'AES_256'
     )

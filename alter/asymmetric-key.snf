@@ -4,7 +4,8 @@
 ALTER ASYMMETRIC KEY name REMOVE PRIVATE KEY
 
 # CASE PASSWORD
-ALTER ASYMMETRIC KEY name WITH PRIVATE KEY ( private_key_password_option [, ...] )
+ALTER ASYMMETRIC KEY name
+    WITH PRIVATE KEY ( private_key_password_option [, ...] )
 
 
 # ONEOFIS private_key_password_option

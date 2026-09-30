@@ -23,12 +23,18 @@ WHEN NOT MATCHED BY SOURCE [ AND boolean_expression ] THEN { UPDATE SET set_clau
 { DEFAULT | value_expression }
 
 # WHERE output_clause
-{ OUTPUT output_item [, ...]
-| OUTPUT output_item [, ...] INTO output_target [ ( colname [, ...] ) ]
-    [ OUTPUT output_item [, ...] ] }
+{
+    OUTPUT output_item [, ...] |
+    OUTPUT output_item [, ...] INTO output_target [ ( colname [, ...] ) ]
+        [ OUTPUT output_item [, ...] ]
+}
 
 # WHERE output_item
-{ INSERTED . * | DELETED . * | { INSERTED . colname | DELETED . colname | $action | output_expression } [ [ AS ] col_alias ] }
+{
+    INSERTED . * |
+    DELETED . * |
+    { INSERTED . colname | DELETED . colname | $action | output_expression } [ [ AS ] col_alias ]
+}
 
 # WHERE cte_definition
 cte [ ( colname [, ...] ) ] AS ( query_statement )

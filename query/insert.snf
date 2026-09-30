@@ -29,9 +29,11 @@ INSERT [ TOP ( row_count_expression ) [ PERCENT ] ] [ INTO ] table
 ( { DEFAULT | value_expression } [, ...] )
 
 # WHERE output_clause
-{ OUTPUT output_item [, ...]
-| OUTPUT output_item [, ...] INTO output_target [ ( colname [, ...] ) ]
-    [ OUTPUT output_item [, ...] ] }
+{
+    OUTPUT output_item [, ...] |
+    OUTPUT output_item [, ...] INTO output_target [ ( colname [, ...] ) ]
+        [ OUTPUT output_item [, ...] ]
+}
 
 # WHERE output_item
 { INSERTED . * | { INSERTED . colname | output_expression } [ [ AS ] col_alias ] }
