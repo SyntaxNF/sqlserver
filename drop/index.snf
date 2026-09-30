@@ -1,0 +1,7 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-index-transact-sql?view=sql-server-ver17
+
+# CASE DROP
+DROP INDEX [ IF EXISTS ] index_target [, ...]
+
+# WHERE index_target
+name ON table

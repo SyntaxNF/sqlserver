@@ -1,0 +1,38 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/insert-transact-sql?view=sql-server-ver17
+
+# CASE VALUES
+[ WITH cte_definition [, ...] ]
+INSERT [ TOP ( row_count_expression ) [ PERCENT ] ] [ INTO ] table
+    [ ( colname [, ...] ) ]
+    [ output_clause ]
+    VALUES row_definition [, ...]
+
+# CASE QUERY
+[ WITH cte_definition [, ...] ]
+INSERT [ TOP ( row_count_expression ) [ PERCENT ] ] [ INTO ] table
+    [ ( colname [, ...] ) ]
+    [ output_clause ]
+    query_statement
+
+# CASE DEFAULT_VALUES
+[ WITH cte_definition [, ...] ]
+INSERT [ TOP ( row_count_expression ) [ PERCENT ] ] [ INTO ] table
+    [ output_clause ]
+    DEFAULT VALUES
+
+# WHERE row_definition
+( { DEFAULT | value_expression } [, ...] )
+
+# WHERE output_clause
+{ OUTPUT output_item [, ...]
+| OUTPUT output_item [, ...] INTO output_target [ ( colname [, ...] ) ]
+    [ OUTPUT output_item [, ...] ] }
+
+# WHERE output_item
+{ INSERTED . * | { INSERTED . colname | output_expression } [ [ AS ] col_alias ] }
+
+# WHERE cte_definition
+cte [ ( colname [, ...] ) ] AS ( query_statement )
+
+# STATEMENT query_statement
+SELECT

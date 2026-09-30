@@ -1,0 +1,5 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/set-transaction-isolation-level-transact-sql?view=sql-server-ver17
+
+# CASE ISOLATION_LEVEL
+SET TRANSACTION ISOLATION LEVEL
+    { READ UNCOMMITTED | READ COMMITTED | REPEATABLE READ | SNAPSHOT | SERIALIZABLE }

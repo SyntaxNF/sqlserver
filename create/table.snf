@@ -1,0 +1,47 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql?view=sql-server-ver17
+
+# CASE DISK_BASED
+CREATE TABLE name (
+    table_element_definition [, ...]
+)
+    [ ON filegroup ]
+    [ TEXTIMAGE_ON filegroup ]
+
+# WHERE table_element_definition
+{ column_definition | computed_column_definition | table_constraint_definition }
+
+# WHERE column_definition
+colname data_type
+    [ COLLATE collation ]
+    [ [ CONSTRAINT default_constraint ] DEFAULT default_expression ]
+    [ IDENTITY [ ( seed_value , increment_value ) ] [ NOT FOR REPLICATION ] ]
+    [ NULL | NOT NULL ]
+    [ ROWGUIDCOL ]
+    [ column_constraint_definition [...] ]
+
+# WHERE computed_column_definition
+colname AS computed_expression [ PERSISTED [ NOT NULL ] ]
+
+# PARTOFIS column_constraint_definition
+[ CONSTRAINT constraint ] { PRIMARY KEY | UNIQUE } [ CLUSTERED | NONCLUSTERED ]
+
+[ CONSTRAINT constraint ] [ FOREIGN KEY ] REFERENCES referenced_table [ ( referenced_colname ) ]
+    [ ON DELETE referential_action ] [ ON UPDATE referential_action ] [ NOT FOR REPLICATION ]
+
+[ CONSTRAINT constraint ] CHECK [ NOT FOR REPLICATION ] ( boolean_expression )
+
+# PARTOFIS table_constraint_definition
+[ CONSTRAINT constraint ] { PRIMARY KEY | UNIQUE } [ CLUSTERED | NONCLUSTERED ]
+    ( index_column_definition [, ...] )
+
+[ CONSTRAINT constraint ] FOREIGN KEY ( colname [, ...] )
+    REFERENCES referenced_table [ ( referenced_colname [, ...] ) ]
+    [ ON DELETE referential_action ] [ ON UPDATE referential_action ] [ NOT FOR REPLICATION ]
+
+[ CONSTRAINT constraint ] CHECK [ NOT FOR REPLICATION ] ( boolean_expression )
+
+# WHERE index_column_definition
+colname [ ASC | DESC ]
+
+# WHERE referential_action
+{ NO ACTION | CASCADE | SET NULL | SET DEFAULT }

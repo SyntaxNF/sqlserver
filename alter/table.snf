@@ -1,0 +1,22 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-table-transact-sql?view=sql-server-ver17
+
+# CASE ADD_COLUMN
+ALTER TABLE name ADD column_definition [, ...]
+
+# CASE ALTER_COLUMN
+ALTER TABLE name ALTER COLUMN colname data_type [ COLLATE collation ] [ NULL | NOT NULL ]
+
+# CASE DROP_COLUMN
+ALTER TABLE name DROP COLUMN [ IF EXISTS ] colname [, ...]
+
+# CASE DROP_CONSTRAINT
+ALTER TABLE name DROP CONSTRAINT [ IF EXISTS ] constraint [, ...]
+
+# CASE CHECK_CONSTRAINT
+ALTER TABLE name [ WITH { CHECK | NOCHECK } ] { CHECK | NOCHECK } CONSTRAINT { ALL | constraint [, ...] }
+
+# WHERE column_definition
+colname data_type
+    [ COLLATE collation ]
+    [ NULL | NOT NULL ]
+    [ [ CONSTRAINT default_constraint ] DEFAULT default_expression [ WITH VALUES ] ]

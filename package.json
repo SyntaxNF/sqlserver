@@ -1,0 +1,15 @@
+{
+  "name": "snf-sqlserver",
+  "version": "0.0.1",
+  "private": true,
+  "description": "SQL Server 2025 (17.x) SNF definitions — initial partial coverage",
+  "type": "module",
+  "keywords": [
+    "snf",
+    "sqlserver",
+    "tsql"
+  ],
+  "scripts": {
+    "validate:snf": "node scripts/validate-snf.mjs"
+  }
+}

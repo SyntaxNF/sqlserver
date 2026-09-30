@@ -1,0 +1,11 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-sequence-transact-sql?view=sql-server-ver17
+
+# CASE SEQUENCE
+CREATE SEQUENCE name
+    [ AS data_type ]
+    [ START WITH start_value ]
+    [ INCREMENT BY increment_value ]
+    [ MINVALUE minimum_value | NO MINVALUE ]
+    [ MAXVALUE maximum_value | NO MAXVALUE ]
+    [ CYCLE | NO CYCLE ]
+    [ CACHE [ cache_value ] | NO CACHE ]
