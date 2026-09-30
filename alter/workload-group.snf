@@ -1,0 +1,14 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-workload-group-transact-sql?view=sql-server-ver17
+
+ALTER WORKLOAD GROUP name [ WITH ( group_option [, ...] ) ]
+    [ USING pool ]
+
+# ONEOFIS group_option
+IMPORTANCE = { LOW | MEDIUM | HIGH }
+REQUEST_MAX_MEMORY_GRANT_PERCENT = percentage
+REQUEST_MAX_CPU_TIME_SEC = seconds
+REQUEST_MEMORY_GRANT_TIMEOUT_SEC = seconds
+MAX_DOP = maxdop
+GROUP_MAX_REQUESTS = requests
+GROUP_MAX_TEMPDB_DATA_MB = megabytes
+GROUP_MAX_TEMPDB_DATA_PERCENT = percentage

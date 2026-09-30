@@ -1,0 +1,4 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/revert-transact-sql?view=sql-server-ver17
+
+# CASE REVERT
+REVERT [ WITH COOKIE = cookie_variable ]

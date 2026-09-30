@@ -1,0 +1,53 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/revoke-transact-sql?view=sql-server-ver17
+
+# CASE SERVER_OR_DATABASE_SCOPE
+REVOKE [ GRANT OPTION FOR ] permission_name [, ...]
+    { TO | FROM } principal_name [, ...] [ CASCADE ] [ AS grantor_principal ]
+
+# CASE DATABASE_ALL
+REVOKE [ GRANT OPTION FOR ] ALL [ PRIVILEGES ]
+    { TO | FROM } database_principal [, ...] [ CASCADE ] [ AS grantor_principal ]
+
+# CASE OBJECT_SCOPE
+REVOKE [ GRANT OPTION FOR ] object_permission [, ...]
+    ON [ OBJECT :: ] object_name [ ( column_name [, ...] ) ]
+    { TO | FROM } database_principal [, ...] [ CASCADE ] [ AS grantor_principal ]
+
+# CASE NAMED_SECURABLE
+REVOKE [ GRANT OPTION FOR ] permission_name [, ...]
+    ON securable_class :: securable_name
+    { TO | FROM } principal_name [, ...] [ CASCADE ] [ AS grantor_principal ]
+
+# CASE SYSTEM_OBJECT
+REVOKE { SELECT | EXECUTE } ON [ SYS . ] system_object_name FROM principal_name
+
+# WHERE object_permission
+{ ALL [ PRIVILEGES ] | permission_name [ ( column_name [, ...] ) ] }
+
+
+# ONEOFIS securable_class
+APPLICATION ROLE
+ASSEMBLY
+ASYMMETRIC KEY
+AVAILABILITY GROUP
+CERTIFICATE
+CONTRACT
+DATABASE SCOPED CREDENTIAL
+ENDPOINT
+EXTERNAL LANGUAGE
+EXTERNAL MODEL
+FULLTEXT CATALOG
+FULLTEXT STOPLIST
+LOGIN
+MESSAGE TYPE
+REMOTE SERVICE BINDING
+ROLE
+ROUTE
+SCHEMA
+SEARCH PROPERTY LIST
+SERVER ROLE
+SERVICE
+SYMMETRIC KEY
+TYPE
+USER
+XML SCHEMA COLLECTION

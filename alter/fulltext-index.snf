@@ -1,0 +1,28 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-fulltext-index-transact-sql?view=sql-server-ver17
+
+# CASE FULLTEXT_INDEX
+ALTER FULLTEXT INDEX ON name fulltext_action
+
+# PARTOFIS fulltext_action
+ENABLE
+
+DISABLE
+
+SET CHANGE_TRACKING [ = ] { MANUAL | AUTO | OFF }
+
+ADD ( fulltext_column_definition [, ...] ) [ WITH NO POPULATION ]
+
+ALTER COLUMN colname { ADD | DROP } STATISTICAL_SEMANTICS [ WITH NO POPULATION ]
+
+DROP ( colname [, ...] ) [ WITH NO POPULATION ]
+
+START { FULL | INCREMENTAL | UPDATE } POPULATION
+
+{ STOP | PAUSE | RESUME } POPULATION
+
+SET STOPLIST [ = ] { OFF | SYSTEM | stoplist } [ WITH NO POPULATION ]
+
+SET SEARCH PROPERTY LIST [ = ] { OFF | property_list } [ WITH NO POPULATION ]
+
+# WHERE fulltext_column_definition
+colname [ TYPE COLUMN type_colname ] [ LANGUAGE language_term ] [ STATISTICAL_SEMANTICS ]

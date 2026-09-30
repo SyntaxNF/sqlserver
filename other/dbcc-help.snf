@@ -1,0 +1,3 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-help-transact-sql?view=sql-server-ver17
+
+DBCC HELP ( { 'dbcc_statement' | statement_variable | '?' } ) [ WITH NO_INFOMSGS ]

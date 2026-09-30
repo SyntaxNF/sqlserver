@@ -1,0 +1,12 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-asymmetric-key-transact-sql?view=sql-server-ver17
+
+# CASE REMOVE_PRIVATE_KEY
+ALTER ASYMMETRIC KEY name REMOVE PRIVATE KEY
+
+# CASE PASSWORD
+ALTER ASYMMETRIC KEY name WITH PRIVATE KEY ( private_key_password_option [, ...] )
+
+
+# ONEOFIS private_key_password_option
+ENCRYPTION BY PASSWORD = 'encryption_password'
+DECRYPTION BY PASSWORD = 'decryption_password'

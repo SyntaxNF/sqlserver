@@ -1,0 +1,25 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-fulltext-index-transact-sql?view=sql-server-ver17
+
+# CASE FULLTEXT_INDEX
+CREATE FULLTEXT INDEX ON name
+    [ ( fulltext_column_definition [, ...] ) ]
+    KEY INDEX unique_index
+    [ ON catalog_filegroup_clause ]
+    [ WITH ( fulltext_option [, ...] ) ]
+
+# WHERE fulltext_column_definition
+colname [ TYPE COLUMN type_colname ] [ LANGUAGE language_term ] [ STATISTICAL_SEMANTICS ]
+
+# PARTOFIS catalog_filegroup_clause
+fulltext_catalog
+
+( fulltext_catalog, FILEGROUP filegroup )
+
+( FILEGROUP filegroup, fulltext_catalog )
+
+( FILEGROUP filegroup )
+
+# ONEOFIS fulltext_option
+CHANGE_TRACKING [ = ] { MANUAL | AUTO | OFF [ , NO POPULATION ] }
+STOPLIST [ = ] { OFF | SYSTEM | stoplist }
+SEARCH PROPERTY LIST [ = ] property_list

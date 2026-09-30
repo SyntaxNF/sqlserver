@@ -1,0 +1,3 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/move-conversation-transact-sql?view=sql-server-ver17
+
+MOVE CONVERSATION conversation_handle TO conversation_group_id

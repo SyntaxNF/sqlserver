@@ -1,0 +1,10 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=sql-server-ver17
+
+# CASE CETAS
+CREATE EXTERNAL TABLE name [ ( colname [, ...] ) ]
+    WITH ( LOCATION = 'location', DATA_SOURCE = external_data_source,
+        FILE_FORMAT = external_file_format )
+    AS query_statement
+
+# STATEMENT query_statement
+SELECT

@@ -1,0 +1,45 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-certificate-transact-sql?view=sql-server-ver17
+
+# CASE GENERATED
+CREATE CERTIFICATE name [ AUTHORIZATION database_principal ]
+    [ ENCRYPTION BY PASSWORD = 'password' ]
+    WITH SUBJECT = 'certificate_subject'
+    [ , certificate_date_option [, ...] ]
+    [ ACTIVE FOR BEGIN_DIALOG = { ON | OFF } ]
+
+# CASE ASSEMBLY
+CREATE CERTIFICATE name [ AUTHORIZATION database_principal ]
+    FROM ASSEMBLY assembly_name
+    [ ACTIVE FOR BEGIN_DIALOG = { ON | OFF } ]
+
+# CASE FILE
+CREATE CERTIFICATE name [ AUTHORIZATION database_principal ]
+    FROM [ EXECUTABLE ] FILE = 'file_path'
+    [ WITH PRIVATE KEY ( private_key_source
+        [ , DECRYPTION BY PASSWORD = 'decryption_password' ]
+        [ , ENCRYPTION BY PASSWORD = 'encryption_password' ] ) ]
+    [ ACTIVE FOR BEGIN_DIALOG = { ON | OFF } ]
+
+# CASE BINARY
+CREATE CERTIFICATE name [ AUTHORIZATION database_principal ]
+    FROM BINARY = certificate_binary
+    [ WITH PRIVATE KEY ( private_key_source
+        [ , DECRYPTION BY PASSWORD = 'decryption_password' ]
+        [ , ENCRYPTION BY PASSWORD = 'encryption_password' ] ) ]
+    [ ACTIVE FOR BEGIN_DIALOG = { ON | OFF } ]
+
+# CASE PFX_FILE
+CREATE CERTIFICATE name [ AUTHORIZATION database_principal ]
+    FROM FILE = 'file_path' WITH FORMAT = 'PFX',
+    PRIVATE KEY ( DECRYPTION BY PASSWORD = 'decryption_password'
+        [ , ENCRYPTION BY PASSWORD = 'encryption_password' ] )
+    [ ACTIVE FOR BEGIN_DIALOG = { ON | OFF } ]
+
+
+# ONEOFIS certificate_date_option
+START_DATE = 'date_value'
+EXPIRY_DATE = 'date_value'
+
+# ONEOFIS private_key_source
+FILE = 'private_key_path'
+BINARY = private_key_binary

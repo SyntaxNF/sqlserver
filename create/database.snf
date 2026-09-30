@@ -1,0 +1,57 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-database-transact-sql?view=sql-server-ver17
+
+# CASE CREATE
+CREATE DATABASE name
+    [ CONTAINMENT = { NONE | PARTIAL } ]
+    [ ON [ PRIMARY ] file_definition [, ...]
+        [ , filegroup_definition [, ...] ]
+        [ LOG ON file_definition [, ...] ] ]
+    [ COLLATE collation ]
+    [ WITH database_option [, ...] ]
+
+# CASE ATTACH
+CREATE DATABASE name ON attach_file_definition [, ...]
+    FOR { ATTACH [ WITH attach_option [, ...] ] | ATTACH_REBUILD_LOG }
+
+# CASE SNAPSHOT
+CREATE DATABASE name
+    ON ( NAME = logical_file , FILENAME = 'file_path' ) [, ...]
+    AS SNAPSHOT OF database
+
+# WHERE filegroup_definition
+FILEGROUP filegroup [ [ CONTAINS FILESTREAM ] [ DEFAULT ] | CONTAINS MEMORY_OPTIMIZED_DATA ]
+    file_definition [, ...]
+
+# ONEOFIS database_option
+FILESTREAM ( filestream_option [, ...] )
+DEFAULT_FULLTEXT_LANGUAGE = language_value
+DEFAULT_LANGUAGE = language_value
+NESTED_TRIGGERS = { OFF | ON }
+TRANSFORM_NOISE_WORDS = { OFF | ON }
+TWO_DIGIT_YEAR_CUTOFF = year
+DB_CHAINING { OFF | ON }
+TRUSTWORTHY { OFF | ON }
+PERSISTENT_LOG_BUFFER = ON ( DIRECTORY_NAME = 'directory_path' )
+LEDGER = { ON | OFF }
+
+# ONEOFIS filestream_option
+NON_TRANSACTED_ACCESS = { OFF | READ_ONLY | FULL }
+DIRECTORY_NAME = 'directory_name'
+
+# ONEOFIS attach_option
+ENABLE_BROKER
+NEW_BROKER
+ERROR_BROKER_CONVERSATIONS
+RESTRICTED_USER
+FILESTREAM ( DIRECTORY_NAME = { 'directory_name' | NULL } )
+
+
+# WHERE file_definition
+( NAME = logical_file , FILENAME = 'file_path'
+    [ , SIZE = file_size [ KB | MB | GB | TB ] ]
+    [ , MAXSIZE = { max_size [ KB | MB | GB | TB ] | UNLIMITED } ]
+    [ , FILEGROWTH = growth [ KB | MB | GB | TB | % ] ]
+)
+
+# WHERE attach_file_definition
+( [ NAME = logical_file , ] FILENAME = 'file_path' )

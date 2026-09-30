@@ -1,0 +1,10 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-ver17
+
+DBCC SHOW_STATISTICS ( table_or_indexed_view , statistics_target )
+    [ WITH statistics_option [, ...] ]
+
+# ONEOFIS statistics_option
+NO_INFOMSGS
+STAT_HEADER
+DENSITY_VECTOR
+HISTOGRAM

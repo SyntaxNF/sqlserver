@@ -1,0 +1,9 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-library-transact-sql?view=sql-server-ver17
+
+# CASE EXTERNAL_LIBRARY
+CREATE EXTERNAL LIBRARY name [ AUTHORIZATION owner ]
+    FROM library_file_definition [ , library_file_definition ]
+    WITH ( LANGUAGE = 'language_name' )
+
+# WHERE library_file_definition
+( CONTENT = file_or_binary_expression [ , PLATFORM = { WINDOWS | LINUX } ] )

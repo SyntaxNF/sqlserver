@@ -1,0 +1,17 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-resource-governor-transact-sql?view=sql-server-ver17
+
+# CASE RECONFIGURE
+ALTER RESOURCE GOVERNOR RECONFIGURE
+
+# CASE DISABLE
+ALTER RESOURCE GOVERNOR DISABLE
+
+# CASE RESET
+ALTER RESOURCE GOVERNOR RESET STATISTICS
+
+# CASE OPTIONS
+ALTER RESOURCE GOVERNOR WITH ( governor_option [, ...] )
+
+# ONEOFIS governor_option
+CLASSIFIER_FUNCTION = { classifier_function | NULL }
+MAX_OUTSTANDING_IO_PER_VOLUME = io_count

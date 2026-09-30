@@ -1,0 +1,30 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-login-transact-sql?view=sql-server-ver17
+
+# CASE SQL_LOGIN
+CREATE LOGIN name WITH PASSWORD = { 'password' | password_hash HASHED } [ MUST_CHANGE ]
+    [ , login_option [, ...] ]
+
+# CASE WINDOWS_LOGIN
+CREATE LOGIN name FROM WINDOWS [ WITH windows_login_option [, ...] ]
+
+# CASE EXTERNAL_LOGIN
+CREATE LOGIN name FROM EXTERNAL PROVIDER [ WITH OBJECT_ID = 'object_id' ]
+
+# CASE CERTIFICATE_LOGIN
+CREATE LOGIN name FROM CERTIFICATE certificate_name
+
+# CASE ASYMMETRIC_KEY_LOGIN
+CREATE LOGIN name FROM ASYMMETRIC KEY asymmetric_key_name
+
+
+# ONEOFIS login_option
+SID = sid_value
+DEFAULT_DATABASE = database_name
+DEFAULT_LANGUAGE = language_name
+CHECK_EXPIRATION = { ON | OFF }
+CHECK_POLICY = { ON | OFF }
+CREDENTIAL = credential_name
+
+# ONEOFIS windows_login_option
+DEFAULT_DATABASE = database_name
+DEFAULT_LANGUAGE = language_name

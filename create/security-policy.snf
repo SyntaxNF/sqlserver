@@ -1,0 +1,22 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-security-policy-transact-sql?view=sql-server-ver17
+
+# CASE SECURITY_POLICY
+CREATE SECURITY POLICY name
+    security_predicate_definition [, ...]
+    [ WITH ( security_policy_option [, ...] ) ]
+    [ NOT FOR REPLICATION ]
+
+# PARTOFIS security_predicate_definition
+ADD [ FILTER ] PREDICATE predicate_function_name ( predicate_argument_expression [, ...] ) ON table_name
+
+ADD BLOCK PREDICATE predicate_function_name ( predicate_argument_expression [, ...] ) ON table_name
+    [ block_operation ]
+
+
+# ONEOFIS block_operation
+AFTER { INSERT | UPDATE }
+BEFORE { UPDATE | DELETE }
+
+# ONEOFIS security_policy_option
+STATE = { ON | OFF }
+SCHEMABINDING = { ON | OFF }

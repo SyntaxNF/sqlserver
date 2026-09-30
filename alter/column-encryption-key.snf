@@ -1,0 +1,10 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-column-encryption-key-transact-sql?view=sql-server-ver17
+
+# CASE ADD_VALUE
+ALTER COLUMN ENCRYPTION KEY name ADD VALUE (
+    COLUMN_MASTER_KEY = column_master_key_name,
+    ALGORITHM = 'algorithm_name', ENCRYPTED_VALUE = encrypted_value_binary
+)
+
+# CASE DROP_VALUE
+ALTER COLUMN ENCRYPTION KEY name DROP VALUE ( COLUMN_MASTER_KEY = column_master_key_name )

@@ -1,0 +1,26 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-queue-transact-sql?view=sql-server-ver17
+
+# CASE SETTINGS
+ALTER QUEUE name WITH queue_option [, ...]
+
+# CASE REBUILD
+ALTER QUEUE name REBUILD [ WITH ( MAXDOP = maxdop ) ]
+
+# CASE REORGANIZE
+ALTER QUEUE name REORGANIZE [ WITH ( LOB_COMPACTION = { ON | OFF } ) ]
+
+# CASE MOVE
+ALTER QUEUE name MOVE TO { filegroup | "default" }
+
+
+# ONEOFIS queue_option
+STATUS = { ON | OFF }
+RETENTION = { ON | OFF }
+ACTIVATION ( { activation_option [, ...] | DROP } )
+POISON_MESSAGE_HANDLING ( STATUS = { ON | OFF } )
+
+# ONEOFIS activation_option
+STATUS = { ON | OFF }
+PROCEDURE_NAME = procedure
+MAX_QUEUE_READERS = max_readers
+EXECUTE AS { SELF | 'user' | OWNER }

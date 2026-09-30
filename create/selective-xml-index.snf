@@ -1,0 +1,36 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-selective-xml-index-transact-sql?view=sql-server-ver17
+
+# CASE SELECTIVE_XML_INDEX
+CREATE SELECTIVE XML INDEX name ON table ( colname )
+    [ WITH XMLNAMESPACES ( namespace_definition [, ...] ) ]
+    FOR ( promoted_path_definition [, ...] )
+    [ WITH ( xml_index_option [, ...] ) ]
+
+# WHERE promoted_path_definition
+path_name = promoted_path
+
+# PARTOFIS promoted_path
+'node_path' [ AS XQUERY xquery_type_hint ] [ SINGLETON ]
+
+'node_path' AS SQL data_type [ SINGLETON ]
+
+# PARTOFIS xquery_type_hint
+'xsd_type' [ MAXLENGTH ( maxlength_value ) ]
+
+MAXLENGTH ( maxlength_value )
+
+'node()'
+
+# WHERE namespace_definition
+'namespace_uri' AS namespace_prefix
+
+# ONEOFIS xml_index_option
+PAD_INDEX = { ON | OFF }
+FILLFACTOR = fillfactor_value
+SORT_IN_TEMPDB = { ON | OFF }
+IGNORE_DUP_KEY = OFF
+DROP_EXISTING = { ON | OFF }
+ONLINE = OFF
+ALLOW_ROW_LOCKS = { ON | OFF }
+ALLOW_PAGE_LOCKS = { ON | OFF }
+MAXDOP = maxdop_value

@@ -1,0 +1,15 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql?view=sql-server-ver17
+
+DBCC CHECKDB
+    [ ( { database | database_id | 0 } [ , { NOINDEX | REPAIR_ALLOW_DATA_LOSS | REPAIR_FAST | REPAIR_REBUILD } ] ) ]
+    [ WITH check_option [, ...] ]
+
+# ONEOFIS check_option
+ALL_ERRORMSGS
+EXTENDED_LOGICAL_CHECKS
+NO_INFOMSGS
+TABLOCK
+ESTIMATEONLY
+PHYSICAL_ONLY
+DATA_PURITY
+MAXDOP = maxdop

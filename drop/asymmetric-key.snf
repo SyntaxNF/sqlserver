@@ -1,0 +1,4 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-asymmetric-key-transact-sql?view=sql-server-ver17
+
+# CASE ASYMMETRIC_KEY
+DROP ASYMMETRIC KEY name [ REMOVE PROVIDER KEY ]

@@ -1,0 +1,8 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-opentran-transact-sql?view=sql-server-ver17
+
+DBCC OPENTRAN [ ( [ database | database_id | 0 ] ) ]
+    [ WITH open_transaction_option [, ...] ]
+
+# ONEOFIS open_transaction_option
+TABLERESULTS
+NO_INFOMSGS

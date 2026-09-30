@@ -1,0 +1,27 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-symmetric-key-transact-sql?view=sql-server-ver17
+
+# CASE DATABASE_KEY
+CREATE SYMMETRIC KEY name [ AUTHORIZATION database_principal ]
+    WITH symmetric_key_option [, ...]
+    ENCRYPTION BY key_encryptor [, ...]
+
+# CASE PROVIDER_KEY
+CREATE SYMMETRIC KEY name [ AUTHORIZATION database_principal ]
+    FROM PROVIDER provider_name WITH provider_key_option [, ...]
+
+
+# ONEOFIS symmetric_key_option
+ALGORITHM = { AES_128 | AES_192 | AES_256 }
+KEY_SOURCE = 'key_source_phrase'
+IDENTITY_VALUE = 'identity_phrase'
+
+# ONEOFIS provider_key_option
+PROVIDER_KEY_NAME = 'provider_key_name'
+CREATION_DISPOSITION = { CREATE_NEW | OPEN_EXISTING }
+ALGORITHM = { AES_128 | AES_192 | AES_256 }
+
+# ONEOFIS key_encryptor
+CERTIFICATE certificate_name
+PASSWORD = 'password'
+SYMMETRIC KEY symmetric_key_name
+ASYMMETRIC KEY asymmetric_key_name

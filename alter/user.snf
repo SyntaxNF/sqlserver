@@ -1,0 +1,13 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-user-transact-sql?view=sql-server-ver17
+
+# CASE USER
+ALTER USER name WITH user_option [, ...]
+
+
+# ONEOFIS user_option
+NAME = new_user_name
+DEFAULT_SCHEMA = { schema_name | NULL }
+LOGIN = login_name
+PASSWORD = 'password' [ OLD_PASSWORD = 'old_password' ]
+DEFAULT_LANGUAGE = { NONE | language_value }
+ALLOW_ENCRYPTED_VALUE_MODIFICATIONS = { ON | OFF }

@@ -1,0 +1,6 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-assembly-transact-sql?view=sql-server-ver17
+
+# CASE ASSEMBLY
+CREATE ASSEMBLY name [ AUTHORIZATION owner ]
+    FROM { assembly_path_expression | binary_expression [, ...] }
+    [ WITH PERMISSION_SET = { SAFE | EXTERNAL_ACCESS | UNSAFE } ]

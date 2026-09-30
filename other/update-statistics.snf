@@ -1,0 +1,20 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/update-statistics-transact-sql?view=sql-server-ver17
+
+# CASE UPDATE_STATISTICS
+UPDATE STATISTICS name [ statistics_name | ( statistics_name [, ...] ) ]
+    [ WITH statistics_option [, ...] ]
+
+# ONEOFIS statistics_option
+FULLSCAN [ , PERSIST_SAMPLE_PERCENT = { ON | OFF } ]
+SAMPLE sample_value { PERCENT | ROWS } [ , PERSIST_SAMPLE_PERCENT = { ON | OFF } ]
+RESAMPLE [ ON PARTITIONS ( partition_range [, ...] ) ]
+ALL
+COLUMNS
+INDEX
+NORECOMPUTE
+INCREMENTAL = { ON | OFF }
+MAXDOP = maxdop_value
+AUTO_DROP = { ON | OFF }
+
+# WHERE partition_range
+partition_number [ TO partition_number ]

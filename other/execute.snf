@@ -1,0 +1,39 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/language-elements/execute-transact-sql?view=sql-server-ver17
+
+# CASE MODULE
+{ EXEC | EXECUTE } [ return_variable = ] { module_name [ ; number_value ] | module_variable }
+    [ execute_argument [, ...] ]
+    [ WITH execute_option [, ...] ]
+
+# CASE STRING
+{ EXEC | EXECUTE } ( string_operand [+ ...] )
+    [ AS { LOGIN | USER } = 'principal_name' ]
+
+# CASE PASS_THROUGH
+{ EXEC | EXECUTE } ( string_operand [+ ...] [ , linked_argument [, ...] ] )
+    [ AS { LOGIN | USER } = 'principal_name' ]
+    { AT linked_server | AT DATA_SOURCE data_source }
+
+# WHERE execute_argument
+[ parameter = ] { argument_value | variable [ OUTPUT ] | DEFAULT }
+
+# WHERE linked_argument
+{ argument_value | variable [ OUTPUT ] }
+
+# WHERE string_operand
+{ string_variable | [ N ] 'sql_text' }
+
+# WHERE execute_option
+{ RECOMPILE | RESULT SETS UNDEFINED | RESULT SETS NONE | RESULT SETS ( result_set_definition [, ...] ) }
+
+# PARTOFIS result_set_definition
+( result_column_definition [, ...] )
+
+AS OBJECT object_name
+
+AS TYPE table_type
+
+AS FOR XML
+
+# WHERE result_column_definition
+colname data_type [ COLLATE collation ] [ NULL | NOT NULL ]

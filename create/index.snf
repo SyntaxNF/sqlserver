@@ -3,14 +3,15 @@
 # CASE CLUSTERED
 CREATE [ UNIQUE ] CLUSTERED INDEX name ON table ( index_column_definition [, ...] )
     [ WITH ( index_option [, ...] ) ]
-    [ ON filegroup ]
+    [ ON storage_clause ]
+    [ FILESTREAM_ON { filestream_filegroup | partition_scheme | "NULL" } ]
 
 # CASE NONCLUSTERED
 CREATE [ UNIQUE ] [ NONCLUSTERED ] INDEX name ON table ( index_column_definition [, ...] )
     [ INCLUDE ( colname [, ...] ) ]
     [ WHERE filter_expression ]
     [ WITH ( index_option [, ...] ) ]
-    [ ON filegroup ]
+    [ ON storage_clause ]
 
 # WHERE index_column_definition
 colname [ ASC | DESC ]
@@ -26,3 +27,18 @@ ALLOW_ROW_LOCKS = { ON | OFF }
 ALLOW_PAGE_LOCKS = { ON | OFF }
 OPTIMIZE_FOR_SEQUENTIAL_KEY = { ON | OFF }
 MAXDOP = maxdop_value
+STATISTICS_INCREMENTAL = { ON | OFF }
+ONLINE = { ON [ ( low_priority_wait_clause ) ] | OFF }
+RESUMABLE = { ON | OFF }
+MAX_DURATION = duration_value [ MINUTES ]
+DATA_COMPRESSION = { NONE | ROW | PAGE } [ ON PARTITIONS ( partition_range [, ...] ) ]
+XML_COMPRESSION = { ON | OFF } [ ON PARTITIONS ( partition_range [, ...] ) ]
+
+# WHERE storage_clause
+{ partition_scheme ( colname ) | filegroup | "default" }
+
+# WHERE partition_range
+partition_number [ TO partition_number ]
+
+# WHERE low_priority_wait_clause
+WAIT_AT_LOW_PRIORITY ( MAX_DURATION = duration_value [ MINUTES ], ABORT_AFTER_WAIT = { NONE | SELF | BLOCKERS } )

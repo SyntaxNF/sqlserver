@@ -1,0 +1,25 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/restore-statements-labelonly-transact-sql?view=sql-server-ver17
+
+RESTORE LABELONLY FROM backup_device
+    [ WITH restore_option [, ...] ]
+
+# ONEOFIS restore_option
+MEDIANAME = string_value
+MEDIAPASSWORD = string_value
+{ CHECKSUM | NO_CHECKSUM }
+{ STOP_ON_ERROR | CONTINUE_AFTER_ERROR }
+{ REWIND | NOREWIND }
+{ UNLOAD | NOUNLOAD }
+
+# ONEOFIS backup_device
+logical_device
+{ DISK | TAPE | URL } = device_value
+
+# ONEOFIS device_value
+'physical_device'
+device_variable
+
+
+# ONEOFIS string_value
+'string'
+string_variable

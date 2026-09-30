@@ -1,0 +1,91 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/backup-transact-sql?view=sql-server-ver17
+
+# CASE DATABASE
+BACKUP DATABASE database
+    [ file_selection [, ...] ]
+    TO backup_device [, ...]
+    [ mirror_clause [...] ]
+    [ WITH database_backup_option [, ...] ]
+
+# CASE PARTIAL
+BACKUP DATABASE database READ_WRITE_FILEGROUPS [ , read_only_filegroup [, ...] ]
+    TO backup_device [, ...]
+    [ mirror_clause [...] ]
+    [ WITH database_backup_option [, ...] ]
+
+# CASE LOG
+BACKUP LOG database TO backup_device [, ...]
+    [ mirror_clause [...] ]
+    [ WITH log_backup_option [, ...] ]
+
+# CASE SERVER_SNAPSHOT
+BACKUP SERVER TO backup_device [, ...]
+    [ mirror_clause [...] ]
+    WITH METADATA_ONLY [ , backup_option [, ...] ]
+
+# CASE GROUP_SNAPSHOT
+BACKUP GROUP database [, ...] TO backup_device [, ...]
+    [ mirror_clause [...] ]
+    WITH METADATA_ONLY [ , backup_option [, ...] ]
+
+# WHERE mirror_clause
+MIRROR TO backup_device [, ...]
+
+# ONEOFIS database_backup_option
+DIFFERENTIAL
+backup_option
+
+# ONEOFIS log_backup_option
+backup_option
+NORECOVERY
+STANDBY = undo_file_value
+NO_TRUNCATE
+
+
+# ONEOFIS backup_device
+logical_device
+{ DISK | TAPE | URL } = device_value
+
+# ONEOFIS device_value
+'physical_device'
+device_variable
+
+# ONEOFIS file_selection
+FILE = file_value
+FILEGROUP = filegroup_value
+
+
+# ONEOFIS backup_option
+COPY_ONLY
+COMPRESSION [ ( ALGORITHM = { MS_XPRESS | ZSTD | QAT_DEFLATE } [ , LEVEL = { LOW | MEDIUM | HIGH } ] ) ]
+NO_COMPRESSION
+DESCRIPTION = string_value
+NAME = string_value
+CREDENTIAL = string_value
+ENCRYPTION ( ALGORITHM = { AES_128 | AES_192 | AES_256 | TRIPLE_DES_3KEY } , { SERVER CERTIFICATE = certificate | SERVER ASYMMETRIC KEY = asymmetric_key } )
+ENCRYPTION ( ALGORITHM = NO_ENCRYPTION )
+FILE_SNAPSHOT
+EXPIREDATE = date_value
+RETAINDAYS = days
+{ METADATA_ONLY | SNAPSHOT }
+{ NOINIT | INIT }
+{ NOSKIP | SKIP }
+{ NOFORMAT | FORMAT }
+MEDIADESCRIPTION = string_value
+MEDIANAME = string_value
+BLOCKSIZE = block_size
+BUFFERCOUNT = buffer_count
+MAXTRANSFERSIZE = transfer_size
+{ NO_CHECKSUM | CHECKSUM }
+{ STOP_ON_ERROR | CONTINUE_AFTER_ERROR }
+RESTART
+STATS [ = percentage ]
+{ REWIND | NOREWIND }
+{ UNLOAD | NOUNLOAD }
+
+# ONEOFIS string_value
+'string'
+string_variable
+
+# WHERE read_only_filegroup
+FILEGROUP = filegroup_value

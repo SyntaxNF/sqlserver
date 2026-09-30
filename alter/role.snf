@@ -1,0 +1,10 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-role-transact-sql?view=sql-server-ver17
+
+# CASE ADD_MEMBER
+ALTER ROLE name ADD MEMBER database_principal
+
+# CASE DROP_MEMBER
+ALTER ROLE name DROP MEMBER database_principal
+
+# CASE RENAME
+ALTER ROLE name WITH NAME = new_role_name

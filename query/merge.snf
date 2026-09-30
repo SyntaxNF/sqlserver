@@ -1,0 +1,37 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver17
+
+# CASE MERGE
+[ WITH cte_definition [, ...] ]
+MERGE [ TOP ( row_count_expression ) [ PERCENT ] ]
+    [ INTO ] merge_target [ WITH ( merge_hint [, ...] ) ] [ [ AS ] target_alias ]
+    USING merge_source [ [ AS ] source_alias ]
+    ON boolean_expression
+    merge_when_clause [...]
+    [ output_clause ]
+    [ OPTION ( query_hint [, ...] ) ]
+;
+
+# PARTOFIS merge_when_clause
+WHEN MATCHED [ AND boolean_expression ] THEN { UPDATE SET set_clause | DELETE }
+
+WHEN NOT MATCHED [ BY TARGET ] [ AND boolean_expression ]
+    THEN INSERT [ ( colname [, ...] ) ] { VALUES ( merge_value [, ...] ) | DEFAULT VALUES }
+
+WHEN NOT MATCHED BY SOURCE [ AND boolean_expression ] THEN { UPDATE SET set_clause | DELETE }
+
+# WHERE merge_value
+{ DEFAULT | value_expression }
+
+# WHERE output_clause
+{ OUTPUT output_item [, ...]
+| OUTPUT output_item [, ...] INTO output_target [ ( colname [, ...] ) ]
+    [ OUTPUT output_item [, ...] ] }
+
+# WHERE output_item
+{ INSERTED . * | DELETED . * | { INSERTED . colname | DELETED . colname | $action | output_expression } [ [ AS ] col_alias ] }
+
+# WHERE cte_definition
+cte [ ( colname [, ...] ) ] AS ( query_statement )
+
+# STATEMENT query_statement
+SELECT

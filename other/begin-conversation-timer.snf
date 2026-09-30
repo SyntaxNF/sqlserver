@@ -1,0 +1,3 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/begin-conversation-timer-transact-sql?view=sql-server-ver17
+
+BEGIN CONVERSATION TIMER ( conversation_handle ) TIMEOUT = timeout

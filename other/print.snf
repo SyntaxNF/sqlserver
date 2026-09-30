@@ -1,0 +1,4 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/language-elements/print-transact-sql?view=sql-server-ver17
+
+# CASE STATEMENT
+PRINT string_expression

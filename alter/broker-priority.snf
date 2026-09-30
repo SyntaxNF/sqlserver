@@ -1,0 +1,10 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-broker-priority-transact-sql?view=sql-server-ver17
+
+ALTER BROKER PRIORITY name FOR CONVERSATION
+    SET ( priority_option [, ...] )
+
+# ONEOFIS priority_option
+CONTRACT_NAME = { contract | ANY }
+LOCAL_SERVICE_NAME = { local_service | ANY }
+REMOTE_SERVICE_NAME = { 'remote_service' | ANY }
+PRIORITY_LEVEL = { priority_value | DEFAULT }

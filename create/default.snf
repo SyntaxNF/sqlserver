@@ -1,0 +1,4 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-default-transact-sql?view=sql-server-ver17
+
+# CASE DEFAULT
+CREATE DEFAULT name AS default_expression

@@ -1,0 +1,6 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/restore-service-master-key-transact-sql?view=sql-server-ver17
+
+# CASE SERVICE_MASTER_KEY
+RESTORE SERVICE MASTER KEY FROM FILE = 'file_path'
+    DECRYPTION BY PASSWORD = 'decryption_password'
+    [ FORCE ]

@@ -1,0 +1,7 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/language-elements/throw-transact-sql?view=sql-server-ver17
+
+# CASE RETHROW
+THROW
+
+# CASE NEW_ERROR
+THROW error_number , message , state_value
