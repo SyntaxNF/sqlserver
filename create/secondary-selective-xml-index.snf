@@ -1,7 +1,8 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/create-xml-index-selective-xml-indexes?view=sql-server-ver17
 
 # CASE SECONDARY_SELECTIVE_XML_INDEX
-CREATE XML INDEX name ON table ( colname )
+CREATE XML INDEX name
+    ON table ( colname )
     USING XML INDEX selective_xml_index FOR ( promoted_path_name )
     [ WITH ( xml_index_option [, ...] ) ]
 

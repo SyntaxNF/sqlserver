@@ -14,7 +14,8 @@ BACKUP DATABASE database READ_WRITE_FILEGROUPS [ , read_only_filegroup [, ...] ]
     [ WITH database_backup_option [, ...] ]
 
 # CASE LOG
-BACKUP LOG database TO backup_device [, ...]
+BACKUP LOG database
+    TO backup_device [, ...]
     [ mirror_clause [...] ]
     [ WITH log_backup_option [, ...] ]
 
@@ -24,7 +25,8 @@ BACKUP SERVER TO backup_device [, ...]
     WITH METADATA_ONLY [ , backup_option [, ...] ]
 
 # CASE GROUP_SNAPSHOT
-BACKUP GROUP database [, ...] TO backup_device [, ...]
+BACKUP GROUP database [, ...]
+    TO backup_device [, ...]
     [ mirror_clause [...] ]
     WITH METADATA_ONLY [ , backup_option [, ...] ]
 

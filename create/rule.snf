@@ -1,4 +1,5 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/create-rule-transact-sql?view=sql-server-ver17
 
 # CASE RULE
-CREATE RULE name AS boolean_expression
+CREATE RULE name
+    AS boolean_expression

@@ -12,12 +12,17 @@ UPDATE [ TOP ( row_count_expression ) [ PERCENT ] ] update_target
 colname { = { DEFAULT | value_expression } | { += | -= | *= | /= | %= | &= | ^= | \|= } value_expression }
 
 # WHERE output_clause
-{ OUTPUT output_item [, ...]
-| OUTPUT output_item [, ...] INTO output_target [ ( colname [, ...] ) ]
-    [ OUTPUT output_item [, ...] ] }
+{
+    OUTPUT output_item [, ...] |
+    OUTPUT output_item [, ...] INTO output_target [ ( colname [, ...] ) ]
+        [ OUTPUT output_item [, ...] ]
+}
 
 # WHERE output_item
-{ { INSERTED | DELETED } . * | { { INSERTED | DELETED } . colname | output_expression } [ [ AS ] col_alias ] }
+{
+    { INSERTED | DELETED } . * |
+    { { INSERTED | DELETED } . colname | output_expression } [ [ AS ] col_alias ]
+}
 
 # WHERE cte_definition
 cte [ ( colname [, ...] ) ] AS ( query_statement )

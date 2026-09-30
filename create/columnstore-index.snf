@@ -1,13 +1,15 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/create-columnstore-index-transact-sql?view=sql-server-ver17
 
 # CASE CLUSTERED
-CREATE CLUSTERED COLUMNSTORE INDEX name ON table
+CREATE CLUSTERED COLUMNSTORE INDEX name
+    ON table
     [ ORDER ( colname [, ...] ) ]
     [ WITH ( columnstore_option [, ...] ) ]
     [ ON storage_clause ]
 
 # CASE NONCLUSTERED
-CREATE [ NONCLUSTERED ] COLUMNSTORE INDEX name ON table ( colname [, ...] )
+CREATE [ NONCLUSTERED ] COLUMNSTORE INDEX name
+    ON table ( colname [, ...] )
     [ ORDER ( colname [, ...] ) ]
     [ WHERE filter_expression ]
     [ WITH ( columnstore_option [, ...] ) ]

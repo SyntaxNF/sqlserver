@@ -1,7 +1,8 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-queue-transact-sql?view=sql-server-ver17
 
 # CASE SETTINGS
-ALTER QUEUE name WITH queue_option [, ...]
+ALTER QUEUE name
+    WITH queue_option [, ...]
 
 # CASE REBUILD
 ALTER QUEUE name REBUILD [ WITH ( MAXDOP = maxdop ) ]
@@ -10,7 +11,8 @@ ALTER QUEUE name REBUILD [ WITH ( MAXDOP = maxdop ) ]
 ALTER QUEUE name REORGANIZE [ WITH ( LOB_COMPACTION = { ON | OFF } ) ]
 
 # CASE MOVE
-ALTER QUEUE name MOVE TO { filegroup | "default" }
+ALTER QUEUE name MOVE
+    TO { filegroup | "default" }
 
 
 # ONEOFIS queue_option

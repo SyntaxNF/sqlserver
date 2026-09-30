@@ -1,7 +1,8 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/create-column-encryption-key-transact-sql?view=sql-server-ver17
 
 # CASE COLUMN_ENCRYPTION_KEY
-CREATE COLUMN ENCRYPTION KEY name WITH VALUES
+CREATE COLUMN ENCRYPTION KEY name
+    WITH VALUES
     column_key_value_definition [ , column_key_value_definition ]
 
 # WHERE column_key_value_definition

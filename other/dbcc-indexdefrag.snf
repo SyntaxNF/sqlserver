@@ -1,3 +1,8 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-indexdefrag-transact-sql?view=sql-server-ver17
 
-DBCC INDEXDEFRAG ( { database | database_id | 0 } , { table | table_id | view | view_id } [ , { index | index_id } [ , { partition_number | 0 } ] ] ) [ WITH NO_INFOMSGS ]
+DBCC INDEXDEFRAG (
+    { database | database_id | 0 } ,
+    { table | table_id | view | view_id }
+    [ , { index | index_id } [ , { partition_number | 0 } ] ]
+)
+    [ WITH NO_INFOMSGS ]
