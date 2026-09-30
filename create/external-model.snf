@@ -2,9 +2,14 @@
 
 # CASE REMOTE_EMBEDDING_MODEL
 CREATE EXTERNAL MODEL name [ AUTHORIZATION owner ]
-    WITH ( LOCATION = 'https_location', API_FORMAT = api_format_literal,
-        MODEL_TYPE = EMBEDDINGS, MODEL = 'model_name'
-        [ , CREDENTIAL = credential ] [ , PARAMETERS = 'json_parameters' ] )
+    WITH (
+        LOCATION = 'https_location',
+        API_FORMAT = api_format_literal,
+        MODEL_TYPE = EMBEDDINGS,
+        MODEL = 'model_name'
+        [ , CREDENTIAL = credential ]
+        [ , PARAMETERS = 'json_parameters' ]
+    )
 
 # WHERE api_format_literal
 { 'OpenAI' | 'Azure OpenAI' | 'Ollama' }

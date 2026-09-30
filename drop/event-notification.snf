@@ -1,3 +1,4 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-event-notification-transact-sql?view=sql-server-ver17
 
-DROP EVENT NOTIFICATION name [, ...] ON { SERVER | DATABASE | QUEUE queue }
+DROP EVENT NOTIFICATION name [, ...]
+    ON { SERVER | DATABASE | QUEUE queue }

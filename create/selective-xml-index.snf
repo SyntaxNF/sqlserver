@@ -1,7 +1,8 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/create-selective-xml-index-transact-sql?view=sql-server-ver17
 
 # CASE SELECTIVE_XML_INDEX
-CREATE SELECTIVE XML INDEX name ON table ( colname )
+CREATE SELECTIVE XML INDEX name
+    ON table ( colname )
     [ WITH XMLNAMESPACES ( namespace_definition [, ...] ) ]
     FOR ( promoted_path_definition [, ...] )
     [ WITH ( xml_index_option [, ...] ) ]
@@ -10,7 +11,9 @@ CREATE SELECTIVE XML INDEX name ON table ( colname )
 path_name = promoted_path
 
 # PARTOFIS promoted_path
-'node_path' [ AS XQUERY xquery_type_hint ] [ SINGLETON ]
+'node_path'
+    [ AS XQUERY xquery_type_hint ]
+    [ SINGLETON ]
 
 'node_path' AS SQL data_type [ SINGLETON ]
 

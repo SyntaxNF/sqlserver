@@ -1,5 +1,6 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/backup-symmetric-key-transact-sql?view=sql-server-ver17
 
 # CASE SYMMETRIC_KEY
-BACKUP SYMMETRIC KEY name TO { FILE = 'file_path' | URL = 'blob_url' }
+BACKUP SYMMETRIC KEY name
+    TO { FILE = 'file_path' | URL = 'blob_url' }
     ENCRYPTION BY PASSWORD = 'encryption_password'

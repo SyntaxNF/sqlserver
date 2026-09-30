@@ -1,7 +1,9 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-endpoint-transact-sql?view=sql-server-ver17
 
 # CASE STATE
-ALTER ENDPOINT name STATE = { STARTED | STOPPED | DISABLED } [ tcp_definition ] [ payload_definition ]
+ALTER ENDPOINT name STATE = { STARTED | STOPPED | DISABLED }
+    [ tcp_definition ]
+    [ payload_definition ]
 
 # CASE TCP
 ALTER ENDPOINT name tcp_definition [ payload_definition ]

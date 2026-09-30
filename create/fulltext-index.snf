@@ -8,7 +8,10 @@ CREATE FULLTEXT INDEX ON name
     [ WITH ( fulltext_option [, ...] ) ]
 
 # WHERE fulltext_column_definition
-colname [ TYPE COLUMN type_colname ] [ LANGUAGE language_term ] [ STATISTICAL_SEMANTICS ]
+colname
+    [ TYPE COLUMN type_colname ]
+    [ LANGUAGE language_term ]
+    [ STATISTICAL_SEMANTICS ]
 
 # PARTOFIS catalog_filegroup_clause
 fulltext_catalog

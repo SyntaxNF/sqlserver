@@ -1,3 +1,4 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-freeproccache-transact-sql?view=sql-server-ver17
 
-DBCC FREEPROCCACHE [ ( { plan_handle | sql_handle | pool } ) ] [ WITH NO_INFOMSGS ]
+DBCC FREEPROCCACHE [ ( { plan_handle | sql_handle | pool } ) ]
+    [ WITH NO_INFOMSGS ]

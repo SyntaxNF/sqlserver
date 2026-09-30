@@ -4,7 +4,9 @@
 ALTER TABLE name ADD column_definition [, ...]
 
 # CASE ALTER_COLUMN
-ALTER TABLE name ALTER COLUMN colname data_type [ COLLATE collation ] [ NULL | NOT NULL ]
+ALTER TABLE name ALTER COLUMN colname data_type
+    [ COLLATE collation ]
+    [ NULL | NOT NULL ]
 
 # CASE DROP_COLUMN
 ALTER TABLE name DROP COLUMN [ IF EXISTS ] colname [, ...]
@@ -19,7 +21,8 @@ ALTER TABLE name [ WITH { CHECK | NOCHECK } ] { CHECK | NOCHECK } CONSTRAINT { A
 ALTER TABLE name [ WITH { CHECK | NOCHECK } ] ADD table_constraint_definition [, ...]
 
 # CASE ADD_COMPUTED_COLUMN
-ALTER TABLE name ADD colname AS computed_expression [ PERSISTED [ NOT NULL ] ]
+ALTER TABLE name ADD colname
+    AS computed_expression [ PERSISTED [ NOT NULL ] ]
 
 # CASE ALTER_COLUMN_ATTRIBUTE
 ALTER TABLE name ALTER COLUMN colname
@@ -75,8 +78,11 @@ colname data_type
 # PARTOFIS table_constraint_definition
 [ CONSTRAINT constraint ] { PRIMARY KEY | UNIQUE } [ CLUSTERED | NONCLUSTERED ] ( index_column_definition [, ...] )
 
-[ CONSTRAINT constraint ] FOREIGN KEY ( colname [, ...] ) REFERENCES referenced_table [ ( referenced_colname [, ...] ) ]
-    [ ON DELETE referential_action ] [ ON UPDATE referential_action ] [ NOT FOR REPLICATION ]
+[ CONSTRAINT constraint ] FOREIGN KEY ( colname [, ...] )
+    REFERENCES referenced_table [ ( referenced_colname [, ...] ) ]
+    [ ON DELETE referential_action ]
+    [ ON UPDATE referential_action ]
+    [ NOT FOR REPLICATION ]
 
 [ CONSTRAINT constraint ] CHECK [ NOT FOR REPLICATION ] ( boolean_expression )
 
