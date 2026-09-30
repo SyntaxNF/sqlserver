@@ -1,0 +1,5 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-database-encryption-key-transact-sql?view=sql-server-ver17
+
+# CASE DATABASE_ENCRYPTION_KEY
+CREATE DATABASE ENCRYPTION KEY WITH ALGORITHM = { AES_128 | AES_192 | AES_256 }
+    ENCRYPTION BY SERVER { CERTIFICATE certificate_name | ASYMMETRIC KEY asymmetric_key_name }

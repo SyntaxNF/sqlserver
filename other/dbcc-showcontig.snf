@@ -1,0 +1,11 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-showcontig-transact-sql?view=sql-server-ver17
+
+DBCC SHOWCONTIG [ ( { table | table_id | view | view_id } [ , { index | index_id } ] ) ]
+    [ WITH show_option [, ...] ]
+
+# ONEOFIS show_option
+ALL_INDEXES
+TABLERESULTS
+FAST
+ALL_LEVELS
+NO_INFOMSGS

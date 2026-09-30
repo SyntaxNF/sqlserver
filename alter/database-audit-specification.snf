@@ -1,0 +1,32 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-database-audit-specification-transact-sql?view=sql-server-ver17
+
+# CASE AUDIT_BINDING
+ALTER DATABASE AUDIT SPECIFICATION name FOR SERVER AUDIT audit_name
+    [ audit_specification_action [, ...] ]
+    [ WITH ( STATE = { ON | OFF } ) ]
+
+# CASE ACTIONS
+ALTER DATABASE AUDIT SPECIFICATION name audit_specification_action [, ...]
+    [ WITH ( STATE = { ON | OFF } ) ]
+
+# CASE STATE
+ALTER DATABASE AUDIT SPECIFICATION name WITH ( STATE = { ON | OFF } )
+
+# WHERE audit_specification_action
+{ ADD | DROP } ( database_audit_item )
+
+# PARTOFIS database_audit_item
+database_audit_action_group
+
+database_audit_action [, ...] ON [ { OBJECT | SCHEMA | DATABASE } :: ] securable_name
+    BY database_principal [, ...]
+
+
+# ONEOFIS database_audit_action
+SELECT
+UPDATE
+INSERT
+DELETE
+EXECUTE
+RECEIVE
+REFERENCES

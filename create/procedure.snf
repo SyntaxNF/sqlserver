@@ -1,0 +1,44 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-procedure-transact-sql?view=sql-server-ver17
+
+# CASE TSQL
+CREATE [ OR ALTER ] { PROC | PROCEDURE } name [ ; number_value ]
+    [ parameter_definition [, ...] ]
+    [ WITH procedure_option [, ...] ]
+    [ FOR REPLICATION ]
+    AS statement_block
+
+# CASE CLR
+CREATE [ OR ALTER ] { PROC | PROCEDURE } name [ ; number_value ]
+    [ clr_parameter_definition [, ...] ]
+    [ WITH execute_as_clause ]
+    AS EXTERNAL NAME assembly . class_name . method_name
+
+# CASE NATIVE
+CREATE [ OR ALTER ] { PROC | PROCEDURE } name
+    [ native_parameter_definition [, ...] ]
+    WITH NATIVE_COMPILATION , SCHEMABINDING [ , execute_as_clause ]
+    AS BEGIN ATOMIC WITH ( atomic_option [, ...] )
+        sql_statement_list
+    END
+
+# WHERE parameter_definition
+parameter data_type [ VARYING ] [ NULL ] [ = default_value ] [ OUT | OUTPUT | READONLY ]
+
+# WHERE clr_parameter_definition
+parameter data_type [ = default_value ] [ OUT | OUTPUT ] [ READONLY ]
+
+# WHERE native_parameter_definition
+parameter data_type [ NULL | NOT NULL ] [ = default_value ] [ OUT | OUTPUT ] [ READONLY ]
+
+# WHERE procedure_option
+{ ENCRYPTION | RECOMPILE | execute_as_clause }
+
+# WHERE execute_as_clause
+EXECUTE AS { CALLER | SELF | OWNER | 'user_name' }
+
+# ONEOFIS atomic_option
+LANGUAGE = [ N ] 'language'
+TRANSACTION ISOLATION LEVEL = { SNAPSHOT | REPEATABLE READ | SERIALIZABLE }
+DATEFIRST = datefirst_value
+DATEFORMAT = dateformat_value
+DELAYED_DURABILITY = { ON | OFF }

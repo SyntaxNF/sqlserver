@@ -1,0 +1,12 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-checkfilegroup-transact-sql?view=sql-server-ver17
+
+DBCC CHECKFILEGROUP [ ( { filegroup | filegroup_id | 0 } [ , NOINDEX ] ) ]
+    [ WITH check_option [, ...] ]
+
+# ONEOFIS check_option
+ALL_ERRORMSGS
+NO_INFOMSGS
+TABLOCK
+ESTIMATEONLY
+PHYSICAL_ONLY
+MAXDOP = maxdop

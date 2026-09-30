@@ -1,8 +1,8 @@
 {
   "name": "snf-sqlserver",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
-  "description": "SQL Server 2025 (17.x) SNF definitions — initial partial coverage",
+  "description": "SQL Server 2025 (17.x) SNF statement inventory with explicit partial coverage",
   "type": "module",
   "keywords": [
     "snf",

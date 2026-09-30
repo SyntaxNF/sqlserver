@@ -1,0 +1,4 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-server-audit-specification-transact-sql?view=sql-server-ver17
+
+# CASE SERVER_AUDIT_SPECIFICATION
+DROP SERVER AUDIT SPECIFICATION name

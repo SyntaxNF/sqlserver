@@ -1,0 +1,9 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-server-audit-specification-transact-sql?view=sql-server-ver17
+
+# CASE SERVER_AUDIT_SPECIFICATION
+CREATE SERVER AUDIT SPECIFICATION name FOR SERVER AUDIT audit_name
+    audit_specification_add [, ...]
+    [ WITH ( STATE = { ON | OFF } ) ]
+
+# WHERE audit_specification_add
+ADD ( server_audit_action_group )

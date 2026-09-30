@@ -1,0 +1,22 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/language-elements/set-local-variable-transact-sql?view=sql-server-ver17
+
+# CASE ASSIGN
+SET variable { = | += | -= | *= | /= | %= | &= | ^= | \|= } value_expression
+
+# CASE PROPERTY
+SET variable . member_name = value_expression
+
+# CASE MUTATOR
+SET variable . method_name ( [ argument [, ...] ] )
+
+# CASE CURSOR_REFERENCE
+SET cursor_variable = { cursor_variable | cursor_name }
+
+# CASE CURSOR_DEFINITION
+SET cursor_variable = CURSOR [ LOCAL | GLOBAL ]
+    [ FORWARD_ONLY | SCROLL ] [ STATIC | KEYSET | DYNAMIC | FAST_FORWARD ]
+    [ READ_ONLY | SCROLL_LOCKS | OPTIMISTIC ] [ TYPE_WARNING ]
+    FOR query_statement [ FOR { READ ONLY | UPDATE [ OF colname [, ...] ] } ]
+
+# STATEMENT query_statement
+SELECT

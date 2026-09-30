@@ -2,7 +2,7 @@
 
 ## 当前状态
 
-初始提交仅完成官方来源对照与人工结构审阅。未运行 SNF parser、未执行 SQL Server、未验证 Studio 集成。此处是可维护的主动验证流程，不是成功测试报告。
+当前扩展提交完成官方来源对照、人工交叉审阅、清单映射与空白检查。未运行 SNF parser、未执行 SQL Server、未验证 Studio 集成。此处是可维护的主动验证流程，不是成功测试报告。
 
 遵循同级仓库约定：agents 不自动运行测试、类型检查或 parser 结构验证。用户决定何时运行。
 
@@ -35,3 +35,11 @@ SNF_PARSER_MODULE=/absolute/path/to/parser/dist/esm/index.mjs npm run validate:s
 - 只有完成相应层次验证后，才在覆盖表写明通过项。示例语法通过不保证所有合法分支都被覆盖
 
 不自动添加 CI，不借此启动数据库容器，不自动安装依赖。
+
+## 本轮扩展的记录
+
+- 来源元数据与目录条目整合是文档生成/计数，不是 parser 或测试执行
+- 基于 MicrosoftDocs 官方目录建立 source-catalog.json，并保存每页观察到的 Git blob SHA；命令行计数/空白扫描不验证 T-SQL
+- 六个现有 family 目录仍可由现有 validate:snf 脚本扫描；没有新增自动执行命令，无生成 .snf.json
+- 用户后续应优先验证：MERGE 分支数量/分号、模块执行上下文/ATOMIC、列存 ORDER/WITH 文档分歧、selective XML ALTER 禁止 WITH、JSON INDEX 不支持压缩、数据库与恢复选项互斥、Broker 和 DBCC 参数
+- 当前没有数据库连接、没有安全设置或第三方账户变更；提交只包含语法定义和说明

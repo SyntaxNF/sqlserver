@@ -1,0 +1,5 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/backup-master-key-transact-sql?view=sql-server-ver17
+
+# CASE MASTER_KEY
+BACKUP MASTER KEY TO { FILE = 'file_path' | URL = 'blob_url' }
+    ENCRYPTION BY PASSWORD = 'encryption_password'

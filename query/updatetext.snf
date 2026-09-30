@@ -1,0 +1,6 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/queries/updatetext-transact-sql?view=sql-server-ver17
+
+# CASE UPDATETEXT
+UPDATETEXT [ BULK ] qualified_column text_pointer
+    { NULL | insert_offset_value } { NULL | delete_length_value }
+    [ WITH LOG ] [ inserted_data_value | source_qualified_column source_text_pointer ]

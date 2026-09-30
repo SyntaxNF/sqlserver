@@ -1,0 +1,26 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-asymmetric-key-transact-sql?view=sql-server-ver17
+
+# CASE GENERATED
+CREATE ASYMMETRIC KEY name [ AUTHORIZATION database_principal ]
+    WITH ALGORITHM = { RSA_2048 | RSA_3072 | RSA_4096 }
+    [ ENCRYPTION BY PASSWORD = 'password' ]
+
+# CASE IMPORTED
+CREATE ASYMMETRIC KEY name [ AUTHORIZATION database_principal ]
+    FROM asymmetric_key_source
+    [ ENCRYPTION BY PASSWORD = 'password' ]
+
+# CASE PROVIDER
+CREATE ASYMMETRIC KEY name [ AUTHORIZATION database_principal ]
+    FROM PROVIDER provider_name WITH provider_key_option [, ...]
+
+
+# ONEOFIS asymmetric_key_source
+FILE = 'file_path'
+EXECUTABLE FILE = 'file_path'
+ASSEMBLY assembly_name
+
+# ONEOFIS provider_key_option
+PROVIDER_KEY_NAME = 'provider_key_name'
+ALGORITHM = { RSA_2048 | RSA_3072 | RSA_4096 }
+CREATION_DISPOSITION = { CREATE_NEW | OPEN_EXISTING }

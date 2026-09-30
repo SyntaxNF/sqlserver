@@ -1,0 +1,17 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-resource-pool-transact-sql?view=sql-server-ver17
+
+CREATE RESOURCE POOL name [ WITH ( pool_option [, ...] ) ]
+
+# ONEOFIS pool_option
+MIN_CPU_PERCENT = percentage
+MAX_CPU_PERCENT = percentage
+CAP_CPU_PERCENT = percentage
+AFFINITY SCHEDULER = { AUTO | ( id_range [, ...] ) }
+AFFINITY NUMANODE = ( id_range [, ...] )
+MIN_MEMORY_PERCENT = percentage
+MAX_MEMORY_PERCENT = percentage
+MIN_IOPS_PER_VOLUME = iops
+MAX_IOPS_PER_VOLUME = iops
+
+# WHERE id_range
+first_id [ TO last_id ]

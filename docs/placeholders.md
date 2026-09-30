@@ -9,7 +9,7 @@ SNF 是生成结构，不是安全边界。当前未定义的节点不是“支�
 - data_type：完整类型声明（如 int、nvarchar(100)、decimal(18,2)），尚未结构化所有 2025 类型。CREATE SEQUENCE 只允许受支持的整数类型及 scale=0 的 decimal/numeric；不能无条件复用一般类型候选
 - value_expression、boolean_expression、default_expression、computed_expression：上下文合法表达式；没有独立表达式 parser。分组、聚合、窗口、子查询、函数适用性仍需判定
 - row_count_expression：TOP 合法数值表达式；offset_expression 非负，fetch_expression 至少 1；禁止对应位置不允许的相关子查询。PERCENT 的数值范围及转换按官方规则处理
-- output_expression：严格受 OUTPUT 限制的标量表达式，无聚合/子查询；修改表的列必须用 INSERTED/DELETED。UPDATE/DELETE 中其他 FROM 表的引用可通过此节点输入，但须正确绑定。INSERT 不得引用 DELETED，DELETE 不得引用 INSERTED，所有当前文件都不允许 $action
+- output_expression：严格受 OUTPUT 限制的标量表达式，无聚合/子查询；修改表的列必须用 INSERTED/DELETED。UPDATE/DELETE 中其他 FROM 表的引用可通过此节点输入，但须正确绑定。INSERT 不得引用 DELETED，DELETE 不得引用 INSERTED，只有 query/merge.snf 允许 $action，其他 DML 不允许
 - filter_expression：CREATE INDEX 受限过滤谓词，不是任意 boolean_expression；函数、子查询、OR/复杂表达式等按官方过滤索引限制处理
 - from_expression：SELECT 中已有本地结构化定义；UPDATE/DELETE 中暂为完整合法 FROM 成员自由输入，可按 SELECT 定义绑定复用，但 parser 不自动跨文件解析。允许 JOIN 来源不代表支持任意递归组合
 - query_statement：STATEMENT SELECT 是消费方的查询类型声明，不是只有 SELECT 一个关键字，也不是跨文件 import。消费方应绑定到查询定义或受校验的完整查询；嵌套时禁止语句终止符，并限制 INTO、ORDER BY、CTE 等合法性。CREATE VIEW 禁止 INTO/OPTION/临时对象等
@@ -28,4 +28,11 @@ SNF 是生成结构，不是安全边界。当前未定义的节点不是“支�
 - 所有 *_statement 的语句边界、CTE 前一语句终止和 CREATE VIEW 首条 batch 限制由 runner 负责。分号一般由 runner 添加，不能在嵌套子查询尾添加
 - 本项目目前不提供 SQL 参数化、执行器或权限系统；SNF 转 AST 成功不等于 SQL 安全或有效
 
-完整约束以文件首行 Microsoft 文档为准。
+## 扩展契约
+
+- [关系查询、索引、外部对象](relational-placeholders.md)
+- [编程、游标、会话](programming-placeholders.md)
+- [权限、安全、密钥](security-placeholders.md)
+- [管理、DBCC、Service Broker](operations-placeholders.md)
+
+上面的初始节点说明与这些逐类契约一起使用；同名节点在不同文件中不自动绑定。新增定义的结构/缺口以 inventory 与覆盖表为准。完整约束以文件首行 Microsoft 文档为准。

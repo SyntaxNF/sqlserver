@@ -1,0 +1,4 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-external-file-format-transact-sql?view=sql-server-ver17
+
+# CASE EXTERNAL_FILE_FORMAT
+DROP EXTERNAL FILE FORMAT name

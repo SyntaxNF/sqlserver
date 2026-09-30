@@ -1,0 +1,10 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-service-transact-sql?view=sql-server-ver17
+
+# CASE QUEUE
+ALTER SERVICE name ON QUEUE queue [ ( contract_action [, ...] ) ]
+
+# CASE CONTRACTS
+ALTER SERVICE name ( contract_action [, ...] )
+
+# WHERE contract_action
+{ ADD | DROP } CONTRACT contract
