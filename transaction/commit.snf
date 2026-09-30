@@ -1,0 +1,8 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/language-elements/commit-transaction-transact-sql?view=sql-server-ver17
+
+# CASE TRANSACTION
+COMMIT [ { TRAN | TRANSACTION } [ transaction ] ]
+    [ WITH ( DELAYED_DURABILITY = { OFF | ON } ) ]
+
+# CASE WORK
+COMMIT WORK

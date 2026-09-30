@@ -1,0 +1,74 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/queries/select-transact-sql?view=sql-server-ver17
+
+# CASE SELECT
+[ WITH cte_definition [, ...] ]
+SELECT [ ALL | DISTINCT ] select_item [, ...]
+    [ INTO new_table ]
+    [ from_clause ]
+    [ WHERE boolean_expression ]
+    [ GROUP BY group_by_expression [, ...] ]
+    [ HAVING boolean_expression ]
+    [ ORDER BY order_by_expression [, ...] ]
+
+# CASE TOP
+[ WITH cte_definition [, ...] ]
+SELECT [ ALL | DISTINCT ] TOP ( row_count_expression ) [ PERCENT ] select_item [, ...]
+    [ INTO new_table ]
+    [ from_clause ]
+    [ WHERE boolean_expression ]
+    [ GROUP BY group_by_expression [, ...] ]
+    [ HAVING boolean_expression ]
+    [ ORDER BY order_by_expression [, ...] ]
+
+# CASE TOP_WITH_TIES
+[ WITH cte_definition [, ...] ]
+SELECT [ ALL | DISTINCT ] TOP ( row_count_expression ) [ PERCENT ] WITH TIES select_item [, ...]
+    [ INTO new_table ]
+    [ from_clause ]
+    [ WHERE boolean_expression ]
+    [ GROUP BY group_by_expression [, ...] ]
+    [ HAVING boolean_expression ]
+    ORDER BY order_by_expression [, ...]
+
+# CASE OFFSET_FETCH
+[ WITH cte_definition [, ...] ]
+SELECT [ ALL | DISTINCT ] select_item [, ...]
+    [ INTO new_table ]
+    [ from_clause ]
+    [ WHERE boolean_expression ]
+    [ GROUP BY group_by_expression [, ...] ]
+    [ HAVING boolean_expression ]
+    ORDER BY order_by_expression [, ...]
+    OFFSET offset_expression { ROW | ROWS }
+    [ FETCH { FIRST | NEXT } fetch_expression { ROW | ROWS } ONLY ]
+
+# WHERE cte_definition
+cte [ ( colname [, ...] ) ] AS ( query_statement )
+
+# WHERE select_item
+{ * | table_alias . * | value_expression [ [ AS ] col_alias ] }
+
+# WHERE from_clause
+FROM from_expression [, ...]
+
+# PARTOFIS from_expression
+table [ [ AS ] table_alias ]
+
+( query_statement ) [ AS ] table_alias [ ( colname [, ...] ) ]
+
+from_expression [ INNER ] JOIN from_expression ON boolean_expression
+
+from_expression { LEFT | RIGHT | FULL } [ OUTER ] JOIN from_expression ON boolean_expression
+
+from_expression CROSS JOIN from_expression
+
+from_expression { CROSS | OUTER } APPLY from_expression
+
+# WHERE group_by_expression
+value_expression
+
+# WHERE order_by_expression
+value_expression [ COLLATE collation ] [ ASC | DESC ]
+
+# STATEMENT query_statement
+SELECT

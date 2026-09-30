@@ -1,0 +1,28 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-index-transact-sql?view=sql-server-ver17
+
+# CASE CLUSTERED
+CREATE [ UNIQUE ] CLUSTERED INDEX name ON table ( index_column_definition [, ...] )
+    [ WITH ( index_option [, ...] ) ]
+    [ ON filegroup ]
+
+# CASE NONCLUSTERED
+CREATE [ UNIQUE ] [ NONCLUSTERED ] INDEX name ON table ( index_column_definition [, ...] )
+    [ INCLUDE ( colname [, ...] ) ]
+    [ WHERE filter_expression ]
+    [ WITH ( index_option [, ...] ) ]
+    [ ON filegroup ]
+
+# WHERE index_column_definition
+colname [ ASC | DESC ]
+
+# ONEOFIS index_option
+PAD_INDEX = { ON | OFF }
+FILLFACTOR = fillfactor_value
+SORT_IN_TEMPDB = { ON | OFF }
+IGNORE_DUP_KEY = { ON | OFF }
+STATISTICS_NORECOMPUTE = { ON | OFF }
+DROP_EXISTING = { ON | OFF }
+ALLOW_ROW_LOCKS = { ON | OFF }
+ALLOW_PAGE_LOCKS = { ON | OFF }
+OPTIMIZE_FOR_SEQUENTIAL_KEY = { ON | OFF }
+MAXDOP = maxdop_value

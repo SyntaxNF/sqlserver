@@ -1,0 +1,26 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/queries/update-transact-sql?view=sql-server-ver17
+
+# CASE UPDATE
+[ WITH cte_definition [, ...] ]
+UPDATE [ TOP ( row_count_expression ) [ PERCENT ] ] update_target
+    SET assignment [, ...]
+    [ output_clause ]
+    [ FROM from_expression [, ...] ]
+    [ WHERE boolean_expression ]
+
+# WHERE assignment
+colname { = { DEFAULT | value_expression } | { += | -= | *= | /= | %= | &= | ^= | \|= } value_expression }
+
+# WHERE output_clause
+{ OUTPUT output_item [, ...]
+| OUTPUT output_item [, ...] INTO output_target [ ( colname [, ...] ) ]
+    [ OUTPUT output_item [, ...] ] }
+
+# WHERE output_item
+{ { INSERTED | DELETED } . * | { { INSERTED | DELETED } . colname | output_expression } [ [ AS ] col_alias ] }
+
+# WHERE cte_definition
+cte [ ( colname [, ...] ) ] AS ( query_statement )
+
+# STATEMENT query_statement
+SELECT

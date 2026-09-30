@@ -1,0 +1,7 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/set-statements-transact-sql?view=sql-server-ver17
+
+# CASE BOOLEAN_OPTION
+SET { ANSI_NULLS | ANSI_PADDING | ANSI_WARNINGS | ARITHABORT | CONCAT_NULL_YIELDS_NULL | IMPLICIT_TRANSACTIONS | NOCOUNT | NUMERIC_ROUNDABORT | QUOTED_IDENTIFIER | XACT_ABORT } { ON | OFF }
+
+# CASE IDENTITY_INSERT
+SET IDENTITY_INSERT table { ON | OFF }
