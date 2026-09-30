@@ -1,0 +1,9 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-signature-transact-sql?view=sql-server-ver17
+
+# CASE SIGNATURE
+DROP [ COUNTER ] SIGNATURE FROM name BY signature_key [, ...]
+
+
+# ONEOFIS signature_key
+CERTIFICATE certificate_name
+ASYMMETRIC KEY asymmetric_key_name

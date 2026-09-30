@@ -1,0 +1,8 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-external-data-source-transact-sql?view=sql-server-ver17
+
+# CASE EXTERNAL_DATA_SOURCE
+ALTER EXTERNAL DATA SOURCE name SET external_source_option [, ...]
+
+# ONEOFIS external_source_option
+LOCATION = 'location'
+CREDENTIAL = credential

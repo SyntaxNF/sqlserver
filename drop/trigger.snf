@@ -1,0 +1,7 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-trigger-transact-sql?view=sql-server-ver17
+
+# CASE DML
+DROP TRIGGER [ IF EXISTS ] name [, ...]
+
+# CASE DDL_OR_LOGON
+DROP TRIGGER [ IF EXISTS ] name [, ...] ON { DATABASE | ALL SERVER }

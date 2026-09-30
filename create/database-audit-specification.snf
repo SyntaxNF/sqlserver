@@ -1,0 +1,25 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-database-audit-specification-transact-sql?view=sql-server-ver17
+
+# CASE DATABASE_AUDIT_SPECIFICATION
+CREATE DATABASE AUDIT SPECIFICATION name FOR SERVER AUDIT audit_name
+    [ audit_specification_add [, ...] ]
+    [ WITH ( STATE = { ON | OFF } ) ]
+
+# WHERE audit_specification_add
+ADD ( database_audit_item [, ...] )
+
+# PARTOFIS database_audit_item
+database_audit_action_group
+
+database_audit_action [, ...] ON [ { OBJECT | SCHEMA | DATABASE } :: ] securable_name
+    BY database_principal [, ...]
+
+
+# ONEOFIS database_audit_action
+SELECT
+UPDATE
+INSERT
+DELETE
+EXECUTE
+RECEIVE
+REFERENCES

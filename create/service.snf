@@ -1,0 +1,5 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-service-transact-sql?view=sql-server-ver17
+
+CREATE SERVICE name [ AUTHORIZATION owner ]
+    ON QUEUE queue
+    [ ( { contract | \[DEFAULT\] } [, ...] ) ]

@@ -1,10 +1,73 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-index-transact-sql?view=sql-server-ver17
 
-# CASE REBUILD
-ALTER INDEX { name | ALL } ON table REBUILD
+# CASE REBUILD_ALL
+ALTER INDEX { name | ALL } ON table REBUILD [ PARTITION = ALL ]
+    [ WITH ( rebuild_option [, ...] ) ]
+
+# CASE REBUILD_PARTITION
+ALTER INDEX { name | ALL } ON table REBUILD PARTITION = partition_number
+    [ WITH ( partition_rebuild_option [, ...] ) ]
 
 # CASE REORGANIZE
-ALTER INDEX { name | ALL } ON table REORGANIZE [ WITH ( LOB_COMPACTION = { ON | OFF } ) ]
+ALTER INDEX { name | ALL } ON table REORGANIZE [ PARTITION = partition_number ]
+    [ WITH ( reorganize_option ) ]
 
 # CASE DISABLE
-ALTER INDEX name ON table DISABLE
+ALTER INDEX { name | ALL } ON table DISABLE
+
+# CASE SET
+ALTER INDEX { name | ALL } ON table SET ( set_index_option [, ...] )
+
+# CASE RESUME
+ALTER INDEX name ON table RESUME [ WITH ( resumable_option [, ...] ) ]
+
+# CASE PAUSE_OR_ABORT
+ALTER INDEX name ON table { PAUSE | ABORT }
+
+# ONEOFIS rebuild_option
+PAD_INDEX = { ON | OFF }
+FILLFACTOR = fillfactor_value
+SORT_IN_TEMPDB = { ON | OFF }
+IGNORE_DUP_KEY = { ON | OFF }
+STATISTICS_NORECOMPUTE = { ON | OFF }
+STATISTICS_INCREMENTAL = { ON | OFF }
+ONLINE = { ON [ ( low_priority_wait_clause ) ] | OFF }
+RESUMABLE = { ON | OFF }
+MAX_DURATION = duration_value [ MINUTES ]
+ALLOW_ROW_LOCKS = { ON | OFF }
+ALLOW_PAGE_LOCKS = { ON | OFF }
+MAXDOP = maxdop_value
+DATA_COMPRESSION = { NONE | ROW | PAGE | COLUMNSTORE | COLUMNSTORE_ARCHIVE } [ ON PARTITIONS ( partition_range [, ...] ) ]
+XML_COMPRESSION = { ON | OFF } [ ON PARTITIONS ( partition_range [, ...] ) ]
+
+# ONEOFIS partition_rebuild_option
+SORT_IN_TEMPDB = { ON | OFF }
+MAXDOP = maxdop_value
+RESUMABLE = { ON | OFF }
+MAX_DURATION = duration_value [ MINUTES ]
+DATA_COMPRESSION = { NONE | ROW | PAGE | COLUMNSTORE | COLUMNSTORE_ARCHIVE }
+XML_COMPRESSION = { ON | OFF }
+ONLINE = { ON [ ( low_priority_wait_clause ) ] | OFF }
+
+# ONEOFIS reorganize_option
+LOB_COMPACTION = { ON | OFF }
+COMPRESS_ALL_ROW_GROUPS = { ON | OFF }
+
+# ONEOFIS set_index_option
+ALLOW_ROW_LOCKS = { ON | OFF }
+ALLOW_PAGE_LOCKS = { ON | OFF }
+OPTIMIZE_FOR_SEQUENTIAL_KEY = { ON | OFF }
+IGNORE_DUP_KEY = { ON | OFF }
+STATISTICS_NORECOMPUTE = { ON | OFF }
+COMPRESSION_DELAY = delay_value [ MINUTES ]
+
+# ONEOFIS resumable_option
+MAXDOP = maxdop_value
+MAX_DURATION = duration_value [ MINUTES ]
+low_priority_wait_clause
+
+# WHERE low_priority_wait_clause
+WAIT_AT_LOW_PRIORITY ( MAX_DURATION = duration_value [ MINUTES ], ABORT_AFTER_WAIT = { NONE | SELF | BLOCKERS } )
+
+# WHERE partition_range
+partition_number [ TO partition_number ]

@@ -1,0 +1,96 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql?view=sql-server-ver17
+
+# CASE DATABASE
+RESTORE DATABASE database [ FROM backup_device [, ...] ]
+    [ WITH database_restore_option [, ...] ]
+
+# CASE PARTIAL
+RESTORE DATABASE database { file_selection | READ_WRITE_FILEGROUPS } [, ...]
+    [ FROM backup_device [, ...] ]
+    WITH PARTIAL , NORECOVERY [ , restore_option [, ...] ]
+
+# CASE FILES
+RESTORE DATABASE database file_selection [, ...]
+    [ FROM backup_device [, ...] ]
+    WITH { RECOVERY | NORECOVERY } [ , restore_option [, ...] ]
+
+# CASE PAGES
+RESTORE DATABASE database PAGE = 'page_list' [ , file_selection [, ...] ]
+    [ FROM backup_device [, ...] ]
+    WITH NORECOVERY [ , restore_option [, ...] ]
+
+# CASE LOG
+RESTORE LOG database [ log_target [, ...] ]
+    [ FROM backup_device [, ...] ]
+    [ WITH log_restore_option [, ...] ]
+
+# CASE SNAPSHOT
+RESTORE DATABASE database FROM DATABASE_SNAPSHOT = snapshot
+
+# ONEOFIS log_target
+file_selection
+PAGE = 'page_list'
+
+
+# ONEOFIS backup_device
+logical_device
+{ DISK | TAPE | URL } = device_value
+
+# ONEOFIS device_value
+'physical_device'
+device_variable
+
+# ONEOFIS file_selection
+FILE = file_value
+FILEGROUP = filegroup_value
+
+
+# ONEOFIS restore_option
+MOVE logical_file_value TO os_file_value
+REPLACE
+RESTART
+RESTRICTED_USER
+CREDENTIAL = string_value
+FILE = backup_set_number
+PASSWORD = string_value
+{ METADATA_ONLY | SNAPSHOT } [ DBNAME = database ]
+MEDIANAME = string_value
+MEDIAPASSWORD = string_value
+BLOCKSIZE = block_size
+BUFFERCOUNT = buffer_count
+MAXTRANSFERSIZE = transfer_size
+{ CHECKSUM | NO_CHECKSUM }
+{ STOP_ON_ERROR | CONTINUE_AFTER_ERROR }
+STATS [ = percentage ]
+{ REWIND | NOREWIND }
+{ UNLOAD | NOUNLOAD }
+
+# ONEOFIS string_value
+'string'
+string_variable
+
+# ONEOFIS recovery_option
+RECOVERY
+NORECOVERY
+STANDBY = undo_file_value
+
+# ONEOFIS database_restore_option
+recovery_option
+restore_option
+KEEP_REPLICATION
+KEEP_CDC
+FILESTREAM ( DIRECTORY_NAME = directory_value )
+ENABLE_BROKER
+ERROR_BROKER_CONVERSATIONS
+NEW_BROKER
+STOPAT = datetime_value
+STOPATMARK = 'lsn:lsn_number' [ AFTER 'datetime' ]
+STOPBEFOREMARK = 'lsn:lsn_number' [ AFTER 'datetime' ]
+
+# ONEOFIS log_restore_option
+recovery_option
+restore_option
+KEEP_REPLICATION
+STOPAT = datetime_value
+STOPATMARK = 'mark_or_lsn' [ AFTER 'datetime' ]
+STOPBEFOREMARK = 'mark_or_lsn' [ AFTER 'datetime' ]

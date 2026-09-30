@@ -1,0 +1,47 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-event-session-transact-sql?view=sql-server-ver17
+
+# CASE EVENTS
+ALTER EVENT SESSION name ON SERVER event_action [, ...] [ WITH ( session_option [, ...] ) ]
+
+# CASE TARGETS
+ALTER EVENT SESSION name ON SERVER target_action [, ...] [ WITH ( session_option [, ...] ) ]
+
+# CASE OPTIONS
+ALTER EVENT SESSION name ON SERVER WITH ( session_option [, ...] )
+
+# CASE STATE
+ALTER EVENT SESSION name ON SERVER STATE = { START | STOP }
+
+# ONEOFIS event_action
+event_definition
+DROP EVENT event_identifier
+
+# ONEOFIS target_action
+target_definition
+DROP TARGET target_identifier
+
+
+# WHERE event_definition
+ADD EVENT event_identifier [ ( event_settings ) ]
+
+# WHERE event_settings
+[ SET event_attribute = event_value [, ...] ]
+[ ACTION ( action_identifier [, ...] ) ]
+[ WHERE event_predicate_expression ]
+
+# WHERE target_definition
+ADD TARGET target_identifier [ ( SET target_parameter = event_value [, ...] ) ]
+
+# ONEOFIS event_value
+number
+'string'
+
+# ONEOFIS session_option
+MAX_MEMORY = memory_size [ KB | MB ]
+EVENT_RETENTION_MODE = { ALLOW_SINGLE_EVENT_LOSS | ALLOW_MULTIPLE_EVENT_LOSS | NO_EVENT_LOSS }
+MAX_DISPATCH_LATENCY = { seconds SECONDS | INFINITE }
+MAX_EVENT_SIZE = memory_size [ KB | MB ]
+MEMORY_PARTITION_MODE = { NONE | PER_NODE | PER_CPU }
+TRACK_CAUSALITY = { ON | OFF }
+STARTUP_STATE = { ON | OFF }
+MAX_DURATION = { duration { SECONDS | MINUTES | HOURS | DAYS } | UNLIMITED }

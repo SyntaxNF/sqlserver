@@ -1,0 +1,4 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-aggregate-transact-sql?view=sql-server-ver17
+
+# CASE DROP
+DROP AGGREGATE [ IF EXISTS ] name

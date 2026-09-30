@@ -1,0 +1,7 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/get-conversation-group-transact-sql?view=sql-server-ver17
+
+# CASE IMMEDIATE
+GET CONVERSATION GROUP group_variable FROM queue
+
+# CASE WAIT
+WAITFOR ( GET CONVERSATION GROUP group_variable FROM queue ) [ , TIMEOUT timeout ]

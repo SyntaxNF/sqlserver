@@ -1,0 +1,22 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-xml-index-transact-sql?view=sql-server-ver17
+
+# CASE PRIMARY
+CREATE PRIMARY XML INDEX name ON table ( colname )
+    [ WITH ( xml_index_option [, ...] ) ]
+
+# CASE SECONDARY
+CREATE XML INDEX name ON table ( colname )
+    USING XML INDEX primary_xml_index [ FOR { VALUE | PATH | PROPERTY } ]
+    [ WITH ( xml_index_option [, ...] ) ]
+
+# ONEOFIS xml_index_option
+PAD_INDEX = { ON | OFF }
+FILLFACTOR = fillfactor_value
+SORT_IN_TEMPDB = { ON | OFF }
+IGNORE_DUP_KEY = OFF
+DROP_EXISTING = { ON | OFF }
+ONLINE = OFF
+ALLOW_ROW_LOCKS = { ON | OFF }
+ALLOW_PAGE_LOCKS = { ON | OFF }
+MAXDOP = maxdop_value
+XML_COMPRESSION = { ON | OFF }

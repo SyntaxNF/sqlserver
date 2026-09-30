@@ -1,0 +1,11 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-clonedatabase-transact-sql?view=sql-server-ver17
+
+DBCC CLONEDATABASE ( source_database , target_database )
+    [ WITH clone_option [, ...] ]
+
+# ONEOFIS clone_option
+NO_STATISTICS
+NO_QUERYSTORE
+VERIFY_CLONEDB
+SERVICEBROKER
+BACKUP_CLONEDB

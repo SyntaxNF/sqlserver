@@ -1,0 +1,11 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-language-transact-sql?view=sql-server-ver17
+
+# CASE EXTERNAL_LANGUAGE
+CREATE EXTERNAL LANGUAGE name [ AUTHORIZATION owner ]
+    FROM language_file_definition [ , language_file_definition ]
+
+# WHERE language_file_definition
+( CONTENT = file_or_binary_expression, FILE_NAME = 'file_name'
+    [ , PLATFORM = { WINDOWS | LINUX } ]
+    [ , PARAMETERS = 'parameters' ]
+    [ , ENVIRONMENT_VARIABLES = 'environment_variables' ] )

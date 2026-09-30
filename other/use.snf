@@ -1,4 +1,4 @@
-# https://learn.microsoft.com/en-us/sql/t-sql/statements/use-transact-sql?view=sql-server-ver17
+# https://learn.microsoft.com/en-us/sql/t-sql/language-elements/use-transact-sql?view=sql-server-ver17
 
 # CASE USE
 USE database

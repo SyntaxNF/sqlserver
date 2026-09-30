@@ -1,0 +1,9 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-checkconstraints-transact-sql?view=sql-server-ver17
+
+DBCC CHECKCONSTRAINTS [ ( { table | table_id | constraint | constraint_id } ) ]
+    [ WITH constraint_option [, ...] ]
+
+# ONEOFIS constraint_option
+ALL_CONSTRAINTS
+ALL_ERRORMSGS
+NO_INFOMSGS

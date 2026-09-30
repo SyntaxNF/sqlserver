@@ -1,0 +1,13 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/language-elements/waitfor-transact-sql?view=sql-server-ver17
+
+# CASE DELAY
+WAITFOR DELAY time_expression
+
+# CASE TIME
+WAITFOR TIME time_expression
+
+# CASE RECEIVE
+WAITFOR ( receive_statement ) [ , TIMEOUT timeout_value ]
+
+# CASE CONVERSATION_GROUP
+WAITFOR ( get_conversation_group_statement ) [ , TIMEOUT timeout_value ]

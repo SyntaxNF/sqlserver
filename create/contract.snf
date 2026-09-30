@@ -1,0 +1,7 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-contract-transact-sql?view=sql-server-ver17
+
+CREATE CONTRACT name [ AUTHORIZATION owner ]
+    ( message_definition [, ...] )
+
+# WHERE message_definition
+{ message_type | \[DEFAULT\] } SENT BY { INITIATOR | TARGET | ANY }

@@ -1,0 +1,3 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-checkcatalog-transact-sql?view=sql-server-ver17
+
+DBCC CHECKCATALOG [ ( { database | database_id | 0 } ) ] [ WITH NO_INFOMSGS ]

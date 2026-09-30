@@ -1,0 +1,9 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-search-property-list-transact-sql?view=sql-server-ver17
+
+# CASE ADD
+ALTER SEARCH PROPERTY LIST name ADD 'property_name'
+    WITH ( PROPERTY_SET_GUID = 'property_set_guid', PROPERTY_INT_ID = property_int_id
+        [ , PROPERTY_DESCRIPTION = 'property_description' ] )
+
+# CASE DROP
+ALTER SEARCH PROPERTY LIST name DROP 'property_name'

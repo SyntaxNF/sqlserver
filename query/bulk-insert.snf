@@ -1,0 +1,32 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver17
+
+# CASE BULK_INSERT
+BULK INSERT name FROM 'data_file' [ WITH ( bulk_option [, ...] ) ]
+
+# ONEOFIS bulk_option
+DATA_SOURCE = 'data_source_name'
+CODEPAGE = 'codepage'
+DATAFILETYPE = { 'char' | 'widechar' | 'native' | 'widenative' }
+ROWTERMINATOR = 'row_terminator'
+FIELDTERMINATOR = 'field_terminator'
+FORMAT = 'CSV'
+FIELDQUOTE = 'quote_characters'
+FIRSTROW = first_row_value
+LASTROW = last_row_value
+FORMATFILE = 'format_file_path'
+FORMATFILE_DATA_SOURCE = 'formatfile_data_source'
+MAXERRORS = max_errors_value
+ERRORFILE = 'error_file'
+ERRORFILE_DATA_SOURCE = 'errorfile_data_source'
+KEEPIDENTITY
+KEEPNULLS
+FIRE_TRIGGERS
+CHECK_CONSTRAINTS
+TABLOCK
+ORDER ( order_column [, ...] )
+ROWS_PER_BATCH = rows_per_batch_value
+KILOBYTES_PER_BATCH = kilobytes_per_batch_value
+BATCHSIZE = batch_size_value
+
+# WHERE order_column
+colname [ ASC | DESC ]

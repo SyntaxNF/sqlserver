@@ -1,0 +1,4 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-xml-schema-collection-transact-sql?view=sql-server-ver17
+
+# CASE XML_SCHEMA_COLLECTION
+ALTER XML SCHEMA COLLECTION name ADD xml_schema_expression

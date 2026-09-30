@@ -1,0 +1,7 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/restore-master-key-transact-sql?view=sql-server-ver17
+
+# CASE MASTER_KEY
+RESTORE MASTER KEY FROM { FILE = 'file_path' | URL = 'blob_url' }
+    DECRYPTION BY PASSWORD = 'decryption_password'
+    ENCRYPTION BY PASSWORD = 'encryption_password'
+    [ FORCE ]

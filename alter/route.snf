@@ -1,0 +1,10 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-route-transact-sql?view=sql-server-ver17
+
+ALTER ROUTE name WITH route_option [, ...]
+
+# ONEOFIS route_option
+SERVICE_NAME = 'service'
+BROKER_INSTANCE = 'broker_instance'
+LIFETIME = lifetime
+ADDRESS = 'address'
+MIRROR_ADDRESS = 'mirror_address'

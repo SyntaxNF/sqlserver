@@ -1,0 +1,74 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-availability-group-transact-sql?view=sql-server-ver17
+
+# CASE REPLICAS
+CREATE AVAILABILITY GROUP name
+    [ WITH ( availability_option [, ...] ) ]
+    FOR [ DATABASE database [, ...] ]
+    REPLICA ON replica_definition [, ...]
+    [ LISTENER 'dns_name' ( listener_definition ) ]
+
+# CASE DISTRIBUTED
+CREATE AVAILABILITY GROUP name WITH ( DISTRIBUTED )
+    AVAILABILITY GROUP ON distributed_group_definition , distributed_group_definition
+
+
+# ONEOFIS availability_option
+AUTOMATED_BACKUP_PREFERENCE = { PRIMARY | SECONDARY_ONLY | SECONDARY | NONE }
+FAILURE_CONDITION_LEVEL = { 1 | 2 | 3 | 4 | 5 }
+HEALTH_CHECK_TIMEOUT = milliseconds
+DB_FAILOVER = { ON | OFF }
+DTC_SUPPORT = { PER_DB | NONE }
+BASIC
+CONTAINED [ REUSE_SYSTEM_DATABASES | AUTOSEEDING_SYSTEM_DATABASES ]
+CLUSTER_TYPE = { WSFC | EXTERNAL | NONE }
+WRITE_LEASE_VALIDITY = seconds
+CLUSTER_CONNECTION_OPTIONS = 'connection_options'
+
+# PARTOFIS replica_definition
+'server_instance' WITH (
+    ENDPOINT_URL = 'endpoint_url' ,
+    AVAILABILITY_MODE = { SYNCHRONOUS_COMMIT | ASYNCHRONOUS_COMMIT } ,
+    FAILOVER_MODE = { AUTOMATIC | MANUAL | EXTERNAL }
+    [ , replica_option [, ...] ]
+)
+
+'server_instance' WITH (
+    ENDPOINT_URL = 'endpoint_url' ,
+    AVAILABILITY_MODE = CONFIGURATION_ONLY
+)
+
+# ONEOFIS replica_option
+SEEDING_MODE = { AUTOMATIC | MANUAL }
+BACKUP_PRIORITY = priority_value
+SECONDARY_ROLE ( secondary_role_option [, ...] )
+PRIMARY_ROLE ( primary_role_option [, ...] )
+SESSION_TIMEOUT = seconds
+
+# ONEOFIS secondary_role_option
+ALLOW_CONNECTIONS = { NO | READ_ONLY | ALL }
+READ_ONLY_ROUTING_URL = 'routing_url'
+
+# ONEOFIS primary_role_option
+ALLOW_CONNECTIONS = { READ_WRITE | ALL }
+READ_ONLY_ROUTING_LIST = { ( routing_target [, ...] ) | NONE }
+READ_WRITE_ROUTING_URL = 'routing_url'
+
+# ONEOFIS routing_target
+'server_instance'
+( 'server_instance' [, ...] )
+
+# WHERE distributed_group_definition
+availability_group WITH (
+    LISTENER_URL = 'listener_url' ,
+    AVAILABILITY_MODE = { SYNCHRONOUS_COMMIT | ASYNCHRONOUS_COMMIT } ,
+    FAILOVER_MODE = MANUAL ,
+    SEEDING_MODE = { AUTOMATIC | MANUAL }
+)
+
+# ONEOFIS listener_definition
+WITH DHCP [ ON ( 'ipv4_address' , 'ipv4_mask' ) ]
+WITH IP ( ( ip_definition ) [, ...] ) [ , PORT = port ]
+
+# ONEOFIS ip_definition
+'ipv4_address' , 'ipv4_mask'
+'ipv6_address'

@@ -1,0 +1,4 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-ver17
+
+# CASE TRIGGER
+DISABLE TRIGGER { name [, ...] | ALL } ON { table | DATABASE | ALL SERVER }

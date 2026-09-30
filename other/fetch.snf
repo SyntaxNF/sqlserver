@@ -1,0 +1,5 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/language-elements/fetch-transact-sql?view=sql-server-ver17
+
+# CASE FETCH
+FETCH [ [ NEXT | PRIOR | FIRST | LAST | ABSOLUTE offset_value | RELATIVE offset_value ] FROM ] { [ GLOBAL ] cursor_name | cursor_variable }
+    [ INTO variable [, ...] ]

@@ -1,0 +1,7 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-remote-service-binding-transact-sql?view=sql-server-ver17
+
+# CASE USER
+ALTER REMOTE SERVICE BINDING name WITH USER = user [ , ANONYMOUS = { ON | OFF } ]
+
+# CASE ANONYMOUS
+ALTER REMOTE SERVICE BINDING name WITH ANONYMOUS = { ON | OFF }

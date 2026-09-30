@@ -1,0 +1,4 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-sensitivity-classification-transact-sql?view=sql-server-ver17
+
+# CASE SENSITIVITY_CLASSIFICATION
+DROP SENSITIVITY CLASSIFICATION FROM classified_column_name [, ...]

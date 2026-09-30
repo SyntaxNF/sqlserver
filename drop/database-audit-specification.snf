@@ -1,0 +1,4 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-database-audit-specification-transact-sql?view=sql-server-ver17
+
+# CASE DATABASE_AUDIT_SPECIFICATION
+DROP DATABASE AUDIT SPECIFICATION name

@@ -1,0 +1,5 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-remote-service-binding-transact-sql?view=sql-server-ver17
+
+CREATE REMOTE SERVICE BINDING name [ AUTHORIZATION owner ]
+    TO SERVICE 'service'
+    WITH USER = user [ , ANONYMOUS = { ON | OFF } ]

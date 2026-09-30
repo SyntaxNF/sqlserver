@@ -1,0 +1,366 @@
+[
+  {
+    "statement": "CREATE PARTITION FUNCTION",
+    "file": "create/partition-function.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-ver17",
+    "notes": "Partition data type excludes max, XML, CLR/alias and other documented types; at most 14999 distinct boundary values."
+  },
+  {
+    "statement": "ALTER PARTITION FUNCTION",
+    "file": "alter/partition-function.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-partition-function-transact-sql?view=sql-server-ver17",
+    "notes": "Syntax structured; identifier, value and engine-state constraints remain consumer responsibilities."
+  },
+  {
+    "statement": "CREATE PARTITION SCHEME",
+    "file": "create/partition-scheme.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-ver17",
+    "notes": "filegroup may be quoted PRIMARY; ALL and destination cardinality require semantic validation."
+  },
+  {
+    "statement": "ALTER PARTITION SCHEME",
+    "file": "alter/partition-scheme.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-partition-scheme-transact-sql?view=sql-server-ver17",
+    "notes": "Syntax structured; identifier, value and engine-state constraints remain consumer responsibilities."
+  },
+  {
+    "statement": "DROP PARTITION FUNCTION",
+    "file": "drop/partition-function.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-partition-function-transact-sql?view=sql-server-ver17",
+    "notes": "Syntax structured; identifier, value and engine-state constraints remain consumer responsibilities."
+  },
+  {
+    "statement": "DROP PARTITION SCHEME",
+    "file": "drop/partition-scheme.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-partition-scheme-transact-sql?view=sql-server-ver17",
+    "notes": "Syntax structured; identifier, value and engine-state constraints remain consumer responsibilities."
+  },
+  {
+    "statement": "DROP FULLTEXT CATALOG",
+    "file": "drop/fulltext-catalog.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-fulltext-catalog-transact-sql?view=sql-server-ver17",
+    "notes": "Syntax structured; identifier, value and engine-state constraints remain consumer responsibilities."
+  },
+  {
+    "statement": "DROP FULLTEXT STOPLIST",
+    "file": "drop/fulltext-stoplist.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-fulltext-stoplist-transact-sql?view=sql-server-ver17",
+    "notes": "Syntax structured; identifier, value and engine-state constraints remain consumer responsibilities."
+  },
+  {
+    "statement": "DROP SEARCH PROPERTY LIST",
+    "file": "drop/search-property-list.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-search-property-list-transact-sql?view=sql-server-ver17",
+    "notes": "Syntax structured; identifier, value and engine-state constraints remain consumer responsibilities."
+  },
+  {
+    "statement": "CREATE FULLTEXT CATALOG",
+    "file": "create/fulltext-catalog.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-fulltext-catalog-transact-sql?view=sql-server-ver17",
+    "notes": "Full-text component required; ON FILEGROUP and IN PATH are retained compatibility syntax without effect."
+  },
+  {
+    "statement": "ALTER FULLTEXT CATALOG",
+    "file": "alter/fulltext-catalog.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-fulltext-catalog-transact-sql?view=sql-server-ver17",
+    "notes": "Syntax structured; identifier, value and engine-state constraints remain consumer responsibilities."
+  },
+  {
+    "statement": "CREATE FULLTEXT STOPLIST",
+    "file": "create/fulltext-stoplist.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-fulltext-stoplist-transact-sql?view=sql-server-ver17",
+    "notes": "source_stoplist permits optional database qualification."
+  },
+  {
+    "statement": "ALTER FULLTEXT STOPLIST",
+    "file": "alter/fulltext-stoplist.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-fulltext-stoplist-transact-sql?view=sql-server-ver17",
+    "notes": "Syntax structured; identifier, value and engine-state constraints remain consumer responsibilities."
+  },
+  {
+    "statement": "CREATE SEARCH PROPERTY LIST",
+    "file": "create/search-property-list.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-search-property-list-transact-sql?view=sql-server-ver17",
+    "notes": "Source list permits optional database qualification."
+  },
+  {
+    "statement": "ALTER SEARCH PROPERTY LIST",
+    "file": "alter/search-property-list.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-search-property-list-transact-sql?view=sql-server-ver17",
+    "notes": "Syntax structured; identifier, value and engine-state constraints remain consumer responsibilities."
+  },
+  {
+    "statement": "CREATE FULLTEXT INDEX",
+    "file": "create/fulltext-index.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-fulltext-index-transact-sql?view=sql-server-ver17",
+    "notes": "Full-text and semantic-search components/platform capabilities required; options must not conflict or repeat."
+  },
+  {
+    "statement": "ALTER FULLTEXT INDEX",
+    "file": "alter/fulltext-index.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-fulltext-index-transact-sql?view=sql-server-ver17",
+    "notes": "Syntax structured; identifier, value and engine-state constraints remain consumer responsibilities."
+  },
+  {
+    "statement": "DROP FULLTEXT INDEX",
+    "file": "drop/fulltext-index.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-fulltext-index-transact-sql?view=sql-server-ver17",
+    "notes": "Syntax structured; identifier, value and engine-state constraints remain consumer responsibilities."
+  },
+  {
+    "statement": "CREATE STATISTICS",
+    "file": "create/statistics.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-statistics-transact-sql?view=sql-server-ver17",
+    "notes": "Partial: STATS_STREAM omitted; mutually exclusive FULLSCAN/SAMPLE, incremental/filtered restrictions and external-table subset require semantic checks."
+  },
+  {
+    "statement": "UPDATE STATISTICS",
+    "file": "other/update-statistics.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/update-statistics-transact-sql?view=sql-server-ver17",
+    "notes": "Partial: STATS_STREAM/ROWCOUNT/PAGECOUNT unsupported internal-use options omitted; option conflicts need semantic validation."
+  },
+  {
+    "statement": "DROP STATISTICS",
+    "file": "drop/statistics.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-statistics-transact-sql?view=sql-server-ver17",
+    "notes": "Each target must be table.statistics or view.statistics; no IF EXISTS."
+  },
+  {
+    "statement": "CREATE XML INDEX",
+    "file": "create/xml-index.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-xml-index-transact-sql?view=sql-server-ver17",
+    "notes": "XML index structural variants; clustered primary-key prerequisite and schema restrictions remain semantic."
+  },
+  {
+    "statement": "CREATE SELECTIVE XML INDEX",
+    "file": "create/selective-xml-index.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-selective-xml-index-transact-sql?view=sql-server-ver17",
+    "notes": "Promoted XPath/XQuery type validity and singleton restrictions require semantic validation."
+  },
+  {
+    "statement": "CREATE XML INDEX (secondary selective)",
+    "file": "create/secondary-selective-xml-index.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-xml-index-selective-xml-indexes?view=sql-server-ver17",
+    "notes": "promoted_path_name references a promoted path of the selective index, not an arbitrary XPath."
+  },
+  {
+    "statement": "ALTER INDEX (selective XML)",
+    "file": "alter/selective-xml-index.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-index-selective-xml-indexes?view=sql-server-ver17",
+    "notes": "General rebuild/drop uses ALTER/DROP INDEX; here selective path updates. FOR path changes cannot combine WITH options despite the source syntax summary; follows argument restriction."
+  },
+  {
+    "statement": "CREATE COLUMNSTORE INDEX",
+    "file": "create/columnstore-index.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-columnstore-index-transact-sql?view=sql-server-ver17",
+    "notes": "17.x ordered columnstore included; ONLINE/ordered/platform/edition support and filtered-index constraints require engine validation. Official SQLServer syntax summary and examples disagree on ORDER/WITH ordering; follows examples G/H (ORDER before WITH), needs opt-in engine verification."
+  },
+  {
+    "statement": "CREATE SPATIAL INDEX",
+    "file": "create/spatial-index.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-spatial-index-transact-sql?view=sql-server-ver17",
+    "notes": "Partial: unnamed grid levels/named bounding-box coordinate permutations and omitted USING shorthand not expanded. Geometry/geography column types and grid constraints are semantic."
+  },
+  {
+    "statement": "CREATE EXTERNAL DATA SOURCE",
+    "file": "create/external-data-source.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver17",
+    "notes": "SQL17 connector syntax only; Hadoop/RESOURCE_MANAGER_LOCATION and old TYPE excluded. Endpoint protocol, driver installation, platform and credential prerequisites remain contextual."
+  },
+  {
+    "statement": "ALTER EXTERNAL DATA SOURCE",
+    "file": "alter/external-data-source.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-external-data-source-transact-sql?view=sql-server-ver17",
+    "notes": "SQL2022+ documented LOCATION/CREDENTIAL branch; other connector-specific changes not inferred from old Hadoop syntax."
+  },
+  {
+    "statement": "CREATE EXTERNAL FILE FORMAT",
+    "file": "create/external-file-format.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-file-format-transact-sql?view=sql-server-ver17",
+    "notes": "SQL17 supported formats; RCFILE/ORC removed Hadoop formats, JSON Edge-only and Synapse PARSER_VERSION excluded. Delta engine supports version1.0 limitations."
+  },
+  {
+    "statement": "CREATE EXTERNAL TABLE",
+    "file": "create/external-table.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver17",
+    "notes": "Partial: file-backed and relational connector column skeleton; Hadoop-only reject options excluded, connector type mapping and remote schema constraints unexpanded."
+  },
+  {
+    "statement": "CREATE EXTERNAL TABLE AS SELECT",
+    "file": "create/external-table-as-select.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=sql-server-ver17",
+    "notes": "SQLServer2022+ CETAS to ADLSGen2/AzureStorageV2/S3; Hadoop reject options excluded; external write and component prerequisites. Query node opaque."
+  },
+  {
+    "statement": "CREATE EXTERNAL LANGUAGE",
+    "file": "create/external-language.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-language-transact-sql?view=sql-server-ver17",
+    "notes": "One file specification per platform, at most two; requires Language Extensions installed/configured. No extension installed by this repository."
+  },
+  {
+    "statement": "ALTER EXTERNAL LANGUAGE",
+    "file": "alter/external-language.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-external-language-transact-sql?view=sql-server-ver17",
+    "notes": "PARAMETERS/ENVIRONMENT_VARIABLES omitted because official ALTER remarks explicitly call them currently unsupported; CREATE retains its separately documented options."
+  },
+  {
+    "statement": "CREATE EXTERNAL LIBRARY",
+    "file": "create/external-library.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-library-transact-sql?view=sql-server-ver17",
+    "notes": "Runtime and platform installation support required; one platform per file spec; language may be installed external language."
+  },
+  {
+    "statement": "ALTER EXTERNAL LIBRARY",
+    "file": "alter/external-library.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-external-library-transact-sql?view=sql-server-ver17",
+    "notes": "NONE and package upgrades require runtime-specific state validation."
+  },
+  {
+    "statement": "CREATE EXTERNAL MODEL",
+    "file": "create/external-model.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-model-transact-sql?view=sql-server-ver17",
+    "notes": "Partial: remote HTTPS embedding endpoints included; local ONNX/LOCAL_RUNTIME_PATH preview excluded, parameter JSON schema/endpoint compatibility opaque."
+  },
+  {
+    "statement": "ALTER EXTERNAL MODEL",
+    "file": "alter/external-model.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-external-model-transact-sql?view=sql-server-ver17",
+    "notes": "Partial: remote HTTPS embedding endpoints included; local ONNX/LOCAL_RUNTIME_PATH preview excluded, parameter JSON schema/endpoint compatibility opaque."
+  },
+  {
+    "statement": "DROP EXTERNAL DATA SOURCE",
+    "file": "drop/external-data-source.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-external-data-source-transact-sql?view=sql-server-ver17",
+    "notes": "Object dependency, component and ownership restrictions apply."
+  },
+  {
+    "statement": "DROP EXTERNAL FILE FORMAT",
+    "file": "drop/external-file-format.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-external-file-format-transact-sql?view=sql-server-ver17",
+    "notes": "Object dependency, component and ownership restrictions apply."
+  },
+  {
+    "statement": "DROP EXTERNAL TABLE",
+    "file": "drop/external-table.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-external-table-transact-sql?view=sql-server-ver17",
+    "notes": "Object dependency, component and ownership restrictions apply."
+  },
+  {
+    "statement": "DROP EXTERNAL LANGUAGE",
+    "file": "drop/external-language.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-external-language-transact-sql?view=sql-server-ver17",
+    "notes": "Object dependency, component and ownership restrictions apply."
+  },
+  {
+    "statement": "DROP EXTERNAL LIBRARY",
+    "file": "drop/external-library.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-external-library-transact-sql?view=sql-server-ver17",
+    "notes": "Object dependency, component and ownership restrictions apply."
+  },
+  {
+    "statement": "DROP EXTERNAL MODEL",
+    "file": "drop/external-model.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-external-model-transact-sql?view=sql-server-ver17",
+    "notes": "Object dependency, component and ownership restrictions apply."
+  },
+  {
+    "statement": "BULK INSERT",
+    "file": "query/bulk-insert.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver17",
+    "notes": "SQLServer branch including local/remote data-source forms; platform/codepage/source-access constraints remain semantic. Fabric PARQUET option excluded."
+  },
+  {
+    "statement": "MERGE",
+    "file": "query/merge.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver17",
+    "notes": "Partial: merge_source/merge_hint/set_clause/query_hint expressions opaque. At most two MATCHED and two BY SOURCE branches; a pair must UPDATE/DELETE with first AND, one BY TARGET maximum, correct order and at least one WHEN required. Semicolon mandatory."
+  },
+  {
+    "statement": "ALTER INDEX",
+    "file": "alter/index.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-index-transact-sql?view=sql-server-ver17",
+    "notes": "Main documented branches structured; index type, edition/platform and ONLINE/RESUMABLE/SORT_IN_TEMPDB restrictions are semantic. Selective XML paths use separate file."
+  },
+  {
+    "statement": "CREATE TABLE (graph)",
+    "file": "create/graph-table.snf",
+    "status": "partial",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-table-sql-graph?view=sql-server-ver17",
+    "notes": "Partial: basic graph columns and edge CONNECTION constraint; richer column/constraint/index definitions from CREATE TABLE remain unexpanded. Graph pseudo-columns, MATCH and edge INSERT expressions remain contextual."
+  },
+  {
+    "statement": "READTEXT",
+    "file": "query/readtext.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/queries/readtext-transact-sql?view=sql-server-ver17",
+    "notes": "Deprecated text/ntext/image pointer statement retained; typed binary pointer, nonnegative offset/size and data access semantics remain engine constraints."
+  },
+  {
+    "statement": "WRITETEXT",
+    "file": "query/writetext.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/queries/writetext-transact-sql?view=sql-server-ver17",
+    "notes": "Deprecated text/ntext/image pointer statement retained for engine inventory; pointer/data type, offsets, size and locking/logging semantics require validation. BULK is tool-oriented, not a permission recommendation."
+  },
+  {
+    "statement": "UPDATETEXT",
+    "file": "query/updatetext.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/queries/updatetext-transact-sql?view=sql-server-ver17",
+    "notes": "Deprecated text/ntext/image pointer statement retained for engine inventory; pointer/data type, offsets, size and locking/logging semantics require validation. BULK is tool-oriented, not a permission recommendation."
+  },
+  {
+    "statement": "CREATE JSON INDEX",
+    "file": "create/json-index.snf",
+    "status": "supported",
+    "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/create-json-index-transact-sql?view=sql-server-ver17",
+    "notes": "GA confirmed by current JSON overview on2026-09-30, not stale search snippets. DATA_COMPRESSION omitted because Limitations explicitly says unsupported despite syntax summary listing it. JSON path nonoverlap, column type, clustered-key/size and offline-only limits require engine validation."
+  }
+]

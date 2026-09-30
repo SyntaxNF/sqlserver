@@ -1,0 +1,13 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/add-sensitivity-classification-transact-sql?view=sql-server-ver17
+
+# CASE SENSITIVITY_CLASSIFICATION
+ADD SENSITIVITY CLASSIFICATION TO classified_column_name [, ...]
+    WITH ( sensitivity_option [, ...] )
+
+
+# ONEOFIS sensitivity_option
+LABEL = 'label'
+LABEL_ID = 'label_id'
+INFORMATION_TYPE = 'information_type'
+INFORMATION_TYPE_ID = 'information_type_id'
+RANK = { NONE | LOW | MEDIUM | HIGH | CRITICAL }

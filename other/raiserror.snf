@@ -1,0 +1,8 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/language-elements/raiserror-transact-sql?view=sql-server-ver17
+
+# CASE RAISE
+RAISERROR ( { message_id | message_text | message_variable } , severity_value , state_value [ , argument [, ...] ] )
+    [ WITH raise_option [, ...] ]
+
+# WHERE raise_option
+{ LOG | NOWAIT | SETERROR }

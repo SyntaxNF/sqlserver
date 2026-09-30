@@ -1,0 +1,6 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-fulltext-stoplist-transact-sql?view=sql-server-ver17
+
+# CASE FULLTEXT_STOPLIST
+CREATE FULLTEXT STOPLIST name
+    [ FROM { source_stoplist | SYSTEM STOPLIST } ]
+    [ AUTHORIZATION owner ]

@@ -1,0 +1,14 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-assembly-transact-sql?view=sql-server-ver17
+
+# CASE ASSEMBLY
+ALTER ASSEMBLY name
+    [ FROM { assembly_path_expression | binary_expression } ]
+    [ WITH assembly_option [, ...] ]
+    [ DROP FILE { file_name [, ...] | ALL } ]
+    [ ADD FILE FROM file_definition [, ...] ]
+
+# WHERE assembly_option
+{ PERMISSION_SET = { SAFE | EXTERNAL_ACCESS | UNSAFE } | VISIBILITY = { ON | OFF } | UNCHECKED DATA }
+
+# WHERE file_definition
+{ file_path_expression [ AS file_name ] | binary_expression AS file_name }

@@ -1,0 +1,4 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-partition-scheme-transact-sql?view=sql-server-ver17
+
+# CASE PARTITION_SCHEME
+DROP PARTITION SCHEME name

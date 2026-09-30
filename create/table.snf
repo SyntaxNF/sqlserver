@@ -3,20 +3,29 @@
 # CASE DISK_BASED
 CREATE TABLE name (
     table_element_definition [, ...]
+    [ , PERIOD FOR SYSTEM_TIME ( row_start_column, row_end_column ) ]
 )
-    [ ON filegroup ]
-    [ TEXTIMAGE_ON filegroup ]
+    [ ON storage_clause ]
+    [ TEXTIMAGE_ON { filegroup | "default" } ]
+    [ FILESTREAM_ON { partition_scheme | filegroup | "default" } ]
+    [ WITH ( table_option [, ...] ) ]
 
 # WHERE table_element_definition
-{ column_definition | computed_column_definition | table_constraint_definition }
+{ column_definition | computed_column_definition | table_constraint_definition | column_set_definition | table_index_definition }
 
 # WHERE column_definition
 colname data_type
+    [ FILESTREAM ]
     [ COLLATE collation ]
+    [ SPARSE ]
+    [ MASKED WITH ( FUNCTION = 'mask_function' ) ]
     [ [ CONSTRAINT default_constraint ] DEFAULT default_expression ]
     [ IDENTITY [ ( seed_value , increment_value ) ] [ NOT FOR REPLICATION ] ]
+    [ GENERATED ALWAYS AS { ROW | TRANSACTION_ID | SEQUENCE_NUMBER } { START | END } [ HIDDEN ] ]
     [ NULL | NOT NULL ]
     [ ROWGUIDCOL ]
+    [ ENCRYPTED WITH ( COLUMN_ENCRYPTION_KEY = column_encryption_key,
+        ENCRYPTION_TYPE = { DETERMINISTIC | RANDOMIZED }, ALGORITHM = 'AEAD_AES_256_CBC_HMAC_SHA_256' ) ]
     [ column_constraint_definition [...] ]
 
 # WHERE computed_column_definition
@@ -45,3 +54,36 @@ colname [ ASC | DESC ]
 
 # WHERE referential_action
 { NO ACTION | CASCADE | SET NULL | SET DEFAULT }
+
+# WHERE column_set_definition
+colname XML COLUMN_SET FOR ALL_SPARSE_COLUMNS
+
+# WHERE table_index_definition
+INDEX index_name [ UNIQUE ] [ CLUSTERED | NONCLUSTERED ] ( index_column_definition [, ...] )
+    [ INCLUDE ( colname [, ...] ) ] [ WHERE filter_expression ]
+    [ WITH ( table_index_option [, ...] ) ] [ ON storage_clause ]
+
+# WHERE storage_clause
+{ partition_scheme ( colname ) | filegroup | "default" }
+
+# WHERE partition_range
+partition_number [ TO partition_number ]
+
+# ONEOFIS table_option
+DATA_COMPRESSION = { NONE | ROW | PAGE } [ ON PARTITIONS ( partition_range [, ...] ) ]
+XML_COMPRESSION = { ON | OFF } [ ON PARTITIONS ( partition_range [, ...] ) ]
+SYSTEM_VERSIONING = ON [ ( HISTORY_TABLE = history_table [ , HISTORY_RETENTION_PERIOD = retention_period ] [ , DATA_CONSISTENCY_CHECK = { ON | OFF } ] ) ]
+LEDGER = { ON [ ( ledger_option [, ...] ) ] | OFF }
+
+# WHERE retention_period
+{ INFINITE | retention_value { DAY | DAYS | WEEK | WEEKS | MONTH | MONTHS | YEAR | YEARS } }
+
+# ONEOFIS ledger_option
+APPEND_ONLY = { ON | OFF }
+LEDGER_VIEW = ledger_view [ ( ledger_view_option [, ...] ) ]
+
+# ONEOFIS ledger_view_option
+TRANSACTION_ID_COLUMN_NAME = colname
+SEQUENCE_NUMBER_COLUMN_NAME = colname
+OPERATION_TYPE_COLUMN_NAME = colname
+OPERATION_TYPE_DESC_COLUMN_NAME = colname

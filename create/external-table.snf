@@ -1,0 +1,9 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver17
+
+# CASE EXTERNAL_TABLE
+CREATE EXTERNAL TABLE name ( external_column_definition [, ...] )
+    WITH ( LOCATION = 'location', DATA_SOURCE = external_data_source
+        [ , FILE_FORMAT = external_file_format ] )
+
+# WHERE external_column_definition
+colname data_type [ COLLATE collation ] [ NULL | NOT NULL ]

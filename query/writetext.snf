@@ -1,0 +1,4 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/queries/writetext-transact-sql?view=sql-server-ver17
+
+# CASE WRITETEXT
+WRITETEXT [ BULK ] qualified_column text_pointer [ WITH LOG ] data_value

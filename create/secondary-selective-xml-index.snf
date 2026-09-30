@@ -1,0 +1,17 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-xml-index-selective-xml-indexes?view=sql-server-ver17
+
+# CASE SECONDARY_SELECTIVE_XML_INDEX
+CREATE XML INDEX name ON table ( colname )
+    USING XML INDEX selective_xml_index FOR ( promoted_path_name )
+    [ WITH ( xml_index_option [, ...] ) ]
+
+# ONEOFIS xml_index_option
+PAD_INDEX = { ON | OFF }
+FILLFACTOR = fillfactor_value
+SORT_IN_TEMPDB = { ON | OFF }
+IGNORE_DUP_KEY = OFF
+DROP_EXISTING = { ON | OFF }
+ONLINE = OFF
+ALLOW_ROW_LOCKS = { ON | OFF }
+ALLOW_PAGE_LOCKS = { ON | OFF }
+MAXDOP = maxdop_value

@@ -1,0 +1,37 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-server-audit-transact-sql?view=sql-server-ver17
+
+# CASE TARGET
+ALTER SERVER AUDIT name TO audit_target
+    [ WITH ( server_audit_option [, ...] ) ]
+    [ WHERE audit_predicate_expression ]
+
+# CASE OPTIONS
+ALTER SERVER AUDIT name WITH ( server_audit_option [, ...] )
+    [ WHERE audit_predicate_expression ]
+
+# CASE PREDICATE
+ALTER SERVER AUDIT name WHERE audit_predicate_expression
+
+# CASE REMOVE_PREDICATE
+ALTER SERVER AUDIT name REMOVE WHERE
+
+# CASE RENAME
+ALTER SERVER AUDIT name MODIFY NAME = new_audit_name
+
+# ONEOFIS audit_target
+FILE ( audit_file_option [, ...] )
+APPLICATION_LOG
+SECURITY_LOG
+
+
+# ONEOFIS audit_file_option
+FILEPATH = 'file_path'
+MAXSIZE = { size_value { MB | GB | TB } | UNLIMITED }
+MAX_ROLLOVER_FILES = { file_count | UNLIMITED }
+MAX_FILES = file_count
+RESERVE_DISK_SPACE = { ON | OFF }
+
+# ONEOFIS server_audit_option
+QUEUE_DELAY = queue_delay_value
+ON_FAILURE = { CONTINUE | SHUTDOWN | FAIL_OPERATION }
+STATE = { ON | OFF }
