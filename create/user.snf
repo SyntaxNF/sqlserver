@@ -5,13 +5,16 @@ CREATE USER name [ { FOR | FROM } LOGIN login_name ]
     [ WITH limited_user_option [, ...] ]
 
 # CASE CONTAINED_PASSWORD_USER
-CREATE USER name WITH PASSWORD = 'password' [ , contained_user_option [, ...] ]
+CREATE USER name
+    WITH PASSWORD = 'password' [ , contained_user_option [, ...] ]
 
 # CASE CONTAINED_WINDOWS_USER
 CREATE USER name [ WITH contained_windows_user_option [, ...] ]
 
 # CASE EXTERNAL_USER
-CREATE USER name FROM EXTERNAL PROVIDER [ WITH OBJECT_ID = 'object_id' ]
+CREATE USER name
+    FROM EXTERNAL PROVIDER
+    [ WITH OBJECT_ID = 'object_id' ]
 
 # CASE WITHOUT_LOGIN
 CREATE USER name WITHOUT LOGIN [ WITH limited_user_option [, ...] ]

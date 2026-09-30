@@ -1,13 +1,16 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-event-session-transact-sql?view=sql-server-ver17
 
 # CASE EVENTS
-ALTER EVENT SESSION name ON SERVER event_action [, ...] [ WITH ( session_option [, ...] ) ]
+ALTER EVENT SESSION name ON SERVER event_action [, ...]
+    [ WITH ( session_option [, ...] ) ]
 
 # CASE TARGETS
-ALTER EVENT SESSION name ON SERVER target_action [, ...] [ WITH ( session_option [, ...] ) ]
+ALTER EVENT SESSION name ON SERVER target_action [, ...]
+    [ WITH ( session_option [, ...] ) ]
 
 # CASE OPTIONS
-ALTER EVENT SESSION name ON SERVER WITH ( session_option [, ...] )
+ALTER EVENT SESSION name ON SERVER
+    WITH ( session_option [, ...] )
 
 # CASE STATE
 ALTER EVENT SESSION name ON SERVER STATE = { START | STOP }

@@ -1,7 +1,9 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver17
 
 # CASE BULK_INSERT
-BULK INSERT name FROM 'data_file' [ WITH ( bulk_option [, ...] ) ]
+BULK INSERT name
+    FROM 'data_file'
+    [ WITH ( bulk_option [, ...] ) ]
 
 # ONEOFIS bulk_option
 DATA_SOURCE = 'data_source_name'

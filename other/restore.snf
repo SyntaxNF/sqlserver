@@ -25,7 +25,8 @@ RESTORE LOG database [ log_target [, ...] ]
     [ WITH log_restore_option [, ...] ]
 
 # CASE SNAPSHOT
-RESTORE DATABASE database FROM DATABASE_SNAPSHOT = snapshot
+RESTORE DATABASE database
+    FROM DATABASE_SNAPSHOT = snapshot
 
 # ONEOFIS log_target
 file_selection

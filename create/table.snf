@@ -11,7 +11,13 @@ CREATE TABLE name (
     [ WITH ( table_option [, ...] ) ]
 
 # WHERE table_element_definition
-{ column_definition | computed_column_definition | table_constraint_definition | column_set_definition | table_index_definition }
+{
+    column_definition |
+    computed_column_definition |
+    table_constraint_definition |
+    column_set_definition |
+    table_index_definition
+}
 
 # WHERE column_definition
 colname data_type
@@ -34,8 +40,11 @@ colname AS computed_expression [ PERSISTED [ NOT NULL ] ]
 # PARTOFIS column_constraint_definition
 [ CONSTRAINT constraint ] { PRIMARY KEY | UNIQUE } [ CLUSTERED | NONCLUSTERED ]
 
-[ CONSTRAINT constraint ] [ FOREIGN KEY ] REFERENCES referenced_table [ ( referenced_colname ) ]
-    [ ON DELETE referential_action ] [ ON UPDATE referential_action ] [ NOT FOR REPLICATION ]
+[ CONSTRAINT constraint ] [ FOREIGN KEY ]
+    REFERENCES referenced_table [ ( referenced_colname ) ]
+    [ ON DELETE referential_action ]
+    [ ON UPDATE referential_action ]
+    [ NOT FOR REPLICATION ]
 
 [ CONSTRAINT constraint ] CHECK [ NOT FOR REPLICATION ] ( boolean_expression )
 
@@ -45,7 +54,9 @@ colname AS computed_expression [ PERSISTED [ NOT NULL ] ]
 
 [ CONSTRAINT constraint ] FOREIGN KEY ( colname [, ...] )
     REFERENCES referenced_table [ ( referenced_colname [, ...] ) ]
-    [ ON DELETE referential_action ] [ ON UPDATE referential_action ] [ NOT FOR REPLICATION ]
+    [ ON DELETE referential_action ]
+    [ ON UPDATE referential_action ]
+    [ NOT FOR REPLICATION ]
 
 [ CONSTRAINT constraint ] CHECK [ NOT FOR REPLICATION ] ( boolean_expression )
 
@@ -60,8 +71,10 @@ colname XML COLUMN_SET FOR ALL_SPARSE_COLUMNS
 
 # WHERE table_index_definition
 INDEX index_name [ UNIQUE ] [ CLUSTERED | NONCLUSTERED ] ( index_column_definition [, ...] )
-    [ INCLUDE ( colname [, ...] ) ] [ WHERE filter_expression ]
-    [ WITH ( table_index_option [, ...] ) ] [ ON storage_clause ]
+    [ INCLUDE ( colname [, ...] ) ]
+    [ WHERE filter_expression ]
+    [ WITH ( table_index_option [, ...] ) ]
+    [ ON storage_clause ]
 
 # WHERE storage_clause
 { partition_scheme ( colname ) | filegroup | "default" }

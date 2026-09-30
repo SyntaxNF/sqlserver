@@ -2,12 +2,16 @@
 
 # CASE IMMEDIATE
 RECEIVE [ TOP ( row_count ) ] receive_projection [, ...]
-    FROM queue [ INTO table_variable ] [ WHERE conversation_filter ]
+    FROM queue
+    [ INTO table_variable ]
+    [ WHERE conversation_filter ]
 
 # CASE WAIT
 WAITFOR (
     RECEIVE [ TOP ( row_count ) ] receive_projection [, ...]
-        FROM queue [ INTO table_variable ] [ WHERE conversation_filter ]
+        FROM queue
+        [ INTO table_variable ]
+        [ WHERE conversation_filter ]
 ) [ , TIMEOUT timeout ]
 
 # ONEOFIS receive_projection

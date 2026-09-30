@@ -25,4 +25,7 @@ SET STOPLIST [ = ] { OFF | SYSTEM | stoplist } [ WITH NO POPULATION ]
 SET SEARCH PROPERTY LIST [ = ] { OFF | property_list } [ WITH NO POPULATION ]
 
 # WHERE fulltext_column_definition
-colname [ TYPE COLUMN type_colname ] [ LANGUAGE language_term ] [ STATISTICAL_SEMANTICS ]
+colname
+    [ TYPE COLUMN type_colname ]
+    [ LANGUAGE language_term ]
+    [ STATISTICAL_SEMANTICS ]

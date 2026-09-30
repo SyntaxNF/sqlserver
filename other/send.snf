@@ -1,7 +1,11 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/send-transact-sql?view=sql-server-ver17
 
 # CASE SINGLE
-SEND ON CONVERSATION conversation_handle [ MESSAGE TYPE message_type ] [ ( message_body_expression ) ]
+SEND ON CONVERSATION conversation_handle
+    [ MESSAGE TYPE message_type ]
+    [ ( message_body_expression ) ]
 
 # CASE MULTIPLE
-SEND ON CONVERSATION ( conversation_handle [, ...] ) [ MESSAGE TYPE message_type ] [ ( message_body_expression ) ]
+SEND ON CONVERSATION ( conversation_handle [, ...] )
+    [ MESSAGE TYPE message_type ]
+    [ ( message_body_expression ) ]

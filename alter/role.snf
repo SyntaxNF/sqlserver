@@ -7,4 +7,5 @@ ALTER ROLE name ADD MEMBER database_principal
 ALTER ROLE name DROP MEMBER database_principal
 
 # CASE RENAME
-ALTER ROLE name WITH NAME = new_role_name
+ALTER ROLE name
+    WITH NAME = new_role_name

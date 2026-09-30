@@ -1,57 +1,66 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-trigger-transact-sql?view=sql-server-ver17
 
 # CASE DML_TSQL
-ALTER TRIGGER name ON table
+ALTER TRIGGER name
+    ON table
     [ WITH { ENCRYPTION | dml_execute_as_clause } [, ...] ]
     { FOR | AFTER | INSTEAD OF } dml_event [, ...]
     [ NOT FOR REPLICATION ]
     AS sql_statement_list
 
 # CASE DML_CLR
-ALTER TRIGGER name ON table
+ALTER TRIGGER name
+    ON table
     [ WITH dml_execute_as_clause ]
     { FOR | AFTER | INSTEAD OF } dml_event [, ...]
     [ NOT FOR REPLICATION ]
     AS EXTERNAL NAME assembly . class_name . method_name
 
 # CASE DATABASE_DDL_TSQL
-ALTER TRIGGER name ON DATABASE
+ALTER TRIGGER name
+    ON DATABASE
     [ WITH { ENCRYPTION | database_execute_as_clause } [, ...] ]
     { FOR | AFTER } ddl_event [, ...]
     AS sql_statement_list
 
 # CASE DATABASE_DDL_CLR
-ALTER TRIGGER name ON DATABASE
+ALTER TRIGGER name
+    ON DATABASE
     [ WITH database_execute_as_clause ]
     { FOR | AFTER } ddl_event [, ...]
     AS EXTERNAL NAME assembly . class_name . method_name
 
 # CASE SERVER_DDL_TSQL
-ALTER TRIGGER name ON ALL SERVER
+ALTER TRIGGER name
+    ON ALL SERVER
     [ WITH { ENCRYPTION | server_execute_as_clause } [, ...] ]
     { FOR | AFTER } ddl_event [, ...]
     AS sql_statement_list
 
 # CASE SERVER_DDL_CLR
-ALTER TRIGGER name ON ALL SERVER
+ALTER TRIGGER name
+    ON ALL SERVER
     [ WITH server_execute_as_clause ]
     { FOR | AFTER } ddl_event [, ...]
     AS EXTERNAL NAME assembly . class_name . method_name
 
 # CASE LOGON_TSQL
-ALTER TRIGGER name ON ALL SERVER
+ALTER TRIGGER name
+    ON ALL SERVER
     [ WITH { ENCRYPTION | server_execute_as_clause } [, ...] ]
     { FOR | AFTER } LOGON
     AS sql_statement_list
 
 # CASE LOGON_CLR
-ALTER TRIGGER name ON ALL SERVER
+ALTER TRIGGER name
+    ON ALL SERVER
     [ WITH server_execute_as_clause ]
     { FOR | AFTER } LOGON
     AS EXTERNAL NAME assembly . class_name . method_name
 
 # CASE NATIVE_DML
-ALTER TRIGGER name ON table
+ALTER TRIGGER name
+    ON table
     WITH NATIVE_COMPILATION , SCHEMABINDING , dml_execute_as_clause
     { FOR | AFTER } dml_event [, ...]
     AS BEGIN ATOMIC WITH ( atomic_option [, ...] )

@@ -1,3 +1,4 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-checkident-transact-sql?view=sql-server-ver17
 
-DBCC CHECKIDENT ( table [ , { NORESEED | RESEED [ , reseed_value ] } ] ) [ WITH NO_INFOMSGS ]
+DBCC CHECKIDENT ( table [ , { NORESEED | RESEED [ , reseed_value ] } ] )
+    [ WITH NO_INFOMSGS ]

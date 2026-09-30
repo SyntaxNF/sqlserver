@@ -1,12 +1,14 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-server-audit-transact-sql?view=sql-server-ver17
 
 # CASE TARGET
-ALTER SERVER AUDIT name TO audit_target
+ALTER SERVER AUDIT name
+    TO audit_target
     [ WITH ( server_audit_option [, ...] ) ]
     [ WHERE audit_predicate_expression ]
 
 # CASE OPTIONS
-ALTER SERVER AUDIT name WITH ( server_audit_option [, ...] )
+ALTER SERVER AUDIT name
+    WITH ( server_audit_option [, ...] )
     [ WHERE audit_predicate_expression ]
 
 # CASE PREDICATE
