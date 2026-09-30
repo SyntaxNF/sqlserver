@@ -1,0 +1,7 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-sqlperf-transact-sql?view=sql-server-ver17
+
+# CASE LOGSPACE
+DBCC SQLPERF ( LOGSPACE ) [ WITH NO_INFOMSGS ]
+
+# CASE CLEAR
+DBCC SQLPERF ( { "sys.dm_os_latch_stats" | "sys.dm_os_wait_stats" } , CLEAR ) [ WITH NO_INFOMSGS ]

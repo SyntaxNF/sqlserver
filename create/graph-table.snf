@@ -1,0 +1,21 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-table-sql-graph?view=sql-server-ver17
+
+# CASE NODE
+CREATE TABLE name ( graph_column_definition [, ...] ) AS NODE [ ON storage_clause ]
+
+# CASE EDGE
+CREATE TABLE name ( graph_table_element [, ...] ) AS EDGE [ ON storage_clause ]
+
+# WHERE graph_column_definition
+colname data_type [ COLLATE collation ] [ NULL | NOT NULL ]
+
+# PARTOFIS graph_table_element
+graph_column_definition
+
+[ CONSTRAINT constraint ] CONNECTION ( connection_definition [, ...] ) [ ON DELETE { NO ACTION | CASCADE } ]
+
+# WHERE connection_definition
+source_node_table TO target_node_table
+
+# WHERE storage_clause
+{ partition_scheme ( colname ) | filegroup | "default" }

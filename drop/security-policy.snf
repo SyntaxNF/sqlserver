@@ -1,0 +1,4 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-security-policy-transact-sql?view=sql-server-ver17
+
+# CASE SECURITY_POLICY
+DROP SECURITY POLICY [ IF EXISTS ] name

@@ -1,0 +1,4 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-xml-schema-collection-transact-sql?view=sql-server-ver17
+
+# CASE XML_SCHEMA_COLLECTION
+CREATE XML SCHEMA COLLECTION name AS xml_schema_expression

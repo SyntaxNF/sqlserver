@@ -8,7 +8,10 @@ SELECT [ ALL | DISTINCT ] select_item [, ...]
     [ WHERE boolean_expression ]
     [ GROUP BY group_by_expression [, ...] ]
     [ HAVING boolean_expression ]
+    [ WINDOW window_definition [, ...] ]
     [ ORDER BY order_by_expression [, ...] ]
+    [ for_clause ]
+    [ OPTION ( query_hint [, ...] ) ]
 
 # CASE TOP
 [ WITH cte_definition [, ...] ]
@@ -18,7 +21,10 @@ SELECT [ ALL | DISTINCT ] TOP ( row_count_expression ) [ PERCENT ] select_item [
     [ WHERE boolean_expression ]
     [ GROUP BY group_by_expression [, ...] ]
     [ HAVING boolean_expression ]
+    [ WINDOW window_definition [, ...] ]
     [ ORDER BY order_by_expression [, ...] ]
+    [ for_clause ]
+    [ OPTION ( query_hint [, ...] ) ]
 
 # CASE TOP_WITH_TIES
 [ WITH cte_definition [, ...] ]
@@ -28,7 +34,10 @@ SELECT [ ALL | DISTINCT ] TOP ( row_count_expression ) [ PERCENT ] WITH TIES sel
     [ WHERE boolean_expression ]
     [ GROUP BY group_by_expression [, ...] ]
     [ HAVING boolean_expression ]
+    [ WINDOW window_definition [, ...] ]
     ORDER BY order_by_expression [, ...]
+    [ for_clause ]
+    [ OPTION ( query_hint [, ...] ) ]
 
 # CASE OFFSET_FETCH
 [ WITH cte_definition [, ...] ]
@@ -38,9 +47,19 @@ SELECT [ ALL | DISTINCT ] select_item [, ...]
     [ WHERE boolean_expression ]
     [ GROUP BY group_by_expression [, ...] ]
     [ HAVING boolean_expression ]
+    [ WINDOW window_definition [, ...] ]
     ORDER BY order_by_expression [, ...]
     OFFSET offset_expression { ROW | ROWS }
     [ FETCH { FIRST | NEXT } fetch_expression { ROW | ROWS } ONLY ]
+    [ for_clause ]
+    [ OPTION ( query_hint [, ...] ) ]
+
+# CASE SET_OPERATION
+[ WITH cte_definition [, ...] ]
+query_operand set_operation_clause [...]
+    [ ORDER BY order_by_expression [, ...] ]
+    [ for_clause ]
+    [ OPTION ( query_hint [, ...] ) ]
 
 # WHERE cte_definition
 cte [ ( colname [, ...] ) ] AS ( query_statement )
@@ -52,7 +71,9 @@ cte [ ( colname [, ...] ) ] AS ( query_statement )
 FROM from_expression [, ...]
 
 # PARTOFIS from_expression
-table [ [ AS ] table_alias ]
+table [ FOR SYSTEM_TIME system_time_clause ] [ [ AS ] table_alias ]
+    [ TABLESAMPLE [ SYSTEM ] ( sample_value [ PERCENT | ROWS ] ) [ REPEATABLE ( seed_value ) ] ]
+    [ WITH ( table_hint [, ...] ) ]
 
 ( query_statement ) [ AS ] table_alias [ ( colname [, ...] ) ]
 
@@ -64,11 +85,129 @@ from_expression CROSS JOIN from_expression
 
 from_expression { CROSS | OUTER } APPLY from_expression
 
-# WHERE group_by_expression
+# PARTOFIS group_by_expression
 value_expression
+
+ROLLUP ( grouping_expression [, ...] )
+
+CUBE ( grouping_expression [, ...] )
+
+GROUPING SETS ( grouping_set [, ...] )
+
+( )
 
 # WHERE order_by_expression
 value_expression [ COLLATE collation ] [ ASC | DESC ]
 
 # STATEMENT query_statement
 SELECT
+
+# WHERE set_operation_clause
+set_operation query_operand
+
+# WHERE set_operation
+{ UNION [ ALL ] | INTERSECT | EXCEPT }
+
+# PARTOFIS query_operand
+query_specification
+
+( query_statement )
+
+# WHERE grouping_expression
+{ value_expression | ( value_expression [, ...] ) }
+
+# PARTOFIS grouping_set
+( )
+
+grouping_expression
+
+ROLLUP ( grouping_expression [, ...] )
+
+CUBE ( grouping_expression [, ...] )
+
+# WHERE window_definition
+window_name AS ( [ reference_window_name ]
+    [ PARTITION BY value_expression [, ...] ]
+    [ ORDER BY order_by_expression [, ...] ]
+    [ window_frame_clause ] )
+
+# PARTOFIS system_time_clause
+AS OF datetime_value
+
+FROM start_datetime_value TO end_datetime_value
+
+BETWEEN start_datetime_value AND end_datetime_value
+
+CONTAINED IN ( start_datetime_value, end_datetime_value )
+
+ALL
+
+# PARTOFIS for_clause
+FOR BROWSE
+
+FOR XML { RAW [ ( 'element_name' ) ] | AUTO }
+    [ , BINARY BASE64 ] [ , TYPE ] [ , ROOT [ ( 'root_name' ) ] ]
+    [ , { XMLDATA | XMLSCHEMA [ ( 'target_namespace' ) ] } ]
+    [ , ELEMENTS [ XSINIL | ABSENT ] ]
+
+FOR XML EXPLICIT [ , BINARY BASE64 ] [ , TYPE ] [ , ROOT [ ( 'root_name' ) ] ] [ , XMLDATA ]
+
+FOR XML PATH [ ( 'element_name' ) ]
+    [ , BINARY BASE64 ] [ , TYPE ] [ , ROOT [ ( 'root_name' ) ] ]
+    [ , ELEMENTS [ XSINIL | ABSENT ] ]
+
+FOR JSON { AUTO | PATH }
+    [ , ROOT [ ( 'root_name' ) ] ] [ , INCLUDE_NULL_VALUES ] [ , WITHOUT_ARRAY_WRAPPER ]
+
+# ONEOFIS query_hint
+{ HASH | ORDER } GROUP
+{ CONCAT | HASH | MERGE } UNION
+{ LOOP | MERGE | HASH } JOIN
+DISABLE_OPTIMIZED_PLAN_FORCING
+EXPAND VIEWS
+FAST row_count_value
+FORCE ORDER
+{ FORCE | DISABLE } EXTERNALPUSHDOWN
+IGNORE_NONCLUSTERED_COLUMNSTORE_INDEX
+KEEP PLAN
+KEEPFIXED PLAN
+MAX_GRANT_PERCENT = grant_percent_value
+MIN_GRANT_PERCENT = grant_percent_value
+MAXDOP maxdop_value
+MAXRECURSION recursion_value
+NO_PERFORMANCE_SPOOL
+OPTIMIZE FOR ( optimize_variable_definition [, ...] )
+OPTIMIZE FOR UNKNOWN
+PARAMETERIZATION { SIMPLE | FORCED }
+QUERYTRACEON trace_flag_value
+RECOMPILE
+ROBUST PLAN
+USE HINT ( 'hint_name' [, ...] )
+USE PLAN N'xml_plan'
+TABLE HINT ( exposed_object [ , table_hint [, ...] ] )
+
+# WHERE optimize_variable_definition
+variable { UNKNOWN | = constant_value }
+
+# ONEOFIS table_hint
+NOEXPAND
+INDEX ( index_value [, ...] )
+FORCESEEK [ ( index_value ( colname [, ...] ) ) ]
+FORCESCAN
+HOLDLOCK
+NOLOCK
+NOWAIT
+PAGLOCK
+READCOMMITTED
+READCOMMITTEDLOCK
+READPAST
+READUNCOMMITTED
+REPEATABLEREAD
+ROWLOCK
+SERIALIZABLE
+SNAPSHOT
+SPATIAL_WINDOW_MAX_CELLS = cells_value
+TABLOCK
+TABLOCKX
+UPDLOCK
+XLOCK

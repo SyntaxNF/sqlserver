@@ -1,0 +1,16 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-json-index-transact-sql?view=sql-server-ver17
+
+# CASE JSON_INDEX
+CREATE JSON INDEX name ON table ( colname )
+    [ FOR ( 'json_path' [, ...] ) ]
+    [ WITH ( json_index_option [, ...] ) ]
+    [ ON { filegroup | "default" } ]
+
+# ONEOFIS json_index_option
+OPTIMIZE_FOR_ARRAY_SEARCH = { ON | OFF }
+FILLFACTOR = fillfactor_value
+DROP_EXISTING = { ON | OFF }
+ONLINE = OFF
+ALLOW_ROW_LOCKS = { ON | OFF }
+ALLOW_PAGE_LOCKS = { ON | OFF }
+MAXDOP = maxdop_value

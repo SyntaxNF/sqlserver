@@ -1,0 +1,25 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-login-transact-sql?view=sql-server-ver17
+
+# CASE STATUS
+ALTER LOGIN name { ENABLE | DISABLE }
+
+# CASE OPTIONS
+ALTER LOGIN name WITH login_option [, ...]
+
+# CASE EKM_CREDENTIAL
+ALTER LOGIN name { ADD | DROP } CREDENTIAL credential_name
+
+
+# ONEOFIS login_option
+PASSWORD = { 'password' | password_hash HASHED } [ OLD_PASSWORD = 'old_password' | password_option [ password_option ] ]
+DEFAULT_DATABASE = database_name
+DEFAULT_LANGUAGE = language_name
+NAME = new_login_name
+CHECK_POLICY = { ON | OFF }
+CHECK_EXPIRATION = { ON | OFF }
+CREDENTIAL = credential_name
+NO CREDENTIAL
+
+# ONEOFIS password_option
+MUST_CHANGE
+UNLOCK

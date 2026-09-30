@@ -1,0 +1,46 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-spatial-index-transact-sql?view=sql-server-ver17
+
+# CASE GEOMETRY_AUTO
+CREATE SPATIAL INDEX name ON table ( colname ) USING GEOMETRY_AUTO_GRID
+    WITH ( BOUNDING_BOX = ( xmin_value, ymin_value, xmax_value, ymax_value )
+        [ , spatial_option [, ...] ] )
+    [ ON { filegroup | "default" } ]
+
+# CASE GEOMETRY_GRID
+CREATE SPATIAL INDEX name ON table ( colname ) USING GEOMETRY_GRID
+    WITH ( BOUNDING_BOX = ( xmin_value, ymin_value, xmax_value, ymax_value )
+        [ , GRIDS = ( grid_level [, ...] ) ]
+        [ , spatial_option [, ...] ] )
+    [ ON { filegroup | "default" } ]
+
+# CASE GEOGRAPHY_AUTO
+CREATE SPATIAL INDEX name ON table ( colname ) USING GEOGRAPHY_AUTO_GRID
+    [ WITH ( spatial_option [, ...] ) ]
+    [ ON { filegroup | "default" } ]
+
+# CASE GEOGRAPHY_GRID
+CREATE SPATIAL INDEX name ON table ( colname ) USING GEOGRAPHY_GRID
+    [ WITH ( geography_grid_option [, ...] ) ]
+    [ ON { filegroup | "default" } ]
+
+# PARTOFIS geography_grid_option
+GRIDS = ( grid_level [, ...] )
+
+spatial_option
+
+# WHERE grid_level
+{ LEVEL_1 | LEVEL_2 | LEVEL_3 | LEVEL_4 } = { LOW | MEDIUM | HIGH }
+
+# ONEOFIS spatial_option
+PAD_INDEX = { ON | OFF }
+FILLFACTOR = fillfactor_value
+SORT_IN_TEMPDB = { ON | OFF }
+IGNORE_DUP_KEY = OFF
+STATISTICS_NORECOMPUTE = { ON | OFF }
+DROP_EXISTING = { ON | OFF }
+ONLINE = OFF
+ALLOW_ROW_LOCKS = { ON | OFF }
+ALLOW_PAGE_LOCKS = { ON | OFF }
+MAXDOP = maxdop_value
+DATA_COMPRESSION = { NONE | ROW | PAGE }
+CELLS_PER_OBJECT = cells_value

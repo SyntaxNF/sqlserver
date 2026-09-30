@@ -1,0 +1,6 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-external-library-transact-sql?view=sql-server-ver17
+
+# CASE EXTERNAL_LIBRARY
+ALTER EXTERNAL LIBRARY name [ AUTHORIZATION owner ]
+    SET ( CONTENT = { file_or_binary_expression | NONE } [ , PLATFORM = { WINDOWS | LINUX } ] )
+    WITH ( LANGUAGE = 'language_name' )

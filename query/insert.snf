@@ -20,6 +20,11 @@ INSERT [ TOP ( row_count_expression ) [ PERCENT ] ] [ INTO ] table
     [ output_clause ]
     DEFAULT VALUES
 
+# CASE EXECUTE
+[ WITH cte_definition [, ...] ]
+INSERT [ TOP ( row_count_expression ) [ PERCENT ] ] [ INTO ] table
+    [ ( colname [, ...] ) ] execute_statement
+
 # WHERE row_definition
 ( { DEFAULT | value_expression } [, ...] )
 
@@ -36,3 +41,6 @@ cte [ ( colname [, ...] ) ] AS ( query_statement )
 
 # STATEMENT query_statement
 SELECT
+
+# STATEMENT execute_statement
+EXECUTE

@@ -1,0 +1,30 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/restore-statements-verifyonly-transact-sql?view=sql-server-ver17
+
+RESTORE VERIFYONLY FROM backup_device [, ...]
+    [ WITH restore_option [, ...] ]
+
+# ONEOFIS restore_option
+FILE = backup_set_number
+PASSWORD = string_value
+MEDIANAME = string_value
+MEDIAPASSWORD = string_value
+{ CHECKSUM | NO_CHECKSUM }
+{ STOP_ON_ERROR | CONTINUE_AFTER_ERROR }
+{ REWIND | NOREWIND }
+{ UNLOAD | NOUNLOAD }
+LOADHISTORY
+MOVE logical_file_value TO os_file_value
+STATS [ = percentage ]
+
+# ONEOFIS backup_device
+logical_device
+{ DISK | TAPE | URL } = device_value
+
+# ONEOFIS device_value
+'physical_device'
+device_variable
+
+
+# ONEOFIS string_value
+'string'
+string_variable

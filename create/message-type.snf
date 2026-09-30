@@ -1,0 +1,4 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-message-type-transact-sql?view=sql-server-ver17
+
+CREATE MESSAGE TYPE name [ AUTHORIZATION owner ]
+    [ VALIDATION = { NONE | EMPTY | WELL_FORMED_XML | VALID_XML WITH SCHEMA COLLECTION xml_schema_collection } ]

@@ -1,0 +1,13 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/add-signature-transact-sql?view=sql-server-ver17
+
+# CASE SIGNATURE
+ADD [ COUNTER ] SIGNATURE TO [ signature_module_class :: ] name
+    BY signature_definition [, ...]
+
+# ONEOFIS signature_module_class
+OBJECT
+ASSEMBLY
+
+# WHERE signature_definition
+{ CERTIFICATE certificate_name | ASYMMETRIC KEY asymmetric_key_name }
+    [ WITH PASSWORD = 'password' | WITH SIGNATURE = signature_binary ]

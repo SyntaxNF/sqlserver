@@ -1,0 +1,7 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/restore-statements-rewindonly-transact-sql?view=sql-server-ver17
+
+RESTORE REWINDONLY FROM tape_device [, ...] [ WITH { UNLOAD | NOUNLOAD } ]
+
+# ONEOFIS tape_device
+logical_device
+TAPE = { 'physical_device' | device_variable }

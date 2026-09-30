@@ -1,0 +1,4 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-column-encryption-key-transact-sql?view=sql-server-ver17
+
+# CASE COLUMN_ENCRYPTION_KEY
+DROP COLUMN ENCRYPTION KEY name

@@ -1,0 +1,4 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-database-encryption-key-transact-sql?view=sql-server-ver17
+
+# CASE DATABASE_ENCRYPTION_KEY
+DROP DATABASE ENCRYPTION KEY

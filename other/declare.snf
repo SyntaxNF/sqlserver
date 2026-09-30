@@ -1,0 +1,36 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/language-elements/declare-local-variable-transact-sql?view=sql-server-ver17
+
+# CASE SCALAR_OR_CURSOR
+DECLARE variable_definition [, ...]
+
+# CASE TABLE
+DECLARE variable [ AS ] TABLE ( table_variable_element_definition [, ...] )
+
+# WHERE variable_definition
+{ variable [ AS ] data_type [ = value_expression ] | variable CURSOR }
+
+# PARTOFIS table_variable_element_definition
+colname data_type [ COLLATE collation ]
+    [ DEFAULT default_expression | IDENTITY [ ( seed_value , increment_value ) ] ]
+    [ ROWGUIDCOL ] [ NULL | NOT NULL ] [ column_constraint_definition [...] ]
+
+colname AS computed_expression [ column_constraint_definition [...] ]
+
+{ PRIMARY KEY | UNIQUE } [ CLUSTERED | NONCLUSTERED ]
+    ( index_column_definition [, ...] ) [ WITH ( table_index_option [, ...] ) ]
+
+CHECK ( boolean_expression )
+
+# WHERE column_constraint_definition
+{ { PRIMARY KEY | UNIQUE } [ CLUSTERED | NONCLUSTERED ] [ WITH ( table_index_option [, ...] ) ] | CHECK ( boolean_expression ) }
+
+# WHERE index_column_definition
+colname [ ASC | DESC ]
+
+# ONEOFIS table_index_option
+PAD_INDEX = { ON | OFF }
+FILLFACTOR = fillfactor_value
+IGNORE_DUP_KEY = { ON | OFF }
+STATISTICS_NORECOMPUTE = { ON | OFF }
+ALLOW_ROW_LOCKS = { ON | OFF }
+ALLOW_PAGE_LOCKS = { ON | OFF }
