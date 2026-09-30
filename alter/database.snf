@@ -7,7 +7,8 @@ ALTER DATABASE { name | CURRENT } MODIFY NAME = new_name
 ALTER DATABASE { name | CURRENT } COLLATE collation
 
 # CASE ADD_FILE
-ALTER DATABASE name ADD FILE file_definition [, ...] [ TO FILEGROUP filegroup ]
+ALTER DATABASE name ADD FILE file_definition [, ...]
+    [ TO FILEGROUP filegroup ]
 
 # CASE ADD_LOG_FILE
 ALTER DATABASE name ADD LOG FILE file_definition [, ...]
@@ -27,24 +28,44 @@ ALTER DATABASE name MODIFY FILE (
 )
 
 # CASE ADD_FILEGROUP
-ALTER DATABASE name ADD FILEGROUP filegroup [ CONTAINS FILESTREAM | CONTAINS MEMORY_OPTIMIZED_DATA ]
+ALTER DATABASE name ADD FILEGROUP filegroup
+    [ CONTAINS FILESTREAM | CONTAINS MEMORY_OPTIMIZED_DATA ]
 
 # CASE REMOVE_FILEGROUP
 ALTER DATABASE name REMOVE FILEGROUP filegroup
 
 # CASE MODIFY_FILEGROUP
 ALTER DATABASE name MODIFY FILEGROUP filegroup
-    { READONLY | READWRITE | READ_ONLY | READ_WRITE | DEFAULT | NAME = new_filegroup | AUTOGROW_SINGLE_FILE | AUTOGROW_ALL_FILES }
+    {
+        READONLY |
+        READWRITE |
+        READ_ONLY |
+        READ_WRITE |
+        DEFAULT |
+        NAME = new_filegroup |
+        AUTOGROW_SINGLE_FILE |
+        AUTOGROW_ALL_FILES
+    }
 
 # CASE SET
-ALTER DATABASE { name | CURRENT } SET database_option [, ...] [ WITH termination_clause ]
+ALTER DATABASE { name | CURRENT } SET database_option [, ...]
+    [ WITH termination_clause ]
 
 # CASE HADR
 ALTER DATABASE name SET HADR { AVAILABILITY GROUP = availability_group | OFF | SUSPEND | RESUME }
 
 # CASE PARTNER
 ALTER DATABASE name SET PARTNER
-    { = 'partner_server' | FAILOVER | FORCE_SERVICE_ALLOW_DATA_LOSS | OFF | RESUME | SAFETY { FULL | OFF } | SUSPEND | TIMEOUT seconds }
+    {
+        = 'partner_server' |
+        FAILOVER |
+        FORCE_SERVICE_ALLOW_DATA_LOSS |
+        OFF |
+        RESUME |
+        SAFETY { FULL | OFF } |
+        SUSPEND |
+        TIMEOUT seconds
+    }
 
 # CASE WITNESS
 ALTER DATABASE name SET WITNESS { = 'witness_server' | OFF }

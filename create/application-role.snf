@@ -1,4 +1,5 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/create-application-role-transact-sql?view=sql-server-ver17
 
 # CASE APPLICATION_ROLE
-CREATE APPLICATION ROLE name WITH PASSWORD = 'password' [ , DEFAULT_SCHEMA = schema_name ]
+CREATE APPLICATION ROLE name
+    WITH PASSWORD = 'password' [ , DEFAULT_SCHEMA = schema_name ]

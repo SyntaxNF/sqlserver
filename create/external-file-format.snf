@@ -1,16 +1,19 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/create-external-file-format-transact-sql?view=sql-server-ver17
 
 # CASE DELIMITEDTEXT
-CREATE EXTERNAL FILE FORMAT name WITH ( FORMAT_TYPE = DELIMITEDTEXT
-    [ , FORMAT_OPTIONS ( format_option [, ...] ) ]
-    [ , DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec' ] )
+CREATE EXTERNAL FILE FORMAT name
+    WITH ( FORMAT_TYPE = DELIMITEDTEXT
+        [ , FORMAT_OPTIONS ( format_option [, ...] ) ]
+        [ , DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec' ] )
 
 # CASE PARQUET
-CREATE EXTERNAL FILE FORMAT name WITH ( FORMAT_TYPE = PARQUET
-    [ , DATA_COMPRESSION = { 'org.apache.hadoop.io.compress.SnappyCodec' | 'org.apache.hadoop.io.compress.GzipCodec' } ] )
+CREATE EXTERNAL FILE FORMAT name
+    WITH ( FORMAT_TYPE = PARQUET
+        [ , DATA_COMPRESSION = { 'org.apache.hadoop.io.compress.SnappyCodec' | 'org.apache.hadoop.io.compress.GzipCodec' } ] )
 
 # CASE DELTA
-CREATE EXTERNAL FILE FORMAT name WITH ( FORMAT_TYPE = DELTA )
+CREATE EXTERNAL FILE FORMAT name
+    WITH ( FORMAT_TYPE = DELTA )
 
 # ONEOFIS format_option
 FIELD_TERMINATOR = 'field_terminator'

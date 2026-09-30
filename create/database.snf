@@ -10,7 +10,8 @@ CREATE DATABASE name
     [ WITH database_option [, ...] ]
 
 # CASE ATTACH
-CREATE DATABASE name ON attach_file_definition [, ...]
+CREATE DATABASE name
+    ON attach_file_definition [, ...]
     FOR { ATTACH [ WITH attach_option [, ...] ] | ATTACH_REBUILD_LOG }
 
 # CASE SNAPSHOT
@@ -19,7 +20,8 @@ CREATE DATABASE name
     AS SNAPSHOT OF database
 
 # WHERE filegroup_definition
-FILEGROUP filegroup [ [ CONTAINS FILESTREAM ] [ DEFAULT ] | CONTAINS MEMORY_OPTIMIZED_DATA ]
+FILEGROUP filegroup
+    [ [ CONTAINS FILESTREAM ] [ DEFAULT ] | CONTAINS MEMORY_OPTIMIZED_DATA ]
     file_definition [, ...]
 
 # ONEOFIS database_option

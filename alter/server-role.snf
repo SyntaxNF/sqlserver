@@ -7,4 +7,5 @@ ALTER SERVER ROLE name ADD MEMBER server_principal
 ALTER SERVER ROLE name DROP MEMBER server_principal
 
 # CASE RENAME
-ALTER SERVER ROLE name WITH NAME = new_role_name
+ALTER SERVER ROLE name
+    WITH NAME = new_role_name

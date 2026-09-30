@@ -1,28 +1,35 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-index-transact-sql?view=sql-server-ver17
 
 # CASE REBUILD_ALL
-ALTER INDEX { name | ALL } ON table REBUILD [ PARTITION = ALL ]
+ALTER INDEX { name | ALL }
+    ON table REBUILD [ PARTITION = ALL ]
     [ WITH ( rebuild_option [, ...] ) ]
 
 # CASE REBUILD_PARTITION
-ALTER INDEX { name | ALL } ON table REBUILD PARTITION = partition_number
+ALTER INDEX { name | ALL }
+    ON table REBUILD PARTITION = partition_number
     [ WITH ( partition_rebuild_option [, ...] ) ]
 
 # CASE REORGANIZE
-ALTER INDEX { name | ALL } ON table REORGANIZE [ PARTITION = partition_number ]
+ALTER INDEX { name | ALL }
+    ON table REORGANIZE [ PARTITION = partition_number ]
     [ WITH ( reorganize_option ) ]
 
 # CASE DISABLE
-ALTER INDEX { name | ALL } ON table DISABLE
+ALTER INDEX { name | ALL }
+    ON table DISABLE
 
 # CASE SET
-ALTER INDEX { name | ALL } ON table SET ( set_index_option [, ...] )
+ALTER INDEX { name | ALL }
+    ON table SET ( set_index_option [, ...] )
 
 # CASE RESUME
-ALTER INDEX name ON table RESUME [ WITH ( resumable_option [, ...] ) ]
+ALTER INDEX name
+    ON table RESUME [ WITH ( resumable_option [, ...] ) ]
 
 # CASE PAUSE_OR_ABORT
-ALTER INDEX name ON table { PAUSE | ABORT }
+ALTER INDEX name
+    ON table { PAUSE | ABORT }
 
 # ONEOFIS rebuild_option
 PAD_INDEX = { ON | OFF }

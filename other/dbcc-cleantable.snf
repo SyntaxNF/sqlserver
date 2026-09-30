@@ -1,3 +1,4 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-cleantable-transact-sql?view=sql-server-ver17
 
-DBCC CLEANTABLE ( { database | database_id | 0 } , { table | table_id | view | view_id } [ , batch_size ] ) [ WITH NO_INFOMSGS ]
+DBCC CLEANTABLE ( { database | database_id | 0 } , { table | table_id | view | view_id } [ , batch_size ] )
+    [ WITH NO_INFOMSGS ]

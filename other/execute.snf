@@ -24,7 +24,12 @@
 { string_variable | [ N ] 'sql_text' }
 
 # WHERE execute_option
-{ RECOMPILE | RESULT SETS UNDEFINED | RESULT SETS NONE | RESULT SETS ( result_set_definition [, ...] ) }
+{
+    RECOMPILE |
+    RESULT SETS UNDEFINED |
+    RESULT SETS NONE |
+    RESULT SETS ( result_set_definition [, ...] )
+}
 
 # PARTOFIS result_set_definition
 ( result_column_definition [, ...] )
@@ -36,4 +41,6 @@ AS TYPE table_type
 AS FOR XML
 
 # WHERE result_column_definition
-colname data_type [ COLLATE collation ] [ NULL | NOT NULL ]
+colname data_type
+    [ COLLATE collation ]
+    [ NULL | NOT NULL ]

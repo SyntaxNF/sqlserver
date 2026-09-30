@@ -1,4 +1,6 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/create-search-property-list-transact-sql?view=sql-server-ver17
 
 # CASE SEARCH_PROPERTY_LIST
-CREATE SEARCH PROPERTY LIST name [ FROM source_property_list ] [ AUTHORIZATION owner ]
+CREATE SEARCH PROPERTY LIST name
+    [ FROM source_property_list ]
+    [ AUTHORIZATION owner ]

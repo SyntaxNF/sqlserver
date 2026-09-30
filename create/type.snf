@@ -1,27 +1,37 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/create-type-transact-sql?view=sql-server-ver17
 
 # CASE ALIAS
-CREATE TYPE name FROM base_type [ ( precision_value [ , scale_value ] ) ] [ NULL | NOT NULL ]
+CREATE TYPE name
+    FROM base_type [ ( precision_value [ , scale_value ] ) ]
+    [ NULL | NOT NULL ]
 
 # CASE CLR
 CREATE TYPE name EXTERNAL NAME assembly [ . class_name ]
 
 # CASE TABLE
-CREATE TYPE name AS TABLE ( table_type_element_definition [, ...] )
+CREATE TYPE name
+    AS TABLE ( table_type_element_definition [, ...] )
 
 # CASE MEMORY_OPTIMIZED_TABLE
-CREATE TYPE name AS TABLE ( memory_table_type_element_definition [, ...] )
+CREATE TYPE name
+    AS TABLE ( memory_table_type_element_definition [, ...] )
     WITH ( MEMORY_OPTIMIZED = ON )
 
 # PARTOFIS table_type_element_definition
-colname data_type [ COLLATE collation ] [ NULL | NOT NULL ]
+colname data_type
+    [ COLLATE collation ]
+    [ NULL | NOT NULL ]
     [ DEFAULT default_expression | IDENTITY [ ( seed_value , increment_value ) ] ]
-    [ ROWGUIDCOL ] [ type_column_constraint [...] ]
+    [ ROWGUIDCOL ]
+    [ type_column_constraint [...] ]
 
-colname AS computed_expression [ PERSISTED [ NOT NULL ] ] [ type_column_constraint ]
+colname AS computed_expression
+    [ PERSISTED [ NOT NULL ] ]
+    [ type_column_constraint ]
 
 { PRIMARY KEY | UNIQUE } [ CLUSTERED | NONCLUSTERED ]
-    ( index_column_definition [, ...] ) [ WITH ( IGNORE_DUP_KEY = { ON | OFF } ) ]
+    ( index_column_definition [, ...] )
+    [ WITH ( IGNORE_DUP_KEY = { ON | OFF } ) ]
 
 CHECK ( boolean_expression )
 
@@ -29,16 +39,31 @@ INDEX index_name [ CLUSTERED | NONCLUSTERED ] ( index_column_definition [, ...] 
     [ INCLUDE ( colname [, ...] ) ]
 
 # WHERE type_column_constraint
-{ { PRIMARY KEY | UNIQUE } [ CLUSTERED | NONCLUSTERED ] [ WITH ( IGNORE_DUP_KEY = { ON | OFF } ) ] | CHECK ( boolean_expression ) }
+{
+    { PRIMARY KEY | UNIQUE } [ CLUSTERED | NONCLUSTERED ] [ WITH ( IGNORE_DUP_KEY = { ON | OFF } ) ] |
+    CHECK ( boolean_expression )
+}
 
 # PARTOFIS memory_table_type_element_definition
-colname data_type [ COLLATE collation ] [ NULL | NOT NULL ] [ IDENTITY [ ( 1 , 1 ) ] ]
+colname data_type
+    [ COLLATE collation ]
+    [ NULL | NOT NULL ]
+    [ IDENTITY [ ( 1 , 1 ) ] ]
     [ PRIMARY KEY { NONCLUSTERED HASH WITH ( BUCKET_COUNT = bucket_count_value ) | NONCLUSTERED } ]
-    [ INDEX index_name { [ NONCLUSTERED ] HASH ( colname [, ...] ) WITH ( BUCKET_COUNT = bucket_count_value ) | NONCLUSTERED ( index_column_definition [, ...] ) } ]
+    [ INDEX index_name {
+        [ NONCLUSTERED ] HASH ( colname [, ...] ) WITH ( BUCKET_COUNT = bucket_count_value ) |
+        NONCLUSTERED ( index_column_definition [, ...] )
+    } ]
 
-PRIMARY KEY { NONCLUSTERED HASH ( colname [, ...] ) WITH ( BUCKET_COUNT = bucket_count_value ) | NONCLUSTERED ( index_column_definition [, ...] ) }
+PRIMARY KEY {
+    NONCLUSTERED HASH ( colname [, ...] ) WITH ( BUCKET_COUNT = bucket_count_value ) |
+    NONCLUSTERED ( index_column_definition [, ...] )
+}
 
-INDEX index_name { [ NONCLUSTERED ] HASH ( colname [, ...] ) WITH ( BUCKET_COUNT = bucket_count_value ) | [ NONCLUSTERED ] ( index_column_definition [, ...] ) }
+INDEX index_name {
+    [ NONCLUSTERED ] HASH ( colname [, ...] ) WITH ( BUCKET_COUNT = bucket_count_value ) |
+    [ NONCLUSTERED ] ( index_column_definition [, ...] )
+}
 
 # WHERE index_column_definition
 colname [ ASC | DESC ]

@@ -1,7 +1,8 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-application-role-transact-sql?view=sql-server-ver17
 
 # CASE APPLICATION_ROLE
-ALTER APPLICATION ROLE name WITH application_role_option [, ...]
+ALTER APPLICATION ROLE name
+    WITH application_role_option [, ...]
 
 # ONEOFIS application_role_option
 NAME = new_role_name

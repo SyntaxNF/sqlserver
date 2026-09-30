@@ -4,4 +4,5 @@
 DBCC SQLPERF ( LOGSPACE ) [ WITH NO_INFOMSGS ]
 
 # CASE CLEAR
-DBCC SQLPERF ( { "sys.dm_os_latch_stats" | "sys.dm_os_wait_stats" } , CLEAR ) [ WITH NO_INFOMSGS ]
+DBCC SQLPERF ( { "sys.dm_os_latch_stats" | "sys.dm_os_wait_stats" } , CLEAR )
+    [ WITH NO_INFOMSGS ]

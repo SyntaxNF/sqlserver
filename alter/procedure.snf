@@ -22,13 +22,23 @@ ALTER { PROC | PROCEDURE } name
     END
 
 # WHERE parameter_definition
-parameter data_type [ VARYING ] [ = default_value ] [ OUT | OUTPUT | READONLY ]
+parameter data_type
+    [ VARYING ]
+    [ = default_value ]
+    [ OUT | OUTPUT | READONLY ]
 
 # WHERE clr_parameter_definition
-parameter data_type [ = default_value ] [ OUT | OUTPUT ] [ READONLY ]
+parameter data_type
+    [ = default_value ]
+    [ OUT | OUTPUT ]
+    [ READONLY ]
 
 # WHERE native_parameter_definition
-parameter data_type [ NULL | NOT NULL ] [ = default_value ] [ OUT | OUTPUT ] [ READONLY ]
+parameter data_type
+    [ NULL | NOT NULL ]
+    [ = default_value ]
+    [ OUT | OUTPUT ]
+    [ READONLY ]
 
 # WHERE procedure_option
 { ENCRYPTION | RECOMPILE | execute_as_clause }

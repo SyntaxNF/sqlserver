@@ -8,9 +8,11 @@ DELETE [ TOP ( row_count_expression ) [ PERCENT ] ] [ FROM ] delete_target
     [ WHERE boolean_expression ]
 
 # WHERE output_clause
-{ OUTPUT output_item [, ...]
-| OUTPUT output_item [, ...] INTO output_target [ ( colname [, ...] ) ]
-    [ OUTPUT output_item [, ...] ] }
+{
+    OUTPUT output_item [, ...] |
+    OUTPUT output_item [, ...] INTO output_target [ ( colname [, ...] ) ]
+        [ OUTPUT output_item [, ...] ]
+}
 
 # WHERE output_item
 { DELETED . * | { DELETED . colname | output_expression } [ [ AS ] col_alias ] }

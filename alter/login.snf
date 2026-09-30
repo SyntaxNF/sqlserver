@@ -4,7 +4,8 @@
 ALTER LOGIN name { ENABLE | DISABLE }
 
 # CASE OPTIONS
-ALTER LOGIN name WITH login_option [, ...]
+ALTER LOGIN name
+    WITH login_option [, ...]
 
 # CASE EKM_CREDENTIAL
 ALTER LOGIN name { ADD | DROP } CREDENTIAL credential_name

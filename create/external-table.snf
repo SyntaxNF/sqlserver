@@ -6,4 +6,6 @@ CREATE EXTERNAL TABLE name ( external_column_definition [, ...] )
         [ , FILE_FORMAT = external_file_format ] )
 
 # WHERE external_column_definition
-colname data_type [ COLLATE collation ] [ NULL | NOT NULL ]
+colname data_type
+    [ COLLATE collation ]
+    [ NULL | NOT NULL ]

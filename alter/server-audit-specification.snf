@@ -10,7 +10,8 @@ ALTER SERVER AUDIT SPECIFICATION name audit_specification_action [, ...]
     [ WITH ( STATE = { ON | OFF } ) ]
 
 # CASE STATE
-ALTER SERVER AUDIT SPECIFICATION name WITH ( STATE = { ON | OFF } )
+ALTER SERVER AUDIT SPECIFICATION name
+    WITH ( STATE = { ON | OFF } )
 
 # WHERE audit_specification_action
 { ADD | DROP } ( server_audit_action_group )

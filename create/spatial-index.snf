@@ -1,25 +1,29 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/create-spatial-index-transact-sql?view=sql-server-ver17
 
 # CASE GEOMETRY_AUTO
-CREATE SPATIAL INDEX name ON table ( colname ) USING GEOMETRY_AUTO_GRID
+CREATE SPATIAL INDEX name
+    ON table ( colname ) USING GEOMETRY_AUTO_GRID
     WITH ( BOUNDING_BOX = ( xmin_value, ymin_value, xmax_value, ymax_value )
         [ , spatial_option [, ...] ] )
     [ ON { filegroup | "default" } ]
 
 # CASE GEOMETRY_GRID
-CREATE SPATIAL INDEX name ON table ( colname ) USING GEOMETRY_GRID
+CREATE SPATIAL INDEX name
+    ON table ( colname ) USING GEOMETRY_GRID
     WITH ( BOUNDING_BOX = ( xmin_value, ymin_value, xmax_value, ymax_value )
         [ , GRIDS = ( grid_level [, ...] ) ]
         [ , spatial_option [, ...] ] )
     [ ON { filegroup | "default" } ]
 
 # CASE GEOGRAPHY_AUTO
-CREATE SPATIAL INDEX name ON table ( colname ) USING GEOGRAPHY_AUTO_GRID
+CREATE SPATIAL INDEX name
+    ON table ( colname ) USING GEOGRAPHY_AUTO_GRID
     [ WITH ( spatial_option [, ...] ) ]
     [ ON { filegroup | "default" } ]
 
 # CASE GEOGRAPHY_GRID
-CREATE SPATIAL INDEX name ON table ( colname ) USING GEOGRAPHY_GRID
+CREATE SPATIAL INDEX name
+    ON table ( colname ) USING GEOGRAPHY_GRID
     [ WITH ( geography_grid_option [, ...] ) ]
     [ ON { filegroup | "default" } ]
 
