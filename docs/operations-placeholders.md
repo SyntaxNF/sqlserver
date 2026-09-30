@@ -1,6 +1,6 @@
 # Operations/admin and Service Broker input contracts
 
-Scope: SQL Server 2025 (17.x), GA engine features. This document belongs to the operations inventory and complements the integrated coverage document. Definitions are syntax models, never evidence that an operation is safe or executable. No tests, parser, type checks, build, SQL Server or Studio execution was run.
+Scope: SQL Server 2025 (17.x), GA engine features. This document belongs to the operations inventory and complements the integrated coverage document. Definitions are syntax models, never evidence that an operation is safe or executable. The subsequent user-triggered parser/convention validation is recorded in [validation-report.md](validation-report.md); no SQL Server or Studio execution was run.
 
 ## Reading status
 

@@ -1,6 +1,6 @@
 # Programming and session grammar contracts
 
-Target SQL Server 2025 Database Engine GA. This is statement-shape coverage, not a SQL validator. The inventory reports `supported` for a complete modeled statement shell, not database-tested support; `partial` means nested grammar/branches remain opaque. No parser, engine, tests or Studio execution has been performed.
+Target SQL Server 2025 Database Engine GA. This is statement-shape coverage, not a SQL validator. The inventory reports `supported` for a complete modeled statement shell, not database-tested support; `partial` means nested grammar/branches remain opaque. Subsequent parser/convention checks and validator tests are recorded in [validation-report.md](validation-report.md); no engine or Studio execution has been performed.
 
 ## Names and scalars
 

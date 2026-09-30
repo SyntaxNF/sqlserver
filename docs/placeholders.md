@@ -36,3 +36,7 @@ SNF 是生成结构，不是安全边界。当前未定义的节点不是“支�
 - [管理、DBCC、Service Broker](operations-placeholders.md)
 
 上面的初始节点说明与这些逐类契约一起使用；同名节点在不同文件中不自动绑定。新增定义的结构/缺口以 inventory 与覆盖表为准。完整约束以文件首行 Microsoft 文档为准。
+
+## 固定文本与 VARIABLE 节点
+
+parser 的 VARIABLE 类型不是输入契约本身。引号中的大小写混合固定值、MERGE `$action` 和 RESTORE `lsn:` 等必须保留为字面文本；精确清单见 [snf-fixed-literals.json](snf-fixed-literals.json)。消费方应按匹配源码 span 排除其中的变量节点，不能把 provider/codec 名称等变成任意输入。`lsn_number` 等未被固定 span 覆盖的部分仍依原契约校验。清单与逐文件引用/输入候选检查见 [validation.md](validation.md)。

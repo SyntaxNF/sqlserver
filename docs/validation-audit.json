@@ -1,0 +1,5241 @@
+{
+  "scope": "SNF physical structure and repository conventions only; inputs are not unresolved-reference errors or validated SQL",
+  "documents": 302,
+  "contentBlocks": 1004,
+  "directives": {
+    "CASE": 466,
+    "ONEOFIS": 173,
+    "WHERE": 162,
+    "STATEMENT": 13,
+    "PARTOFIS": 33
+  },
+  "inputOccurrences": 1334,
+  "uniqueInputNames": 427,
+  "errors": [],
+  "files": {
+    "query/bulk-insert.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "ONEOFIS": 1,
+        "WHERE": 1
+      },
+      "contentBlocks": 3,
+      "localReferences": [
+        "bulk_option",
+        "order_column"
+      ],
+      "inputs": [
+        "batch_size_value",
+        "codepage",
+        "colname",
+        "data_file",
+        "data_source_name",
+        "error_file",
+        "errorfile_data_source",
+        "field_terminator",
+        "first_row_value",
+        "format_file_path",
+        "formatfile_data_source",
+        "kilobytes_per_batch_value",
+        "last_row_value",
+        "max_errors_value",
+        "name",
+        "quote_characters",
+        "row_terminator",
+        "rows_per_batch_value"
+      ],
+      "recursiveDefinitions": []
+    },
+    "query/delete.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "WHERE": 3,
+        "STATEMENT": 1
+      },
+      "contentBlocks": 5,
+      "localReferences": [
+        "cte_definition",
+        "output_clause",
+        "output_item",
+        "query_statement"
+      ],
+      "inputs": [
+        "boolean_expression",
+        "col_alias",
+        "colname",
+        "cte",
+        "delete_target",
+        "from_expression",
+        "output_expression",
+        "output_target",
+        "row_count_expression"
+      ],
+      "recursiveDefinitions": []
+    },
+    "query/insert.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 4,
+        "WHERE": 4,
+        "STATEMENT": 2
+      },
+      "contentBlocks": 10,
+      "localReferences": [
+        "cte_definition",
+        "execute_statement",
+        "output_clause",
+        "output_item",
+        "query_statement",
+        "row_definition"
+      ],
+      "inputs": [
+        "col_alias",
+        "colname",
+        "cte",
+        "output_expression",
+        "output_target",
+        "row_count_expression",
+        "table",
+        "value_expression"
+      ],
+      "recursiveDefinitions": []
+    },
+    "query/merge.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "PARTOFIS": 1,
+        "WHERE": 4,
+        "STATEMENT": 1
+      },
+      "contentBlocks": 9,
+      "localReferences": [
+        "cte_definition",
+        "merge_value",
+        "merge_when_clause",
+        "output_clause",
+        "output_item",
+        "query_statement"
+      ],
+      "inputs": [
+        "boolean_expression",
+        "col_alias",
+        "colname",
+        "cte",
+        "merge_hint",
+        "merge_source",
+        "merge_target",
+        "output_expression",
+        "output_target",
+        "query_hint",
+        "row_count_expression",
+        "set_clause",
+        "source_alias",
+        "target_alias",
+        "value_expression"
+      ],
+      "recursiveDefinitions": []
+    },
+    "query/readtext.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "offset_value",
+        "qualified_column",
+        "size_value",
+        "text_pointer"
+      ],
+      "recursiveDefinitions": []
+    },
+    "query/receive.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2,
+        "ONEOFIS": 2
+      },
+      "contentBlocks": 4,
+      "localReferences": [
+        "conversation_filter",
+        "receive_projection"
+      ],
+      "inputs": [
+        "col_alias",
+        "conversation_group_id",
+        "conversation_handle",
+        "queue",
+        "row_count",
+        "table_variable",
+        "timeout",
+        "value_expression",
+        "variable"
+      ],
+      "recursiveDefinitions": []
+    },
+    "query/select.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 5,
+        "WHERE": 9,
+        "PARTOFIS": 6,
+        "STATEMENT": 1,
+        "ONEOFIS": 2
+      },
+      "contentBlocks": 44,
+      "localReferences": [
+        "cte_definition",
+        "for_clause",
+        "from_clause",
+        "from_expression",
+        "group_by_expression",
+        "grouping_expression",
+        "grouping_set",
+        "optimize_variable_definition",
+        "order_by_expression",
+        "query_hint",
+        "query_operand",
+        "query_statement",
+        "select_item",
+        "set_operation",
+        "set_operation_clause",
+        "system_time_clause",
+        "table_hint",
+        "window_definition"
+      ],
+      "inputs": [
+        "boolean_expression",
+        "cells_value",
+        "col_alias",
+        "collation",
+        "colname",
+        "constant_value",
+        "cte",
+        "datetime_value",
+        "element_name",
+        "end_datetime_value",
+        "exposed_object",
+        "fetch_expression",
+        "grant_percent_value",
+        "hint_name",
+        "index_value",
+        "maxdop_value",
+        "new_table",
+        "offset_expression",
+        "query_specification",
+        "recursion_value",
+        "reference_window_name",
+        "root_name",
+        "row_count_expression",
+        "row_count_value",
+        "sample_value",
+        "seed_value",
+        "start_datetime_value",
+        "table",
+        "table_alias",
+        "target_namespace",
+        "trace_flag_value",
+        "value_expression",
+        "variable",
+        "window_frame_clause",
+        "window_name",
+        "xml_plan"
+      ],
+      "recursiveDefinitions": [
+        "from_expression"
+      ]
+    },
+    "query/update.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "WHERE": 4,
+        "STATEMENT": 1
+      },
+      "contentBlocks": 6,
+      "localReferences": [
+        "assignment",
+        "cte_definition",
+        "output_clause",
+        "output_item",
+        "query_statement"
+      ],
+      "inputs": [
+        "boolean_expression",
+        "col_alias",
+        "colname",
+        "cte",
+        "from_expression",
+        "output_expression",
+        "output_target",
+        "row_count_expression",
+        "update_target",
+        "value_expression"
+      ],
+      "recursiveDefinitions": []
+    },
+    "query/updatetext.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "delete_length_value",
+        "insert_offset_value",
+        "inserted_data_value",
+        "qualified_column",
+        "source_qualified_column",
+        "source_text_pointer",
+        "text_pointer"
+      ],
+      "recursiveDefinitions": []
+    },
+    "query/writetext.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "data_value",
+        "qualified_column",
+        "text_pointer"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/aggregate.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "WHERE": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "parameter_definition"
+      ],
+      "inputs": [
+        "assembly",
+        "class_name",
+        "data_type",
+        "name",
+        "parameter"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/application-role.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name",
+        "password",
+        "schema_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/assembly.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "assembly_path_expression",
+        "binary_expression",
+        "name",
+        "owner"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/asymmetric-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 3,
+        "ONEOFIS": 2
+      },
+      "contentBlocks": 5,
+      "localReferences": [
+        "asymmetric_key_source",
+        "provider_key_option"
+      ],
+      "inputs": [
+        "assembly_name",
+        "database_principal",
+        "file_path",
+        "name",
+        "password",
+        "provider_key_name",
+        "provider_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/availability-group.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2,
+        "ONEOFIS": 7,
+        "PARTOFIS": 1,
+        "WHERE": 1
+      },
+      "contentBlocks": 12,
+      "localReferences": [
+        "availability_option",
+        "distributed_group_definition",
+        "ip_definition",
+        "listener_definition",
+        "primary_role_option",
+        "replica_definition",
+        "replica_option",
+        "routing_target",
+        "secondary_role_option"
+      ],
+      "inputs": [
+        "availability_group",
+        "connection_options",
+        "database",
+        "dns_name",
+        "endpoint_url",
+        "ipv4_address",
+        "ipv4_mask",
+        "ipv6_address",
+        "listener_url",
+        "milliseconds",
+        "name",
+        "port",
+        "priority_value",
+        "routing_url",
+        "seconds",
+        "server_instance"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/broker-priority.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "priority_option"
+      ],
+      "inputs": [
+        "contract",
+        "local_service",
+        "name",
+        "priority_value",
+        "remote_service"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/certificate.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 5,
+        "ONEOFIS": 2
+      },
+      "contentBlocks": 7,
+      "localReferences": [
+        "certificate_date_option",
+        "private_key_source"
+      ],
+      "inputs": [
+        "assembly_name",
+        "certificate_binary",
+        "certificate_subject",
+        "database_principal",
+        "date_value",
+        "decryption_password",
+        "encryption_password",
+        "file_path",
+        "name",
+        "password",
+        "private_key_binary",
+        "private_key_path"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/column-encryption-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "WHERE": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "column_key_value_definition"
+      ],
+      "inputs": [
+        "algorithm_name",
+        "column_master_key_name",
+        "encrypted_value_binary",
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/column-master-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "key_path",
+        "key_store_provider_name",
+        "name",
+        "signature_binary"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/columnstore-index.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2,
+        "ONEOFIS": 1,
+        "WHERE": 2
+      },
+      "contentBlocks": 5,
+      "localReferences": [
+        "columnstore_option",
+        "partition_range",
+        "storage_clause"
+      ],
+      "inputs": [
+        "colname",
+        "default",
+        "delay_value",
+        "filegroup",
+        "filter_expression",
+        "maxdop_value",
+        "name",
+        "partition_number",
+        "partition_scheme",
+        "table"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/contract.snf": {
+      "errors": [],
+      "counts": {
+        "WHERE": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "message_definition"
+      ],
+      "inputs": [
+        "message_type",
+        "name",
+        "owner"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/credential.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "identity_name",
+        "name",
+        "provider_name",
+        "secret"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/cryptographic-provider.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name",
+        "provider_library_path"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/database-audit-specification.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "WHERE": 1,
+        "PARTOFIS": 1,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 5,
+      "localReferences": [
+        "audit_specification_add",
+        "database_audit_action",
+        "database_audit_item"
+      ],
+      "inputs": [
+        "audit_name",
+        "database_audit_action_group",
+        "database_principal",
+        "name",
+        "securable_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/database-encryption-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "asymmetric_key_name",
+        "certificate_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/database-scoped-credential.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "identity_name",
+        "name",
+        "secret"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/database.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 3,
+        "WHERE": 3,
+        "ONEOFIS": 3
+      },
+      "contentBlocks": 9,
+      "localReferences": [
+        "attach_file_definition",
+        "attach_option",
+        "database_option",
+        "file_definition",
+        "filegroup_definition",
+        "filestream_option"
+      ],
+      "inputs": [
+        "collation",
+        "database",
+        "directory_name",
+        "directory_path",
+        "file_path",
+        "file_size",
+        "filegroup",
+        "growth",
+        "language_value",
+        "logical_file",
+        "max_size",
+        "name",
+        "year"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/default.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "default_expression",
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/endpoint.snf": {
+      "errors": [],
+      "counts": {
+        "WHERE": 2,
+        "PARTOFIS": 1,
+        "ONEOFIS": 3
+      },
+      "contentBlocks": 9,
+      "localReferences": [
+        "authentication_definition",
+        "broker_endpoint_option",
+        "encryption_definition",
+        "mirroring_endpoint_option",
+        "payload_definition",
+        "tcp_definition"
+      ],
+      "inputs": [
+        "certificate",
+        "ipv4_address",
+        "ipv6_address",
+        "login",
+        "megabytes",
+        "name",
+        "port"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/event-notification.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "broker_instance",
+        "broker_service",
+        "event_type_or_group",
+        "name",
+        "queue"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/event-session.snf": {
+      "errors": [],
+      "counts": {
+        "WHERE": 3,
+        "ONEOFIS": 2
+      },
+      "contentBlocks": 6,
+      "localReferences": [
+        "event_definition",
+        "event_settings",
+        "event_value",
+        "session_option",
+        "target_definition"
+      ],
+      "inputs": [
+        "action_identifier",
+        "duration",
+        "event_attribute",
+        "event_identifier",
+        "event_predicate_expression",
+        "memory_size",
+        "name",
+        "number",
+        "seconds",
+        "string",
+        "target_identifier",
+        "target_parameter"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/external-data-source.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "external_source_option"
+      ],
+      "inputs": [
+        "connection_options",
+        "credential",
+        "location",
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/external-file-format.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 3,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 4,
+      "localReferences": [
+        "format_option"
+      ],
+      "inputs": [
+        "date_format",
+        "field_terminator",
+        "first_row_value",
+        "name",
+        "string_delimiter"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/external-language.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "WHERE": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "language_file_definition"
+      ],
+      "inputs": [
+        "environment_variables",
+        "file_name",
+        "file_or_binary_expression",
+        "name",
+        "owner",
+        "parameters"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/external-library.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "WHERE": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "library_file_definition"
+      ],
+      "inputs": [
+        "file_or_binary_expression",
+        "language_name",
+        "name",
+        "owner"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/external-model.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "WHERE": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "api_format_literal"
+      ],
+      "inputs": [
+        "credential",
+        "https_location",
+        "json_parameters",
+        "model_name",
+        "name",
+        "owner"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/external-resource-pool.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 1,
+        "WHERE": 1
+      },
+      "contentBlocks": 3,
+      "localReferences": [
+        "id_range",
+        "pool_option"
+      ],
+      "inputs": [
+        "first_id",
+        "last_id",
+        "name",
+        "percentage",
+        "process_count"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/external-table-as-select.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "STATEMENT": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "query_statement"
+      ],
+      "inputs": [
+        "colname",
+        "external_data_source",
+        "external_file_format",
+        "location",
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/external-table.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "WHERE": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "external_column_definition"
+      ],
+      "inputs": [
+        "collation",
+        "colname",
+        "data_type",
+        "external_data_source",
+        "external_file_format",
+        "location",
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/fulltext-catalog.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "filegroup",
+        "name",
+        "owner",
+        "root_path"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/fulltext-index.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "WHERE": 1,
+        "PARTOFIS": 1,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 7,
+      "localReferences": [
+        "catalog_filegroup_clause",
+        "fulltext_column_definition",
+        "fulltext_option"
+      ],
+      "inputs": [
+        "colname",
+        "filegroup",
+        "fulltext_catalog",
+        "language_term",
+        "name",
+        "property_list",
+        "stoplist",
+        "type_colname",
+        "unique_index"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/fulltext-stoplist.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name",
+        "owner",
+        "source_stoplist"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/function.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 6,
+        "WHERE": 12,
+        "ONEOFIS": 2,
+        "STATEMENT": 1,
+        "PARTOFIS": 1
+      },
+      "contentBlocks": 25,
+      "localReferences": [
+        "atomic_option",
+        "clr_column_definition",
+        "clr_parameter_definition",
+        "clr_scalar_option",
+        "column_constraint_definition",
+        "execute_as_clause",
+        "index_column_definition",
+        "inline_option",
+        "native_parameter_definition",
+        "order_column_definition",
+        "parameter_definition",
+        "query_statement",
+        "scalar_option",
+        "table_element_definition",
+        "table_function_option",
+        "table_index_option"
+      ],
+      "inputs": [
+        "assembly",
+        "boolean_expression",
+        "class_name",
+        "collation",
+        "colname",
+        "computed_expression",
+        "data_type",
+        "datefirst_value",
+        "dateformat_value",
+        "default_expression",
+        "default_value",
+        "fillfactor_value",
+        "increment_value",
+        "language",
+        "method_name",
+        "name",
+        "parameter",
+        "return_variable",
+        "seed_value",
+        "sql_statement_list",
+        "user_name",
+        "value_expression"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/graph-table.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2,
+        "WHERE": 3,
+        "PARTOFIS": 1
+      },
+      "contentBlocks": 7,
+      "localReferences": [
+        "connection_definition",
+        "graph_column_definition",
+        "graph_table_element",
+        "storage_clause"
+      ],
+      "inputs": [
+        "collation",
+        "colname",
+        "constraint",
+        "data_type",
+        "default",
+        "filegroup",
+        "name",
+        "partition_scheme",
+        "source_node_table",
+        "target_node_table"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/index.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2,
+        "WHERE": 4,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 7,
+      "localReferences": [
+        "index_column_definition",
+        "index_option",
+        "low_priority_wait_clause",
+        "partition_range",
+        "storage_clause"
+      ],
+      "inputs": [
+        "colname",
+        "default",
+        "duration_value",
+        "filegroup",
+        "filestream_filegroup",
+        "fillfactor_value",
+        "filter_expression",
+        "maxdop_value",
+        "name",
+        "partition_number",
+        "partition_scheme",
+        "table"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/json-index.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "json_index_option"
+      ],
+      "inputs": [
+        "colname",
+        "default",
+        "filegroup",
+        "fillfactor_value",
+        "json_path",
+        "maxdop_value",
+        "name",
+        "table"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/login.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 5,
+        "ONEOFIS": 2
+      },
+      "contentBlocks": 7,
+      "localReferences": [
+        "login_option",
+        "windows_login_option"
+      ],
+      "inputs": [
+        "asymmetric_key_name",
+        "certificate_name",
+        "credential_name",
+        "database_name",
+        "language_name",
+        "name",
+        "object_id",
+        "password",
+        "password_hash",
+        "sid_value"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/master-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "password"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/message-type.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name",
+        "owner",
+        "xml_schema_collection"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/partition-function.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "boundary_value",
+        "name",
+        "partition_data_type"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/partition-scheme.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "filegroup",
+        "name",
+        "partition_function"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/procedure.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 3,
+        "WHERE": 5,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 9,
+      "localReferences": [
+        "atomic_option",
+        "clr_parameter_definition",
+        "execute_as_clause",
+        "native_parameter_definition",
+        "parameter_definition",
+        "procedure_option"
+      ],
+      "inputs": [
+        "assembly",
+        "class_name",
+        "data_type",
+        "datefirst_value",
+        "dateformat_value",
+        "default_value",
+        "language",
+        "method_name",
+        "name",
+        "number_value",
+        "parameter",
+        "sql_statement_list",
+        "statement_block",
+        "user_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/queue.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "queue_option"
+      ],
+      "inputs": [
+        "filegroup",
+        "max_readers",
+        "name",
+        "procedure",
+        "user"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/remote-service-binding.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name",
+        "owner",
+        "service",
+        "user"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/resource-pool.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 1,
+        "WHERE": 1
+      },
+      "contentBlocks": 3,
+      "localReferences": [
+        "id_range",
+        "pool_option"
+      ],
+      "inputs": [
+        "first_id",
+        "iops",
+        "last_id",
+        "name",
+        "percentage"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/role.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "database_principal",
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/route.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "address",
+        "broker_instance",
+        "lifetime",
+        "mirror_address",
+        "name",
+        "owner",
+        "service"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/rule.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "boolean_expression",
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/schema.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2
+      },
+      "contentBlocks": 2,
+      "localReferences": [],
+      "inputs": [
+        "name",
+        "owner"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/search-property-list.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name",
+        "owner",
+        "source_property_list"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/secondary-selective-xml-index.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "xml_index_option"
+      ],
+      "inputs": [
+        "colname",
+        "fillfactor_value",
+        "maxdop_value",
+        "name",
+        "promoted_path_name",
+        "selective_xml_index",
+        "table"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/security-policy.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "PARTOFIS": 1,
+        "ONEOFIS": 2
+      },
+      "contentBlocks": 5,
+      "localReferences": [
+        "block_operation",
+        "security_policy_option",
+        "security_predicate_definition"
+      ],
+      "inputs": [
+        "name",
+        "predicate_argument_expression",
+        "predicate_function_name",
+        "table_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/selective-xml-index.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "WHERE": 2,
+        "PARTOFIS": 2,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 9,
+      "localReferences": [
+        "namespace_definition",
+        "promoted_path",
+        "promoted_path_definition",
+        "xml_index_option",
+        "xquery_type_hint"
+      ],
+      "inputs": [
+        "colname",
+        "data_type",
+        "fillfactor_value",
+        "maxdop_value",
+        "maxlength_value",
+        "name",
+        "namespace_prefix",
+        "namespace_uri",
+        "node_path",
+        "path_name",
+        "table",
+        "xsd_type"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/sequence.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "cache_value",
+        "data_type",
+        "increment_value",
+        "maximum_value",
+        "minimum_value",
+        "name",
+        "start_value"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/server-audit-specification.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "WHERE": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "audit_specification_add"
+      ],
+      "inputs": [
+        "audit_name",
+        "name",
+        "server_audit_action_group"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/server-audit.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 3,
+      "localReferences": [
+        "server_audit_option"
+      ],
+      "inputs": [
+        "audit_guid",
+        "audit_predicate_expression",
+        "file_count",
+        "file_path",
+        "name",
+        "queue_delay_value",
+        "size_value"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/server-role.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name",
+        "server_principal"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/service.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "contract",
+        "name",
+        "owner",
+        "queue"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/spatial-index.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 4,
+        "PARTOFIS": 1,
+        "WHERE": 1,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 8,
+      "localReferences": [
+        "geography_grid_option",
+        "grid_level",
+        "spatial_option"
+      ],
+      "inputs": [
+        "cells_value",
+        "colname",
+        "default",
+        "filegroup",
+        "fillfactor_value",
+        "maxdop_value",
+        "name",
+        "table",
+        "xmax_value",
+        "xmin_value",
+        "ymax_value",
+        "ymin_value"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/statistics.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "statistics_option"
+      ],
+      "inputs": [
+        "colname",
+        "filter_expression",
+        "maxdop_value",
+        "name",
+        "sample_value",
+        "table"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/symmetric-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2,
+        "ONEOFIS": 3
+      },
+      "contentBlocks": 5,
+      "localReferences": [
+        "key_encryptor",
+        "provider_key_option",
+        "symmetric_key_option"
+      ],
+      "inputs": [
+        "asymmetric_key_name",
+        "certificate_name",
+        "database_principal",
+        "identity_phrase",
+        "key_source_phrase",
+        "name",
+        "password",
+        "provider_key_name",
+        "provider_name",
+        "symmetric_key_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/synonym.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "base_object",
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/table.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "WHERE": 10,
+        "PARTOFIS": 2,
+        "ONEOFIS": 3
+      },
+      "contentBlocks": 20,
+      "localReferences": [
+        "column_constraint_definition",
+        "column_definition",
+        "column_set_definition",
+        "computed_column_definition",
+        "index_column_definition",
+        "ledger_option",
+        "ledger_view_option",
+        "partition_range",
+        "referential_action",
+        "retention_period",
+        "storage_clause",
+        "table_constraint_definition",
+        "table_element_definition",
+        "table_index_definition",
+        "table_option"
+      ],
+      "inputs": [
+        "boolean_expression",
+        "collation",
+        "colname",
+        "column_encryption_key",
+        "computed_expression",
+        "constraint",
+        "data_type",
+        "default",
+        "default_constraint",
+        "default_expression",
+        "filegroup",
+        "filter_expression",
+        "history_table",
+        "increment_value",
+        "index_name",
+        "ledger_view",
+        "mask_function",
+        "name",
+        "partition_number",
+        "partition_scheme",
+        "referenced_colname",
+        "referenced_table",
+        "retention_value",
+        "row_end_column",
+        "row_start_column",
+        "seed_value",
+        "table_index_option"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/trigger.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 9,
+        "WHERE": 4,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 14,
+      "localReferences": [
+        "atomic_option",
+        "database_execute_as_clause",
+        "dml_event",
+        "dml_execute_as_clause",
+        "server_execute_as_clause"
+      ],
+      "inputs": [
+        "assembly",
+        "class_name",
+        "datefirst_value",
+        "dateformat_value",
+        "ddl_event",
+        "language",
+        "login_name",
+        "method_name",
+        "name",
+        "sql_statement_list",
+        "table",
+        "user_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/type.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 4,
+        "PARTOFIS": 2,
+        "WHERE": 2
+      },
+      "contentBlocks": 14,
+      "localReferences": [
+        "index_column_definition",
+        "memory_table_type_element_definition",
+        "table_type_element_definition",
+        "type_column_constraint"
+      ],
+      "inputs": [
+        "assembly",
+        "base_type",
+        "boolean_expression",
+        "bucket_count_value",
+        "class_name",
+        "collation",
+        "colname",
+        "computed_expression",
+        "data_type",
+        "default_expression",
+        "increment_value",
+        "index_name",
+        "name",
+        "precision_value",
+        "scale_value",
+        "seed_value"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/user.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 7,
+        "ONEOFIS": 3
+      },
+      "contentBlocks": 10,
+      "localReferences": [
+        "contained_user_option",
+        "contained_windows_user_option",
+        "limited_user_option"
+      ],
+      "inputs": [
+        "asymmetric_key_name",
+        "certificate_name",
+        "language_value",
+        "login_name",
+        "name",
+        "object_id",
+        "password",
+        "schema_name",
+        "sid_value"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/view.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "WHERE": 1,
+        "STATEMENT": 1
+      },
+      "contentBlocks": 3,
+      "localReferences": [
+        "query_statement",
+        "view_attribute"
+      ],
+      "inputs": [
+        "colname",
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/workload-group.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "group_option"
+      ],
+      "inputs": [
+        "external_pool",
+        "maxdop",
+        "megabytes",
+        "name",
+        "percentage",
+        "pool",
+        "requests",
+        "seconds"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/xml-index.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 3,
+      "localReferences": [
+        "xml_index_option"
+      ],
+      "inputs": [
+        "colname",
+        "fillfactor_value",
+        "maxdop_value",
+        "name",
+        "primary_xml_index",
+        "table"
+      ],
+      "recursiveDefinitions": []
+    },
+    "create/xml-schema-collection.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name",
+        "xml_schema_expression"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/application-role.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "application_role_option"
+      ],
+      "inputs": [
+        "name",
+        "new_role_name",
+        "password",
+        "schema_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/assembly.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "WHERE": 2
+      },
+      "contentBlocks": 3,
+      "localReferences": [
+        "assembly_option",
+        "file_definition"
+      ],
+      "inputs": [
+        "assembly_path_expression",
+        "binary_expression",
+        "file_name",
+        "file_path_expression",
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/asymmetric-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 3,
+      "localReferences": [
+        "private_key_password_option"
+      ],
+      "inputs": [
+        "decryption_password",
+        "encryption_password",
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/authorization.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "authorization_class"
+      ],
+      "inputs": [
+        "name",
+        "principal_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/availability-group.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 18,
+        "ONEOFIS": 9,
+        "WHERE": 2,
+        "PARTOFIS": 1
+      },
+      "contentBlocks": 31,
+      "localReferences": [
+        "availability_option",
+        "distributed_group_definition",
+        "distributed_modify_definition",
+        "distributed_modify_option",
+        "ip_definition",
+        "listener_definition",
+        "primary_role_option",
+        "replica_definition",
+        "replica_modify_option",
+        "replica_option",
+        "routing_target",
+        "secondary_role_option"
+      ],
+      "inputs": [
+        "availability_group",
+        "connection_options",
+        "database",
+        "dns_name",
+        "endpoint_url",
+        "ip_address",
+        "ipv4_address",
+        "ipv4_mask",
+        "ipv6_address",
+        "listener_url",
+        "milliseconds",
+        "name",
+        "port",
+        "priority_value",
+        "routing_url",
+        "secondary_count",
+        "seconds",
+        "server_instance"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/broker-priority.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "priority_option"
+      ],
+      "inputs": [
+        "contract",
+        "local_service",
+        "name",
+        "priority_value",
+        "remote_service"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/certificate.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 4,
+        "ONEOFIS": 2
+      },
+      "contentBlocks": 6,
+      "localReferences": [
+        "private_key_password_option",
+        "private_key_source"
+      ],
+      "inputs": [
+        "decryption_password",
+        "encryption_password",
+        "name",
+        "private_key_binary",
+        "private_key_path"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/column-encryption-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2
+      },
+      "contentBlocks": 2,
+      "localReferences": [],
+      "inputs": [
+        "algorithm_name",
+        "column_master_key_name",
+        "encrypted_value_binary",
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/credential.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "identity_name",
+        "name",
+        "secret"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/cryptographic-provider.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2
+      },
+      "contentBlocks": 2,
+      "localReferences": [],
+      "inputs": [
+        "name",
+        "provider_library_path"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/database-audit-specification.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 3,
+        "WHERE": 1,
+        "PARTOFIS": 1,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 7,
+      "localReferences": [
+        "audit_specification_action",
+        "database_audit_action",
+        "database_audit_item"
+      ],
+      "inputs": [
+        "audit_name",
+        "database_audit_action_group",
+        "database_principal",
+        "name",
+        "securable_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/database-encryption-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2
+      },
+      "contentBlocks": 2,
+      "localReferences": [],
+      "inputs": [
+        "asymmetric_key_name",
+        "certificate_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/database-scoped-configuration.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 3,
+        "ONEOFIS": 2
+      },
+      "contentBlocks": 5,
+      "localReferences": [
+        "configuration_option",
+        "secondary_configuration_option"
+      ],
+      "inputs": [
+        "endpoint_url",
+        "maxdop",
+        "minutes",
+        "plan_handle"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/database-scoped-credential.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "identity_name",
+        "name",
+        "secret"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/database.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 13,
+        "WHERE": 2,
+        "ONEOFIS": 5
+      },
+      "contentBlocks": 20,
+      "localReferences": [
+        "change_tracking_option",
+        "database_option",
+        "file_definition",
+        "filestream_option",
+        "query_capture_option",
+        "query_store_option",
+        "termination_clause"
+      ],
+      "inputs": [
+        "availability_group",
+        "collation",
+        "days",
+        "directory_name",
+        "directory_path",
+        "duration",
+        "execution_count",
+        "file_path",
+        "file_size",
+        "filegroup",
+        "growth",
+        "language_value",
+        "logical_file",
+        "max_size",
+        "megabytes",
+        "milliseconds",
+        "minutes",
+        "name",
+        "new_filegroup",
+        "new_logical_file",
+        "new_name",
+        "partner_server",
+        "plan_count",
+        "retention",
+        "seconds",
+        "witness_server",
+        "year"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/endpoint.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 3,
+        "WHERE": 2,
+        "PARTOFIS": 1,
+        "ONEOFIS": 3
+      },
+      "contentBlocks": 11,
+      "localReferences": [
+        "authentication_definition",
+        "broker_endpoint_option",
+        "encryption_definition",
+        "mirroring_endpoint_option",
+        "payload_definition",
+        "tcp_definition"
+      ],
+      "inputs": [
+        "certificate",
+        "ipv4_address",
+        "ipv6_address",
+        "megabytes",
+        "name",
+        "port"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/event-session.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 4,
+        "ONEOFIS": 4,
+        "WHERE": 3
+      },
+      "contentBlocks": 11,
+      "localReferences": [
+        "event_action",
+        "event_definition",
+        "event_settings",
+        "event_value",
+        "session_option",
+        "target_action",
+        "target_definition"
+      ],
+      "inputs": [
+        "action_identifier",
+        "duration",
+        "event_attribute",
+        "event_identifier",
+        "event_predicate_expression",
+        "memory_size",
+        "name",
+        "number",
+        "seconds",
+        "string",
+        "target_identifier",
+        "target_parameter"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/external-data-source.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "external_source_option"
+      ],
+      "inputs": [
+        "credential",
+        "location",
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/external-language.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2,
+        "WHERE": 1
+      },
+      "contentBlocks": 3,
+      "localReferences": [
+        "language_file_definition"
+      ],
+      "inputs": [
+        "file_name",
+        "file_or_binary_expression",
+        "name",
+        "owner"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/external-library.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "file_or_binary_expression",
+        "language_name",
+        "name",
+        "owner"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/external-model.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "external_model_option"
+      ],
+      "inputs": [
+        "credential",
+        "https_location",
+        "json_parameters",
+        "model_name",
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/external-resource-pool.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 1,
+        "WHERE": 1
+      },
+      "contentBlocks": 3,
+      "localReferences": [
+        "id_range",
+        "pool_option"
+      ],
+      "inputs": [
+        "first_id",
+        "last_id",
+        "name",
+        "percentage",
+        "process_count"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/fulltext-catalog.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/fulltext-index.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "PARTOFIS": 1,
+        "WHERE": 1
+      },
+      "contentBlocks": 12,
+      "localReferences": [
+        "fulltext_action",
+        "fulltext_column_definition"
+      ],
+      "inputs": [
+        "colname",
+        "language_term",
+        "name",
+        "property_list",
+        "stoplist",
+        "type_colname"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/fulltext-stoplist.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 3
+      },
+      "contentBlocks": 3,
+      "localReferences": [],
+      "inputs": [
+        "language_term",
+        "name",
+        "stopword_literal"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/function.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 6,
+        "WHERE": 12,
+        "ONEOFIS": 2,
+        "STATEMENT": 1,
+        "PARTOFIS": 1
+      },
+      "contentBlocks": 25,
+      "localReferences": [
+        "atomic_option",
+        "clr_column_definition",
+        "clr_parameter_definition",
+        "clr_scalar_option",
+        "column_constraint_definition",
+        "execute_as_clause",
+        "index_column_definition",
+        "inline_option",
+        "native_parameter_definition",
+        "order_column_definition",
+        "parameter_definition",
+        "query_statement",
+        "scalar_option",
+        "table_element_definition",
+        "table_function_option",
+        "table_index_option"
+      ],
+      "inputs": [
+        "assembly",
+        "boolean_expression",
+        "class_name",
+        "collation",
+        "colname",
+        "computed_expression",
+        "data_type",
+        "datefirst_value",
+        "dateformat_value",
+        "default_expression",
+        "default_value",
+        "fillfactor_value",
+        "increment_value",
+        "language",
+        "method_name",
+        "name",
+        "parameter",
+        "return_variable",
+        "seed_value",
+        "sql_statement_list",
+        "user_name",
+        "value_expression"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/index.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 7,
+        "ONEOFIS": 5,
+        "WHERE": 2
+      },
+      "contentBlocks": 14,
+      "localReferences": [
+        "low_priority_wait_clause",
+        "partition_range",
+        "partition_rebuild_option",
+        "rebuild_option",
+        "reorganize_option",
+        "resumable_option",
+        "set_index_option"
+      ],
+      "inputs": [
+        "delay_value",
+        "duration_value",
+        "fillfactor_value",
+        "maxdop_value",
+        "name",
+        "partition_number",
+        "table"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/login.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 3,
+        "ONEOFIS": 2
+      },
+      "contentBlocks": 5,
+      "localReferences": [
+        "login_option",
+        "password_option"
+      ],
+      "inputs": [
+        "credential_name",
+        "database_name",
+        "language_name",
+        "name",
+        "new_login_name",
+        "old_password",
+        "password",
+        "password_hash"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/master-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 3
+      },
+      "contentBlocks": 3,
+      "localReferences": [],
+      "inputs": [
+        "password"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/message-type.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name",
+        "xml_schema_collection"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/partition-function.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "boundary_value",
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/partition-scheme.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "filegroup",
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/procedure.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 3,
+        "WHERE": 5,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 9,
+      "localReferences": [
+        "atomic_option",
+        "clr_parameter_definition",
+        "execute_as_clause",
+        "native_parameter_definition",
+        "parameter_definition",
+        "procedure_option"
+      ],
+      "inputs": [
+        "assembly",
+        "class_name",
+        "data_type",
+        "datefirst_value",
+        "dateformat_value",
+        "default_value",
+        "language",
+        "method_name",
+        "name",
+        "number_value",
+        "parameter",
+        "sql_statement_list",
+        "statement_block",
+        "user_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/queue.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 4,
+        "ONEOFIS": 2
+      },
+      "contentBlocks": 6,
+      "localReferences": [
+        "activation_option",
+        "queue_option"
+      ],
+      "inputs": [
+        "default",
+        "filegroup",
+        "max_readers",
+        "maxdop",
+        "name",
+        "procedure",
+        "user"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/remote-service-binding.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2
+      },
+      "contentBlocks": 2,
+      "localReferences": [],
+      "inputs": [
+        "name",
+        "user"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/resource-governor.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 4,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 5,
+      "localReferences": [
+        "governor_option"
+      ],
+      "inputs": [
+        "classifier_function",
+        "io_count"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/resource-pool.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 1,
+        "WHERE": 1
+      },
+      "contentBlocks": 3,
+      "localReferences": [
+        "id_range",
+        "pool_option"
+      ],
+      "inputs": [
+        "first_id",
+        "iops",
+        "last_id",
+        "name",
+        "percentage"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/role.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 3
+      },
+      "contentBlocks": 3,
+      "localReferences": [],
+      "inputs": [
+        "database_principal",
+        "name",
+        "new_role_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/route.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "route_option"
+      ],
+      "inputs": [
+        "address",
+        "broker_instance",
+        "lifetime",
+        "mirror_address",
+        "name",
+        "service"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/schema.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name",
+        "securable"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/search-property-list.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2
+      },
+      "contentBlocks": 2,
+      "localReferences": [],
+      "inputs": [
+        "name",
+        "property_description",
+        "property_int_id",
+        "property_name",
+        "property_set_guid"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/security-policy.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 3,
+        "PARTOFIS": 1,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 7,
+      "localReferences": [
+        "block_operation",
+        "security_predicate_action"
+      ],
+      "inputs": [
+        "name",
+        "predicate_argument_expression",
+        "predicate_function_name",
+        "table_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/selective-xml-index.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "PARTOFIS": 3,
+        "WHERE": 2
+      },
+      "contentBlocks": 10,
+      "localReferences": [
+        "namespace_definition",
+        "promoted_path",
+        "promoted_path_action",
+        "promoted_path_definition",
+        "xquery_type_hint"
+      ],
+      "inputs": [
+        "data_type",
+        "maxlength_value",
+        "name",
+        "namespace_prefix",
+        "namespace_uri",
+        "node_path",
+        "path_name",
+        "table",
+        "xsd_type"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/sequence.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "cache_value",
+        "increment_value",
+        "maximum_value",
+        "minimum_value",
+        "name",
+        "restart_value"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/server-audit-specification.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 3,
+        "WHERE": 1
+      },
+      "contentBlocks": 4,
+      "localReferences": [
+        "audit_specification_action"
+      ],
+      "inputs": [
+        "audit_name",
+        "name",
+        "server_audit_action_group"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/server-audit.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 5,
+        "ONEOFIS": 3
+      },
+      "contentBlocks": 8,
+      "localReferences": [
+        "audit_file_option",
+        "audit_target",
+        "server_audit_option"
+      ],
+      "inputs": [
+        "audit_predicate_expression",
+        "file_count",
+        "file_path",
+        "name",
+        "new_audit_name",
+        "queue_delay_value",
+        "size_value"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/server-configuration.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 9,
+        "WHERE": 1,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 11,
+      "localReferences": [
+        "cluster_property",
+        "id_range"
+      ],
+      "inputs": [
+        "condition_level",
+        "connection_options",
+        "database",
+        "dump_flags",
+        "file_count",
+        "file_path",
+        "first_id",
+        "last_id",
+        "logging_detail",
+        "megabytes",
+        "memory_size",
+        "pool",
+        "timeout",
+        "windows_cluster"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/server-role.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 3
+      },
+      "contentBlocks": 3,
+      "localReferences": [],
+      "inputs": [
+        "name",
+        "new_role_name",
+        "server_principal"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/service-master-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 3
+      },
+      "contentBlocks": 3,
+      "localReferences": [],
+      "inputs": [
+        "account_name",
+        "password"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/service.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2,
+        "WHERE": 1
+      },
+      "contentBlocks": 3,
+      "localReferences": [
+        "contract_action"
+      ],
+      "inputs": [
+        "contract",
+        "name",
+        "queue"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/symmetric-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 3,
+      "localReferences": [
+        "key_encryptor"
+      ],
+      "inputs": [
+        "asymmetric_key_name",
+        "certificate_name",
+        "name",
+        "password",
+        "symmetric_key_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/table.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 20,
+        "WHERE": 5,
+        "PARTOFIS": 1,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 30,
+      "localReferences": [
+        "column_definition",
+        "index_column_definition",
+        "low_priority_wait_clause",
+        "referential_action",
+        "retention_period",
+        "table_constraint_definition",
+        "table_rebuild_option"
+      ],
+      "inputs": [
+        "boolean_expression",
+        "collation",
+        "colname",
+        "computed_expression",
+        "constraint",
+        "data_type",
+        "default_constraint",
+        "default_expression",
+        "duration_value",
+        "history_table",
+        "mask_function",
+        "maxdop_value",
+        "name",
+        "partition_number",
+        "referenced_colname",
+        "referenced_table",
+        "retention_value",
+        "row_end_column",
+        "row_start_column",
+        "source_partition_number",
+        "target_partition_number",
+        "target_table",
+        "trigger"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/trigger.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 9,
+        "WHERE": 4,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 14,
+      "localReferences": [
+        "atomic_option",
+        "database_execute_as_clause",
+        "dml_event",
+        "dml_execute_as_clause",
+        "server_execute_as_clause"
+      ],
+      "inputs": [
+        "assembly",
+        "class_name",
+        "datefirst_value",
+        "dateformat_value",
+        "ddl_event",
+        "language",
+        "login_name",
+        "method_name",
+        "name",
+        "sql_statement_list",
+        "table",
+        "user_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/user.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "user_option"
+      ],
+      "inputs": [
+        "language_value",
+        "login_name",
+        "name",
+        "new_user_name",
+        "old_password",
+        "password",
+        "schema_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/view.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "WHERE": 1,
+        "STATEMENT": 1
+      },
+      "contentBlocks": 3,
+      "localReferences": [
+        "query_statement",
+        "view_attribute"
+      ],
+      "inputs": [
+        "colname",
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/workload-group.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "group_option"
+      ],
+      "inputs": [
+        "maxdop",
+        "megabytes",
+        "name",
+        "percentage",
+        "pool",
+        "requests",
+        "seconds"
+      ],
+      "recursiveDefinitions": []
+    },
+    "alter/xml-schema-collection.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name",
+        "xml_schema_expression"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/aggregate.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/application-role.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/assembly.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/asymmetric-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/availability-group.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/broker-priority.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/certificate.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/column-encryption-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/column-master-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/contract.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/credential.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/cryptographic-provider.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/database-audit-specification.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/database-encryption-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [],
+      "recursiveDefinitions": []
+    },
+    "drop/database-scoped-credential.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/database.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/default.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/endpoint.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/event-notification.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name",
+        "queue"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/event-session.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/external-data-source.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/external-file-format.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/external-language.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/external-library.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name",
+        "owner"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/external-model.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/external-resource-pool.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/external-table.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/fulltext-catalog.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/fulltext-index.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/fulltext-stoplist.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/function.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/index.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "WHERE": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "index_target"
+      ],
+      "inputs": [
+        "name",
+        "table"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/login.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/master-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [],
+      "recursiveDefinitions": []
+    },
+    "drop/message-type.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/partition-function.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/partition-scheme.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/procedure.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/queue.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/remote-service-binding.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/resource-pool.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/role.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/route.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/rule.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/schema.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/search-property-list.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/security-policy.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/sequence.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/server-audit-specification.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/server-audit.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/server-role.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/service.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/statistics.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "qualified_statistics_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/symmetric-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/synonym.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/table.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/trigger.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2
+      },
+      "contentBlocks": 2,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/type.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/user.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/view.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/workload-group.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "drop/xml-schema-collection.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "transaction/begin-distributed.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "transaction"
+      ],
+      "recursiveDefinitions": []
+    },
+    "transaction/begin.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2
+      },
+      "contentBlocks": 2,
+      "localReferences": [],
+      "inputs": [
+        "description",
+        "transaction"
+      ],
+      "recursiveDefinitions": []
+    },
+    "transaction/commit.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2
+      },
+      "contentBlocks": 2,
+      "localReferences": [],
+      "inputs": [
+        "transaction"
+      ],
+      "recursiveDefinitions": []
+    },
+    "transaction/rollback.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2
+      },
+      "contentBlocks": 2,
+      "localReferences": [],
+      "inputs": [
+        "rollback_target"
+      ],
+      "recursiveDefinitions": []
+    },
+    "transaction/save.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "savepoint"
+      ],
+      "recursiveDefinitions": []
+    },
+    "transaction/set-isolation-level.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [],
+      "recursiveDefinitions": []
+    },
+    "other/add-sensitivity-classification.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "sensitivity_option"
+      ],
+      "inputs": [
+        "classified_column_name",
+        "information_type",
+        "information_type_id",
+        "label",
+        "label_id"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/add-signature.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "ONEOFIS": 1,
+        "WHERE": 1
+      },
+      "contentBlocks": 3,
+      "localReferences": [
+        "signature_definition",
+        "signature_module_class"
+      ],
+      "inputs": [
+        "asymmetric_key_name",
+        "certificate_name",
+        "name",
+        "password",
+        "signature_binary"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/backup-certificate.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2
+      },
+      "contentBlocks": 2,
+      "localReferences": [],
+      "inputs": [
+        "decryption_password",
+        "encryption_password",
+        "file_path",
+        "name",
+        "private_key_path"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/backup-master-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "blob_url",
+        "encryption_password",
+        "file_path"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/backup-service-master-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "encryption_password",
+        "file_path"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/backup-symmetric-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "blob_url",
+        "encryption_password",
+        "file_path",
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/backup.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 5,
+        "WHERE": 2,
+        "ONEOFIS": 7
+      },
+      "contentBlocks": 14,
+      "localReferences": [
+        "backup_device",
+        "backup_option",
+        "database_backup_option",
+        "device_value",
+        "file_selection",
+        "log_backup_option",
+        "mirror_clause",
+        "read_only_filegroup",
+        "string_value"
+      ],
+      "inputs": [
+        "asymmetric_key",
+        "block_size",
+        "buffer_count",
+        "certificate",
+        "database",
+        "date_value",
+        "days",
+        "device_variable",
+        "file_value",
+        "filegroup_value",
+        "logical_device",
+        "percentage",
+        "physical_device",
+        "string",
+        "string_variable",
+        "transfer_size",
+        "undo_file_value"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/begin-conversation-timer.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "conversation_handle",
+        "timeout"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/begin-dialog-conversation.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "dialog_option"
+      ],
+      "inputs": [
+        "broker_instance",
+        "contract",
+        "conversation_group_id",
+        "conversation_handle",
+        "dialog_variable",
+        "initiator_service",
+        "lifetime",
+        "target_service"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/begin-end.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "sql_statement_list"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/break.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [],
+      "recursiveDefinitions": []
+    },
+    "other/checkpoint.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "checkpoint_duration"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/close-master-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [],
+      "recursiveDefinitions": []
+    },
+    "other/close-symmetric-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2
+      },
+      "contentBlocks": 2,
+      "localReferences": [],
+      "inputs": [
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/close.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "cursor_name",
+        "cursor_variable"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/continue.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-checkalloc.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "check_option"
+      ],
+      "inputs": [
+        "database",
+        "database_id"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-checkcatalog.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "database",
+        "database_id"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-checkconstraints.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "constraint_option"
+      ],
+      "inputs": [
+        "constraint",
+        "constraint_id",
+        "table",
+        "table_id"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-checkdb.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "check_option"
+      ],
+      "inputs": [
+        "database",
+        "database_id",
+        "maxdop"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-checkfilegroup.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "check_option"
+      ],
+      "inputs": [
+        "filegroup",
+        "filegroup_id",
+        "maxdop"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-checkident.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "reseed_value",
+        "table"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-checktable.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "check_option"
+      ],
+      "inputs": [
+        "index_id",
+        "maxdop",
+        "table",
+        "view"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-cleantable.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "batch_size",
+        "database",
+        "database_id",
+        "table",
+        "table_id",
+        "view",
+        "view_id"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-clonedatabase.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "clone_option"
+      ],
+      "inputs": [
+        "source_database",
+        "target_database"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-dbreindex.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "fillfactor",
+        "index",
+        "table"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-dllname-free.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "dllname"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-dropcleanbuffers.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-freeproccache.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "plan_handle",
+        "pool",
+        "sql_handle"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-freesessioncache.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-freesystemcache.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "cache_option"
+      ],
+      "inputs": [
+        "pool"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-help.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "dbcc_statement",
+        "statement_variable"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-indexdefrag.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "database",
+        "database_id",
+        "index",
+        "index_id",
+        "partition_number",
+        "table",
+        "table_id",
+        "view",
+        "view_id"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-inputbuffer.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "request_id",
+        "session_id"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-opentran.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "open_transaction_option"
+      ],
+      "inputs": [
+        "database",
+        "database_id"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-outputbuffer.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "request_id",
+        "session_id"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-proccache.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-show-statistics.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "statistics_option"
+      ],
+      "inputs": [
+        "statistics_target",
+        "table_or_indexed_view"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-showcontig.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "show_option"
+      ],
+      "inputs": [
+        "index",
+        "index_id",
+        "table",
+        "table_id",
+        "view",
+        "view_id"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-shrinkdatabase.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "shrink_option"
+      ],
+      "inputs": [
+        "database",
+        "database_id",
+        "target_percent"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-shrinkfile.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 3,
+      "localReferences": [
+        "shrink_option"
+      ],
+      "inputs": [
+        "file",
+        "file_id",
+        "target_size"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-sqlperf.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2
+      },
+      "contentBlocks": 2,
+      "localReferences": [],
+      "inputs": [
+        "dm_os_latch_stats",
+        "dm_os_wait_stats",
+        "sys"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-traceoff.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "trace_flag"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-traceon.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "trace_flag"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-tracestatus.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "trace_flag"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-updateusage.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "usage_option"
+      ],
+      "inputs": [
+        "database",
+        "database_id",
+        "index",
+        "index_id",
+        "table",
+        "table_id",
+        "view",
+        "view_id"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/dbcc-useroptions.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [],
+      "recursiveDefinitions": []
+    },
+    "other/deallocate.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "cursor_name",
+        "cursor_variable"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/declare-cursor.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2,
+        "STATEMENT": 1
+      },
+      "contentBlocks": 3,
+      "localReferences": [
+        "query_statement"
+      ],
+      "inputs": [
+        "colname",
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/declare.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2,
+        "WHERE": 3,
+        "PARTOFIS": 1,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 10,
+      "localReferences": [
+        "column_constraint_definition",
+        "index_column_definition",
+        "table_index_option",
+        "table_variable_element_definition",
+        "variable_definition"
+      ],
+      "inputs": [
+        "boolean_expression",
+        "collation",
+        "colname",
+        "computed_expression",
+        "data_type",
+        "default_expression",
+        "fillfactor_value",
+        "increment_value",
+        "seed_value",
+        "value_expression",
+        "variable"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/deny.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 5,
+        "WHERE": 1,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 7,
+      "localReferences": [
+        "object_permission",
+        "securable_class"
+      ],
+      "inputs": [
+        "column_name",
+        "database_principal",
+        "grantor_principal",
+        "object_name",
+        "permission_name",
+        "principal_name",
+        "securable_name",
+        "system_object_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/disable-trigger.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name",
+        "table"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/drop-sensitivity-classification.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "classified_column_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/drop-signature.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "signature_key"
+      ],
+      "inputs": [
+        "asymmetric_key_name",
+        "certificate_name",
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/enable-trigger.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "name",
+        "table"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/end-conversation.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "conversation_handle",
+        "failure_code",
+        "failure_text"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/execute-as.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2
+      },
+      "contentBlocks": 2,
+      "localReferences": [],
+      "inputs": [
+        "cookie_variable",
+        "principal_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/execute.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 3,
+        "WHERE": 5,
+        "PARTOFIS": 1
+      },
+      "contentBlocks": 12,
+      "localReferences": [
+        "execute_argument",
+        "execute_option",
+        "linked_argument",
+        "result_column_definition",
+        "result_set_definition",
+        "string_operand"
+      ],
+      "inputs": [
+        "argument_value",
+        "collation",
+        "colname",
+        "data_source",
+        "data_type",
+        "linked_server",
+        "module_name",
+        "module_variable",
+        "number_value",
+        "object_name",
+        "parameter",
+        "principal_name",
+        "return_variable",
+        "sql_text",
+        "string_variable",
+        "table_type",
+        "variable"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/fetch.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "cursor_name",
+        "cursor_variable",
+        "offset_value",
+        "variable"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/get-conversation-group.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2
+      },
+      "contentBlocks": 2,
+      "localReferences": [],
+      "inputs": [
+        "group_variable",
+        "queue",
+        "timeout"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/goto.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2
+      },
+      "contentBlocks": 2,
+      "localReferences": [],
+      "inputs": [
+        "label"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/grant.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 5,
+        "WHERE": 1,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 7,
+      "localReferences": [
+        "object_permission",
+        "securable_class"
+      ],
+      "inputs": [
+        "column_name",
+        "database_principal",
+        "grantor_principal",
+        "object_name",
+        "permission_name",
+        "principal_name",
+        "securable_name",
+        "system_object_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/if-else.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "boolean_expression",
+        "statement_block"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/kill-query-notification-subscription.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "subscription_id"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/kill-stats-job.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "job_id"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/kill.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2
+      },
+      "contentBlocks": 2,
+      "localReferences": [],
+      "inputs": [
+        "session_id",
+        "uow"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/move-conversation.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "conversation_group_id",
+        "conversation_handle"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/open-master-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "password"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/open-symmetric-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "key_decryptor"
+      ],
+      "inputs": [
+        "asymmetric_key_name",
+        "certificate_name",
+        "name",
+        "password",
+        "symmetric_key_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/open.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "cursor_name",
+        "cursor_variable"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/print.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "string_expression"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/raiserror.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "WHERE": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "raise_option"
+      ],
+      "inputs": [
+        "argument",
+        "message_id",
+        "message_text",
+        "message_variable",
+        "severity_value",
+        "state_value"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/reconfigure.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [],
+      "recursiveDefinitions": []
+    },
+    "other/restore-filelistonly.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 4
+      },
+      "contentBlocks": 5,
+      "localReferences": [
+        "backup_device",
+        "device_value",
+        "restore_option",
+        "string_value"
+      ],
+      "inputs": [
+        "backup_set_number",
+        "database",
+        "device_variable",
+        "logical_device",
+        "physical_device",
+        "string",
+        "string_variable"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/restore-headeronly.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 4
+      },
+      "contentBlocks": 5,
+      "localReferences": [
+        "backup_device",
+        "device_value",
+        "restore_option",
+        "string_value"
+      ],
+      "inputs": [
+        "backup_set_number",
+        "database",
+        "device_variable",
+        "logical_device",
+        "physical_device",
+        "string",
+        "string_variable"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/restore-labelonly.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 4
+      },
+      "contentBlocks": 5,
+      "localReferences": [
+        "backup_device",
+        "device_value",
+        "restore_option",
+        "string_value"
+      ],
+      "inputs": [
+        "device_variable",
+        "logical_device",
+        "physical_device",
+        "string",
+        "string_variable"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/restore-master-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "blob_url",
+        "decryption_password",
+        "encryption_password",
+        "file_path"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/restore-rewindonly.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "tape_device"
+      ],
+      "inputs": [
+        "device_variable",
+        "logical_device",
+        "physical_device"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/restore-service-master-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "decryption_password",
+        "file_path"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/restore-symmetric-key.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "blob_url",
+        "decryption_password",
+        "encryption_password",
+        "file_path",
+        "name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/restore-verifyonly.snf": {
+      "errors": [],
+      "counts": {
+        "ONEOFIS": 4
+      },
+      "contentBlocks": 5,
+      "localReferences": [
+        "backup_device",
+        "device_value",
+        "restore_option",
+        "string_value"
+      ],
+      "inputs": [
+        "backup_set_number",
+        "device_variable",
+        "logical_device",
+        "logical_file_value",
+        "os_file_value",
+        "percentage",
+        "physical_device",
+        "string",
+        "string_variable"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/restore.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 6,
+        "ONEOFIS": 9
+      },
+      "contentBlocks": 15,
+      "localReferences": [
+        "backup_device",
+        "database_restore_option",
+        "device_value",
+        "file_selection",
+        "log_restore_option",
+        "log_target",
+        "recovery_option",
+        "restore_option",
+        "string_value"
+      ],
+      "inputs": [
+        "backup_set_number",
+        "block_size",
+        "buffer_count",
+        "database",
+        "datetime",
+        "datetime_value",
+        "device_variable",
+        "directory_value",
+        "file_value",
+        "filegroup_value",
+        "logical_device",
+        "logical_file_value",
+        "lsn_number",
+        "mark_or_lsn",
+        "os_file_value",
+        "page_list",
+        "percentage",
+        "physical_device",
+        "snapshot",
+        "string",
+        "string_variable",
+        "transfer_size",
+        "undo_file_value"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/return.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "integer_expression"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/revert.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "cookie_variable"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/revoke.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 5,
+        "WHERE": 1,
+        "ONEOFIS": 1
+      },
+      "contentBlocks": 7,
+      "localReferences": [
+        "object_permission",
+        "securable_class"
+      ],
+      "inputs": [
+        "column_name",
+        "database_principal",
+        "grantor_principal",
+        "object_name",
+        "permission_name",
+        "principal_name",
+        "securable_name",
+        "system_object_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/send.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2
+      },
+      "contentBlocks": 2,
+      "localReferences": [],
+      "inputs": [
+        "conversation_handle",
+        "message_body_expression",
+        "message_type"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/set-variable.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 5,
+        "STATEMENT": 1
+      },
+      "contentBlocks": 6,
+      "localReferences": [
+        "query_statement"
+      ],
+      "inputs": [
+        "argument",
+        "colname",
+        "cursor_name",
+        "cursor_variable",
+        "member_name",
+        "method_name",
+        "value_expression",
+        "variable"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/set.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 15,
+        "WHERE": 2
+      },
+      "contentBlocks": 17,
+      "localReferences": [
+        "boolean_option",
+        "offset_keyword"
+      ],
+      "inputs": [
+        "binary_value",
+        "binary_variable",
+        "cost_value",
+        "datefirst_value",
+        "dateformat_value",
+        "language_value",
+        "priority_value",
+        "rowcount_value",
+        "size_value",
+        "table",
+        "timeout_value"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/setuser.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "user_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/shutdown.snf": {
+      "errors": [],
+      "counts": {},
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [],
+      "recursiveDefinitions": []
+    },
+    "other/throw.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 2
+      },
+      "contentBlocks": 2,
+      "localReferences": [],
+      "inputs": [
+        "error_number",
+        "message",
+        "state_value"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/truncate-table.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "WHERE": 1
+      },
+      "contentBlocks": 2,
+      "localReferences": [
+        "partition_range"
+      ],
+      "inputs": [
+        "name",
+        "partition_value"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/try-catch.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "sql_statement_list"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/update-statistics.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1,
+        "ONEOFIS": 1,
+        "WHERE": 1
+      },
+      "contentBlocks": 3,
+      "localReferences": [
+        "partition_range",
+        "statistics_option"
+      ],
+      "inputs": [
+        "maxdop_value",
+        "name",
+        "partition_number",
+        "sample_value",
+        "statistics_name"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/use.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "database"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/waitfor.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 4
+      },
+      "contentBlocks": 4,
+      "localReferences": [],
+      "inputs": [
+        "get_conversation_group_statement",
+        "receive_statement",
+        "time_expression",
+        "timeout_value"
+      ],
+      "recursiveDefinitions": []
+    },
+    "other/while.snf": {
+      "errors": [],
+      "counts": {
+        "CASE": 1
+      },
+      "contentBlocks": 1,
+      "localReferences": [],
+      "inputs": [
+        "boolean_expression",
+        "statement_block"
+      ],
+      "recursiveDefinitions": []
+    }
+  }
+}
