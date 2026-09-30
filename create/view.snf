@@ -1,0 +1,13 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/create-view-transact-sql?view=sql-server-ver17
+
+# CASE VIEW
+CREATE [ OR ALTER ] VIEW name [ ( colname [, ...] ) ]
+    [ WITH view_attribute [, ...] ]
+    AS query_statement
+    [ WITH CHECK OPTION ]
+
+# WHERE view_attribute
+{ ENCRYPTION | SCHEMABINDING | VIEW_METADATA }
+
+# STATEMENT query_statement
+SELECT

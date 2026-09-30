@@ -1,0 +1,10 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-index-transact-sql?view=sql-server-ver17
+
+# CASE REBUILD
+ALTER INDEX { name | ALL } ON table REBUILD
+
+# CASE REORGANIZE
+ALTER INDEX { name | ALL } ON table REORGANIZE [ WITH ( LOB_COMPACTION = { ON | OFF } ) ]
+
+# CASE DISABLE
+ALTER INDEX name ON table DISABLE

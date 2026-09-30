@@ -1,0 +1,7 @@
+# https://learn.microsoft.com/en-us/sql/t-sql/language-elements/begin-transaction-transact-sql?view=sql-server-ver17
+
+# CASE UNNAMED
+BEGIN { TRAN | TRANSACTION }
+
+# CASE NAMED
+BEGIN { TRAN | TRANSACTION } transaction [ WITH MARK [ 'description' ] ]
