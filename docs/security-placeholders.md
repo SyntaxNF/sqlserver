@@ -1,6 +1,6 @@
 # Security syntax: opaque inputs and platform contracts
 
-Reviewed 2026-09-30 against SQL Server 2025 (17.x), compatibility 170. The companion `security-inventory.json` distinguishes structured syntax from partial coverage. No SQL Server execution, Studio integration, SNF parser, tests, type checks, or builds were run. Only source comparison and whitespace/manual inspection were performed.
+Reviewed 2026-09-30 against SQL Server 2025 (17.x), compatibility 170. The companion `security-inventory.json` distinguishes structured syntax from partial coverage. Source comparison and manual inspection were followed by user-triggered parser/convention validation; see [validation-report.md](validation-report.md). No SQL Server execution or Studio integration was performed.
 
 These contracts supplement `placeholders.md`. A placeholder is not permission to concatenate arbitrary SQL. All quoted lowercase values below stand for string contents: the consumer supplies the surrounding quotes shown in SNF and doubles embedded single quotes. Binary inputs are complete hexadecimal SQL binary constants. Secrets and key material must not be included in generated examples, diagnostics or logs by default. These are syntax/data contracts, not a permission system or execution policy.
 

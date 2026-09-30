@@ -1,0 +1,37 @@
+{
+  "alter/external-model.snf": [
+    "'OpenAI'",
+    "'Azure OpenAI'",
+    "'Ollama'"
+  ],
+  "alter/selective-xml-index.snf": [
+    "'node()'"
+  ],
+  "create/event-notification.snf": [
+    "'current database'"
+  ],
+  "create/external-file-format.snf": [
+    "'org.apache.hadoop.io.compress.GzipCodec'",
+    "'org.apache.hadoop.io.compress.SnappyCodec'"
+  ],
+  "create/external-model.snf": [
+    "'OpenAI'",
+    "'Azure OpenAI'",
+    "'Ollama'"
+  ],
+  "create/selective-xml-index.snf": [
+    "'node()'"
+  ],
+  "other/restore.snf": [
+    "'lsn:"
+  ],
+  "query/bulk-insert.snf": [
+    "'char'",
+    "'widechar'",
+    "'native'",
+    "'widenative'"
+  ],
+  "query/merge.snf": [
+    "$action"
+  ]
+}
