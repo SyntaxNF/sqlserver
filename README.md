@@ -39,4 +39,4 @@
 
 ## 验证状态
 
-完成了官方来源对照、人工交叉审阅和空白检查。**没有运行 parser、测试、类型检查、构建、SQL Server 或 Studio 验证，也没有添加自动 CI。** 按 [validation.md](docs/validation.md) 由用户主动触发。官方文档个别语法/说明冲突也在覆盖表记录，不能把结构化清单当作数据库执行证据。
+2026-09-30 用户主动触发验证：固定版本官方 parser **302/302 通过**，仓库约定检查 **1004 内容块、0 错误**，校验器回归测试 **22/22 通过**。修补固定 literal 与输入变量的消费契约歧义。详见 [验证报告](docs/validation-report.md) 和 [复现命令](docs/validation.md)。**未执行 SQL Server/Studio，未验证完整消费方绑定或全部 SQL 语义；76 个 partial 条目保持不变。** 没有自动 CI。

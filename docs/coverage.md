@@ -40,7 +40,7 @@ These are genuine remaining partial grammar tasks, not hidden behind the file co
 
 Read [general placeholders](placeholders.md), [relational](relational-placeholders.md), [programming](programming-placeholders.md), [security](security-placeholders.md) and [operations](operations-placeholders.md). Input contracts are context-specific; matching placeholder spelling does not make a cross-file import. No definition authorizes executing SQL, altering accounts, changing database state or sending data.
 
-Only source/manual review and whitespace inspection were performed. **No parser, test suite, typecheck, build, SQL Server or Studio validation ran.** Follow [validation.md](validation.md) for user-triggered checks. There is no automatic CI added by this change.
+User-triggered validation on 2026-09-30: official pinned parser passed all 302 files; repository conventions passed 1004 content blocks; 22 validator regression tests passed. See [validation-report.md](validation-report.md) for exact evidence and blocked upstream tests. **No SQL Server, Studio, generated-SQL or complete consumer-binding validation was performed.** All partial statuses remain unchanged. Follow [validation.md](validation.md) to reproduce. No automatic CI was added.
 
 ## Complete modeled/excluded row list
 
