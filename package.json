@@ -2,7 +2,7 @@
   "name": "snf-sqlserver",
   "version": "0.1.0",
   "private": true,
-  "description": "SQL Server 2025 (17.x) SNF statement inventory with explicit partial coverage",
+  "description": "SQL Server 2025 (17.x) SNF statement definitions",
   "type": "module",
   "keywords": [
     "snf",
