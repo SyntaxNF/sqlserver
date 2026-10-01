@@ -17,7 +17,7 @@ AS TCP ( LISTENER_PORT = port [ , LISTENER_IP = { ALL | ( ipv4_address ) | ( 'ip
 # PARTOFIS payload_definition
 FOR TSQL ( [ ENCRYPTION = { NEGOTIATED | STRICT } ] )
 
-FOR SERVICE_BROKER ( [ broker_endpoint_option [, ...] ] )
+FOR SERVICE_BROKER ( broker_endpoint_option [, ...] )
 
 FOR DATABASE_MIRRORING ( [ mirroring_endpoint_option [, ...] , ] ROLE = { WITNESS | PARTNER | ALL } )
 

@@ -20,7 +20,7 @@ RESTORE DATABASE database PAGE = 'page_list' [ , file_selection [, ...] ]
     WITH NORECOVERY [ , restore_option [, ...] ]
 
 # CASE LOG
-RESTORE LOG database [ log_target [, ...] ]
+RESTORE LOG database log_target [, ...]
     [ FROM backup_device [, ...] ]
     [ WITH log_restore_option [, ...] ]
 

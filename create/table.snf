@@ -32,7 +32,7 @@ colname data_type
     [ ROWGUIDCOL ]
     [ ENCRYPTED WITH ( COLUMN_ENCRYPTION_KEY = column_encryption_key,
         ENCRYPTION_TYPE = { DETERMINISTIC | RANDOMIZED }, ALGORITHM = 'AEAD_AES_256_CBC_HMAC_SHA_256' ) ]
-    [ column_constraint_definition [...] ]
+    column_constraint_definition [...]
 
 # WHERE computed_column_definition
 colname AS computed_expression [ PERSISTED [ NOT NULL ] ]

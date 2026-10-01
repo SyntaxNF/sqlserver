@@ -28,12 +28,12 @@ DROP TARGET target_identifier
 ADD EVENT event_identifier [ ( event_settings ) ]
 
 # WHERE event_settings
-[ SET event_attribute = event_value [, ...] ]
+[ SET event_attribute_assignment [, ...] ]
 [ ACTION ( action_identifier [, ...] ) ]
 [ WHERE event_predicate_expression ]
 
 # WHERE target_definition
-ADD TARGET target_identifier [ ( SET target_parameter = event_value [, ...] ) ]
+ADD TARGET target_identifier [ ( SET target_parameter_assignment [, ...] ) ]
 
 # ONEOFIS event_value
 number
@@ -48,3 +48,9 @@ MEMORY_PARTITION_MODE = { NONE | PER_NODE | PER_CPU }
 TRACK_CAUSALITY = { ON | OFF }
 STARTUP_STATE = { ON | OFF }
 MAX_DURATION = { duration { SECONDS | MINUTES | HOURS | DAYS } | UNLIMITED }
+
+# WHERE event_attribute_assignment
+event_attribute = event_value
+
+# WHERE target_parameter_assignment
+target_parameter = event_value
