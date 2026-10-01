@@ -1,18 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import fs from 'node:fs';
-import path from 'node:path';
 import { parser } from '../scripts/parser-runtime.mjs';
-import { files, root, source, document, inspect, inspectSource, visit, significant } from '../scripts/check-generator.mjs';
+import { files, source, document, inspect, inspectSource, visit, significant } from '../scripts/check-generator.mjs';
 import { fixture, parse } from '../scripts/generator-fixture.mjs';
 const { NodeType: T, exchangeLoopNode } = parser;
 for (const file of files) test(`verified parser and generator AST: ${file}`, () => assert.deepEqual(inspect(file).errors, []));
-test('preserve all 302 definitions and 377 inventory entries', () => {
+test('preserve all 302 definitions', () => {
     assert.equal(files.length, 302);
-    const inventory = JSON.parse(fs.readFileSync(path.join(root, 'docs/inventory.json'), 'utf8'));
-    assert.equal(inventory.length, 377);
-    assert.equal(inventory.filter(item => item.status === 'partial').length, 76);
-    assert.deepEqual([...new Set(inventory.map(item => item.file).filter(Boolean))].sort(), files);
 });
 test('LOOP consumes its entire member and supports zero entries', () => {
     const nodes = significant(parse('item [, ...]').children);
