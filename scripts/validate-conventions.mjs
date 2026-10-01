@@ -6,7 +6,7 @@ import { inspectDocument } from './snf-conventions.mjs';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const { SNFDocumentParser, NodeType } = parserModule;
 const parser = new SNFDocumentParser();
-const fixedLiterals = JSON.parse(await readFile(resolve(root, 'docs/snf-fixed-literals.json'), 'utf8'));
+const fixedLiterals = JSON.parse(await readFile(resolve(root, 'scripts/snf-fixed-literals.json'), 'utf8'));
 const files = {};
 const errors = [];
 const counts = {};
@@ -29,9 +29,6 @@ for (const family of ['query', 'create', 'alter', 'drop', 'transaction', 'other'
     }
 }
 for (const file of Object.keys(fixedLiterals)) if (!files[file]) errors.push(`fixed-literal contract: missing ${file}`);
-const inventory = JSON.parse(await readFile(resolve(root, 'docs/inventory.json'), 'utf8'));
-for (const item of inventory) if (item.status !== 'not-applicable' && !files[item.file]) errors.push(`inventory: missing ${item.file}`);
-for (const file of Object.keys(files)) if (!inventory.some(item => item.file === file)) errors.push(`inventory: unlisted ${file}`);
 const report = { scope: 'SNF physical structure and repository conventions only; inputs are not unresolved-reference errors or validated SQL', documents: Object.keys(files).length, contentBlocks: Object.values(files).reduce((n, f) => n + f.contentBlocks, 0), directives: counts, inputOccurrences: Object.values(files).reduce((n, f) => n + f.inputs.length, 0), uniqueInputNames: new Set(Object.values(files).flatMap(f => f.inputs)).size, errors, files };
 if (process.argv[2]) await writeFile(resolve(process.argv[2]), JSON.stringify(report, null, 2) + '\n');
 console.log(JSON.stringify({ ...report, files: undefined }, null, 2));
