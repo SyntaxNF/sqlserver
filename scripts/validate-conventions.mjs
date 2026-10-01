@@ -1,10 +1,10 @@
+import { parser as parserModule } from './parser-runtime.mjs';
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import { inspectDocument } from './snf-conventions.mjs';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-if (!process.env.SNF_PARSER_MODULE) throw new Error('Set SNF_PARSER_MODULE; see docs/validation.md');
-const { SNFDocumentParser, NodeType } = await import(pathToFileURL(resolve(process.env.SNF_PARSER_MODULE)).href);
+const { SNFDocumentParser, NodeType } = parserModule;
 const parser = new SNFDocumentParser();
 const fixedLiterals = JSON.parse(await readFile(resolve(root, 'docs/snf-fixed-literals.json'), 'utf8'));
 const files = {};

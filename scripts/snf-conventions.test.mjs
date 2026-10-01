@@ -1,10 +1,8 @@
+import { parser as parserModule } from './parser-runtime.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { resolve } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { inspectDocument } from './snf-conventions.mjs';
-if (!process.env.SNF_PARSER_MODULE) throw new Error('Set SNF_PARSER_MODULE; see docs/validation.md');
-const { SNFDocumentParser, NodeType } = await import(pathToFileURL(resolve(process.env.SNF_PARSER_MODULE)).href);
+const { SNFDocumentParser, NodeType } = parserModule;
 const parser = new SNFDocumentParser();
 const inspect = source => inspectDocument(parser.parse(source), NodeType);
 const good = '# CASE NORMAL\nSELECT item\n\n# WHERE item\nvalue_expression';

@@ -2,7 +2,7 @@
 
 # CASE MODULE
 { EXEC | EXECUTE } [ return_variable = ] { module_name [ ; number_value ] | module_variable }
-    [ execute_argument [, ...] ]
+    execute_argument [, ...]
     [ WITH execute_option [, ...] ]
 
 # CASE STRING

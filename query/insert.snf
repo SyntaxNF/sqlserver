@@ -1,29 +1,19 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/insert-transact-sql?view=sql-server-ver17
 
-# CASE VALUES
+# CASE INSERT
 [ WITH cte_definition [, ...] ]
 INSERT [ TOP ( row_count_expression ) [ PERCENT ] ] [ INTO ] table
-    [ ( colname [, ...] ) ]
-    [ output_clause ]
-    VALUES row_definition [, ...]
+    insert_source
 
-# CASE QUERY
-[ WITH cte_definition [, ...] ]
-INSERT [ TOP ( row_count_expression ) [ PERCENT ] ] [ INTO ] table
-    [ ( colname [, ...] ) ]
-    [ output_clause ]
-    query_statement
+# PARTOFIS insert_source
+[ ( colname [, ...] ) ]
+[ output_clause ]
+{ VALUES row_definition [, ...] | query_statement }
 
-# CASE DEFAULT_VALUES
-[ WITH cte_definition [, ...] ]
-INSERT [ TOP ( row_count_expression ) [ PERCENT ] ] [ INTO ] table
-    [ output_clause ]
-    DEFAULT VALUES
+[ output_clause ]
+DEFAULT VALUES
 
-# CASE EXECUTE
-[ WITH cte_definition [, ...] ]
-INSERT [ TOP ( row_count_expression ) [ PERCENT ] ] [ INTO ] table
-    [ ( colname [, ...] ) ] execute_statement
+[ ( colname [, ...] ) ] execute_statement
 
 # WHERE row_definition
 ( { DEFAULT | value_expression } [, ...] )

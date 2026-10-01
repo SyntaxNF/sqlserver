@@ -1772,7 +1772,7 @@
       ],
       "source": "https://learn.microsoft.com/en-us/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver17",
       "source_blob_sha": "b26f78e381cd2cf47c9e60d2f3218cbec278db02",
-      "notes": "TOP；目标/第二个 FROM；OUTPUT；WHERE; from_expression 为上下文自由输入；CURRENT OF、表提示、OPTION 未展开"
+      "notes": "TOP；目标/第二个 FROM；OUTPUT；WHERE; from_expression 为上下文自由输入；CURRENT OF、OPTION；表提示仍未展开"
     },
     {
       "document": "statements/deny-assembly-permissions-transact-sql",
@@ -4895,7 +4895,7 @@
       ],
       "source": "https://learn.microsoft.com/en-us/sql/t-sql/queries/select-transact-sql?view=sql-server-ver17",
       "source_blob_sha": "47137a1c774f69d13196a81a5582ada1de96182c",
-      "notes": "CTE/TOP/OFFSET plus set-operation shell, WINDOW, grouping sets, temporal/table samples, FOR XML/JSON and hints. Partial: expressions, query operands/window frame opaque; FROM functions/PIVOT, full grouping variants and set-operation OFFSET remain unexpanded."
+      "notes": "Shared SELECT/set-operation body and ORDER BY/OFFSET/FETCH tail; CTE/TOP, WINDOW, grouping sets, temporal/table samples, FOR XML/JSON and hints. Free expressions/nested queries are intentional. Partial: window-frame structure, FROM functions/PIVOT and full grouping variants remain unexpanded."
     },
     {
       "document": "queries/update-transact-sql",
@@ -4906,7 +4906,7 @@
       ],
       "source": "https://learn.microsoft.com/en-us/sql/t-sql/queries/update-transact-sql?view=sql-server-ver17",
       "source_blob_sha": "0adc061026023fe5ddb0d35db95c7af8fb349170",
-      "notes": "普通/复合列赋值；TOP；OUTPUT；FROM；WHERE; from_expression 目前为上下文自由输入；变量/链式赋值、UDT、.WRITE、CURRENT OF、提示和 OPTION 未展开"
+      "notes": "普通/复合列赋值；TOP；OUTPUT；FROM；WHERE; from_expression 目前为上下文自由输入；变量/链式赋值、UDT、.WRITE、表提示未展开；补充 CURRENT OF、OPTION"
     },
     {
       "document": "queries/updatetext-transact-sql",

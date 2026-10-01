@@ -1,6 +1,6 @@
 # SQL Server 2025 command coverage
 
-Checked: 2026-09-30. Baseline: SQL Server 2025 (17.x), compatibility level 170, GA Database Engine statements. This replaces the initial 29-file MVP inventory.
+Catalogue snapshot: 2026-09-30; generator-focused review: 2026-10-01. Baseline: SQL Server 2025 (17.x), compatibility level 170, GA Database Engine statements. This replaces the initial 29-file MVP inventory.
 
 ## Measured scope
 
@@ -24,7 +24,7 @@ Checked: 2026-09-30. Baseline: SQL Server 2025 (17.x), compatibility level 170, 
 2. Memory-optimized/FileTable creation and some ALTER TABLE/index/constraint/storage branches; scalar type/function catalogues remain typed opaque inputs
 3. Module bodies and native statement restrictions, full permission/audit/XE event/predicate catalogs, provider-specific HSM/PFX and external connector/package option semantics
 4. Database scoped/SET options and HA/backup/restore runtime combinations noted per row; not every valid permutation or every CU-specific capability is represented
-5. Consumer directive binding, reference resolution, semantic checks, positive/negative examples and opt-in parser/engine/Studio validation
+5. Consumer integration and optional engine/Studio validation; semantic checking is outside the template responsibility
 
 These are genuine remaining partial grammar tasks, not hidden behind the file count. Native JSON and JSON INDEX are currently GA and included where applicable. CREATE VECTOR INDEX, half-precision vectors, fuzzy matching, change event streaming and local ONNX runtime preview are excluded. Azure Arc-enabled engine identities and ordinary external Azure/S3 destinations are not automatically Azure-SQL-only features.
 
@@ -40,7 +40,7 @@ These are genuine remaining partial grammar tasks, not hidden behind the file co
 
 Read [general placeholders](placeholders.md), [relational](relational-placeholders.md), [programming](programming-placeholders.md), [security](security-placeholders.md) and [operations](operations-placeholders.md). Input contracts are context-specific; matching placeholder spelling does not make a cross-file import. No definition authorizes executing SQL, altering accounts, changing database state or sending data.
 
-User-triggered validation on 2026-09-30: official pinned parser passed all 302 files; repository conventions passed 1004 content blocks; 22 validator regression tests passed. See [validation-report.md](validation-report.md) for exact evidence and blocked upstream tests. **No SQL Server, Studio, generated-SQL or complete consumer-binding validation was performed.** All partial statuses remain unchanged. Follow [validation.md](validation.md) to reproduce. No automatic CI was added.
+User-authorized validation on 2026-10-01: verified pinned parser passed all 302 files; repository conventions passed 1016 content blocks; generator AST checks passed 488 bound LOOPs; 364 parser/generator-contract and 22 convention-regression tests passed. See [validation-report.md](validation-report.md). **No SQL Server, Studio or actual downstream generator end-to-end execution was performed.** The small fixture covers only documented generation choices and 0/1/2 repetition. All 76 partial statuses remain unchanged; no automatic CI was added.
 
 ## Complete modeled/excluded row list
 
@@ -58,7 +58,7 @@ User-triggered validation on 2026-09-30: official pinned parser passed all 302 f
 | [CREATE SYNONYM](https://learn.microsoft.com/en-us/sql/t-sql/statements/create-synonym-transact-sql?view=sql-server-ver17) | supported | [create/synonym.snf](../create/synonym.snf) | CREATE SYNONYM FOR 基对象; 基对象名称允许部件数取决于对象类别 |
 | [CREATE TABLE](https://learn.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql?view=sql-server-ver17) | partial | [create/table.snf](../create/table.snf) | Disk-table common columns, constraints, partition/FILESTREAM, sparse/masks/encryption, temporal/ledger and basic inline row indexes. Partial: memory/FileTable, full index/constraint options, type grammar and some computed-column variants remain unexpanded. |
 | [CREATE VIEW](https://learn.microsoft.com/en-us/sql/t-sql/statements/create-view-transact-sql?view=sql-server-ver17) | partial | [create/view.snf](../create/view.snf) | CREATE OR ALTER、列名、三个属性、查询、CHECK OPTION; 查询合法性及 batch-first 由消费方检查；INTO/OPTION/临时对象不能用于视图定义 |
-| [DELETE](https://learn.microsoft.com/en-us/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver17) | partial | [query/delete.snf](../query/delete.snf) | TOP；目标/第二个 FROM；OUTPUT；WHERE; from_expression 为上下文自由输入；CURRENT OF、表提示、OPTION 未展开 |
+| [DELETE](https://learn.microsoft.com/en-us/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver17) | partial | [query/delete.snf](../query/delete.snf) | TOP；目标/第二个 FROM；OUTPUT；WHERE; from_expression 为上下文自由输入；CURRENT OF、OPTION；表提示仍未展开 |
 | [DROP INDEX](https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-index-transact-sql?view=sql-server-ver17) | partial | [drop/index.snf](../drop/index.snf) | IF EXISTS、多个 name ON table; 旧式 table.index 以及 clustered DROP 的移动/在线选项未展开 |
 | [DROP SCHEMA](https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-schema-transact-sql?view=sql-server-ver17) | supported | [drop/schema.snf](../drop/schema.snf) | IF EXISTS、单对象; schema 为空等数据库状态检查 |
 | [DROP SEQUENCE](https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-sequence-transact-sql?view=sql-server-ver17) | supported | [drop/sequence.snf](../drop/sequence.snf) | IF EXISTS、列表; 依赖和权限检查 |
@@ -68,10 +68,10 @@ User-triggered validation on 2026-09-30: official pinned parser passed all 302 f
 | [INSERT](https://learn.microsoft.com/en-us/sql/t-sql/statements/insert-transact-sql?view=sql-server-ver17) | partial | [query/insert.snf](../query/insert.snf) | VALUES/SELECT/DEFAULT VALUES/INSERT EXEC and OUTPUT; partial hints/remote targets/nested DML/graph pseudo-columns. |
 | [ROLLBACK TRANSACTION / WORK](https://learn.microsoft.com/en-us/sql/t-sql/language-elements/rollback-transaction-transact-sql?view=sql-server-ver17) | supported | [transaction/rollback.snf](../transaction/rollback.snf) | 整体回滚、事务/保存点目标、WORK; 没有 PostgreSQL ROLLBACK TO；分布式事务不支持保存点 |
 | [SAVE TRANSACTION](https://learn.microsoft.com/en-us/sql/t-sql/language-elements/save-transaction-transact-sql?view=sql-server-ver17) | supported | [transaction/save.snf](../transaction/save.snf) | SAVE TRAN/TRANSACTION; 名称、变量以及事务状态由消费方校验 |
-| [SELECT](https://learn.microsoft.com/en-us/sql/t-sql/queries/select-transact-sql?view=sql-server-ver17) | partial | [query/select.snf](../query/select.snf) | CTE/TOP/OFFSET plus set-operation shell, WINDOW, grouping sets, temporal/table samples, FOR XML/JSON and hints. Partial: expressions, query operands/window frame opaque; FROM functions/PIVOT, full grouping variants and set-operation OFFSET remain unexpanded. |
+| [SELECT](https://learn.microsoft.com/en-us/sql/t-sql/queries/select-transact-sql?view=sql-server-ver17) | partial | [query/select.snf](../query/select.snf) | Shared SELECT/set-operation body and ORDER BY/OFFSET/FETCH tail; CTE/TOP, WINDOW, grouping sets, temporal/table samples, FOR XML/JSON and hints. Free expressions/nested queries are intentional. Partial: window-frame structure, FROM functions/PIVOT and full grouping variants remain unexpanded. |
 | [SET TRANSACTION ISOLATION LEVEL](https://learn.microsoft.com/en-us/sql/t-sql/statements/set-transaction-isolation-level-transact-sql?view=sql-server-ver17) | supported | [transaction/set-isolation-level.snf](../transaction/set-isolation-level.snf) | 五种隔离级别; SNAPSHOT 需要数据库配置；不因此自动更改数据库设置 |
 | [TRUNCATE TABLE](https://learn.microsoft.com/en-us/sql/t-sql/statements/truncate-table-transact-sql?view=sql-server-ver17) | supported | [other/truncate-table.snf](../other/truncate-table.snf) | 整表/分区范围; 对齐索引、FK、复制等限制不由 SNF 校验 |
-| [UPDATE](https://learn.microsoft.com/en-us/sql/t-sql/queries/update-transact-sql?view=sql-server-ver17) | partial | [query/update.snf](../query/update.snf) | 普通/复合列赋值；TOP；OUTPUT；FROM；WHERE; from_expression 目前为上下文自由输入；变量/链式赋值、UDT、.WRITE、CURRENT OF、提示和 OPTION 未展开 |
+| [UPDATE](https://learn.microsoft.com/en-us/sql/t-sql/queries/update-transact-sql?view=sql-server-ver17) | partial | [query/update.snf](../query/update.snf) | 普通/复合列赋值；TOP；OUTPUT；FROM；WHERE; from_expression 目前为上下文自由输入；变量/链式赋值、UDT、.WRITE、表提示未展开；补充 CURRENT OF、OPTION |
 | [USE](https://learn.microsoft.com/en-us/sql/t-sql/language-elements/use-transact-sql?view=sql-server-ver17) | supported | [other/use.snf](../other/use.snf) | USE database; 不作为 Azure SQL 跨库切换语法 |
 
 ### Relational

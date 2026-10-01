@@ -5,7 +5,8 @@
 DELETE [ TOP ( row_count_expression ) [ PERCENT ] ] [ FROM ] delete_target
     [ output_clause ]
     [ FROM from_expression [, ...] ]
-    [ WHERE boolean_expression ]
+    [ WHERE { boolean_expression | CURRENT OF { [ GLOBAL ] cursor_name | cursor_variable } } ]
+    [ OPTION ( query_hint [, ...] ) ]
 
 # WHERE output_clause
 {

@@ -2,64 +2,34 @@
 
 # CASE SELECT
 [ WITH cte_definition [, ...] ]
-SELECT [ ALL | DISTINCT ] select_item [, ...]
-    [ INTO new_table ]
-    [ from_clause ]
-    [ WHERE boolean_expression ]
-    [ GROUP BY group_by_expression [, ...] ]
-    [ HAVING boolean_expression ]
-    [ WINDOW window_definition [, ...] ]
-    [ ORDER BY order_by_expression [, ...] ]
-    [ for_clause ]
-    [ OPTION ( query_hint [, ...] ) ]
-
-# CASE TOP
-[ WITH cte_definition [, ...] ]
-SELECT [ ALL | DISTINCT ] TOP ( row_count_expression ) [ PERCENT ] select_item [, ...]
-    [ INTO new_table ]
-    [ from_clause ]
-    [ WHERE boolean_expression ]
-    [ GROUP BY group_by_expression [, ...] ]
-    [ HAVING boolean_expression ]
-    [ WINDOW window_definition [, ...] ]
-    [ ORDER BY order_by_expression [, ...] ]
-    [ for_clause ]
-    [ OPTION ( query_hint [, ...] ) ]
-
-# CASE TOP_WITH_TIES
-[ WITH cte_definition [, ...] ]
-SELECT [ ALL | DISTINCT ] TOP ( row_count_expression ) [ PERCENT ] WITH TIES select_item [, ...]
-    [ INTO new_table ]
-    [ from_clause ]
-    [ WHERE boolean_expression ]
-    [ GROUP BY group_by_expression [, ...] ]
-    [ HAVING boolean_expression ]
-    [ WINDOW window_definition [, ...] ]
-    ORDER BY order_by_expression [, ...]
-    [ for_clause ]
-    [ OPTION ( query_hint [, ...] ) ]
-
-# CASE OFFSET_FETCH
-[ WITH cte_definition [, ...] ]
-SELECT [ ALL | DISTINCT ] select_item [, ...]
-    [ INTO new_table ]
-    [ from_clause ]
-    [ WHERE boolean_expression ]
-    [ GROUP BY group_by_expression [, ...] ]
-    [ HAVING boolean_expression ]
-    [ WINDOW window_definition [, ...] ]
-    ORDER BY order_by_expression [, ...]
-    OFFSET offset_expression { ROW | ROWS }
-    [ FETCH { FIRST | NEXT } fetch_expression { ROW | ROWS } ONLY ]
-    [ for_clause ]
-    [ OPTION ( query_hint [, ...] ) ]
+query_specification
+    query_tail
 
 # CASE SET_OPERATION
 [ WITH cte_definition [, ...] ]
 query_operand set_operation_clause [...]
-    [ ORDER BY order_by_expression [, ...] ]
-    [ for_clause ]
-    [ OPTION ( query_hint [, ...] ) ]
+    query_tail
+
+# WHERE query_specification
+SELECT [ ALL | DISTINCT ]
+    [ TOP ( row_count_expression ) [ PERCENT ] [ WITH TIES ] ]
+    select_item [, ...]
+    [ INTO new_table ]
+    [ from_clause ]
+    [ WHERE boolean_expression ]
+    [ GROUP BY group_by_expression [, ...] ]
+    [ HAVING boolean_expression ]
+    [ WINDOW window_definition [, ...] ]
+
+# WHERE query_tail
+[ order_by_clause ]
+[ for_clause ]
+[ OPTION ( query_hint [, ...] ) ]
+
+# WHERE order_by_clause
+ORDER BY order_by_expression [, ...]
+    [ OFFSET offset_expression { ROW | ROWS }
+        [ FETCH { FIRST | NEXT } fetch_expression { ROW | ROWS } ONLY ] ]
 
 # WHERE cte_definition
 cte [ ( colname [, ...] ) ] AS ( query_statement )
@@ -196,7 +166,7 @@ PARAMETERIZATION { SIMPLE | FORCED }
 QUERYTRACEON trace_flag_value
 RECOMPILE
 ROBUST PLAN
-USE HINT ( 'hint_name' [, ...] )
+USE HINT ( hint_name_literal [, ...] )
 USE PLAN N'xml_plan'
 TABLE HINT ( exposed_object [ , table_hint [, ...] ] )
 
@@ -225,3 +195,6 @@ TABLOCK
 TABLOCKX
 UPDLOCK
 XLOCK
+
+# WHERE hint_name_literal
+'hint_name'

@@ -16,7 +16,7 @@ CREATE DATABASE name
 
 # CASE SNAPSHOT
 CREATE DATABASE name
-    ON ( NAME = logical_file , FILENAME = 'file_path' ) [, ...]
+    ON snapshot_file_definition [, ...]
     AS SNAPSHOT OF database
 
 # WHERE filegroup_definition
@@ -57,3 +57,6 @@ FILESTREAM ( DIRECTORY_NAME = { 'directory_name' | NULL } )
 
 # WHERE attach_file_definition
 ( [ NAME = logical_file , ] FILENAME = 'file_path' )
+
+# WHERE snapshot_file_definition
+( NAME = logical_file , FILENAME = 'file_path' )
