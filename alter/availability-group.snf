@@ -121,7 +121,7 @@ READ_WRITE_ROUTING_URL = 'routing_url'
 
 # ONEOFIS routing_target
 'server_instance'
-( 'server_instance' [, ...] )
+( routing_server [, ...] )
 
 # WHERE distributed_group_definition
 availability_group WITH (
@@ -133,8 +133,14 @@ availability_group WITH (
 
 # ONEOFIS listener_definition
 WITH DHCP [ ON ( 'ipv4_address' , 'ipv4_mask' ) ]
-WITH IP ( ( ip_definition ) [, ...] ) [ , PORT = port ]
+WITH IP ( listener_ip_definition [, ...] ) [ , PORT = port ]
 
 # ONEOFIS ip_definition
 'ipv4_address' , 'ipv4_mask'
 'ipv6_address'
+
+# WHERE routing_server
+'server_instance'
+
+# WHERE listener_ip_definition
+( ip_definition )

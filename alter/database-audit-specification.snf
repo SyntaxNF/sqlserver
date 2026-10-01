@@ -2,7 +2,7 @@
 
 # CASE AUDIT_BINDING
 ALTER DATABASE AUDIT SPECIFICATION name FOR SERVER AUDIT audit_name
-    [ audit_specification_action [, ...] ]
+    audit_specification_action [, ...]
     [ WITH ( STATE = { ON | OFF } ) ]
 
 # CASE ACTIONS

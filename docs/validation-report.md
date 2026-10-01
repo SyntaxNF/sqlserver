@@ -1,54 +1,41 @@
-# SNF validation report — 2026-09-30
+# SQL Server generator review — 2026-10-01
 
-User-triggered validation of SQL Server inventory baseline `1c0b74da2a733d0ad1e5366462e0ff4f25efae3f`, branch `expand-sqlserver-2025-inventory`. The 302 SNF sources were unchanged by this validation: no parser syntax repairs were necessary. This change adds consumer literal contracts, reproducible checks, regression tests and the evidence below.
+User-authorized generator-focused revision of the existing SQL Server 2025 GA inventory. All **302 SNF files, 377 inventory rows and 76 partial rows** remain. This is a narrow revision of 29 SNF files, not a rollback to the original 29-file inventory. The separately requested display line breaks remain; unrelated definitions were not reformatted.
 
 ## Results
 
 | Check | Result |
 | --- | --- |
-| Official pinned parser build (`npm run build`) | Passed; Vite 8.2.0, 15 modules transformed, declaration generation completed |
-| `npm run validate:snf` | Passed: 302/302 documents |
-| `npm run validate:conventions` | Passed: 302 documents, 1004 nonempty content blocks, 0 errors |
-| `npm run test:validation` | Passed: 22 tests, 0 failures, 0 skipped |
+| Verified pinned parser source | 302/302 documents passed |
+| Repository conventions | 1016 nonempty content blocks, 0 errors |
+| Generator AST audit | 1318 total physical blocks, 458 CASE, 397 helpers, 37957 raw AST nodes, 488 bound LOOPs, 0 errors |
+| Parser/generator-contract tests | 364 passed: 302 per-file checks plus 62 contract/fixture tests |
+| Convention-regression tests | 22 passed, 0 failed/skipped |
+| Parser's own base tests via `node --import tsx test/index.ts` | Passed |
 | `git diff --check` | Passed |
-| Official parser `npm test` | Blocked before tests: tsx IPC listener `EPERM` at `/tmp/tsx-1000/17.pipe`; not a test pass |
-| SQL Server / Studio / generated SQL / full consumer binder | Not run / not implemented |
+| SQL Server / Studio / actual downstream generator end-to-end | Not run |
 
-Directives: 466 CASE, 162 WHERE, 173 ONEOFIS, 33 PARTOFIS, 13 STATEMENT. All 381 local auxiliary definitions are reachable from a statement entry. 77 documents use an implicit single-form root; these are valid. SELECT `from_expression` recursion is recorded, not expanded indefinitely. 80 unannotated alternative blocks belong to PARTOFIS.
+The current [audit JSON](validation-audit.json) records local references, recursion and 1339 file/input-name pairs (426 distinct names). Open expression/body/query inputs are intentional; these counts are not unresolved-reference failures or input-domain proofs. All 397 helper declarations are reachable. No automatic CI was added.
 
-The complete reproducible [audit JSON](validation-audit.json) includes every file's local references, input candidates and recursive definitions. Open inputs: 1334 file/name pairs, 427 distinct names. These are not automatically errors or proof of input-domain validation.
+## Changes and evidence
 
-## Defect addressed: fixed text incorrectly looks like input
+- SELECT shares one query specification and tail instead of four near-identical SELECT/TOP/TOP_WITH_TIES/OFFSET_FETCH statements. SET_OPERATION reuses the same ORDER BY/OFFSET/FETCH tail. The template does not implement a TOP/WITH TIES/OFFSET semantic compatibility matrix
+- INSERT shares its common prefix and keeps source-position differences in source alternatives. SERVER AUDIT shares its shell while preserving FILE, APPLICATION_LOG and SECURITY_LOG destinations
+- Removed 40 optional wrappers that contained only a zero-or-more LOOP. Keyword/bracket-bearing optional clauses remain intact
+- Fixed 7 detached postfix markers: complete snapshot files, listener IP tuples, quoted routing targets, JSON paths and USE HINT members. Event/target settings now repeat complete left-name/equals/right-value assignments rather than only the right value
+- Added documented UPDATE/DELETE CURRENT OF and OPTION clauses, and ALTER COLUMN WITH (ONLINE = ON/OFF). No generic cloud-only INSERT OPTION tail or ALTER COLUMN WAIT_AT_LOW_PRIORITY was added
+- Clarified that free expressions, bodies and reusable queries are normal generation inputs; semantic/context notes are reference information rather than a requirement to recreate a SQL validator
 
-The parser deliberately classifies lowercase substrings as VARIABLE, including inside quotes and adjacent to punctuation. A consumer collecting VARIABLE nodes blindly would turn fixed provider/codec names, `'node()'`, `'current database'`, BULK format choices, `$action`, and the `'lsn:` prefix into editable inputs. [snf-fixed-literals.json](snf-fixed-literals.json) now records 17 exact snippets across 9 files (19 occurrences). Source casing is preserved. The audit excludes only VARIABLE spans entirely inside these snippets and fails stale entries. RESTORE `lsn_number` remains an input. This is a consumer contract, not a modification to parser tokenization or a shipped Studio fix.
+Official scope/order references: [SELECT](https://learn.microsoft.com/en-us/sql/t-sql/queries/select-transact-sql?view=sql-server-ver17), [INSERT](https://learn.microsoft.com/en-us/sql/t-sql/statements/insert-transact-sql?view=sql-server-ver17), [SERVER AUDIT](https://learn.microsoft.com/en-us/sql/t-sql/statements/create-server-audit-transact-sql?view=sql-server-ver17), [CREATE DATABASE](https://learn.microsoft.com/en-us/sql/t-sql/statements/create-database-transact-sql?view=sql-server-ver17), [availability-group listeners](https://learn.microsoft.com/en-us/sql/t-sql/statements/create-availability-group-transact-sql?view=sql-server-ver17), [CREATE EVENT SESSION](https://learn.microsoft.com/en-us/sql/t-sql/statements/create-event-session-transact-sql?view=sql-server-ver17), [ALTER EVENT SESSION](https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-event-session-transact-sql?view=sql-server-ver17), [UPDATE](https://learn.microsoft.com/en-us/sql/t-sql/queries/update-transact-sql?view=sql-server-ver17), [DELETE](https://learn.microsoft.com/en-us/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver17), [online ALTER COLUMN](https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-table-transact-sql?view=sql-server-ver17#b-online-alter-column). Other file-first source links and the bounded 2026-09-30 source catalogue remain in place.
 
-Source references are the first-line official URLs in those nine files. In particular, [CREATE EVENT NOTIFICATION](https://learn.microsoft.com/en-us/sql/t-sql/statements/create-event-notification-transact-sql?view=sql-server-ver17#arguments) identifies `current database` as a case-insensitive literal; [RESTORE](https://learn.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql?view=sql-server-ver17#syntax) specifies the fixed `lsn:` prefix.
+## Regression comparison
 
-## Environment and exact successful commands
+The same structural checker against the immutable prior main `4a5a4a51e652ecda79c509653596eb3f129fa45b` found **7 detached LOOP markers and 40 redundant pure optional-loop wrappers**. The selected 33 whole-member regressions (11 cases × 0/1/2 iterations) all failed against that old tree because the complete repeated helpers were absent, and all pass on the current definitions. Separate fixtures exercise free bodies, quoted values, INSERT source choices, SELECT pagination and DML order.
 
-- Node v24.19.0; npm 11.9.0; pnpm 11.19.0
-- Parser 0.1.0 source revision `bcf2c3ac58b45e7d5391716393586b00b11e0c1a`; official lockfile retained; no tracked parser source changes
-- Built entry SHA-256: `5aa14167ad371522ed5815719f74639aa1526ff71ed1dfd8ec0a00975f74e510`
+The first fixture run exposed expectation/setup mistakes (comma spacing, PROC selection and body placeholder name); they were corrected rather than changing grammar to satisfy incorrect assertions. Independent static review found no remaining grammar blocker. Its fixture comments led to explicit FROM coverage and opaque-input protection plus a regression for SQL line comments and bracketed identifiers.
 
-```sh
-# /workspace/shared/snf-parser
-npm run build
-# /workspace/shared/sqlserver-validation-git
-export SNF_PARSER_MODULE=/workspace/shared/snf-parser/dist/esm/index.mjs
-npm run validate:snf
-npm run validate:conventions -- docs/validation-audit.json
-npm run test:validation
-git diff --check
-```
+## Reproduction and limits
 
-Dependency preparation: plain `pnpm install --frozen-lockfile` failed because its default data directory was absent/unwritable. The bounded workspace-local attempt was:
+Commands are in [validation.md](validation.md). Runtime: Node v24.19.0; actual `SyntaxNF/parser` source revision `bcf2c3ac58b45e7d5391716393586b00b11e0c1a`; `tsx` 4.23.5. Source/dependency manifests are checked against the pinned checkout and source files against Git blobs. No parser source was modified and no new install/build was required for this review.
 
-```sh
-XDG_DATA_HOME=/workspace/shared/pnpm-data XDG_CACHE_HOME=/workspace/shared/pnpm-cache pnpm install --frozen-lockfile --store-dir /workspace/shared/pnpm-store
-```
-
-It downloaded/linked all 114 packages and passed its lockfile supply-chain checks but returned `ERR_PNPM_IGNORED_BUILDS` for esbuild's lifecycle script. No lifecycle approval or security setting was changed. Plain `pnpm build` also failed on its automatic install/default data-directory step. `npm run build` then invoked the repository's unchanged Vite build script successfully with the installed dependencies. These failed preparation attempts are not counted as passes. Upstream parser tests were attempted separately and blocked by the IPC restriction above; the SQL Server repository's 22 regression tests use Node's test runner and all ran successfully.
-
-## Scope of this pass
-
-No malformed parser syntax, duplicate directives, empty owned blocks, unreachable local definitions or invalid continuation ownership were found. Source spelling and grammar coverage were left intact. The conventions checker is a diagnostic layer over the official AST, not a replacement parser or complete reference binder. It cannot distinguish every undeclared typo from an intended typed/opaque input. File inventory mapping and known literal handling are checked; full source-catalog semantic reconciliation, SQL engine behavior, quote/parenthesis SQL validity and Studio integration are not established by this report. The 76 partial inventory entries remain partial.
+The fixture is deliberately small and is not the actual downstream SQL generator. It demonstrates only the explicit AST choices, zero-or-more repetition, complete-member output and opaque inputs covered by the tests. No SQL Server build, edition, OS, object state, permissions, live compilation/execution, full quote/identifier grammar or Studio integration was verified. No CI pass is implied when a repository has no configured checks. The historical 2026-09-30 parser/conventions report remains available in Git history.

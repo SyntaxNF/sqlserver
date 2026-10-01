@@ -1,7 +1,7 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/alter-function-transact-sql?view=sql-server-ver17
 
 # CASE SCALAR
-ALTER FUNCTION name ( [ parameter_definition [, ...] ] )
+ALTER FUNCTION name ( parameter_definition [, ...] )
     RETURNS data_type
     [ WITH scalar_option [, ...] ]
     [ AS ]
@@ -11,14 +11,14 @@ ALTER FUNCTION name ( [ parameter_definition [, ...] ] )
     END
 
 # CASE INLINE_TABLE
-ALTER FUNCTION name ( [ parameter_definition [, ...] ] )
+ALTER FUNCTION name ( parameter_definition [, ...] )
     RETURNS TABLE
     [ WITH inline_option [, ...] ]
     [ AS ]
     RETURN { query_statement | ( query_statement ) }
 
 # CASE MULTISTATEMENT_TABLE
-ALTER FUNCTION name ( [ parameter_definition [, ...] ] )
+ALTER FUNCTION name ( parameter_definition [, ...] )
     RETURNS return_variable TABLE ( table_element_definition [, ...] )
     [ WITH table_function_option [, ...] ]
     [ AS ]
@@ -28,14 +28,14 @@ ALTER FUNCTION name ( [ parameter_definition [, ...] ] )
     END
 
 # CASE CLR_SCALAR
-ALTER FUNCTION name ( [ clr_parameter_definition [, ...] ] )
+ALTER FUNCTION name ( clr_parameter_definition [, ...] )
     RETURNS data_type
     [ WITH clr_scalar_option [, ...] ]
     [ AS ]
     EXTERNAL NAME assembly . class_name . method_name
 
 # CASE CLR_TABLE
-ALTER FUNCTION name ( [ clr_parameter_definition [, ...] ] )
+ALTER FUNCTION name ( clr_parameter_definition [, ...] )
     RETURNS TABLE ( clr_column_definition [, ...] )
     [ WITH execute_as_clause ]
     [ ORDER ( order_column_definition [, ...] ) ]
@@ -43,7 +43,7 @@ ALTER FUNCTION name ( [ clr_parameter_definition [, ...] ] )
     EXTERNAL NAME assembly . class_name . method_name
 
 # CASE NATIVE_SCALAR
-ALTER FUNCTION name ( [ native_parameter_definition [, ...] ] )
+ALTER FUNCTION name ( native_parameter_definition [, ...] )
     RETURNS data_type
     WITH NATIVE_COMPILATION , SCHEMABINDING , execute_as_clause
         [ , { RETURNS NULL ON NULL INPUT | CALLED ON NULL INPUT } ]
@@ -107,7 +107,7 @@ SELECT
 # PARTOFIS table_element_definition
 colname data_type [ COLLATE collation ]
     [ DEFAULT default_expression | IDENTITY [ ( seed_value , increment_value ) ] ]
-    [ ROWGUIDCOL ] [ NULL | NOT NULL ] [ column_constraint_definition [...] ]
+    [ ROWGUIDCOL ] [ NULL | NOT NULL ] column_constraint_definition [...]
 
 colname AS computed_expression
 

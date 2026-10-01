@@ -1,16 +1,16 @@
 {
   "scope": "SNF physical structure and repository conventions only; inputs are not unresolved-reference errors or validated SQL",
   "documents": 302,
-  "contentBlocks": 1004,
+  "contentBlocks": 1016,
   "directives": {
-    "CASE": 466,
+    "CASE": 458,
     "ONEOFIS": 173,
-    "WHERE": 162,
+    "WHERE": 176,
     "STATEMENT": 13,
-    "PARTOFIS": 33
+    "PARTOFIS": 35
   },
-  "inputOccurrences": 1334,
-  "uniqueInputNames": 427,
+  "inputOccurrences": 1339,
+  "uniqueInputNames": 426,
   "errors": [],
   "files": {
     "query/bulk-insert.snf": {
@@ -66,10 +66,13 @@
         "col_alias",
         "colname",
         "cte",
+        "cursor_name",
+        "cursor_variable",
         "delete_target",
         "from_expression",
         "output_expression",
         "output_target",
+        "query_hint",
         "row_count_expression"
       ],
       "recursiveDefinitions": []
@@ -77,7 +80,8 @@
     "query/insert.snf": {
       "errors": [],
       "counts": {
-        "CASE": 4,
+        "CASE": 1,
+        "PARTOFIS": 1,
         "WHERE": 4,
         "STATEMENT": 2
       },
@@ -85,6 +89,7 @@
       "localReferences": [
         "cte_definition",
         "execute_statement",
+        "insert_source",
         "output_clause",
         "output_item",
         "query_statement",
@@ -180,13 +185,13 @@
     "query/select.snf": {
       "errors": [],
       "counts": {
-        "CASE": 5,
-        "WHERE": 9,
+        "CASE": 2,
+        "WHERE": 13,
         "PARTOFIS": 6,
         "STATEMENT": 1,
         "ONEOFIS": 2
       },
-      "contentBlocks": 44,
+      "contentBlocks": 45,
       "localReferences": [
         "cte_definition",
         "for_clause",
@@ -195,11 +200,15 @@
         "group_by_expression",
         "grouping_expression",
         "grouping_set",
+        "hint_name_literal",
         "optimize_variable_definition",
+        "order_by_clause",
         "order_by_expression",
         "query_hint",
         "query_operand",
+        "query_specification",
         "query_statement",
+        "query_tail",
         "select_item",
         "set_operation",
         "set_operation_clause",
@@ -226,7 +235,6 @@
         "maxdop_value",
         "new_table",
         "offset_expression",
-        "query_specification",
         "recursion_value",
         "reference_window_name",
         "root_name",
@@ -269,9 +277,12 @@
         "col_alias",
         "colname",
         "cte",
+        "cursor_name",
+        "cursor_variable",
         "from_expression",
         "output_expression",
         "output_target",
+        "query_hint",
         "row_count_expression",
         "update_target",
         "value_expression"
@@ -386,17 +397,19 @@
         "CASE": 2,
         "ONEOFIS": 7,
         "PARTOFIS": 1,
-        "WHERE": 1
+        "WHERE": 3
       },
-      "contentBlocks": 12,
+      "contentBlocks": 14,
       "localReferences": [
         "availability_option",
         "distributed_group_definition",
         "ip_definition",
         "listener_definition",
+        "listener_ip_definition",
         "primary_role_option",
         "replica_definition",
         "replica_option",
+        "routing_server",
         "routing_target",
         "secondary_role_option"
       ],
@@ -623,17 +636,18 @@
       "errors": [],
       "counts": {
         "CASE": 3,
-        "WHERE": 3,
+        "WHERE": 4,
         "ONEOFIS": 3
       },
-      "contentBlocks": 9,
+      "contentBlocks": 10,
       "localReferences": [
         "attach_file_definition",
         "attach_option",
         "database_option",
         "file_definition",
         "filegroup_definition",
-        "filestream_option"
+        "filestream_option",
+        "snapshot_file_definition"
       ],
       "inputs": [
         "collation",
@@ -709,16 +723,18 @@
     "create/event-session.snf": {
       "errors": [],
       "counts": {
-        "WHERE": 3,
+        "WHERE": 5,
         "ONEOFIS": 2
       },
-      "contentBlocks": 6,
+      "contentBlocks": 8,
       "localReferences": [
+        "event_attribute_assignment",
         "event_definition",
         "event_settings",
         "event_value",
         "session_option",
-        "target_definition"
+        "target_definition",
+        "target_parameter_assignment"
       ],
       "inputs": [
         "action_identifier",
@@ -1064,11 +1080,13 @@
       "errors": [],
       "counts": {
         "CASE": 1,
-        "ONEOFIS": 1
+        "ONEOFIS": 1,
+        "WHERE": 1
       },
-      "contentBlocks": 2,
+      "contentBlocks": 3,
       "localReferences": [
-        "json_index_option"
+        "json_index_option",
+        "json_path_literal"
       ],
       "inputs": [
         "colname",
@@ -1425,11 +1443,12 @@
     "create/server-audit.snf": {
       "errors": [],
       "counts": {
-        "CASE": 2,
+        "PARTOFIS": 1,
         "ONEOFIS": 1
       },
-      "contentBlocks": 3,
+      "contentBlocks": 4,
       "localReferences": [
+        "audit_target",
         "server_audit_option"
       ],
       "inputs": [
@@ -1853,10 +1872,10 @@
       "counts": {
         "CASE": 18,
         "ONEOFIS": 9,
-        "WHERE": 2,
+        "WHERE": 4,
         "PARTOFIS": 1
       },
-      "contentBlocks": 31,
+      "contentBlocks": 33,
       "localReferences": [
         "availability_option",
         "distributed_group_definition",
@@ -1864,10 +1883,12 @@
         "distributed_modify_option",
         "ip_definition",
         "listener_definition",
+        "listener_ip_definition",
         "primary_role_option",
         "replica_definition",
         "replica_modify_option",
         "replica_option",
+        "routing_server",
         "routing_target",
         "secondary_role_option"
       ],
@@ -2122,17 +2143,19 @@
       "counts": {
         "CASE": 4,
         "ONEOFIS": 4,
-        "WHERE": 3
+        "WHERE": 5
       },
-      "contentBlocks": 11,
+      "contentBlocks": 13,
       "localReferences": [
         "event_action",
+        "event_attribute_assignment",
         "event_definition",
         "event_settings",
         "event_value",
         "session_option",
         "target_action",
-        "target_definition"
+        "target_definition",
+        "target_parameter_assignment"
       ],
       "inputs": [
         "action_identifier",

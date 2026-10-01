@@ -2,4 +2,4 @@
 
 # CASE PARTITION_FUNCTION
 CREATE PARTITION FUNCTION name ( partition_data_type )
-    AS RANGE [ LEFT | RIGHT ] FOR VALUES ( [ boundary_value [, ...] ] )
+    AS RANGE [ LEFT | RIGHT ] FOR VALUES ( boundary_value [, ...] )

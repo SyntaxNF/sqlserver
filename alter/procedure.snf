@@ -2,20 +2,20 @@
 
 # CASE TSQL
 ALTER { PROC | PROCEDURE } name [ ; number_value ]
-    [ parameter_definition [, ...] ]
+    parameter_definition [, ...]
     [ WITH procedure_option [, ...] ]
     [ FOR REPLICATION ]
     AS statement_block
 
 # CASE CLR
 ALTER { PROC | PROCEDURE } name [ ; number_value ]
-    [ clr_parameter_definition [, ...] ]
+    clr_parameter_definition [, ...]
     [ WITH execute_as_clause ]
     AS EXTERNAL NAME assembly . class_name . method_name
 
 # CASE NATIVE
 ALTER { PROC | PROCEDURE } name
-    [ native_parameter_definition [, ...] ]
+    native_parameter_definition [, ...]
     WITH NATIVE_COMPILATION , SCHEMABINDING [ , execute_as_clause ]
     AS BEGIN ATOMIC WITH ( atomic_option [, ...] )
         sql_statement_list

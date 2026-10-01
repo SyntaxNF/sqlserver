@@ -7,7 +7,7 @@ SET variable { = | += | -= | *= | /= | %= | &= | ^= | \|= } value_expression
 SET variable . member_name = value_expression
 
 # CASE MUTATOR
-SET variable . method_name ( [ argument [, ...] ] )
+SET variable . method_name ( argument [, ...] )
 
 # CASE CURSOR_REFERENCE
 SET cursor_variable = { cursor_variable | cursor_name }
