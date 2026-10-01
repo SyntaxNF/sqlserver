@@ -2,7 +2,7 @@
 
 # CASE DATABASE_AUDIT_SPECIFICATION
 CREATE DATABASE AUDIT SPECIFICATION name FOR SERVER AUDIT audit_name
-    [ audit_specification_add [, ...] ]
+    audit_specification_add [, ...]
     [ WITH ( STATE = { ON | OFF } ) ]
 
 # WHERE audit_specification_add

@@ -23,7 +23,7 @@ colname data_type
     [ NULL | NOT NULL ]
     [ DEFAULT default_expression | IDENTITY [ ( seed_value , increment_value ) ] ]
     [ ROWGUIDCOL ]
-    [ type_column_constraint [...] ]
+    type_column_constraint [...]
 
 colname AS computed_expression
     [ PERSISTED [ NOT NULL ] ]
