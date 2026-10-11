@@ -13,9 +13,9 @@ SET variable . method_name ( argument [, ...] )
 SET cursor_variable = { cursor_variable | cursor_name }
 
 # CASE CURSOR_DEFINITION
-SET cursor_variable = CURSOR [ LOCAL | GLOBAL ]
-    [ FORWARD_ONLY | SCROLL ] [ STATIC | KEYSET | DYNAMIC | FAST_FORWARD ]
-    [ READ_ONLY | SCROLL_LOCKS | OPTIMISTIC ] [ TYPE_WARNING ]
+SET cursor_variable = CURSOR [ { LOCAL | GLOBAL } ]
+    [ { FORWARD_ONLY | SCROLL } ] [ { STATIC | KEYSET | DYNAMIC | FAST_FORWARD } ]
+    [ { READ_ONLY | SCROLL_LOCKS | OPTIMISTIC } ] [ TYPE_WARNING ]
     FOR query_statement [ FOR { READ ONLY | UPDATE [ OF colname [, ...] ] } ]
 
 # STATEMENT query_statement

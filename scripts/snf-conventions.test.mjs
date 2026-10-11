@@ -31,7 +31,6 @@ const invalid = [
     ['unknown directive', '# WHER item\nA', 'malformed directive'],
     ['unreachable definition', '# CASE A\nA\n\n# WHERE item\nB', 'unreachable'],
     ['empty alternative', '# CASE A\n{ A | }', 'empty alternative'],
-    ['bare split', '# CASE A\nA | B', 'unescaped alternative'],
     ['bare repeat', '# CASE A\nitem ...', 'outside a postfix loop'],
     ['orphan loop', '# CASE A\n[ ... ]', 'no preceding item'],
     ['invalid STATEMENT', '# CASE A\nquery_statement\n\n# STATEMENT query_statement\nselect', 'statement category'],
@@ -39,6 +38,11 @@ const invalid = [
 for (const [name, source, message] of invalid) test(`reject ${name}`, () => assert.ok(inspect(source).errors.some(error => error.includes(message))));
 test('real parser rejects unclosed syntax', () => assert.throws(() => inspect('# CASE A\n[ A'), /Unclosed block/));
 test('real parser rejects malformed repeat', () => assert.throws(() => inspect('# CASE A\nitem [....]'), /three dots/));
+test('real parser rejects alternatives outside explicit braces', () => {
+    for (const syntax of ['A | B', '[ A | B ]', '{ [ A | B ] }']) {
+        assert.throws(() => inspect(`# CASE A\n${syntax}`), /only allowed directly inside an enumeration/);
+    }
+});
 test('fixed mixed-case literal and pseudo-column are not inputs', () => {
     const source = "# CASE A\nSELECT 'OpenAI', $action, 'lsn:lsn_number', 'user_text'";
     const result = inspectDocument(parser.parse(source), NodeType, ["'OpenAI'", '$action', "'lsn:"]);

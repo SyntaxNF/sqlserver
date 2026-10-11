@@ -21,15 +21,15 @@ ALTER DATABASE name MODIFY FILE (
     NAME = logical_file
     [ , NEWNAME = new_logical_file ]
     [ , FILENAME = 'file_path' ]
-    [ , SIZE = file_size [ KB | MB | GB | TB ] ]
-    [ , MAXSIZE = { max_size [ KB | MB | GB | TB ] | UNLIMITED } ]
-    [ , FILEGROWTH = growth [ KB | MB | GB | TB | % ] ]
+    [ , SIZE = file_size [ { KB | MB | GB | TB } ] ]
+    [ , MAXSIZE = { max_size [ { KB | MB | GB | TB } ] | UNLIMITED } ]
+    [ , FILEGROWTH = growth [ { KB | MB | GB | TB | % } ] ]
     [ , OFFLINE ]
 )
 
 # CASE ADD_FILEGROUP
 ALTER DATABASE name ADD FILEGROUP filegroup
-    [ CONTAINS FILESTREAM | CONTAINS MEMORY_OPTIMIZED_DATA ]
+    [ { CONTAINS FILESTREAM | CONTAINS MEMORY_OPTIMIZED_DATA } ]
 
 # CASE REMOVE_FILEGROUP
 ALTER DATABASE name REMOVE FILEGROUP filegroup
@@ -147,7 +147,7 @@ TOTAL_EXECUTION_CPU_TIME_MS = milliseconds
 
 # WHERE file_definition
 ( NAME = logical_file , FILENAME = 'file_path'
-    [ , SIZE = file_size [ KB | MB | GB | TB ] ]
-    [ , MAXSIZE = { max_size [ KB | MB | GB | TB ] | UNLIMITED } ]
-    [ , FILEGROWTH = growth [ KB | MB | GB | TB | % ] ]
+    [ , SIZE = file_size [ { KB | MB | GB | TB } ] ]
+    [ , MAXSIZE = { max_size [ { KB | MB | GB | TB } ] | UNLIMITED } ]
+    [ , FILEGROWTH = growth [ { KB | MB | GB | TB | % } ] ]
 )

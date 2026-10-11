@@ -26,10 +26,10 @@ AUTHENTICATION = authentication_definition
 ENCRYPTION = encryption_definition
 
 # ONEOFIS authentication_definition
-WINDOWS [ NTLM | KERBEROS | NEGOTIATE ]
+WINDOWS [ { NTLM | KERBEROS | NEGOTIATE } ]
 CERTIFICATE certificate
-WINDOWS [ NTLM | KERBEROS | NEGOTIATE ] CERTIFICATE certificate
-CERTIFICATE certificate WINDOWS [ NTLM | KERBEROS | NEGOTIATE ]
+WINDOWS [ { NTLM | KERBEROS | NEGOTIATE } ] CERTIFICATE certificate
+CERTIFICATE certificate WINDOWS [ { NTLM | KERBEROS | NEGOTIATE } ]
 
 # WHERE encryption_definition
 { DISABLED | { SUPPORTED | REQUIRED } [ ALGORITHM { AES | RC4 | AES RC4 | RC4 AES } ] }

@@ -28,7 +28,7 @@ colname data_type
     [ [ CONSTRAINT default_constraint ] DEFAULT default_expression ]
     [ IDENTITY [ ( seed_value , increment_value ) ] [ NOT FOR REPLICATION ] ]
     [ GENERATED ALWAYS AS { ROW | TRANSACTION_ID | SEQUENCE_NUMBER } { START | END } [ HIDDEN ] ]
-    [ NULL | NOT NULL ]
+    [ { NULL | NOT NULL } ]
     [ ROWGUIDCOL ]
     [ ENCRYPTED WITH ( COLUMN_ENCRYPTION_KEY = column_encryption_key,
         ENCRYPTION_TYPE = { DETERMINISTIC | RANDOMIZED }, ALGORITHM = 'AEAD_AES_256_CBC_HMAC_SHA_256' ) ]
@@ -38,7 +38,7 @@ colname data_type
 colname AS computed_expression [ PERSISTED [ NOT NULL ] ]
 
 # PARTOFIS column_constraint_definition
-[ CONSTRAINT constraint ] { PRIMARY KEY | UNIQUE } [ CLUSTERED | NONCLUSTERED ]
+[ CONSTRAINT constraint ] { PRIMARY KEY | UNIQUE } [ { CLUSTERED | NONCLUSTERED } ]
 
 [ CONSTRAINT constraint ] [ FOREIGN KEY ]
     REFERENCES referenced_table [ ( referenced_colname ) ]
@@ -49,7 +49,7 @@ colname AS computed_expression [ PERSISTED [ NOT NULL ] ]
 [ CONSTRAINT constraint ] CHECK [ NOT FOR REPLICATION ] ( boolean_expression )
 
 # PARTOFIS table_constraint_definition
-[ CONSTRAINT constraint ] { PRIMARY KEY | UNIQUE } [ CLUSTERED | NONCLUSTERED ]
+[ CONSTRAINT constraint ] { PRIMARY KEY | UNIQUE } [ { CLUSTERED | NONCLUSTERED } ]
     ( index_column_definition [, ...] )
 
 [ CONSTRAINT constraint ] FOREIGN KEY ( colname [, ...] )
@@ -61,7 +61,7 @@ colname AS computed_expression [ PERSISTED [ NOT NULL ] ]
 [ CONSTRAINT constraint ] CHECK [ NOT FOR REPLICATION ] ( boolean_expression )
 
 # WHERE index_column_definition
-colname [ ASC | DESC ]
+colname [ { ASC | DESC } ]
 
 # WHERE referential_action
 { NO ACTION | CASCADE | SET NULL | SET DEFAULT }
@@ -70,7 +70,7 @@ colname [ ASC | DESC ]
 colname XML COLUMN_SET FOR ALL_SPARSE_COLUMNS
 
 # WHERE table_index_definition
-INDEX index_name [ UNIQUE ] [ CLUSTERED | NONCLUSTERED ] ( index_column_definition [, ...] )
+INDEX index_name [ UNIQUE ] [ { CLUSTERED | NONCLUSTERED } ] ( index_column_definition [, ...] )
     [ INCLUDE ( colname [, ...] ) ]
     [ WHERE filter_expression ]
     [ WITH ( table_index_option [, ...] ) ]

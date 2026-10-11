@@ -5,10 +5,10 @@ DECLARE name [ INSENSITIVE ] [ SCROLL ] CURSOR FOR query_statement
     [ FOR { READ_ONLY | UPDATE [ OF colname [, ...] ] } ]
 
 # CASE EXTENDED
-DECLARE name CURSOR [ LOCAL | GLOBAL ]
-    [ FORWARD_ONLY | SCROLL ]
-    [ STATIC | KEYSET | DYNAMIC | FAST_FORWARD ]
-    [ READ_ONLY | SCROLL_LOCKS | OPTIMISTIC ] [ TYPE_WARNING ]
+DECLARE name CURSOR [ { LOCAL | GLOBAL } ]
+    [ { FORWARD_ONLY | SCROLL } ]
+    [ { STATIC | KEYSET | DYNAMIC | FAST_FORWARD } ]
+    [ { READ_ONLY | SCROLL_LOCKS | OPTIMISTIC } ] [ TYPE_WARNING ]
     FOR query_statement
     [ FOR UPDATE [ OF colname [, ...] ] ]
 

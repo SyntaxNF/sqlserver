@@ -1,7 +1,7 @@
 # https://learn.microsoft.com/en-us/sql/t-sql/statements/update-statistics-transact-sql?view=sql-server-ver17
 
 # CASE UPDATE_STATISTICS
-UPDATE STATISTICS name [ statistics_name | ( statistics_name [, ...] ) ]
+UPDATE STATISTICS name [ { statistics_name | ( statistics_name [, ...] ) } ]
     [ WITH statistics_option [, ...] ]
 
 # ONEOFIS statistics_option

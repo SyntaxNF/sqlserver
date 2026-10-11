@@ -11,7 +11,7 @@ query_operand set_operation_clause [...]
     query_tail
 
 # WHERE query_specification
-SELECT [ ALL | DISTINCT ]
+SELECT [ { ALL | DISTINCT } ]
     [ TOP ( row_count_expression ) [ PERCENT ] [ WITH TIES ] ]
     select_item [, ...]
     [ INTO new_table ]
@@ -44,7 +44,7 @@ FROM from_expression [, ...]
 table
     [ FOR SYSTEM_TIME system_time_clause ]
     [ [ AS ] table_alias ]
-    [ TABLESAMPLE [ SYSTEM ] ( sample_value [ PERCENT | ROWS ] ) [ REPEATABLE ( seed_value ) ] ]
+    [ TABLESAMPLE [ SYSTEM ] ( sample_value [ { PERCENT | ROWS } ] ) [ REPEATABLE ( seed_value ) ] ]
     [ WITH ( table_hint [, ...] ) ]
 
 ( query_statement ) [ AS ] table_alias [ ( colname [, ...] ) ]
@@ -71,7 +71,7 @@ GROUPING SETS ( grouping_set [, ...] )
 # WHERE order_by_expression
 value_expression
     [ COLLATE collation ]
-    [ ASC | DESC ]
+    [ { ASC | DESC } ]
 
 # STATEMENT query_statement
 SELECT
@@ -124,7 +124,7 @@ FOR XML { RAW [ ( 'element_name' ) ] | AUTO }
     [ , TYPE ]
     [ , ROOT [ ( 'root_name' ) ] ]
     [ , { XMLDATA | XMLSCHEMA [ ( 'target_namespace' ) ] } ]
-    [ , ELEMENTS [ XSINIL | ABSENT ] ]
+    [ , ELEMENTS [ { XSINIL | ABSENT } ] ]
 
 FOR XML EXPLICIT
     [ , BINARY BASE64 ]
@@ -136,7 +136,7 @@ FOR XML PATH [ ( 'element_name' ) ]
     [ , BINARY BASE64 ]
     [ , TYPE ]
     [ , ROOT [ ( 'root_name' ) ] ]
-    [ , ELEMENTS [ XSINIL | ABSENT ] ]
+    [ , ELEMENTS [ { XSINIL | ABSENT } ] ]
 
 FOR JSON { AUTO | PATH }
     [ , ROOT [ ( 'root_name' ) ] ]

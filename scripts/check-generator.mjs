@@ -1,8 +1,9 @@
 // Syntax and generator-facing AST checks only; this does not validate T-SQL.
+import { inspectContract } from './snf-contract.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parser, parserRevision } from './parser-runtime.mjs';
+import { parser, parserRevision, parserInput } from './parser-runtime.mjs';
 
 const { SNFDocumentParser, SNFParser, exchangeLoopNode, NodeType: T } = parser;
 export const root = path.resolve(process.env.SNF_ROOT || path.join(path.dirname(fileURLToPath(import.meta.url)), '..'));
@@ -33,6 +34,7 @@ export function inspectSource(text, file = '<fixture>') {
     for (const line of doc.lines) {
         if (text.slice(line.start, line.end) !== line.content + line.ending) errors.push(`document line span mismatch at line ${line.line}`);
     }
+    errors.push(...inspectContract(doc, parser));
     const declared = new Set(), cases = new Set();
     let mode;
     for (const block of doc.blocks) {
@@ -85,6 +87,6 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
         for (const key of Object.keys(counts)) counts[key] += result.counts[key];
         return result.errors.map(error => `${file}: ${error}`);
     });
-    console.log(JSON.stringify({ parserRevision, parserInput: 'verified src/index.ts', files: files.length, ...counts, errors }, null, 2));
+    console.log(JSON.stringify({ parserRevision, parserInput, files: files.length, ...counts, errors }, null, 2));
     if (errors.length) process.exitCode = 1;
 }

@@ -21,7 +21,7 @@ CREATE DATABASE name
 
 # WHERE filegroup_definition
 FILEGROUP filegroup
-    [ [ CONTAINS FILESTREAM ] [ DEFAULT ] | CONTAINS MEMORY_OPTIMIZED_DATA ]
+    [ { [ CONTAINS FILESTREAM ] [ DEFAULT ] | CONTAINS MEMORY_OPTIMIZED_DATA } ]
     file_definition [, ...]
 
 # ONEOFIS database_option
@@ -50,9 +50,9 @@ FILESTREAM ( DIRECTORY_NAME = { 'directory_name' | NULL } )
 
 # WHERE file_definition
 ( NAME = logical_file , FILENAME = 'file_path'
-    [ , SIZE = file_size [ KB | MB | GB | TB ] ]
-    [ , MAXSIZE = { max_size [ KB | MB | GB | TB ] | UNLIMITED } ]
-    [ , FILEGROWTH = growth [ KB | MB | GB | TB | % ] ]
+    [ , SIZE = file_size [ { KB | MB | GB | TB } ] ]
+    [ , MAXSIZE = { max_size [ { KB | MB | GB | TB } ] | UNLIMITED } ]
+    [ , FILEGROWTH = growth [ { KB | MB | GB | TB | % } ] ]
 )
 
 # WHERE attach_file_definition

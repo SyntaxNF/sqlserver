@@ -6,7 +6,7 @@ ALTER TABLE name ADD column_definition [, ...]
 # CASE ALTER_COLUMN
 ALTER TABLE name ALTER COLUMN colname data_type
     [ COLLATE collation ]
-    [ NULL | NOT NULL ]
+    [ { NULL | NOT NULL } ]
     [ WITH ( ONLINE = { ON | OFF } ) ]
 
 # CASE DROP_COLUMN
@@ -73,11 +73,11 @@ ALTER TABLE name REBUILD [ PARTITION = { ALL | partition_number } ]
 # WHERE column_definition
 colname data_type
     [ COLLATE collation ]
-    [ NULL | NOT NULL ]
+    [ { NULL | NOT NULL } ]
     [ [ CONSTRAINT default_constraint ] DEFAULT default_expression [ WITH VALUES ] ]
 
 # PARTOFIS table_constraint_definition
-[ CONSTRAINT constraint ] { PRIMARY KEY | UNIQUE } [ CLUSTERED | NONCLUSTERED ] ( index_column_definition [, ...] )
+[ CONSTRAINT constraint ] { PRIMARY KEY | UNIQUE } [ { CLUSTERED | NONCLUSTERED } ] ( index_column_definition [, ...] )
 
 [ CONSTRAINT constraint ] FOREIGN KEY ( colname [, ...] )
     REFERENCES referenced_table [ ( referenced_colname [, ...] ) ]
@@ -90,7 +90,7 @@ colname data_type
 [ CONSTRAINT default_constraint ] DEFAULT default_expression FOR colname [ WITH VALUES ]
 
 # WHERE index_column_definition
-colname [ ASC | DESC ]
+colname [ { ASC | DESC } ]
 
 # WHERE referential_action
 { NO ACTION | CASCADE | SET NULL | SET DEFAULT }

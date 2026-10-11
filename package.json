@@ -14,6 +14,9 @@
     "validate:conventions": "node scripts/validate-conventions.mjs",
     "test:validation": "node --test scripts/snf-conventions.test.mjs",
     "validate:generator": "node scripts/check-generator.mjs",
-    "test:generator": "node --test tests/generator-regressions.mjs"
+    "test:generator": "node --test tests/generator-regressions.mjs",
+    "validate": "npm run validate:snf && npm run validate:conventions && npm run validate:generator",
+    "test": "npm run test:regression",
+    "test:regression": "node --test scripts/*.test.mjs tests/generator-regressions.mjs"
   }
 }

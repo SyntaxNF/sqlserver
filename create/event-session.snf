@@ -21,10 +21,10 @@ number
 'string'
 
 # ONEOFIS session_option
-MAX_MEMORY = memory_size [ KB | MB ]
+MAX_MEMORY = memory_size [ { KB | MB } ]
 EVENT_RETENTION_MODE = { ALLOW_SINGLE_EVENT_LOSS | ALLOW_MULTIPLE_EVENT_LOSS | NO_EVENT_LOSS }
 MAX_DISPATCH_LATENCY = { seconds SECONDS | INFINITE }
-MAX_EVENT_SIZE = memory_size [ KB | MB ]
+MAX_EVENT_SIZE = memory_size [ { KB | MB } ]
 MEMORY_PARTITION_MODE = { NONE | PER_NODE | PER_CPU }
 TRACK_CAUSALITY = { ON | OFF }
 STARTUP_STATE = { ON | OFF }

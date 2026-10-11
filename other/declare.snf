@@ -11,24 +11,24 @@ DECLARE variable [ AS ] TABLE ( table_variable_element_definition [, ...] )
 
 # PARTOFIS table_variable_element_definition
 colname data_type [ COLLATE collation ]
-    [ DEFAULT default_expression | IDENTITY [ ( seed_value , increment_value ) ] ]
-    [ ROWGUIDCOL ] [ NULL | NOT NULL ] column_constraint_definition [...]
+    [ { DEFAULT default_expression | IDENTITY [ ( seed_value , increment_value ) ] } ]
+    [ ROWGUIDCOL ] [ { NULL | NOT NULL } ] column_constraint_definition [...]
 
 colname AS computed_expression column_constraint_definition [...]
 
-{ PRIMARY KEY | UNIQUE } [ CLUSTERED | NONCLUSTERED ]
+{ PRIMARY KEY | UNIQUE } [ { CLUSTERED | NONCLUSTERED } ]
     ( index_column_definition [, ...] ) [ WITH ( table_index_option [, ...] ) ]
 
 CHECK ( boolean_expression )
 
 # WHERE column_constraint_definition
 {
-    { PRIMARY KEY | UNIQUE } [ CLUSTERED | NONCLUSTERED ] [ WITH ( table_index_option [, ...] ) ] |
+    { PRIMARY KEY | UNIQUE } [ { CLUSTERED | NONCLUSTERED } ] [ WITH ( table_index_option [, ...] ) ] |
     CHECK ( boolean_expression )
 }
 
 # WHERE index_column_definition
-colname [ ASC | DESC ]
+colname [ { ASC | DESC } ]
 
 # ONEOFIS table_index_option
 PAD_INDEX = { ON | OFF }

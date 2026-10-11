@@ -25,19 +25,19 @@ ALTER { PROC | PROCEDURE } name
 parameter data_type
     [ VARYING ]
     [ = default_value ]
-    [ OUT | OUTPUT | READONLY ]
+    [ { OUT | OUTPUT | READONLY } ]
 
 # WHERE clr_parameter_definition
 parameter data_type
     [ = default_value ]
-    [ OUT | OUTPUT ]
+    [ { OUT | OUTPUT } ]
     [ READONLY ]
 
 # WHERE native_parameter_definition
 parameter data_type
-    [ NULL | NOT NULL ]
+    [ { NULL | NOT NULL } ]
     [ = default_value ]
-    [ OUT | OUTPUT ]
+    [ { OUT | OUTPUT } ]
     [ READONLY ]
 
 # WHERE procedure_option

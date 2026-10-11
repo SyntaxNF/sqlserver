@@ -2,7 +2,7 @@
 
 # CASE LIBRARY
 ALTER CRYPTOGRAPHIC PROVIDER name
-    FROM FILE = 'provider_library_path' [ ENABLE | DISABLE ]
+    FROM FILE = 'provider_library_path' [ { ENABLE | DISABLE } ]
 
 # CASE STATUS
 ALTER CRYPTOGRAPHIC PROVIDER name { ENABLE | DISABLE }

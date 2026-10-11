@@ -17,7 +17,7 @@
 选取语句文件和所需 `CASE`，展开本地节点，再提供标识符、表达式、类型或语句体等输入。嵌套查询可以复用已有 statement 定义。
 
 - `KEYWORD` 原样生成；`placeholder` 表示输入或可展开节点。
-- `[ syntax ]` 表示整段可选；`{ a | b }` 为必选分支，`[ a | b ]` 为可选分支。
+- `[ syntax ]` 表示整段可选；`{ a | b }` 为必选枚举，`[ { a | b } ]` 为可选枚举。`[ a | b ]` 不合法，未转义的 `|` 只能直接出现在 `{}` 内。
 - `item [...]` 和 `item [, ...]` 重复完整的前一个 `item`，次数为零或更多，后者以逗号分隔；前项不是额外必选首项。
 - 圆括号为 SQL 字面符号；SNF 保留符号用反斜杠转义。
 - `CASE` 区分顶层变体；`WHERE` 定义复用节点；`ONEOFIS` 每物理行一个候选；`PARTOFIS` 每个空行分隔的 block 为一个候选；`STATEMENT` 声明嵌套语句类别。这些指令由消费方解释。
@@ -35,13 +35,19 @@
 
 ## 手动检查命令
 
-按 `AGENTS.md`，仅在用户明确要求时运行。准备 [SyntaxNF/parser](https://github.com/SyntaxNF/parser) 的 `bcf2c3ac58b45e7d5391716393586b00b11e0c1a` checkout，并按其锁文件安装依赖（`tsx` 4.23.5），然后设置源码目录：
+按 `AGENTS.md`，仅在用户明确要求时运行。当前定义使用显式 OPTIONAL/ENUM 语法，先构建[SyntaxNF/parser](https://github.com/SyntaxNF/parser)，再显式选择工作区构建：
 
 ```sh
-export SNF_PARSER_ROOT=/absolute/path/to/parser
-npm run validate:snf
-npm run validate:conventions
-npm run validate:generator
-npm run test:validation
-npm run test:generator
+(cd /absolute/path/to/parser && pnpm build)
+export SNF_PARSER_WORKTREE_MODULE=/absolute/path/to/parser/dist/esm/index.mjs
+npm run validate
+npm test
 ```
+
+脚本只通过 `SNF_PARSER_WORKTREE_MODULE` 加载指定构建，标记为 `working-tree-build`；缺少该配置会直接报错。修改 parser 后应重新构建。
+
+四库统一使用 `npm run validate` 执行全部结构检查、`npm test` 执行全部回归；`validate:snf` 为结构检查入口，`test:regression` 为回归入口。无需安装本库依赖，使用 Node.js 22 和上面明确指定的 parser 构建。
+
+基础检查统一覆盖源文件与 AST 范围、显式 OPTIONAL/ENUM/GROUP、完整成员的 LOOP 绑定、冗余纯循环可选层、四空格缩进与末尾换行，对所有文件执行。生成回归覆盖 0/1/2 次循环、显式枚举、可选项、分隔符及自由输入原文保留。SQL Server 的 `validate` 还包含其指令/固定文本约定检查和生成结构检查；各库保留自己的方言回归。
+
+`scripts/parser-runtime.mjs`、`scripts/snf-contract.mjs` 及其测试在四库保持一致；`generator-fixture.mjs` 仅本地文档加载入口不同，`generator-contract.test.mjs` 保持一致。修改公共契约时同步四库。报告的 `parserInput` 是实际加载路径；这些检查验证 SNF 和测试辅助生成行为，不执行数据库 SQL。

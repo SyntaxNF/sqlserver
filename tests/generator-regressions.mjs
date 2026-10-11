@@ -46,7 +46,7 @@ for (const family of ['create','alter']) for (const count of [0,1,2]) test(`${fa
     const node=f.block('# CASE TSQL');
     assert.equal(f.render(node,{values,count:member=>member==='parameter_definition'?count:0}),`${family.toUpperCase()} PROC dbo.p${count?' '+Array.from({length:count},(_,i)=>`@p${i+1} int`).join(', '):''} AS ${body}`);
 });
-test('one SELECT specification replaces compatibility-only full variants',()=>{
+test('SELECT uses one shared specification',()=>{
     const s=source('query/select.snf');
     assert.deepEqual([...s.matchAll(/^# CASE (.+)$/gm)].map(m=>m[1]),['SELECT','SET_OPERATION']);
     assert.equal((s.match(/^SELECT /gm)||[]).length,1);

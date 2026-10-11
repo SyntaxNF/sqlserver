@@ -31,4 +31,4 @@ KILOBYTES_PER_BATCH = kilobytes_per_batch_value
 BATCHSIZE = batch_size_value
 
 # WHERE order_column
-colname [ ASC | DESC ]
+colname [ { ASC | DESC } ]

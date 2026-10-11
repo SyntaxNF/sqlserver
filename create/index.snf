@@ -16,7 +16,7 @@ CREATE [ UNIQUE ] [ NONCLUSTERED ] INDEX name
     [ ON storage_clause ]
 
 # WHERE index_column_definition
-colname [ ASC | DESC ]
+colname [ { ASC | DESC } ]
 
 # ONEOFIS index_option
 PAD_INDEX = { ON | OFF }

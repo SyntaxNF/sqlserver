@@ -12,7 +12,7 @@ ALTER LOGIN name { ADD | DROP } CREDENTIAL credential_name
 
 
 # ONEOFIS login_option
-PASSWORD = { 'password' | password_hash HASHED } [ OLD_PASSWORD = 'old_password' | password_option [ password_option ] ]
+PASSWORD = { 'password' | password_hash HASHED } [ { OLD_PASSWORD = 'old_password' | password_option [ password_option ] } ]
 DEFAULT_DATABASE = database_name
 DEFAULT_LANGUAGE = language_name
 NAME = new_login_name

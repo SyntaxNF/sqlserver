@@ -8,4 +8,4 @@ CREATE EXTERNAL TABLE name ( external_column_definition [, ...] )
 # WHERE external_column_definition
 colname data_type
     [ COLLATE collation ]
-    [ NULL | NOT NULL ]
+    [ { NULL | NOT NULL } ]

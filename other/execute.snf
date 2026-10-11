@@ -43,4 +43,4 @@ AS FOR XML
 # WHERE result_column_definition
 colname data_type
     [ COLLATE collation ]
-    [ NULL | NOT NULL ]
+    [ { NULL | NOT NULL } ]

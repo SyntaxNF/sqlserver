@@ -11,7 +11,7 @@ CREATE TABLE name ( graph_table_element [, ...] )
 # WHERE graph_column_definition
 colname data_type
     [ COLLATE collation ]
-    [ NULL | NOT NULL ]
+    [ { NULL | NOT NULL } ]
 
 # PARTOFIS graph_table_element
 graph_column_definition
