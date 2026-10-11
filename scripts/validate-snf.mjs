@@ -1,5 +1,5 @@
 import { parser as parserModule } from './parser-runtime.mjs';
-// Opt-in structural check only. Never executes SQL or resolves CASE/WHERE semantics.
+// Opt-in structural check only. Compiles local definitions without executing SQL.
 import { readdir, readFile } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -24,4 +24,4 @@ for (const family of families) {
         }
     }
 }
-console.log(`Parsed ${count} SNF documents. This does not validate T-SQL or directive resolution.`);
+console.log(`Parsed ${count} SNF documents. This does not validate T-SQL execution.`);

@@ -14,13 +14,13 @@
 
 ## SNF 用法
 
-选取语句文件和所需 `CASE`，展开本地节点，再提供标识符、表达式、类型或语句体等输入。嵌套查询可以复用已有 statement 定义。
+解析语句文件并选取所需 `CASE`，再提供标识符、表达式、类型或语句体等输入。嵌套查询可以复用已有 statement 定义。
 
 - `KEYWORD` 原样生成；`placeholder` 表示输入或可展开节点。
 - `[ syntax ]` 表示整段可选；`{ a | b }` 为必选枚举，`[ { a | b } ]` 为可选枚举。`[ a | b ]` 不合法，未转义的 `|` 只能直接出现在 `{}` 内。
 - `item [...]` 和 `item [, ...]` 重复完整的前一个 `item`，次数为零或更多，后者以逗号分隔；前项不是额外必选首项。
 - 圆括号为 SQL 字面符号；SNF 保留符号用反斜杠转义。
-- `CASE` 区分顶层变体；`WHERE` 定义复用节点；`ONEOFIS` 每物理行一个候选；`PARTOFIS` 每个空行分隔的 block 为一个候选；`STATEMENT` 声明嵌套语句类别。这些指令由消费方解释。
+- `CASE` 区分顶层变体；`WHERE` 定义复用节点；`ONEOFIS` 每物理行一个候选；`PARTOFIS` 每个空行分隔的 block 为一个候选；`STATEMENT` 声明嵌套语句类别。这些指令由 parser 编译为最终 AST；STATEMENT 仅保留标识与类别。
 
 ## 输入与生成约定
 
@@ -51,3 +51,8 @@ npm test
 基础检查统一覆盖源文件与 AST 范围、显式 OPTIONAL/ENUM/GROUP、完整成员的 LOOP 绑定、冗余纯循环可选层、四空格缩进与末尾换行，对所有文件执行。生成回归覆盖 0/1/2 次循环、显式枚举、可选项、分隔符及自由输入原文保留。SQL Server 的 `validate` 还包含其指令/固定文本约定检查和生成结构检查；各库保留自己的方言回归。
 
 `scripts/parser-runtime.mjs`、`scripts/snf-contract.mjs` 及其测试在四库保持一致；`generator-fixture.mjs` 仅本地文档加载入口不同，`generator-contract.test.mjs` 保持一致。修改公共契约时同步四库。报告的 `parserInput` 是实际加载路径；这些检查验证 SNF 和测试辅助生成行为，不执行数据库 SQL。
+
+
+`SNFDocumentParser.parse()` 一次返回最终 AST：从 `document.entries` 获取入口，从 `document.definitions` 获取已编译定义；`blocks` 只保留源码。WHERE/ONEOFIS/PARTOFIS 引用已经展开，LOOP 直接包含完整成员和 `separator`，QUOTED 保留引号序列。递归引用的 `target` 已绑定到定义根 UID，STATEMENT 只保留名称与类别，不加载外部模板。
+
+所有最终节点自动带 `uid`，动态节点同时带 `name`；VARIABLE/REFERENCE/STATEMENT 取自身名称，OPTIONAL/ENUM/LOOP 使用大写功能名称，允许重名。消费方无需额外结构转换或 UID 分配。源节点通过 `sourceBlock` 和 `start/end` 指向定义或引用的实际来源。

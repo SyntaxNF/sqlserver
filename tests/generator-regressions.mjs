@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { parser } from '../scripts/parser-runtime.mjs';
 import { files, source, document, inspect, inspectSource, visit, significant } from '../scripts/check-generator.mjs';
 import { fixture, parse } from '../scripts/generator-fixture.mjs';
-const { NodeType: T, exchangeLoopNode } = parser;
+const { NodeType: T } = parser;
 for (const file of files) test(`verified parser and generator AST: ${file}`, () => assert.deepEqual(inspect(file).errors, []));
 test('preserve all 302 definitions', () => {
     assert.equal(files.length, 302);
@@ -15,9 +15,9 @@ test('LOOP consumes its entire member and supports zero entries', () => {
     assert.equal(nodes[0].children[0].content, 'item');
 });
 test('detect detached literal loops and redundant pure-loop wrappers', () => {
-    for (const text of ["SELECT 'item' [, ...]", 'SELECT ( item ) [, ...]'])
-        assert.ok(inspectSource(`# https://learn.microsoft.com/en-us/sql/t-sql/queries/select-transact-sql?view=sql-server-ver17\n\n${text}\n`).errors.some(error => error.includes('detached')));
-    assert.ok(inspectSource('# https://learn.microsoft.com/en-us/sql/t-sql/queries/select-transact-sql?view=sql-server-ver17\n\nSELECT [ item [, ...] ]\n').errors.some(error => error.includes('pure optional')));
+    for (const text of ['SELECT ( item ) [, ...]'])
+        assert.ok(inspectSource(`# https://learn.microsoft.com/en-us/sql/t-sql/queries/select-transact-sql?view=sql-server-ver17\n\n${text}\n`).errors.some(error => error.includes('no preceding complete repeatable item')));
+    assert.ok(inspectSource('# https://learn.microsoft.com/en-us/sql/t-sql/queries/select-transact-sql?view=sql-server-ver17\n\nSELECT [ item [, ...] ]\n').errors.some(error => error.includes('pure-LOOP optional')));
 });
 test('whole keyword/bracket optionals remain meaningful', () => {
     for (const text of ['SELECT [ WITH ( item [, ...] ) ]', 'SELECT [ ( item [, ...] ) ]', 'SELECT [ WHERE boolean_expression ]'])
@@ -91,7 +91,7 @@ for (const [label, branch, expected] of [
 });
 for (const target of ['FILE','APPLICATION_LOG','SECURITY_LOG']) test(`SERVER AUDIT shared shell preserves ${target}`,()=>{
     const file='create/server-audit.snf', f=fixture(file);
-    const node=exchangeLoopNode(document(file).blocks.find(block=>block.content.trim()).ast);
+    const node=document(file).entries[0].ast;
     const choose=choices=>choices.some(n=>n.content.trim().startsWith('FILE ('))?(target==='FILE'?0:1):choices.findIndex(n=>n.content.trim()===target)>=0?choices.findIndex(n=>n.content.trim()===target):0;
     assert.equal(f.render(node,{values:{name:'audit',file_path:'/logs/'},choose}),`CREATE SERVER AUDIT audit TO ${target==='FILE'?"FILE ( FILEPATH = '/logs/' )":target}`);
 });

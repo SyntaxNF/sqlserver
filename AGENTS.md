@@ -6,7 +6,7 @@ Target SQL Server 2025 (17.x) Database Engine, compatibility level 170, GA featu
 - Start every .snf with its official, version-scoped Microsoft source URL
 - Uppercase SQL keywords, lowercase semantic placeholders, four-space indentation
 - Use name for the primary object, typed names for other objects; _statement / _expression / _definition / _clause / _option / _action describe actual roles
-- CASE, WHERE, PARTOFIS, ONEOFIS and STATEMENT are consumer conventions, not parser built-ins
+- CASE, WHERE, PARTOFIS and ONEOFIS are compiled by the parser; STATEMENT is retained as a declaration marker without external expansion
 - Keep independent optional clauses separate; use repetition only for genuine lists
 - Never trim syntax to match application menus or safety policy. Consumers own permissions, target locks, execution, and branch allowlists
 - Keep necessary input and generation conventions in README.md. A file existing does not imply full coverage

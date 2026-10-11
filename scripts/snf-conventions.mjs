@@ -2,94 +2,35 @@
 export function inspectDocument(document, NodeType, fixedSnippets = []) {
     const errors = [];
     if (!Array.isArray(fixedSnippets) || fixedSnippets.some(s => typeof s !== 'string' || !s.length) || new Set(fixedSnippets).size !== fixedSnippets.length) throw new Error('Fixed snippets must be unique nonempty strings');
-    const definitions = new Map();
-    const cases = new Set();
+    const definitions = new Map(document.definitions.flatMap(d => d.names.map(name => [name, d])));
     const counts = {};
-    const roots = [];
-    let active;
-    const fail = (block, message) => errors.push(`line ${block.startLine}: ${message}`);
-    const variables = (node, content) => {
-        const spans = fixedSnippets.flatMap(snippet => {
-            const found = [];
-            for (let start = content.indexOf(snippet); start >= 0; start = content.indexOf(snippet, start + snippet.length)) found.push([start, start + snippet.length]);
-            return found;
-        });
-        const result = [];
-        const visit = n => {
-            if (n.type === NodeType.VARIABLE && !spans.some(([start, end]) => start <= n.start && n.end <= end)) result.push(n.content);
-            n.children?.forEach(visit);
-        };
-        visit(node);
-        return result;
-    };
+    for (const entry of document.entries) if (entry.name) counts.CASE = (counts.CASE ?? 0) + 1;
+    for (const definition of document.definitions) counts[definition.kind] = (counts[definition.kind] ?? 0) + 1;
     for (const snippet of fixedSnippets) if (!document.blocks.some(block => block.content.includes(snippet))) errors.push(`stale fixed-literal contract: ${snippet}`);
-    for (const [index, block] of document.blocks.entries()) {
-        const comments = block.comment.split('\n').filter(Boolean);
-        if (index === 0 && /^# https:\/\/learn\.microsoft\.com\/.*[?&]view=sql-server-ver17(?:&.*)?$/.test(block.comment) && !block.content) continue;
-        if (comments.length) {
-            if (comments.length !== 1) fail(block, 'expected one directive per physical block');
-            const match = /^# (CASE|WHERE|PARTOFIS|ONEOFIS|STATEMENT) ([A-Za-z][A-Za-z0-9_]*)$/.exec(comments[0]);
-            if (!match) { fail(block, 'unknown or malformed directive'); active = undefined; continue; }
-            const [, kind, name] = match;
-            counts[kind] = (counts[kind] ?? 0) + 1;
-            if (!(kind === 'CASE' ? /^[A-Z][A-Z0-9_]*$/ : /^[a-z][a-z0-9_]*$/).test(name)) fail(block, 'incorrect directive name casing');
-            active = { kind, name, variables: [], blocks: 0 };
-            if (kind === 'CASE') {
-                if (cases.has(name)) fail(block, `duplicate CASE ${name}`);
-                cases.add(name);
-                roots.push(active);
-            } else {
-                if (definitions.has(name)) fail(block, `duplicate definition ${name}`);
-                definitions.set(name, active);
-            }
-        } else if (!active && roots.length === 0 && definitions.size === 0) {
-            active = { kind: 'IMPLICIT', name: '<default>', variables: [], blocks: 0 };
-            roots.push(active);
-        } else if (!active || !['PARTOFIS', 'ONEOFIS'].includes(active.kind)) {
-            fail(block, 'unowned continuation block (only PARTOFIS/ONEOFIS allow alternatives)');
-        }
-        if (!block.content.trim()) fail(block, 'empty definition block');
-        if (active) {
-            active.blocks++;
-            active.variables.push(...variables(block.ast, block.content));
-            if (active.kind === 'STATEMENT' && !/^[A-Z][A-Z0-9_]*(?: [A-Z][A-Z0-9_]*)*$/.test(block.content)) fail(block, 'STATEMENT must name a statement category');
-        }
-        const visit = (node, parent) => {
-            if (node.type === NodeType.SPLIT) fail(block, 'unescaped alternative separator outside an enumeration');
-            if (node.type === NodeType.REPEAT && parent?.type !== NodeType.LOOP) fail(block, 'repeat marker outside a postfix loop');
-            if (node.type === NodeType.GROUP && !node.content.trim()) fail(block, 'empty alternative');
-            const children = node.children ?? [];
-            children.forEach((child, i) => {
-                if (child.type === NodeType.LOOP) {
-                    const previous = children.slice(0, i).findLast(n => ![NodeType.BLANK, NodeType.WRAP].includes(n.type));
-                    if (!previous) fail(block, 'postfix loop has no preceding item');
-                }
-                visit(child, node);
-            });
-        };
-        visit(block.ast);
-    }
-    if (!roots.length) errors.push('no statement entry point');
-    const reachable = new Set();
-    const visitName = name => {
-        if (!definitions.has(name) || reachable.has(name)) return;
-        reachable.add(name);
-        definitions.get(name).variables.forEach(visitName);
+    const spans = document.blocks.map(block => fixedSnippets.flatMap(snippet => {
+        const found = [];
+        for (let start = block.content.indexOf(snippet); start >= 0; start = block.content.indexOf(snippet, start + snippet.length)) found.push([start, start + snippet.length]);
+        return found;
+    }));
+    const inputs = new Set();
+    const visit = node => {
+        if (node.type === NodeType.VARIABLE && !spans[node.sourceBlock].some(([start,end]) => start <= node.start && node.end <= end)) inputs.add(node.content);
+        node.children?.forEach(visit);
     };
-    roots.forEach(root => root.variables.forEach(visitName));
+    const items = [...document.entries,...document.definitions];
+    items.forEach(item => visit(item.ast));
+    if (!document.entries.length) errors.push('no statement entry point');
+    if (document.entries.filter(entry => !entry.name).length > 1) errors.push('unowned continuation');
+    const reachable = new Set();
+    const follow = name => {
+        if (!definitions.has(name) || reachable.has(name)) return;
+        const definition = definitions.get(name);
+        definition.names.forEach(name => reachable.add(name));
+        definition.dependencies.forEach(follow);
+    };
+    document.entries.forEach(entry => entry.dependencies.forEach(follow));
     for (const name of definitions.keys()) if (!reachable.has(name)) errors.push(`unreachable local definition ${name}`);
-    const allVariables = [...roots, ...definitions.values()].flatMap(d => d.variables);
-    const inputs = [...new Set(allVariables.filter(name => !definitions.has(name)))].sort();
-    const localReferences = [...new Set(allVariables.filter(name => definitions.has(name)))].sort();
-    const recursiveDefinitions = [];
-    for (const name of definitions.keys()) {
-        const seen = new Set();
-        const reaches = current => {
-            if (!definitions.has(current) || seen.has(current)) return false;
-            seen.add(current);
-            return definitions.get(current).variables.some(next => next === name || reaches(next));
-        };
-        if (reaches(name)) recursiveDefinitions.push(name);
-    }
-    return { errors, counts, contentBlocks: document.blocks.filter(b => b.content.trim()).length, localReferences, inputs, recursiveDefinitions };
+    return { errors, counts, contentBlocks: document.blocks.filter(b => b.content.trim()).length,
+        localReferences: [...new Set(items.flatMap(item => item.dependencies))].sort(), inputs: [...inputs].sort(),
+        recursiveDefinitions: document.definitions.filter(d => d.recursive).flatMap(d => d.names) };
 }
