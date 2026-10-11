@@ -26,4 +26,4 @@ DATA_COMPRESSION = { COLUMNSTORE | COLUMNSTORE_ARCHIVE } [ ON PARTITIONS ( parti
 partition_number [ TO partition_number ]
 
 # WHERE storage_clause
-{ partition_scheme ( colname ) | filegroup | "default" }
+{ partition_scheme ( colname ) | filegroup | "DEFAULT" }

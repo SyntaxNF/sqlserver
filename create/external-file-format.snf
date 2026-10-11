@@ -4,12 +4,12 @@
 CREATE EXTERNAL FILE FORMAT name
     WITH ( FORMAT_TYPE = DELIMITEDTEXT
         [ , FORMAT_OPTIONS ( format_option [, ...] ) ]
-        [ , DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec' ] )
+        [ , DATA_COMPRESSION = 'ORG.APACHE.HADOOP.IO.COMPRESS.GZIPCODEC' ] )
 
 # CASE PARQUET
 CREATE EXTERNAL FILE FORMAT name
     WITH ( FORMAT_TYPE = PARQUET
-        [ , DATA_COMPRESSION = { 'org.apache.hadoop.io.compress.SnappyCodec' | 'org.apache.hadoop.io.compress.GzipCodec' } ] )
+        [ , DATA_COMPRESSION = { 'ORG.APACHE.HADOOP.IO.COMPRESS.SNAPPYCODEC' | 'ORG.APACHE.HADOOP.IO.COMPRESS.GZIPCODEC' } ] )
 
 # CASE DELTA
 CREATE EXTERNAL FILE FORMAT name

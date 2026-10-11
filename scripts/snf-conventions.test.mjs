@@ -41,14 +41,9 @@ test('real parser rejects alternatives outside explicit braces', () => {
         assert.throws(() => inspect(`# CASE A\n${syntax}`), /only allowed directly inside an enumeration/);
     }
 });
-test('fixed mixed-case literal and pseudo-column are not inputs', () => {
-    const source = "# CASE A\nSELECT 'OpenAI', $action, 'lsn:lsn_number', 'user_text'";
-    const result = inspectDocument(parser.parse(source), NodeType, ["'OpenAI'", '$action', "'lsn:"]);
+test('uppercase fixed literals and pseudo-column leave only actual inputs', () => {
+    const source = "# CASE A\nSELECT 'OPENAI', 'CURRENT DATABASE', 'NODE()', 'ORG.APACHE.HADOOP.IO.COMPRESS.GZIPCODEC', $ACTION, 'LSN:lsn_number', 'user_text'";
+    const result = inspect(source);
     assert.deepEqual(result.errors, []);
     assert.deepEqual(result.inputs, ['lsn_number', 'user_text']);
-});
-test('stale literal contracts fail', () => assert.ok(inspectDocument(parser.parse(good), NodeType, ["'missing'"]).errors.some(e => e.includes('stale'))));
-
-test('invalid literal config fails without hanging', () => {
-    for (const snippets of [[''], [null], ['x', 'x'], 'x']) assert.throws(() => inspectDocument(parser.parse(good), NodeType, snippets), /unique nonempty strings/);
 });

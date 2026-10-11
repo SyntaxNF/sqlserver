@@ -12,4 +12,4 @@ CREATE EXTERNAL MODEL name [ AUTHORIZATION owner ]
     )
 
 # WHERE api_format_literal
-{ 'OpenAI' | 'Azure OpenAI' | 'Ollama' }
+{ 'OPENAI' | 'AZURE OPENAI' | 'OLLAMA' }

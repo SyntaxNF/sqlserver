@@ -6,8 +6,8 @@ CREATE TABLE name (
     [ , PERIOD FOR SYSTEM_TIME ( row_start_column, row_end_column ) ]
 )
     [ ON storage_clause ]
-    [ TEXTIMAGE_ON { filegroup | "default" } ]
-    [ FILESTREAM_ON { partition_scheme | filegroup | "default" } ]
+    [ TEXTIMAGE_ON { filegroup | "DEFAULT" } ]
+    [ FILESTREAM_ON { partition_scheme | filegroup | "DEFAULT" } ]
     [ WITH ( table_option [, ...] ) ]
 
 # WHERE table_element_definition
@@ -77,7 +77,7 @@ INDEX index_name [ UNIQUE ] [ { CLUSTERED | NONCLUSTERED } ] ( index_column_defi
     [ ON storage_clause ]
 
 # WHERE storage_clause
-{ partition_scheme ( colname ) | filegroup | "default" }
+{ partition_scheme ( colname ) | filegroup | "DEFAULT" }
 
 # WHERE partition_range
 partition_number [ TO partition_number ]

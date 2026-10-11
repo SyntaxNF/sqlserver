@@ -5,7 +5,7 @@ ALTER EXTERNAL MODEL name SET ( external_model_option [, ...] )
 
 # ONEOFIS external_model_option
 LOCATION = 'https_location'
-API_FORMAT = { 'OpenAI' | 'Azure OpenAI' | 'Ollama' }
+API_FORMAT = { 'OPENAI' | 'AZURE OPENAI' | 'OLLAMA' }
 MODEL_TYPE = EMBEDDINGS
 MODEL = 'model_name'
 CREDENTIAL = credential

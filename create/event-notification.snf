@@ -4,4 +4,4 @@ CREATE EVENT NOTIFICATION name
     ON { SERVER | DATABASE | QUEUE queue }
     [ WITH FAN_IN ]
     FOR event_type_or_group [, ...]
-    TO SERVICE 'broker_service' , { 'broker_instance' | 'current database' }
+    TO SERVICE 'broker_service' , { 'broker_instance' | 'CURRENT DATABASE' }

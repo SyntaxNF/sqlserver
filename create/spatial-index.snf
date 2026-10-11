@@ -5,7 +5,7 @@ CREATE SPATIAL INDEX name
     ON table ( colname ) USING GEOMETRY_AUTO_GRID
     WITH ( BOUNDING_BOX = ( xmin_value, ymin_value, xmax_value, ymax_value )
         [ , spatial_option [, ...] ] )
-    [ ON { filegroup | "default" } ]
+    [ ON { filegroup | "DEFAULT" } ]
 
 # CASE GEOMETRY_GRID
 CREATE SPATIAL INDEX name
@@ -13,19 +13,19 @@ CREATE SPATIAL INDEX name
     WITH ( BOUNDING_BOX = ( xmin_value, ymin_value, xmax_value, ymax_value )
         [ , GRIDS = ( grid_level [, ...] ) ]
         [ , spatial_option [, ...] ] )
-    [ ON { filegroup | "default" } ]
+    [ ON { filegroup | "DEFAULT" } ]
 
 # CASE GEOGRAPHY_AUTO
 CREATE SPATIAL INDEX name
     ON table ( colname ) USING GEOGRAPHY_AUTO_GRID
     [ WITH ( spatial_option [, ...] ) ]
-    [ ON { filegroup | "default" } ]
+    [ ON { filegroup | "DEFAULT" } ]
 
 # CASE GEOGRAPHY_GRID
 CREATE SPATIAL INDEX name
     ON table ( colname ) USING GEOGRAPHY_GRID
     [ WITH ( geography_grid_option [, ...] ) ]
-    [ ON { filegroup | "default" } ]
+    [ ON { filegroup | "DEFAULT" } ]
 
 # PARTOFIS geography_grid_option
 GRIDS = ( grid_level [, ...] )

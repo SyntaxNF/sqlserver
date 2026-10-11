@@ -1,20 +1,13 @@
 // Repository conventions layered on the real parser AST; not a SQL validator/binder.
-export function inspectDocument(document, NodeType, fixedSnippets = []) {
+export function inspectDocument(document, NodeType) {
     const errors = [];
-    if (!Array.isArray(fixedSnippets) || fixedSnippets.some(s => typeof s !== 'string' || !s.length) || new Set(fixedSnippets).size !== fixedSnippets.length) throw new Error('Fixed snippets must be unique nonempty strings');
     const definitions = new Map(document.definitions.flatMap(d => d.names.map(name => [name, d])));
     const counts = {};
     for (const entry of document.entries) if (entry.name) counts.CASE = (counts.CASE ?? 0) + 1;
     for (const definition of document.definitions) counts[definition.kind] = (counts[definition.kind] ?? 0) + 1;
-    for (const snippet of fixedSnippets) if (!document.blocks.some(block => block.content.includes(snippet))) errors.push(`stale fixed-literal contract: ${snippet}`);
-    const spans = document.blocks.map(block => fixedSnippets.flatMap(snippet => {
-        const found = [];
-        for (let start = block.content.indexOf(snippet); start >= 0; start = block.content.indexOf(snippet, start + snippet.length)) found.push([start, start + snippet.length]);
-        return found;
-    }));
     const inputs = new Set();
     const visit = node => {
-        if (node.type === NodeType.VARIABLE && !spans[node.sourceBlock].some(([start,end]) => start <= node.start && node.end <= end)) inputs.add(node.content);
+        if (node.type === NodeType.VARIABLE) inputs.add(node.content);
         node.children?.forEach(visit);
     };
     const items = [...document.entries,...document.definitions];

@@ -12,7 +12,7 @@ ALTER QUEUE name REORGANIZE [ WITH ( LOB_COMPACTION = { ON | OFF } ) ]
 
 # CASE MOVE
 ALTER QUEUE name MOVE
-    TO { filegroup | "default" }
+    TO { filegroup | "DEFAULT" }
 
 
 # ONEOFIS queue_option

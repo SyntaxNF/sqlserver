@@ -5,7 +5,7 @@ CREATE JSON INDEX name
     ON table ( colname )
     [ FOR ( json_path_literal [, ...] ) ]
     [ WITH ( json_index_option [, ...] ) ]
-    [ ON { filegroup | "default" } ]
+    [ ON { filegroup | "DEFAULT" } ]
 
 # ONEOFIS json_index_option
 OPTIMIZE_FOR_ARRAY_SEARCH = { ON | OFF }

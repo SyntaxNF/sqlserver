@@ -23,4 +23,4 @@ graph_column_definition
 source_node_table TO target_node_table
 
 # WHERE storage_clause
-{ partition_scheme ( colname ) | filegroup | "default" }
+{ partition_scheme ( colname ) | filegroup | "DEFAULT" }

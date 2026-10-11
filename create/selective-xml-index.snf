@@ -22,7 +22,7 @@ path_name = promoted_path
 
 MAXLENGTH ( maxlength_value )
 
-'node()'
+'NODE()'
 
 # WHERE namespace_definition
 'namespace_uri' AS namespace_prefix

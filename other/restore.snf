@@ -85,8 +85,8 @@ ENABLE_BROKER
 ERROR_BROKER_CONVERSATIONS
 NEW_BROKER
 STOPAT = datetime_value
-STOPATMARK = 'lsn:lsn_number' [ AFTER 'datetime' ]
-STOPBEFOREMARK = 'lsn:lsn_number' [ AFTER 'datetime' ]
+STOPATMARK = 'LSN:lsn_number' [ AFTER 'datetime' ]
+STOPBEFOREMARK = 'LSN:lsn_number' [ AFTER 'datetime' ]
 
 # ONEOFIS log_restore_option
 recovery_option

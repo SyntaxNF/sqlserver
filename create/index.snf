@@ -37,7 +37,7 @@ DATA_COMPRESSION = { NONE | ROW | PAGE } [ ON PARTITIONS ( partition_range [, ..
 XML_COMPRESSION = { ON | OFF } [ ON PARTITIONS ( partition_range [, ...] ) ]
 
 # WHERE storage_clause
-{ partition_scheme ( colname ) | filegroup | "default" }
+{ partition_scheme ( colname ) | filegroup | "DEFAULT" }
 
 # WHERE partition_range
 partition_number [ TO partition_number ]

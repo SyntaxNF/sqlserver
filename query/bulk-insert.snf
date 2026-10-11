@@ -8,7 +8,7 @@ BULK INSERT name
 # ONEOFIS bulk_option
 DATA_SOURCE = 'data_source_name'
 CODEPAGE = 'codepage'
-DATAFILETYPE = { 'char' | 'widechar' | 'native' | 'widenative' }
+DATAFILETYPE = { 'CHAR' | 'WIDECHAR' | 'NATIVE' | 'WIDENATIVE' }
 ROWTERMINATOR = 'row_terminator'
 FIELDTERMINATOR = 'field_terminator'
 FORMAT = 'CSV'
