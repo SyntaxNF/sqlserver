@@ -56,9 +56,11 @@ ALTER TABLE name SET ( LOCK_ESCALATION = { AUTO | TABLE | DISABLE } )
 ALTER TABLE name SET ( SYSTEM_VERSIONING = OFF )
 
 # CASE SYSTEM_VERSIONING_ON
-ALTER TABLE name SET ( SYSTEM_VERSIONING = ON
-    [ ( HISTORY_TABLE = history_table [ , DATA_CONSISTENCY_CHECK = { ON | OFF } ]
-        [ , HISTORY_RETENTION_PERIOD = retention_period ] ) ] )
+ALTER TABLE name SET ( SYSTEM_VERSIONING = ON [ (
+    HISTORY_TABLE = history_table [ , DATA_CONSISTENCY_CHECK = { ON | OFF } ]
+    [ , HISTORY_RETENTION_PERIOD = retention_period ]
+) ]
+)
 
 # CASE ADD_PERIOD
 ALTER TABLE name ADD PERIOD FOR SYSTEM_TIME ( row_start_column, row_end_column )

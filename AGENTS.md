@@ -5,6 +5,7 @@ Target SQL Server 2025 (17.x) Database Engine, compatibility level 170, GA featu
 - Organize definitions by SQL statement family; one lowercase hyphenated filename per statement, CASE for variants
 - Start every .snf with its official, version-scoped Microsoft source URL
 - Uppercase SQL keywords, lowercase semantic placeholders, four-space indentation
+- For multiline parenthesized blocks, append `(` or `[ (` to the preceding statement line, indent contents by four spaces, and put `)` or `) ]` on its own line. Put a multiline enum's `{` on its own indented line and its alternatives one level deeper; do not combine `(` with a multiline enum opener. Compact single-line lists may stay inline; ONEOFIS candidates remain single physical lines
 - Use name for the primary object, typed names for other objects; _statement / _expression / _definition / _clause / _option / _action describe actual roles
 - CASE, WHERE, PARTOFIS and ONEOFIS are compiled by the parser; STATEMENT is retained as a declaration marker without external expansion
 - Keep independent optional clauses separate; use repetition only for genuine lists
