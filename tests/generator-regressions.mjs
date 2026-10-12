@@ -109,3 +109,23 @@ test('free SQL inputs bypass whitespace and comma normalization',()=>{
     const body="BEGIN\n-- retain this comment boundary\nSELECT [two  spaces], N'a,  b';\nEND";
     assert.equal(f.render(f.block('# CASE TSQL'),{values:{name:'[p  name]',statement_block:body},count:()=>0}),`CREATE PROC [p  name] AS ${body}`);
 });
+
+test('atomic language options keep the Unicode prefix inside a complete branch', () => {
+    for (const family of ['create', 'alter']) for (const kind of ['function', 'procedure', 'trigger']) {
+        const f = fixture(`${family}/${kind}.snf`);
+        const language = f.definitions.get('atomic_option')[0];
+        for (const index of [0, 1]) {
+            assert.equal(f.render(language, { choose: () => index, values: { language: 'us_english' } }),
+                `LANGUAGE = ${index ? 'N' : ''}'us_english'`);
+        }
+    }
+});
+test('dynamic string operands select complete plain and Unicode literals', () => {
+    const f = fixture('other/execute.snf');
+    const operand = f.block('# WHERE string_operand');
+    for (const [index, expected] of ["@sql", "'SELECT 1'", "N'SELECT 1'"].entries()) {
+        assert.equal(f.render(operand, {
+            choose: () => index, values: { string_variable: '@sql', sql_text: 'SELECT 1' },
+        }), expected);
+    }
+});

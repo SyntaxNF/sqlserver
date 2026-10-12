@@ -21,7 +21,7 @@
 { argument_value | variable [ OUTPUT ] }
 
 # WHERE string_operand
-{ string_variable | [ N ] 'sql_text' }
+{ string_variable | 'sql_text' | N'sql_text' }
 
 # WHERE execute_option
 {

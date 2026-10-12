@@ -47,7 +47,7 @@ parameter data_type
 EXECUTE AS { CALLER | SELF | OWNER | 'user_name' }
 
 # ONEOFIS atomic_option
-LANGUAGE = [ N ] 'language'
+LANGUAGE = { 'language' | N'language' }
 TRANSACTION ISOLATION LEVEL = { SNAPSHOT | REPEATABLE READ | SERIALIZABLE }
 DATEFIRST = datefirst_value
 DATEFORMAT = dateformat_value
