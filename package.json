@@ -18,5 +18,6 @@
     "validate": "npm run validate:snf && npm run validate:conventions && npm run validate:generator",
     "test": "npm run test:regression",
     "test:regression": "node --test scripts/*.test.mjs tests/generator-regressions.mjs"
-  }
+  },
+  "license": "MIT"
 }
