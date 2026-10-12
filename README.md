@@ -32,6 +32,7 @@
 - 生成器按约定清理 SQL 圆括号内最后一个逗号；该清理应保留调用方提供的自由输入文本。
 - 固定文本统一使用大写，包括引号内固定值、MERGE `$ACTION` 和 RESTORE `LSN:`；`lsn_number` 等实际输入保留小写。校验直接使用 AST 节点类型识别输入，无需固定文本例外配置。生成时保留模板中的大小写，不自动恢复外部系统的原始拼写。
 - 权限、输入参数化、选项组合、对象状态和执行流程由消费方处理。
+- `alter/table` 的主键和唯一约束保留 `WITH (constraint_index_option ...)` 及 `ON storage_clause`，可用于重建索引选项和文件组；外键使用独立的 `on_delete_action`、`on_update_action` 绑定，避免两种动作共用一个输入。
 
 ## 手动检查命令
 

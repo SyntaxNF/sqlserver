@@ -80,11 +80,13 @@ colname data_type
 
 # PARTOFIS table_constraint_definition
 [ CONSTRAINT constraint ] { PRIMARY KEY | UNIQUE } [ { CLUSTERED | NONCLUSTERED } ] ( index_column_definition [, ...] )
+    [ WITH ( constraint_index_option [, ...] ) ]
+    [ ON storage_clause ]
 
 [ CONSTRAINT constraint ] FOREIGN KEY ( colname [, ...] )
     REFERENCES referenced_table [ ( referenced_colname [, ...] ) ]
-    [ ON DELETE referential_action ]
-    [ ON UPDATE referential_action ]
+    [ ON DELETE on_delete_action ]
+    [ ON UPDATE on_update_action ]
     [ NOT FOR REPLICATION ]
 
 [ CONSTRAINT constraint ] CHECK [ NOT FOR REPLICATION ] ( boolean_expression )
@@ -94,7 +96,7 @@ colname data_type
 # WHERE index_column_definition
 colname [ { ASC | DESC } ]
 
-# WHERE referential_action
+# WHERE on_delete_action, on_update_action
 { NO ACTION | CASCADE | SET NULL | SET DEFAULT }
 
 # WHERE low_priority_wait_clause
@@ -108,3 +110,22 @@ SORT_IN_TEMPDB = { ON | OFF }
 MAXDOP = maxdop_value
 DATA_COMPRESSION = { NONE | ROW | PAGE | COLUMNSTORE | COLUMNSTORE_ARCHIVE }
 ONLINE = { ON [ ( low_priority_wait_clause ) ] | OFF }
+
+# WHERE storage_clause
+{ partition_scheme ( colname ) | filegroup | "DEFAULT" }
+
+# ONEOFIS constraint_index_option
+PAD_INDEX = { ON | OFF }
+FILLFACTOR = fillfactor_value
+SORT_IN_TEMPDB = { ON | OFF }
+IGNORE_DUP_KEY = { ON | OFF }
+STATISTICS_NORECOMPUTE = { ON | OFF }
+ALLOW_ROW_LOCKS = { ON | OFF }
+ALLOW_PAGE_LOCKS = { ON | OFF }
+OPTIMIZE_FOR_SEQUENTIAL_KEY = { ON | OFF }
+MAXDOP = maxdop_value
+DATA_COMPRESSION = { NONE | ROW | PAGE } [ ON PARTITIONS ( partition_range [, ...] ) ]
+XML_COMPRESSION = { ON | OFF } [ ON PARTITIONS ( partition_range [, ...] ) ]
+
+# WHERE partition_range
+partition_number [ TO partition_number ]
